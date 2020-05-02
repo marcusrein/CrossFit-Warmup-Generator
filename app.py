@@ -8,12 +8,25 @@ warmup_metcons = warmups_dataset.get_warmup_metcons()
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
+todays_wod = []
 @app.route('/')
-def hello_world():
+def query_example():
     exercise1 = request.args.get('exercise_1')
     exercise2 = request.args.get('exercise_2')
-    return '''<h4>The first exercise is {}<h4>
-    <h4>The second exercise is {}<h4>'''.format(exercises[exercise1], exercises[exercise2])
+    todays_wod.append(exercise1)
+    todays_wod.append(exercise2)
+    return '''<h4> Todays WOD is: {}<h4>'''.format(todays_wod)
+
+
+@app.route('/form', methods=['GET','POST'])
+def form_example():
+    exercise1 = request.args.get('exercise_1')
+    exercise2 = request.args.get('exercise_2')
+    return '''<form method="POST">
+                Exercise 1: <input type="text" name="exercise_2"><br>
+                Exercise 2: <input type="text" name="exercise_2"><br>
+                <input type="submit" value="Submit"><br>
+              </form>'''
 
 if __name__ == '__main__':
     app.run(debug=True)
