@@ -10,9 +10,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    warmup1 = request.args.get['warmup']
+    warmup1 = request.args.get('warmups')
     return warmups[warmup1]
-
 
 
 if __name__ == '__main__':
