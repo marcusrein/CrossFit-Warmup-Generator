@@ -5,11 +5,35 @@
     <h1> Welcome to the Warmup Generator</h1>
     <h3> Please enter how many minutes you can warmup?</h3>
     <form method="POST" action="/">
-        <div class ="form-group">
-            <input type="text" name="time_prompt_form">
+        <div>
+            <label>
+            How Intense Will Your Workout Be?
+            </label>
+            <select name="intensity_form">
+                <option value="low"> Low </option>
+                <option value="medium"> Medium </option>
+                <option value="high"> High </option>
+            </select>
+        </div>
+        <div>
+            <label>
+                Exercise 1
+            </label>
+            <input type="text" name="exercise1_form">
+        </div>
+        <div>
+            <label>
+                Exercise 2
+            </label>
+            <input type="text" name="exercise2_form">
         </div>
         <input type="submit" value="submit">
     </form>
+    {{ intensity_form }}
+    {{ exercise1 }}
+    {{ exercise2 }}
+    {{ todays_wod }}
+
     </body>
     </head>
 </html>

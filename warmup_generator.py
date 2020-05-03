@@ -53,7 +53,6 @@ def welcome():
 #     elif wod_intensity == 'high':
 #         time_prompt = 30
 
-
 def time_prompt_func():
     '''Updates the time_prompt global variable. Asks the 'how much time' question and cleans it up'''
     global time_prompt

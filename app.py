@@ -14,16 +14,27 @@ app = Flask(__name__)
 
 time_prompt = 0
 
+
+def get_warmups(time_prompt,todays_wod):
+    """Starting to be better at Python"""
+    ### if time_prompt is too short and todays WOD has loaded exercise, return a warning (maybe later ask for more time?)
+    ### if time prompt is ok
+    ### what jj likes to do is return a fake object at first to practice. know where you want to go!
+
+    return
+
+
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
-    global time_prompt
     if request.method == 'POST':
-        print('postmethodfired$$$$$$$$$$$$$$$$$$$$$$$')
-        time_prompt = request.form['time_prompt_form']
+        exercise1 = request.form['exercise1_form']
+        exercise2 = request.form['exercise2_form']
+        intensity_form = request.form['intensity_form']
         # time_prompt = request.args.get('time')
-        print(time_prompt)
-
-        return render_template('get_exercises.html', time_prompt=time_prompt)
+        print(intensity_form)
+        todays_wod = [exercise1,exercise2]
+        warmups = get_warmups(intensity_form,todays_wod)
+        return render_template('index.html', intensity_form=intensity_form, exercise1=exercise1, exercise2=exercise2, todays_wod=todays_wod)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
