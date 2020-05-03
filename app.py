@@ -27,8 +27,10 @@ def first_page():
         return render_template('index.html')
 
 
-@app.route('/get_exercises', methods=['GET','POST'])
+@app.route('/get_exercises', methods=['GET', 'POST'])
 def second_page():
+    global exercise1
+    global exercise2
     if request.method == 'POST':
         exercise1 = request.form['exercise1_form']
         exercise2 = request.form['exercise2_form']
