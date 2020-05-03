@@ -12,16 +12,74 @@ app = Flask(__name__)
 ## ACTION = IN THE HTML FILE AUTOMATICALLY GOES TO THE NEXT ROUTE!!! FUCCCKKKK
 
 
-time_prompt = 0
 
-
-def get_warmups(time_prompt,todays_wod):
+def get_warmups(intensity,todays_wod):
     """Starting to be better at Python"""
+    # if intensity == 'low':
     ### if time_prompt is too short and todays WOD has loaded exercise, return a warning (maybe later ask for more time?)
     ### if time prompt is ok
-    ### what jj likes to do is return a fake object at first to practice. know where you want to go!
+    ### what jj likes to do is return a fake object at first to practice. use the fake data in other functions to get a flow! know where you want to go!
+    has_loaded_exercise = check_loaded_exercise(todays_wod)
+    has_kb_exercise = check_kb_exercise(todays_wod)
+    has_barbell_exercise = check_barbell_exercise(todays_wod)
 
-    return
+    optimal_warmup_time = get_optimal_warmup_time(intensity,has_loaded_exercise,has_kb_exercise,has_barbell_exercise)
+
+
+    warmups = []
+    for wod in todays_wod:
+        x = get_warmup_info(wod,intensity)
+        warmups.append(x)
+    print(intensity)
+    print(todays_wod)
+    print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
+    return [{'warmup_name':'air squats', 'time': '2min'},{'warmup_name':'walking lunges', 'time':'1min'}]
+
+def check_loaded_exercise(todays_wod):
+    ###DUMMY FUNC
+    return True
+
+def check_kb_exercise(todays_wod):
+    ### DUMMY FUNC
+    return True
+
+def check_barbell_exercise(todays_wod):
+    ### DUMMY FUNC
+    return False
+
+def get_optimal_warmup_time(intensity,has_loaded_exercise,has_kb_exercise,has_barbell_exercise):
+    ### DUMMY FUNC
+    return 30
+
+
+#FUNCTIONS ARE LITTLE MACHINES THAT TAKE STUFF AND MAKE IT INTO OTHER STUFF
+### FAKE DATA OUTPUT WARMUPLITTLEDICT
+def get_warmup_info(wod,intensity):
+
+    warmup_little_dict = {
+        'walking lunges': {
+        'categories': ['squats', 'cleans', 'deadlifts', 'gymnastics lower', 'kettlebells'],
+        'time': 1,
+        'reps': ['10 reps', '20 reps', '30 reps'],
+        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+    },
+    'air squats': {
+        'categories': ['squats', 'squats', 'squats', 'cleans', 'deadlifts', 'gymnastics lower'],
+        'time': 1,
+        'reps': ['10 reps', '20 reps', '30 reps'],
+        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+    },
+    'spidermans': {
+        'categories': ['squats', 'cleans', 'deadlifts', 'snatches', 'gymnastics lower'],
+        'time': 2,
+        'reps': ['2 min'],
+        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+    }
+
+    return warmup_little_dict
+
+def convert_intensity_to_time(intensity):
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -29,12 +87,11 @@ def first_page():
     if request.method == 'POST':
         exercise1 = request.form['exercise1_form']
         exercise2 = request.form['exercise2_form']
-        intensity_form = request.form['intensity_form']
-        # time_prompt = request.args.get('time')
-        print(intensity_form)
+        intensity = request.form['intensity_form']
+
         todays_wod = [exercise1,exercise2]
-        warmups = get_warmups(intensity_form,todays_wod)
-        return render_template('index.html', intensity_form=intensity_form, exercise1=exercise1, exercise2=exercise2, todays_wod=todays_wod)
+        warmups = get_warmups(intensity,todays_wod)
+        return render_template('index.html', intensity=intensity, exercise1=exercise1, exercise2=exercise2, todays_wod=todays_wod, warmups=warmups)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
