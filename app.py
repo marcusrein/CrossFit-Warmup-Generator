@@ -18,12 +18,15 @@ time_prompt = 0
 def first_page():
     global time_prompt
     if request.method == 'POST':
+        print('postmethodfired$$$$$$$$$$$$$$$$$$$$$$$')
         time_prompt = request.form['time_prompt_form']
         # time_prompt = request.args.get('time')
+        print(time_prompt)
 
-        return render_template('say_time.html', time_prompt=time_prompt)
+        return render_template('get_exercises.html', time_prompt=time_prompt)
 
     else:
+        print('else block called$$$$$$$$$$$$$$$$$$$$$$')
         return render_template('index.html')
 
 
