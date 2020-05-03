@@ -1,3 +1,7 @@
+## Meditate on this
+## Fill out more dummy functions to make them actually work
+## line32: if i have more processing to do, maybe make another function (get_best_warmups_EVER to summarize, return, print it)
+
 import warmups_dataset
 import exercises_dataset
 
@@ -25,15 +29,18 @@ def get_warmups(intensity,todays_wod):
 
     optimal_warmup_time = get_optimal_warmup_time(intensity,has_loaded_exercise,has_kb_exercise,has_barbell_exercise)
 
+    return {'optimal_warmup_time':optimal_warmup_time,'intensity':intensity,'todays_wod':todays_wod,'has_loaded_exercise':has_loaded_exercise,'has_kb_exercise':has_kb_exercise,'has_barbell_exercise':has_barbell_exercise}
 
-    warmups = []
-    for wod in todays_wod:
-        x = get_warmup_info(wod,intensity)
-        warmups.append(x)
-    print(intensity)
-    print(todays_wod)
-    print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
-    return [{'warmup_name':'air squats', 'time': '2min'},{'warmup_name':'walking lunges', 'time':'1min'}]
+
+    # warmups = []
+    # for wod in todays_wod:
+    #     x = get_warmup_info(wod,intensity)
+    #     warmups.append(x)
+    # print(intensity)
+    # print(todays_wod)
+    # print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
+    # return [{'warmup_name':'air squats', 'time': '2min'},{'warmup_name':'walking lunges', 'time':'1min'}]
+
 
 def check_loaded_exercise(todays_wod):
     ###DUMMY FUNC
@@ -74,12 +81,12 @@ def get_warmup_info(wod,intensity):
         'time': 2,
         'reps': ['2 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-    }
+    }}
 
     return warmup_little_dict
 
-def convert_intensity_to_time(intensity):
-
+# def convert_intensity_to_time(intensity):
+#
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -91,7 +98,8 @@ def first_page():
 
         todays_wod = [exercise1,exercise2]
         warmups = get_warmups(intensity,todays_wod)
-        return render_template('index.html', intensity=intensity, exercise1=exercise1, exercise2=exercise2, todays_wod=todays_wod, warmups=warmups)
+
+        return render_template('index.html', warmups=warmups)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
