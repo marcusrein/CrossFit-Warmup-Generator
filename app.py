@@ -8,12 +8,26 @@ warmup_metcons = warmups_dataset.get_warmup_metcons()
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
+##THE THING IN QUOTES IS THE KEY
+## ACTION = IN THE HTML FILE AUTOMATICALLY GOES TO THE NEXT ROUTE!!! FUCCCKKKK
+
+@app.route('/', methods=['GET', 'POST'])
+def get_time():
+    if request.method == 'POST':
+        time_prompt = request.args.get('time')
+        
+        return render_template('get_time.html', time_prompt=time_prompt)
+
+    else:
+        return render_template('index.html')
+
+
+@app.route('/get_exercises')
+def get_exercises():
     exercise1 = request.args.get('exercise_1')
     exercise2 = request.args.get('exercise_2')
-    return '''<h4>The first exercise is {}<h4>
-    <h4>The second exercise is {}<h4>'''.format(exercises[exercise1], exercises[exercise2])
+    return '''<h4>The first exercise is {} and its interals are {}<h4>
+    <h4>The second exercise is {} and its internals are {}<h4>'''.format(exercise1, exercises[exercise1], exercise2, exercises[exercise2])
 
 if __name__ == '__main__':
     app.run(debug=True)
