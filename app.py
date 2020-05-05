@@ -13,12 +13,14 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 ##THE THING IN QUOTES IS THE KEY
-## ACTION = IN THE HTML FILE AUTOMATICALLY GOES TO THE NEXT ROUTE!!! FUCCCKKKK
+## ACTION = IN THE HTML FILE SENDS THE DATA TO WHERE YOU"VE PUT THE ACTION!!! FUCCCKKKK
 
 
+########################################   @ FUNCTIONS  @   #########################################################
 
-def get_warmups(intensity,todays_wod):
-    """Starting to be better at Python"""
+
+def get_warmups_compiled(intensity,todays_wod):
+    """This is the big one that processes all the data."""
     # if intensity == 'low':
     ### if time_prompt is too short and todays WOD has loaded exercise, return a warning (maybe later ask for more time?)
     ### if time prompt is ok
@@ -26,25 +28,23 @@ def get_warmups(intensity,todays_wod):
     has_loaded_exercise = check_loaded_exercise(todays_wod)
     has_kb_exercise = check_kb_exercise(todays_wod)
     has_barbell_exercise = check_barbell_exercise(todays_wod)
-
     optimal_warmup_time = get_optimal_warmup_time(intensity,has_loaded_exercise,has_kb_exercise,has_barbell_exercise)
 
     return {'optimal_warmup_time':optimal_warmup_time,'intensity':intensity,'todays_wod':todays_wod,'has_loaded_exercise':has_loaded_exercise,'has_kb_exercise':has_kb_exercise,'has_barbell_exercise':has_barbell_exercise}
+    ## line32: if i have more processing to do, maybe make another function (get_best_warmups_EVER to summarize, return, print it)
 
 
-    # warmups = []
-    # for wod in todays_wod:
-    #     x = get_warmup_info(wod,intensity)
-    #     warmups.append(x)
-    # print(intensity)
-    # print(todays_wod)
-    # print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
-    # return [{'warmup_name':'air squats', 'time': '2min'},{'warmup_name':'walking lunges', 'time':'1min'}]
-
+todays_wod = ['push ups', 'pull ups']
 
 def check_loaded_exercise(todays_wod):
-    ###DUMMY FUNC
-    return True
+    for wod in todays_wod:
+        print(exercises[wod])
+        # if exercises[wod]['loaded'] == True or exercises[wod]['loaded'] == 'barbell' or exercises[wod]['loaded'] == 'kb':
+        #     print('yayaa')
+        # else:
+        #     print('nono')
+
+check_loaded_exercise(todays_wod)
 
 def check_kb_exercise(todays_wod):
     ### DUMMY FUNC
@@ -88,6 +88,7 @@ def get_warmup_info(wod,intensity):
 # def convert_intensity_to_time(intensity):
 #
 
+########################################   @ APP ROUTES  @   #########################################################
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
@@ -95,11 +96,10 @@ def first_page():
         exercise1 = request.form['exercise1_form']
         exercise2 = request.form['exercise2_form']
         intensity = request.form['intensity_form']
-
         todays_wod = [exercise1,exercise2]
-        warmups = get_warmups(intensity,todays_wod)
+        warmups_compiled = get_warmups_compiled(intensity,todays_wod)
 
-        return render_template('index.html', warmups=warmups)
+        return render_template('index.html', warmups_compiled=warmups_compiled)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
@@ -131,3 +131,16 @@ def second_page():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+########################################### UNUSED CODE ##############################################
+
+
+    # warmups = []
+    # for wod in todays_wod:
+    #     x = get_warmup_info(wod,intensity)
+    #     warmups.append(x)
+    # print(intensity)
+    # print(todays_wod)
+    # print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
+    # return [{'warmup_name':'air squats', 'time': '2min'},{'warmup_name':'walking lunges', 'time':'1min'}]
