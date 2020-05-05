@@ -34,17 +34,12 @@ def get_warmups_compiled(intensity,todays_wod):
     ## line32: if i have more processing to do, maybe make another function (get_best_warmups_EVER to summarize, return, print it)
 
 
-todays_wod = ['push ups', 'pull ups']
-
 def check_loaded_exercise(todays_wod):
     for wod in todays_wod:
-        print(exercises[wod])
-        # if exercises[wod]['loaded'] == True or exercises[wod]['loaded'] == 'barbell' or exercises[wod]['loaded'] == 'kb':
-        #     print('yayaa')
-        # else:
-        #     print('nono')
-
-check_loaded_exercise(todays_wod)
+        if exercises[wod]['loaded'] == False:
+            return False
+        else:
+            return True
 
 def check_kb_exercise(todays_wod):
     ### DUMMY FUNC
