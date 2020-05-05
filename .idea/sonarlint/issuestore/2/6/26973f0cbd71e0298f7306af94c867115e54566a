@@ -1,0 +1,17 @@
+
+python:S1871À"cEither merge this branch with the identical one on line "436" or change one of the implementations.(ïòß«üÿÿÿÿ
+npython:S1854ı"URemove this assignment to local variable 'new_sum_unloaded'; the value is never used.(ÿ¡‡Ú
+python:S1192ğ"hDefine a constant instead of duplicating this literal 'The structure of your warmup will be:\n' 5 times.(‘×—
+5python:S125."Remove this commented out code.(±Ç¤n
+5python:S125"Remove this commented out code.(ü—İk
+rpython:S3776¯"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(­ª–Âûÿÿÿÿ
+python:S1871º"cEither merge this branch with the identical one on line "436" or change one of the implementations.(ïòß«üÿÿÿÿ
+fpython:S1192´"HDefine a constant instead of duplicating this literal 'warmup:' 7 times.(ïòß«üÿÿÿÿ
+qpython:S1854ä"SRemove this assignment to local variable 'new_sum_loaded'; the value is never used.(—ôŠ¹ÿÿÿÿÿ
+fpython:S1192´"HDefine a constant instead of duplicating this literal 'Do this' 7 times.(ïòß«üÿÿÿÿ
+python:S1871Æ"cEither merge this branch with the identical one on line "436" or change one of the implementations.(ïòß«üÿÿÿÿ
+python:S1871Ã"cEither merge this branch with the identical one on line "436" or change one of the implementations.(ïòß«üÿÿÿÿ
+python:S1871·"cEither merge this branch with the identical one on line "436" or change one of the implementations.(ïòß«üÿÿÿÿ
+lpython:S3776F"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(¹œ•
+npython:S1854†"URemove this assignment to local variable 'new_sum_unloaded'; the value is never used.(ÿ¡‡Ú
+python:S1871½"cEither merge this branch with the identical one on line "436" or change one of the implementations.(ïòß«üÿÿÿÿ

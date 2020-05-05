@@ -42,12 +42,18 @@ def check_loaded_exercise(todays_wod):
             return True
 
 def check_kb_exercise(todays_wod):
-    ### DUMMY FUNC
-    return True
+    for wod in todays_wod:
+        if exercises[wod]['loaded'] == 'kb':
+            return True
+        else:
+            return False
 
 def check_barbell_exercise(todays_wod):
-    ### DUMMY FUNC
-    return False
+    for wod in todays_wod:
+        if exercises[wod]['loaded'] == 'barbell':
+            return True
+        else:
+            return False
 
 def get_optimal_warmup_time(intensity,has_loaded_exercise,has_kb_exercise,has_barbell_exercise):
     ### DUMMY FUNC
