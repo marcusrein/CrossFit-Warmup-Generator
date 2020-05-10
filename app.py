@@ -33,16 +33,19 @@ def get_warmups_compiled(intensity,todays_wod,focus):
     todays_possible_warmups = get_possible_warmups_from_mov_cat(mov_cat)
     warmup_tally_organized = get_organized_warmup_tally(todays_possible_warmups)
     warmup_tally_organized_times = get_times_of_organized_warmup_tally(warmup_tally_organized)
+    warmup_tally_organized_times_sum = get_sum_times_of_list(warmup_tally_organized_times)
 
-    optimal_warmup_time = get_optimal_warmup_time(intensity,has_loaded_exercise,has_kb_exercise,has_barbell_exercise)
+    optimal_warmup_time = get_optimal_warmup_time(todays_wod,intensity,focus)
 
-    return {'todays wod':todays_wod,'mov_cat':mov_cat,'todays possible warmups':todays_possible_warmups,'warmup tally organized':warmup_tally_organized,'warmup tally organized times':warmup_tally_organized_times,'optimal_warmup_time':optimal_warmup_time,'intensity':intensity,'has_loaded_exercise':has_loaded_exercise,'has_kb_exercise':has_kb_exercise,'has_barbell_exercise':has_barbell_exercise,'focus':focus}
+    # optimal_warmup_time = get_optimal_warmup_time(intensity,has_loaded_exercise,has_kb_exercise,has_barbell_exercise)
+
+    return {'todays wod':todays_wod,'mov_cat':mov_cat,'todays possible warmups':todays_possible_warmups,'warmup tally organized':warmup_tally_organized,'warmup tally organized times':warmup_tally_organized_times,'warmup tally organized times sum':warmup_tally_organized_times_sum,'optimal_warmup_time':optimal_warmup_time,'intensity':intensity,'has_loaded_exercise':has_loaded_exercise,'has_kb_exercise':has_kb_exercise,'has_barbell_exercise':has_barbell_exercise,'focus':focus}
     ## line32: if i have more processing to do, maybe make another function (get_best_warmups_EVER to summarize, return, print it)
 
 
 def check_loaded_exercise(todays_wod):
     for wod in todays_wod:
-        if exercises[wod]['loaded'] == False:
+        if not exercises[wod]['loaded']:
             return False
         else:
             return True
@@ -101,7 +104,30 @@ def get_sum_times_of_list(x): ###ENDED CODING HERE. STARTING TO WORK ON FIGURING
     sum_times = sum(x)
     return sum_times
 
-def get_optimal_warmup_time(intensity,has_loaded_exercise,has_kb_exercise,has_barbell_exercise):
+def get_optimal_warmup_time(todays_wod,intensity,focus):
+    # focused_loaded_time = 0
+    # focused_unloaded_time = 0
+    # metcon_time = 0
+    #
+    # optimal_warmup_time = focused_loaded_time + focused_unloaded_time + metcon_time
+    #
+    # if intensity == 'low' and check_loaded_exercise(todays_wod) == False:
+    #     focused_unloaded_time += 3
+    #     metcon_time += 2
+    # elif intensity == 'low' and check_barbell_exercise(todays_wod) == True and check_barbell_exercise(focus) == True:
+    #     focused_loaded_time += 10
+    #     metcon_time += 3
+    # elif intensity == 'low' and check_barbell_exercise(todays_wod) == True and check_barbell_exercise(focus) == False:
+    #     focused_loaded_time += 6
+    #     metcon_time += 2
+    # elif intensity == 'low' and check_kb_exercise(todays_wod) == True and check_kb_exercise(focus) == True:
+    #     focused_loaded_time += 5
+    #     metcon_time += 2
+    # elif intensity == 'low' and check_kb_exercise(todays_wod) == True and check_kb_exercise(focus) == False:
+    #     focused_loaded_time += 4
+    #     metcon_time += 2
+
+
     ### DUMMY FUNC
     return 30
 #
