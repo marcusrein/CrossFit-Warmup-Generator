@@ -155,6 +155,7 @@ def warmup_counter():
 
 
 def rand_warmup_sets_for_ordered_wu():
+    '''gets random sets for warmup metcons. possibly needs to be redone???'''
     global dict_of_ordered_wu_rand_reps
     list_of_ordered_tally = list(ordered_tally.keys())
     real_rand_warm_reps_list = []

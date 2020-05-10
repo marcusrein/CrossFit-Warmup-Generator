@@ -29,11 +29,14 @@ def get_warmups_compiled(intensity,todays_wod,focus):
     has_loaded_exercise = check_loaded_exercise(todays_wod)
     has_kb_exercise = check_kb_exercise(todays_wod)
     has_barbell_exercise = check_barbell_exercise(todays_wod)
-    mov_cat = find_cat_from_todays_wod(todays_wod)
-    todays_possible_warmups = possible_warmups_from_mov_cat(mov_cat)
+    mov_cat = get_cat_from_todays_wod(todays_wod)
+    todays_possible_warmups = get_possible_warmups_from_mov_cat(mov_cat)
+    warmup_tally_organized = get_organized_warmup_tally(todays_possible_warmups)
+    warmup_tally_organized_times = get_times_of_organized_warmup_tally(warmup_tally_organized)
+
     optimal_warmup_time = get_optimal_warmup_time(intensity,has_loaded_exercise,has_kb_exercise,has_barbell_exercise)
 
-    return {'todays wod':todays_wod,'todays possible warmups':todays_possible_warmups,'mov_cat':mov_cat,'optimal_warmup_time':optimal_warmup_time,'intensity':intensity,'todays_wod':todays_wod,'has_loaded_exercise':has_loaded_exercise,'has_kb_exercise':has_kb_exercise,'has_barbell_exercise':has_barbell_exercise,'focus':focus}
+    return {'todays wod':todays_wod,'mov_cat':mov_cat,'todays possible warmups':todays_possible_warmups,'warmup tally organized':warmup_tally_organized,'warmup tally organized times':warmup_tally_organized_times,'optimal_warmup_time':optimal_warmup_time,'intensity':intensity,'has_loaded_exercise':has_loaded_exercise,'has_kb_exercise':has_kb_exercise,'has_barbell_exercise':has_barbell_exercise,'focus':focus}
     ## line32: if i have more processing to do, maybe make another function (get_best_warmups_EVER to summarize, return, print it)
 
 
@@ -58,7 +61,7 @@ def check_barbell_exercise(todays_wod):
         else:
             return False
 
-def find_cat_from_todays_wod(todays_wod):
+def get_cat_from_todays_wod(todays_wod):
     todays_cat = []
     for w in todays_wod:
         for k, v in exercises.items():
@@ -66,7 +69,7 @@ def find_cat_from_todays_wod(todays_wod):
                 todays_cat.append(v['category'])
     return todays_cat
 
-def possible_warmups_from_mov_cat(mov_cat):
+def get_possible_warmups_from_mov_cat(mov_cat):
     possible_warmups = []
     for cat in mov_cat:
         for k, v in warmups.items():
@@ -74,7 +77,29 @@ def possible_warmups_from_mov_cat(mov_cat):
                 possible_warmups.append(k)
     return possible_warmups
 
+def get_organized_warmup_tally(possible_warmups):
+    tally_of_warmups = {}
+    for w in possible_warmups:
+        if w in tally_of_warmups:
+            tally_of_warmups[w] += 1
+        else:
+            tally_of_warmups[w] = 1
+    ordered_tally = {k: v for k, v in sorted(tally_of_warmups.items(), key=lambda item: item[1], reverse=True)}
+    return ordered_tally
 
+def get_times_of_organized_warmup_tally(ordered_tally):
+    '''Puts times of organized warmup tally into a separate list'''
+    tally_of_warmups_times = []
+    for k, v in ordered_tally.items():
+        for k2, v2 in warmups.items():
+            if k == k2:
+                tally_of_warmups_times.append(v2['time'])
+    return tally_of_warmups_times
+
+def get_sum_times_of_list(x): ###ENDED CODING HERE. STARTING TO WORK ON FIGURING OUT HOW TO GET IDEAL TIME FOR WARMUP... ALSO TOTAL TIME... WRITE THIS OUT ON PAPER BEFORE GOING FARTHER
+    '''Sums any list of numbers'''
+    sum_times = sum(x)
+    return sum_times
 
 def get_optimal_warmup_time(intensity,has_loaded_exercise,has_kb_exercise,has_barbell_exercise):
     ### DUMMY FUNC
