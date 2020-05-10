@@ -58,22 +58,21 @@ def check_barbell_exercise(todays_wod):
         else:
             return False
 
-### DUMMY CODE NOT WORKING
-### JORDAN this only returns one iteration! WHY.
 def find_cat_from_todays_wod(todays_wod):
     todays_cat = []
     for w in todays_wod:
         for k, v in exercises.items():
             if w == k:
                 todays_cat.append(v['category'])
-                # return todays_cat
-                return ['squats','gymnastics upper']
+    return todays_cat
 
 def possible_warmups_from_mov_cat(mov_cat):
+    possible_warmups = []
     for cat in mov_cat:
         for k, v in warmups.items():
             if cat in v['categories']:
-                return k
+                possible_warmups.append(k)
+    return possible_warmups
 
 
 
