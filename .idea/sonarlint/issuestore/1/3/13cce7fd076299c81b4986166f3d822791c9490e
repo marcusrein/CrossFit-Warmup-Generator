@@ -1,5 +1,4 @@
 
-=python:S125*"Remove this commented out code.(äÏÎ8Á­¡û.
-upython:S1192D"QDefine a constant instead of duplicating this literal 'gymnastics lower' 3 times.(»×›øıÿÿÿÿ8Ûƒéá.
-python:S1192G"lDefine a constant instead of duplicating this literal 'https://www.youtube.com/watch?v=a8vaVbT_lX0' 3 times.(˜«‡¬øÿÿÿÿ8Ûƒéá.
-Cpython:S125‹"Remove this commented out code.(Æ½¦ÿÿÿÿÿ8üúƒú.
+Cpython:S125"Remove this commented out code.(Æ½¦ÿÿÿÿÿ8üúƒú.
+upython:S1192E"QDefine a constant instead of duplicating this literal 'gymnastics lower' 3 times.(»×›øıÿÿÿÿ8Ûƒéá.
+python:S1192H"lDefine a constant instead of duplicating this literal 'https://www.youtube.com/watch?v=a8vaVbT_lX0' 3 times.(˜«‡¬øÿÿÿÿ8Ûƒéá.

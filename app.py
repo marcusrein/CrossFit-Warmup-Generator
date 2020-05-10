@@ -4,6 +4,7 @@
 
 import warmups_dataset
 import exercises_dataset
+from fuzzywuzzy import fuzz
 
 exercises = exercises_dataset.get_exercises()
 warmups = warmups_dataset.get_warmups()
@@ -28,9 +29,11 @@ def get_warmups_compiled(intensity,todays_wod,focus):
     has_loaded_exercise = check_loaded_exercise(todays_wod)
     has_kb_exercise = check_kb_exercise(todays_wod)
     has_barbell_exercise = check_barbell_exercise(todays_wod)
+    mov_cat = find_cat_from_todays_wod(todays_wod)
+    todays_possible_warmups = possible_warmups_from_mov_cat(mov_cat)
     optimal_warmup_time = get_optimal_warmup_time(intensity,has_loaded_exercise,has_kb_exercise,has_barbell_exercise)
 
-    return {'optimal_warmup_time':optimal_warmup_time,'intensity':intensity,'todays_wod':todays_wod,'has_loaded_exercise':has_loaded_exercise,'has_kb_exercise':has_kb_exercise,'has_barbell_exercise':has_barbell_exercise,'focus':focus}
+    return {'todays wod':todays_wod,'todays possible warmups':todays_possible_warmups,'mov_cat':mov_cat,'optimal_warmup_time':optimal_warmup_time,'intensity':intensity,'todays_wod':todays_wod,'has_loaded_exercise':has_loaded_exercise,'has_kb_exercise':has_kb_exercise,'has_barbell_exercise':has_barbell_exercise,'focus':focus}
     ## line32: if i have more processing to do, maybe make another function (get_best_warmups_EVER to summarize, return, print it)
 
 
@@ -55,10 +58,33 @@ def check_barbell_exercise(todays_wod):
         else:
             return False
 
+### DUMMY CODE NOT WORKING
+### JORDAN this only returns one iteration! WHY.
+def find_cat_from_todays_wod(todays_wod):
+    todays_cat = []
+    for w in todays_wod:
+        for k, v in exercises.items():
+            if w == k:
+                todays_cat.append(v['category'])
+                # return todays_cat
+                return ['squats','gymnastics upper']
+
+def possible_warmups_from_mov_cat(mov_cat):
+    for cat in mov_cat:
+        for k, v in warmups.items():
+            if cat in v['categories']:
+                return k
+
+
+
 def get_optimal_warmup_time(intensity,has_loaded_exercise,has_kb_exercise,has_barbell_exercise):
     ### DUMMY FUNC
     return 30
-
+#
+# def check_exercise_fuzz_80(exercise1_prefuzz):
+#     for j in list(exercises.keys()):
+#         if (fuzz.ratio(exercise1_prefuzz, j)) > 80:
+#             return True
 
 #FUNCTIONS ARE LITTLE MACHINES THAT TAKE STUFF AND MAKE IT INTO OTHER STUFF
 ### FAKE DATA OUTPUT WARMUPLITTLEDICT
@@ -90,13 +116,15 @@ def get_warmup_info(wod,intensity):
 #
 
 ########################################   @ APP ROUTES  @   #########################################################
+# TODO: add fuzzy functionality
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
+
     if request.method == 'POST':
-        exercise1 = request.form['exercise1_form']
-        exercise2 = request.form['exercise2_form']
         intensity = request.form['intensity_form']
+        exercise1= request.form['exercise1_form']
+        exercise2 = request.form['exercise2_form']
         focus = request.form['focus']
         todays_wod = [exercise1,exercise2]
         warmups_compiled = get_warmups_compiled(intensity,todays_wod,focus)
