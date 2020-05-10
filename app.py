@@ -50,6 +50,10 @@ def check_loaded_exercise(todays_wod):
         else:
             return True
 
+def check_tough_gymnastics(todays_wod):
+    #DUMMY FUNCTION
+    return True
+
 def check_kb_exercise(todays_wod):
     for wod in todays_wod:
         if exercises[wod]['loaded'] == 'kb':
@@ -105,31 +109,100 @@ def get_sum_times_of_list(x): ###ENDED CODING HERE. STARTING TO WORK ON FIGURING
     return sum_times
 
 def get_optimal_warmup_time(todays_wod,intensity,focus):
-    # focused_loaded_time = 0
-    # focused_unloaded_time = 0
-    # metcon_time = 0
-    #
-    # optimal_warmup_time = focused_loaded_time + focused_unloaded_time + metcon_time
-    #
-    # if intensity == 'low' and check_loaded_exercise(todays_wod) == False:
-    #     focused_unloaded_time += 3
-    #     metcon_time += 2
-    # elif intensity == 'low' and check_barbell_exercise(todays_wod) == True and check_barbell_exercise(focus) == True:
-    #     focused_loaded_time += 10
-    #     metcon_time += 3
-    # elif intensity == 'low' and check_barbell_exercise(todays_wod) == True and check_barbell_exercise(focus) == False:
-    #     focused_loaded_time += 6
-    #     metcon_time += 2
-    # elif intensity == 'low' and check_kb_exercise(todays_wod) == True and check_kb_exercise(focus) == True:
-    #     focused_loaded_time += 5
-    #     metcon_time += 2
-    # elif intensity == 'low' and check_kb_exercise(todays_wod) == True and check_kb_exercise(focus) == False:
-    #     focused_loaded_time += 4
-    #     metcon_time += 2
+    metcon_time = 0
+    drom_time = 0
+    gymnastics_time = 0
+    barbell_time = 0
+    kb_time = 0
+    focused_barbell_time = 0
+    focused_kb_time = 0
+    focused_loaded_time = 0
+    focused_unloaded_time = 0
+
+
+
+    ## LOW BODYWEIGHT ##
+
+    if intensity == 'low' and check_loaded_exercise(todays_wod) == False and check_tough_gymnastics(todays_wod) == False:
+        metcon_time += 2
+        drom_time = 4
+
+
+    elif intensity == 'low' and check_loaded_exercise(todays_wod) == False and check_tough_gymnastics(todays_wod) == True:
+        metcon_time += 2
+        drom_time = 4
+        gymnastics_time += 5
+
+
+    ## LOW BODYWEIGHT BARBELL ##
+
+    elif intensity == 'low' and check_barbell_exercise(todays_wod) == True and check_barbell_exercise([focus]) == False and check_tough_gymnastics(todays_wod) == False:
+        metcon_time += 2
+        drom_time += 4
+        barbell_time += 5
+
+    elif intensity == 'low' and check_barbell_exercise(todays_wod) == True and check_barbell_exercise([focus]) == False and check_tough_gymnastics(todays_wod) == True:
+        metcon_time += 2
+        drom_time += 5
+        gymnastics_time += 5
+        barbell_time += 5
+
+    elif intensity == 'low' and check_barbell_exercise(todays_wod) == True and check_barbell_exercise([focus]) == True and check_tough_gymnastics(todays_wod) == False:
+        metcon_time += 2
+        drom_time += 5
+        focused_barbell_time += 8
+
+    elif intensity == 'low' and check_barbell_exercise(todays_wod) == True and check_barbell_exercise([focus]) == True and check_tough_gymnastics(todays_wod) == True:
+        metcon_time += 2
+        drom_time += 4
+        gymnastics_time += 5
+        focused_barbell_time += 6
+
+
+    ## LOW KB ##
+
+    elif intensity == 'low' and check_kb_exercise(todays_wod) == True and check_kb_exercise([focus]) == False and check_tough_gymnastics(todays_wod) == False:
+        metcon_time += 2
+        drom_time += 5
+        kb_time += 5
+
+    elif intensity == 'low' and check_kb_exercise(todays_wod) == True and check_kb_exercise([focus]) == False and check_tough_gymnastics(todays_wod) == True:
+        metcon_time += 2
+        drom_time += 5
+        gymnastics_time += 5
+        kb_time += 5
+
+    elif intensity == 'low' and check_kb_exercise(todays_wod) == True and check_kb_exercise([focus]) == True and check_tough_gymnastics(todays_wod) == False:
+        metcon_time += 2
+        drom_time += 5
+        focused_kb_time += 8
+
+    elif intensity == 'low' and check_kb_exercise(todays_wod) == True and check_kb_exercise([focus]) == True and check_tough_gymnastics(todays_wod) == True:
+        metcon_time += 2
+        drom_time += 5
+        gymnastics_time += 5
+        focused_kb_time += 5
+
+
+    elif intensity == 'low' and check_kb_exercise(todays_wod) == True and check_kb_exercise([focus]) == False and check_tough_gymnastics(todays_wod) == False:
+        metcon_time += 2
+        drom_time += 4
+        kb_time += 4
+
+
+
+
+
+    ## MED INTENSITY ##
+
+
+
+
+    optimal_warmup_time = (metcon_time + drom_time + gymnastics_time + barbell_time + kb_time + focused_barbell_time + focused_kb_time + focused_unloaded_time)
 
 
     ### DUMMY FUNC
-    return 30
+    return optimal_warmup_time
 #
 # def check_exercise_fuzz_80(exercise1_prefuzz):
 #     for j in list(exercises.keys()):
