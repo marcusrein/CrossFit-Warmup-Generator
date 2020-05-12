@@ -72,8 +72,9 @@ def check_focus_category(focus):
                 return 'barbell'
             elif v['loaded'] == 'kb':
                 return 'kb'
-            else:
-                return 'none'
+    if focus == '':
+        return 'none'
+
 
 # def check_focus_barbell(focus):
 #     for k,v in exercises.items():
@@ -172,7 +173,6 @@ def get_optimal_warmup_time(todays_wod,intensity,focus):
             and check_focus_category(focus) == 'none' \
             and check_loaded_exercise(todays_wod) == False \
             and check_tough_gymnastics(todays_wod) == False:
-
         metcon_time += 2
         drom_time += 4
         gymnastics_time += 4
@@ -185,6 +185,7 @@ def get_optimal_warmup_time(todays_wod,intensity,focus):
         metcon_time += 2
         drom_time += 5
         tough_gymnastics_time += 6
+        print('oooo')
 
     ## LOW GYMNASTICS FOCUSED ##
 
@@ -195,7 +196,7 @@ def get_optimal_warmup_time(todays_wod,intensity,focus):
         metcon_time += 2
         drom_time += 4
         focused_gymnastics_time += 7
-        print('aaaaaa')
+        print('bbbb')
 
     if intensity == 'low' \
             and check_focus_category(focus) == 'gymnastics' \
@@ -204,6 +205,7 @@ def get_optimal_warmup_time(todays_wod,intensity,focus):
         metcon_time += 2
         drom_time += 5
         focused_gymnastics_time += 10
+        print('aoiwjef')
 
 
 
@@ -253,8 +255,8 @@ def get_optimal_warmup_time(todays_wod,intensity,focus):
     ## LOW KB UNFOCUSED ##
 
     elif intensity == 'low' \
+            and check_focus_category(focus) == 'none' \
             and check_kb_exercise(todays_wod) == True \
-            and check_kb_exercise([focus]) == False \
             and check_tough_gymnastics(todays_wod) == False:
         metcon_time += 2
         drom_time += 4
@@ -262,31 +264,32 @@ def get_optimal_warmup_time(todays_wod,intensity,focus):
         print('C')
 
     elif intensity == 'low' \
+            and check_focus_category(focus) == 'none' \
             and check_kb_exercise(todays_wod) == True \
-            and check_kb_exercise([focus]) == True \
-            and check_tough_gymnastics(todays_wod) == False:
-        metcon_time += 2
-        drom_time += 5
-        focused_kb_time += 6
-        print('D')
-
-    elif intensity == 'low' \
-            and check_kb_exercise(todays_wod) == True \
-            and check_kb_exercise([focus]) == True \
             and check_tough_gymnastics(todays_wod) == True:
         metcon_time += 2
-        drom_time += 6
-        focused_kb_time += 6
-        tough_gymnastics_time += 6
-        print('e')
+        drom_time += 5
+        kb_time += 5
+        print('D')
+
+    ## LOW KB FOCUSED ##
 
     elif intensity == 'low' \
+            and check_focus_category(focus) == 'kb' \
             and check_kb_exercise(todays_wod) == True \
-            and check_kb_exercise([focus]) == False \
+            and check_tough_gymnastics(todays_wod) == False:
+        metcon_time += 2
+        drom_time += 6
+        focused_kb_time += 5
+        print('effff')
+
+    elif intensity == 'low' \
+            and check_focus_category(focus) == 'kb' \
+            and check_kb_exercise(todays_wod) == True \
             and check_tough_gymnastics(todays_wod) == True:
         metcon_time += 2
         drom_time += 4
-        kb_time += 4
+        focused_kb_time += 5
         tough_gymnastics_time += 7
         print('f')
 
