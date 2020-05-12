@@ -20,6 +20,12 @@ app = Flask(__name__)
 ########################################   @ FUNCTIONS  @   #########################################################
 
 
+def check_exercise_fuzz_80(exercise1_prefuzz):
+    for j in list(exercises.keys()):
+        if (fuzz.ratio(exercise1_prefuzz, j)) > 80:
+            return j
+
+
 def get_warmups_compiled(intensity,todays_wod,focus):
     """This is the big one that processes all the data."""
     # if intensity == 'low':
@@ -38,7 +44,7 @@ def get_warmups_compiled(intensity,todays_wod,focus):
     optimal_warmup_time = get_optimal_warmup_time(todays_wod,intensity,focus)
 
 
-    return {'todays wod>':todays_wod,'mov_cat':mov_cat,'todays possible warmups':todays_possible_warmups,'warmup tally organized':warmup_tally_organized,'warmup tally organized times':warmup_tally_organized_times,'warmup tally organized times sum':warmup_tally_organized_times_sum,'optimal_warmup_time':optimal_warmup_time,'intensity':intensity,'has_loaded_exercise':has_loaded_exercise,'has_kb_exercise':has_kb_exercise,'has_barbell_exercise':has_barbell_exercise,'focus':focus}
+    return {'todays wod':todays_wod,'focus':focus,'mov_cat':mov_cat,'todays possible warmups':todays_possible_warmups,'warmup tally organized':warmup_tally_organized,'warmup tally organized times':warmup_tally_organized_times,'warmup tally organized times sum':warmup_tally_organized_times_sum,'optimal_warmup_time':optimal_warmup_time,'intensity':intensity,'has_loaded_exercise':has_loaded_exercise,'has_kb_exercise':has_kb_exercise,'has_barbell_exercise':has_barbell_exercise}
     ## line32: if i have more processing to do, maybe make another function (get_best_warmups_EVER to summarize, return, print it)
 
 
@@ -340,6 +346,8 @@ def get_optimal_warmup_time(todays_wod,intensity,focus):
         barbell_time += 4
         tough_gymnastics_time += 5
         print('mmmmmmm')
+    else:
+        print('no catch')
 
 
 #### DO NOT GO TO MEDIUM INTENSITY UNTIL LOW INTENSITY IS HOW WE WANT IT!
@@ -433,11 +441,7 @@ def get_optimal_warmup_time(todays_wod,intensity,focus):
 
     ### DUMMY FUNC
     return optimal_warmup_time
-#
-# def check_exercise_fuzz_80(exercise1_prefuzz):
-#     for j in list(exercises.keys()):
-#         if (fuzz.ratio(exercise1_prefuzz, j)) > 80:
-#             return True
+
 
 #FUNCTIONS ARE LITTLE MACHINES THAT TAKE STUFF AND MAKE IT INTO OTHER STUFF
 ### FAKE DATA OUTPUT WARMUPLITTLEDICT
@@ -476,12 +480,13 @@ def first_page():
 
     if request.method == 'POST':
         intensity = request.form['intensity_form']
-        exercise1 = request.form['exercise1_form']
-        exercise2 = request.form['exercise2_form']
-        exercise3 = request.form['exercise3_form']
-        exercise4 = request.form['exercise4_form']
-        exercise5 = request.form['exercise5_form']
-        focus = request.form['focus']
+        # exercsie1 = request.form['exercise1_form']
+        exercise1 = check_exercise_fuzz_80(request.form['exercise1_form'])
+        exercise2 = check_exercise_fuzz_80(request.form['exercise2_form'])
+        exercise3 = check_exercise_fuzz_80(request.form['exercise3_form'])
+        exercise4 = check_exercise_fuzz_80(request.form['exercise4_form'])
+        exercise5 = check_exercise_fuzz_80(request.form['exercise5_form'])
+        focus = check_exercise_fuzz_80(request.form['focus'])
         todays_wod = [exercise1,exercise2,exercise3,exercise4,exercise5]
         warmups_compiled = get_warmups_compiled(intensity,todays_wod,focus)
 
