@@ -139,6 +139,7 @@ def get_optimal_warmup_time(todays_wod,intensity,focus):
     drom_time = 0
     gymnastics_time = 0
     tough_gymnastics_time = 0
+    loaded_warmup_time = 0
     barbell_time = 0
     kb_time = 0
     focused_gymnastics_time = 0
@@ -183,6 +184,16 @@ def get_optimal_warmup_time(todays_wod,intensity,focus):
             and check_tough_gymnastics(todays_wod) == True:
         metcon_time += 2
         drom_time += 5
+        focused_gymnastics_time += 10
+        print('aoiwjef')
+
+    if intensity == 'low' \
+            and check_focus_category(focus) == 'gymnastics' \
+            and check_loaded_exercise(todays_wod) == True \
+            and check_tough_gymnastics(todays_wod) == True:
+        metcon_time += 2
+        drom_time += 5
+        loaded_warmup_time += 5
         focused_gymnastics_time += 10
         print('aoiwjef')
 
@@ -436,7 +447,7 @@ def get_optimal_warmup_time(todays_wod,intensity,focus):
 
 
 
-    optimal_warmup_time = (metcon_time + drom_time + gymnastics_time + barbell_time + kb_time + + tough_gymnastics_time + focused_gymnastics_time + focused_barbell_time + focused_kb_time + focused_unloaded_time)
+    optimal_warmup_time = (metcon_time + drom_time + gymnastics_time + loaded_warmup_time + barbell_time + kb_time + + tough_gymnastics_time + focused_gymnastics_time + focused_barbell_time + focused_kb_time + focused_unloaded_time)
 
 
     ### DUMMY FUNC
