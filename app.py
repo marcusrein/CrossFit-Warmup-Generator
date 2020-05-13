@@ -532,7 +532,8 @@ def second_page():
     # <h4>The second exercise is {} and its internals are {}<h4>'''.format(exercise1, exercises[exercise1], exercise2, exercises[exercise2])
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
 
 
 ########################################### UNUSED CODE ##############################################
