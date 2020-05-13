@@ -59,26 +59,48 @@ def check_tough_gymnastics(todays_wod):
     words = ['pistol', 'pistols','handstand','pull up','pull ups','kipping','ring']
     check = any(item in words for item in todays_wod)
     if check:
-        print('wowoeijrw')
+        print('checktoughgymastics TRUE')
         return True
+
     else:
+        print('checktoughgymnastics FALSE')
         return False
-        print('OOOOOOO')
+
+# def check_tough_gymnastics(todays_wod):
+#     words = ['pistol', 'pistols','handstand','pull up','pull ups','kipping','ring']
+#     res = [ele for ele in words if(ele in todays_wod)] 
+#     if str(bool(res)):
+#         print('checktoughgymastics TRUE')
+#         return True
+
+#     else:
+#         print('checktoughgymnastics FALSE')
+#         return False
+
+
 
 
  #                                    TODO add in metcon option in future.
 def check_focus_category(focus):
-    for k,v in exercises.items():
-        if focus == k:
-            if v['category'] == 'gymnastics upper' or v['category'] == 'gymnastics lower':
-                return 'gymnastics'
-                print('yaaaaapoij')
-            elif v['loaded'] == 'barbell':
-                return 'barbell'
-            elif v['loaded'] == 'kb':
-                return 'kb'
-    if focus == '':
+    if not focus:
         return 'none'
+        print('noneeee!!!!')
+    else:
+        for k,v in exercises.items():
+            if focus == k:
+                if v['category'] == 'gymnastics upper' or v['category'] == 'gymnastics lower':
+                    return 'gymnastics'
+                    print('gym time')
+                elif v['loaded'] == 'barbell':
+                    return 'barbell'
+                    print('barbell time')
+                elif v['loaded'] == 'kb':
+                    return 'kb'
+                    print('kb time')
+            else:
+                print('nothing time')
+            
+    
 
 def check_kb_exercise(todays_wod):
     for wod in todays_wod:
@@ -211,7 +233,7 @@ def get_optimal_warmup_time(todays_wod,intensity,focus):
         print('C')
 
     elif intensity == 'low' \
-            and check_focus_category(focus) == 'none' \
+            and check_focus_category(focus) == '' \
             and check_barbell_exercise(todays_wod) == True \
             and check_tough_gymnastics(todays_wod) == True:
         metcon_time += 2
@@ -448,7 +470,8 @@ def get_optimal_warmup_time(todays_wod,intensity,focus):
 
 
     optimal_warmup_time = (metcon_time + drom_time + gymnastics_time + loaded_warmup_time + barbell_time + kb_time + + tough_gymnastics_time + focused_gymnastics_time + focused_barbell_time + focused_kb_time + focused_unloaded_time)
-
+   
+    print(optimal_warmup_time)
 
     ### DUMMY FUNC
     return optimal_warmup_time
@@ -507,11 +530,14 @@ def first_page():
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
         return render_template('index.html')
 
-
+# TODO: Bug with GLOBAL and exercises 3-5. Fix???
 @app.route('/get_exercises', methods=['GET', 'POST'])
 def second_page():
     global exercise1
     global exercise2
+    global exercise3
+    global exercise4
+    global exercise5
     if request.method == 'POST':
         exercise1 = request.form['exercise1_form']
         exercise2 = request.form['exercise2_form']
