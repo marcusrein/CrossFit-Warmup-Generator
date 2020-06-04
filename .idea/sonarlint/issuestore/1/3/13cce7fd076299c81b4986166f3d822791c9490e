@@ -1,8 +1,8 @@
 
-ypython:S3776‰"TRefactor this function to reduce its Cognitive Complexity from 39 to the 15 allowed.(ÛŸ³ùûÿÿÿÿ8şù‹ .
-Cpython:S125ï"Remove this commented out code.(‚••¨ıÿÿÿÿ8Òì­Ç .
-ppython:S1192I"QDefine a constant instead of duplicating this literal 'gymnastics lower' 4 times.(ˆ¥Ã©8Ûƒéá.
-Cpython:S125"Remove this commented out code.(Æ½¦ÿÿÿÿÿ8ä¦¥Æ .
-‘python:S1192Ó"lDefine a constant instead of duplicating this literal 'https://www.youtube.com/watch?v=a8vaVbT_lX0' 3 times.(˜«‡¬øÿÿÿÿ8ä¦¥Æ .
-kpython:S1763B"GDelete this unreachable code or refactor the code to make it reachable.(ĞïÅ¾ÿÿÿÿÿ8úû§… .
-epython:S1763K"GDelete this unreachable code or refactor the code to make it reachable.(¯ñ–^8· æÅ .
+‘python:S1192"lDefine a constant instead of duplicating this literal 'https://www.youtube.com/watch?v=a8vaVbT_lX0' 3 times.(˜«‡¬øÿÿÿÿ8ä¦¥Æ .
+kpython:S1763I"GDelete this unreachable code or refactor the code to make it reachable.(ĞïÅ¾ÿÿÿÿÿ8úû§… .
+Cpython:S125«"Remove this commented out code.(‚••¨ıÿÿÿÿ8Òì­Ç .
+ppython:S1192V"QDefine a constant instead of duplicating this literal 'gymnastics lower' 4 times.(ˆ¥Ã©8“ÿé¡.
+Cpython:S125Û"Remove this commented out code.(Æ½¦ÿÿÿÿÿ8ä¦¥Æ .
+ypython:S3776­"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(ÛŸ³ùûÿÿÿÿ8şù‹ .
+Cpython:S125º"Remove this commented out code.(Ó¼¼êşÿÿÿÿ8”Üºé¤.

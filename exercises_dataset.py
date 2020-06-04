@@ -348,6 +348,7 @@ exercises = {
     },
 
     'snatch': {
+        #category : 'ankle mobility', ' 'hip mobility', '
         'category': 'snatches',
         'intensity': 'high',
         'loaded': 'barbell'
