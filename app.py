@@ -43,6 +43,7 @@ def get_warmups_compiled(intensity, todays_wod):
     ### what jj likes to do is return a fake object at first to practice. use the fake data in other functions to get a flow! know where you want to go!
     todays_wod = remove_none_from_todays_wod(todays_wod)
     has_kb_exercise = check_kb_exercise(todays_wod)
+    breakpoint()
     has_barbell_exercise = check_barbell_exercise(todays_wod)
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
     mov_cat = get_cat_from_todays_wod(todays_wod)
@@ -393,6 +394,8 @@ def first_page():
         exercise3 = check_exercise_fuzz_80(request.form['exercise3_form'])
         exercise4 = check_exercise_fuzz_80(request.form['exercise4_form'])
         exercise5 = check_exercise_fuzz_80(request.form['exercise5_form'])
+        exercise1_toggle = request.form['exercise1_toggle']
+        print(exercise1_toggle)
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
         warmups_compiled = get_warmups_compiled(intensity, todays_wod)
 
