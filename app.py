@@ -27,7 +27,13 @@ def check_exercise_fuzz_80(exercise1_prefuzz):
         if (fuzz.ratio(exercise1_prefuzz, j)) > 80:
             return j
 
-
+def remove_none_from_todays_wod(todays_wod):
+    """Remove "none" from todays_wod to clean it up"""
+    cleaned_array = []
+    for wod in todays_wod:
+        if wod != None:
+            cleaned_array.append(wod)
+    return cleaned_array
 
 def get_warmups_compiled(intensity, todays_wod):
     """This is the big one that processes all the data."""
@@ -35,6 +41,7 @@ def get_warmups_compiled(intensity, todays_wod):
     ### if time_prompt is too short and todays WOD has loaded exercise, return a warning (maybe later ask for more time?)
     ### if time prompt is ok
     ### what jj likes to do is return a fake object at first to practice. use the fake data in other functions to get a flow! know where you want to go!
+    todays_wod = remove_none_from_todays_wod(todays_wod)
     has_kb_exercise = check_kb_exercise(todays_wod)
     has_barbell_exercise = check_barbell_exercise(todays_wod)
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
@@ -65,14 +72,7 @@ def get_warmups_compiled(intensity, todays_wod):
 #             return True
 
 
-def check_tough_gymnastics(todays_wod):
-    words = ['pistol', 'pistols', 'handstand', 'pull up', 'pull ups', 'kipping', 'ring', 'muscle up']
-    check = any(item in words for item in todays_wod)
-    if check:
-        return True
-    else:
-        return False
-        print('OOOOOOO')
+
 
 
 #                                    TODO add in metcon option in future.
@@ -116,21 +116,26 @@ def check_tough_gymnastics(todays_wod):
 ## check_barbell_exercise, and likely everything else.
 
 def check_kb_exercise(todays_wod):
+    # print(todays_wod)
     for wod in todays_wod:
-        print(wod)
+        # print(wod)
         if exercises[wod]['loaded'] == 'kb':
-            return print('yaaa')
-        else:
-            return False
+            return True
+
 
 def check_barbell_exercise(todays_wod):
     for wod in todays_wod:
         if exercises[wod]['loaded'] == 'barbell':
             return True
-            print('banana')
-        else:
-            return False
-            print('potato')
+
+
+def check_tough_gymnastics(todays_wod):
+    words = ['pistol', 'pistols', 'handstand', 'pull up', 'pull ups', 'kipping', 'ring', 'muscle up']
+    check = any(item in words for item in todays_wod)
+    if check:
+        return True
+
+
 
 
 def get_cat_from_todays_wod(todays_wod):
@@ -347,29 +352,29 @@ def get_optimal_warmup_time(todays_wod, intensity):
 
 
 # FUNCTIONS ARE LITTLE MACHINES THAT TAKE STUFF AND MAKE IT INTO OTHER STUFF
-### FAKE DATA OUTPUT WARMUPLITTLEDICT
-def get_warmup_info(wod, intensity):
-    warmup_little_dict = {
-        'walking lunges': {
-            'categories': ['squats', 'cleans', 'deadlifts', 'gymnastics lower', 'kettlebells'],
-            'time': 1,
-            'reps': ['10 reps', '20 reps', '30 reps'],
-            'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        },
-        'air squats': {
-            'categories': ['squats', 'squats', 'squats', 'cleans', 'deadlifts', 'gymnastics lower'],
-            'time': 1,
-            'reps': ['10 reps', '20 reps', '30 reps'],
-            'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        },
-        'spidermans': {
-            'categories': ['squats', 'cleans', 'deadlifts', 'snatches', 'gymnastics lower'],
-            'time': 2,
-            'reps': ['2 min'],
-            'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        }}
-
-    return warmup_little_dict
+# ### FAKE DATA OUTPUT WARMUPLITTLEDICT
+# def get_warmup_info(wod, intensity):
+#     warmup_little_dict = {
+#         'walking lunges': {
+#             'categories': ['squats', 'cleans', 'deadlifts', 'gymnastics lower', 'kettlebells'],
+#             'time': 1,
+#             'reps': ['10 reps', '20 reps', '30 reps'],
+#             'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+#         },
+#         'air squats': {
+#             'categories': ['squats', 'squats', 'squats', 'cleans', 'deadlifts', 'gymnastics lower'],
+#             'time': 1,
+#             'reps': ['10 reps', '20 reps', '30 reps'],
+#             'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+#         },
+#         'spidermans': {
+#             'categories': ['squats', 'cleans', 'deadlifts', 'snatches', 'gymnastics lower'],
+#             'time': 2,
+#             'reps': ['2 min'],
+#             'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+#         }}
+#
+#     return warmup_little_dict
 
 
 # def convert_intensity_to_time(intensity):
