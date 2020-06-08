@@ -47,17 +47,17 @@ def get_warmups_compiled(intensity, todays_wod, todays_wod_toggles):
     has_barbell_exercise = check_barbell_exercise(todays_wod)
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
     mov_cat = get_cat_from_todays_wod(todays_wod)
-    todays_possible_warmups = get_possible_warmups_from_mov_cat(mov_cat)
-    warmup_tally_organized = get_organized_warmup_tally(todays_possible_warmups)
-    warmup_tally_organized_times = get_times_of_organized_warmup_tally(warmup_tally_organized)
-    warmup_tally_organized_times_sum = get_sum_times_of_list(warmup_tally_organized_times)
+    todays_possible_droms = get_possible_droms_from_mov_cat(mov_cat)
+    drom_tally_organized = get_organized_drom_tally(todays_possible_droms)
+    drom_tally_organized_times = get_times_of_organized_warmup_tally(drom_tally_organized)
+    drom_tally_organized_times_sum = get_sum_times_of_list(drom_tally_organized_times)
 
     optimal_warmup_time = get_optimal_warmup_time(todays_wod, intensity)
 
     return {'todays wod': todays_wod, 'todays_wod_toggles':todays_wod_toggles, 'mov_cat': mov_cat,
-            'todays possible warmups': todays_possible_warmups, 'warmup tally organized': warmup_tally_organized,
-            'warmup tally organized times': warmup_tally_organized_times,
-            'warmup tally organized times sum': warmup_tally_organized_times_sum,
+            'todays possible droms': todays_possible_droms, 'drom tally organized': drom_tally_organized,
+            'drom tally organized times': drom_tally_organized_times,
+            'drom tally organized times sum': drom_tally_organized_times_sum,
             'optimal warmup time': optimal_warmup_time, 'intensity': intensity,
             'has kb exercise': has_kb_exercise,
             'has barbell exercise': has_barbell_exercise,
@@ -148,7 +148,7 @@ def get_cat_from_todays_wod(todays_wod):
     return todays_cat
 
 
-def get_possible_warmups_from_mov_cat(mov_cat):
+def get_possible_droms_from_mov_cat(mov_cat):
     possible_warmups = []
     for cat in mov_cat:
         for k, v in warmups.items():
@@ -157,7 +157,7 @@ def get_possible_warmups_from_mov_cat(mov_cat):
     return possible_warmups
 
 
-def get_organized_warmup_tally(possible_warmups):
+def get_organized_drom_tally(possible_warmups):
     tally_of_warmups = {}
     for w in possible_warmups:
         if w in tally_of_warmups:
@@ -166,6 +166,8 @@ def get_organized_warmup_tally(possible_warmups):
             tally_of_warmups[w] = 1
     ordered_tally = {k: v for k, v in sorted(tally_of_warmups.items(), key=lambda item: item[1], reverse=True)}
     return ordered_tally
+
+
 
 
 def get_times_of_organized_warmup_tally(ordered_tally):
@@ -178,8 +180,7 @@ def get_times_of_organized_warmup_tally(ordered_tally):
     return tally_of_warmups_times
 
 
-def get_sum_times_of_list(
-        x):  ###ENDED CODING HERE. STARTING TO WORK ON FIGURING OUT HOW TO GET IDEAL TIME FOR WARMUP... ALSO TOTAL TIME... WRITE THIS OUT ON PAPER BEFORE GOING FARTHER
+def get_sum_times_of_list(x):  ###ENDED CODING HERE. STARTING TO WORK ON FIGURING OUT HOW TO GET IDEAL TIME FOR WARMUP... ALSO TOTAL TIME... WRITE THIS OUT ON PAPER BEFORE GOING FARTHER
     """Sums any list of numbers"""
     sum_times = sum(x)
     return sum_times
@@ -319,9 +320,9 @@ def get_optimal_warmup_time(todays_wod, intensity):
 #     """Prioritizes and pops metcons as compared to total time alloted"""
 #     return tallied list in order of importance
 #
-# def prioritize_pop_droms(todays_wod):
-#     """Prioritizes and pops DROMS as compared to total time alloted"""
-#     return tallied list in order of importance
+def prioritize_pop_droms():
+    """Prioritizes and pops DROMS as compared to total time alloted"""
+
 
 # def prioritize_pop_gymnastics_wu(todays_wod):
 #     """Prioritizes and pops tough_gymnastics as compared to total time alloted"""
