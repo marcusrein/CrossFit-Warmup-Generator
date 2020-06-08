@@ -49,18 +49,18 @@ def get_droms_compiled(intensity, todays_wod):
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
     mov_cat = get_cat_from_todays_wod(todays_wod)
     todays_possible_droms = get_possible_droms_from_mov_cat(mov_cat)
-    drom_tally_organized = get_organized_drom_tally_dict(todays_possible_droms)
-    drom_tally_organized_times = get_times_of_organized_drom_tally_list(drom_tally_organized)
+    drom_tally_organized_dict = get_organized_drom_tally_dict(todays_possible_droms)
+    drom_tally_organized_times = get_times_of_organized_drom_tally_list(drom_tally_organized_dict)
     drom_tally_organized_times_sum = get_sum_times_of_list(drom_tally_organized_times)
     all_warmup_times = get_all_warmup_times(todays_wod,intensity)
     drom_prescribed_time = all_warmup_times['drom_time']
-    pop_list(drom_tally_organized, drom_tally_organized_times, drom_prescribed_time)
+    pop_list(drom_tally_organized_dict, drom_tally_organized_times_sum, drom_prescribed_time)
 
     return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod,'intensity': intensity,
             'has kb exercise': has_kb_exercise,
             'has barbell exercise': has_barbell_exercise,
             'has_tough_gymnastics': has_tough_gymnastics, 'DROM CALCULATIONS: ''mov_cat': mov_cat,
-            'todays possible droms': todays_possible_droms, 'drom tally organized': drom_tally_organized,
+            'todays possible droms': todays_possible_droms, 'drom tally organized dict': drom_tally_organized_dict,
             'drom tally organized times': drom_tally_organized_times,
             'drom tally organized times sum': drom_tally_organized_times_sum,
             'drom prescribed time': drom_prescribed_time,
@@ -175,18 +175,22 @@ def get_times_of_organized_drom_tally_list(ordered_tally):
                 tally_of_warmups_times.append(v2['time'])
     return tally_of_warmups_times
 
-def pop_list(dict, dict_organized_times, prescribed_time):
+def pop_list(dictionary, list_organized_times, prescribed_time):
     """
-    dict = dict of ordered tally
+    dictionary = dict of ordered tally
     dict_organized_times = dict of the ordered tallies times
     time_alloted = time alloted by get_all_warmup_times
     return: Popped list
     """
-    while sum(dict_organized_times) > prescribed_time:
-        dict.pop()
 
-    else:
-        print('nope!')
+    x = list_organized_times
+
+    while sum_list_organized_times > prescribed_time:
+        dictionary.popitem()
+        list_organized_times.pop()
+        print(x)
+
+    return print(dictionary)
 
 def get_sum_times_of_list(x):  ###ENDED CODING HERE. STARTING TO WORK ON FIGURING OUT HOW TO GET IDEAL TIME FOR WARMUP... ALSO TOTAL TIME... WRITE THIS OUT ON PAPER BEFORE GOING FARTHER
     """Sums any list of numbers"""
