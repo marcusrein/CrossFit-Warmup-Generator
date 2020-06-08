@@ -12,7 +12,6 @@ exercises = exercises_dataset.get_exercises()
 warmups = warmups_dataset.get_warmups()
 warmup_metcons = warmups_dataset.get_warmup_metcons()
 
-
 app = Flask(__name__)
 
 
@@ -28,6 +27,7 @@ def check_exercise_fuzz_80(exercise1_prefuzz):
         if (fuzz.ratio(exercise1_prefuzz, j)) > 80:
             return j
 
+
 def remove_none_from_todays_wod(todays_wod):
     """Remove "none" from todays_wod to clean it up"""
     cleaned_array = []
@@ -36,7 +36,8 @@ def remove_none_from_todays_wod(todays_wod):
             cleaned_array.append(wod)
     return cleaned_array
 
-def get_warmups_compiled(intensity, todays_wod, todays_wod_toggles):
+
+def get_warmups_compiled(intensity, todays_wod):
     """This is the big one that processes all the data."""
     # if intensity == 'low':
     ### if time_prompt is too short and todays WOD has loaded exercise, return a warning (maybe later ask for more time?)
@@ -49,16 +50,15 @@ def get_warmups_compiled(intensity, todays_wod, todays_wod_toggles):
     mov_cat = get_cat_from_todays_wod(todays_wod)
     todays_possible_droms = get_possible_droms_from_mov_cat(mov_cat)
     drom_tally_organized = get_organized_drom_tally(todays_possible_droms)
-    drom_tally_organized_times = get_times_of_organized_warmup_tally(drom_tally_organized)
+    drom_tally_organized_times = get_times_of_organized_drom_tally(drom_tally_organized)
     drom_tally_organized_times_sum = get_sum_times_of_list(drom_tally_organized_times)
+    all_warmup_time = get_all_warmup_times(todays_wod, intensity)
 
-    optimal_warmup_time = get_optimal_warmup_time(todays_wod, intensity)
-
-    return {'todays wod': todays_wod, 'todays_wod_toggles':todays_wod_toggles, 'mov_cat': mov_cat,
+    return {'todays wod': todays_wod, 'mov_cat': mov_cat,
             'todays possible droms': todays_possible_droms, 'drom tally organized': drom_tally_organized,
             'drom tally organized times': drom_tally_organized_times,
             'drom tally organized times sum': drom_tally_organized_times_sum,
-            'optimal warmup time': optimal_warmup_time, 'intensity': intensity,
+            'all warmup time': all_warmup_time, 'intensity': intensity,
             'has kb exercise': has_kb_exercise,
             'has barbell exercise': has_barbell_exercise,
             'has_tough_gymnastics': has_tough_gymnastics}
@@ -71,9 +71,6 @@ def get_warmups_compiled(intensity, todays_wod, todays_wod_toggles):
 #             return False
 #         else:
 #             return True
-
-
-
 
 
 #                                    TODO add in metcon option in future.
@@ -137,8 +134,6 @@ def check_tough_gymnastics(todays_wod):
         return True
 
 
-
-
 def get_cat_from_todays_wod(todays_wod):
     todays_cat = []
     for w in todays_wod:
@@ -168,9 +163,7 @@ def get_organized_drom_tally(possible_warmups):
     return ordered_tally
 
 
-
-
-def get_times_of_organized_warmup_tally(ordered_tally):
+def get_times_of_organized_drom_tally(ordered_tally):
     """Puts times of organized warmup tally into a separate list"""
     tally_of_warmups_times = []
     for k, v in ordered_tally.items():
@@ -180,13 +173,14 @@ def get_times_of_organized_warmup_tally(ordered_tally):
     return tally_of_warmups_times
 
 
-def get_sum_times_of_list(x):  ###ENDED CODING HERE. STARTING TO WORK ON FIGURING OUT HOW TO GET IDEAL TIME FOR WARMUP... ALSO TOTAL TIME... WRITE THIS OUT ON PAPER BEFORE GOING FARTHER
+def get_sum_times_of_list(
+        x):  ###ENDED CODING HERE. STARTING TO WORK ON FIGURING OUT HOW TO GET IDEAL TIME FOR WARMUP... ALSO TOTAL TIME... WRITE THIS OUT ON PAPER BEFORE GOING FARTHER
     """Sums any list of numbers"""
     sum_times = sum(x)
     return sum_times
 
 
-def get_optimal_warmup_time(todays_wod, intensity):
+def get_all_warmup_times(todays_wod, intensity):
     metcon_time = 0
     drom_time = 0
     gymnastics_time = 0
@@ -278,7 +272,6 @@ def get_optimal_warmup_time(todays_wod, intensity):
         drom_time += 5
         print('FFF')
 
-
     # NOT NEEDED IF LOADED, WE MOVE ONTO BB OR KB TESTING
     # if intensity == 'low' \
     #         and check_focus_category(focus) == 'gymnastics' \
@@ -290,20 +283,14 @@ def get_optimal_warmup_time(todays_wod, intensity):
     #     focused_gymnastics_time += 10
     #     print('aoiwjef')
 
+    all_warmup_time = (
+            metcon_time + drom_time + gymnastics_time + barbell_time + kb_time + focused_gymnastics_time + focused_barbell_time + focused_kb_time)
 
+    calculated_times = {'all_warmup_time': all_warmup_time, 'metcon_time': metcon_time, 'drom_time': drom_time}
+    print(calculated_times)
 
+    return calculated_times
 
-
-
-
-
-
-    #### DO NOT GO TO MEDIUM INTENSITY UNTIL LOW INTENSITY IS HOW WE WANT IT!
-
-    optimal_warmup_time = (
-                metcon_time + drom_time + gymnastics_time + barbell_time + kb_time + focused_gymnastics_time + focused_barbell_time + focused_kb_time)
-
-    return optimal_warmup_time
 
 # DUMMY FUNCTIONS todo: Fill out these dummy functions!
 
@@ -347,10 +334,6 @@ def prioritize_pop_droms():
 # def prioritize_pop_focused_barbell_wu(todays_wod):
 #     """Prioritizes and pops barbell_wu as compared to total time alloted"""
 #     return tallied list in order of importance
-
-
-
-
 
 
 # FUNCTIONS ARE LITTLE MACHINES THAT TAKE STUFF AND MAKE IT INTO OTHER STUFF
@@ -400,10 +383,10 @@ def first_page():
         exercise3_toggle = request.form['exercise3_toggle']
         exercise4_toggle = request.form['exercise4_toggle']
         exercise5_toggle = request.form['exercise5_toggle']
-
+        
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
-        warmups_compiled = get_warmups_compiled(intensity, todays_wod, todays_wod_toggles)
+        warmups_compiled = get_warmups_compiled(intensity, todays_wod)
 
         return render_template('index.html', warmups_compiled=warmups_compiled)
 
