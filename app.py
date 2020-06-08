@@ -6,6 +6,7 @@ import warmups_dataset
 import exercises_dataset
 from fuzzywuzzy import fuzz
 from flask import Flask, render_template, request
+from wtforms import Form, BooleanField, StringField, validators
 
 exercises = exercises_dataset.get_exercises()
 warmups = warmups_dataset.get_warmups()
@@ -35,7 +36,7 @@ def remove_none_from_todays_wod(todays_wod):
             cleaned_array.append(wod)
     return cleaned_array
 
-def get_warmups_compiled(intensity, todays_wod):
+def get_warmups_compiled(intensity, todays_wod, todays_wod_toggles):
     """This is the big one that processes all the data."""
     # if intensity == 'low':
     ### if time_prompt is too short and todays WOD has loaded exercise, return a warning (maybe later ask for more time?)
@@ -43,7 +44,6 @@ def get_warmups_compiled(intensity, todays_wod):
     ### what jj likes to do is return a fake object at first to practice. use the fake data in other functions to get a flow! know where you want to go!
     todays_wod = remove_none_from_todays_wod(todays_wod)
     has_kb_exercise = check_kb_exercise(todays_wod)
-    breakpoint()
     has_barbell_exercise = check_barbell_exercise(todays_wod)
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
     mov_cat = get_cat_from_todays_wod(todays_wod)
@@ -54,7 +54,7 @@ def get_warmups_compiled(intensity, todays_wod):
 
     optimal_warmup_time = get_optimal_warmup_time(todays_wod, intensity)
 
-    return {'todays wod': todays_wod, 'mov_cat': mov_cat,
+    return {'todays wod': todays_wod, 'todays_wod_toggles':todays_wod_toggles, 'mov_cat': mov_cat,
             'todays possible warmups': todays_possible_warmups, 'warmup tally organized': warmup_tally_organized,
             'warmup tally organized times': warmup_tally_organized_times,
             'warmup tally organized times sum': warmup_tally_organized_times_sum,
@@ -388,16 +388,20 @@ def get_optimal_warmup_time(todays_wod, intensity):
 def first_page():
     if request.method == 'POST':
         intensity = request.form['intensity_form']
-        # exercsie1 = request.form['exercise1_form']
         exercise1 = check_exercise_fuzz_80(request.form['exercise1_form'])
         exercise2 = check_exercise_fuzz_80(request.form['exercise2_form'])
         exercise3 = check_exercise_fuzz_80(request.form['exercise3_form'])
         exercise4 = check_exercise_fuzz_80(request.form['exercise4_form'])
         exercise5 = check_exercise_fuzz_80(request.form['exercise5_form'])
         exercise1_toggle = request.form['exercise1_toggle']
-        print(exercise1_toggle)
+        exercise2_toggle = request.form['exercise2_toggle']
+        exercise3_toggle = request.form['exercise3_toggle']
+        exercise4_toggle = request.form['exercise4_toggle']
+        exercise5_toggle = request.form['exercise5_toggle']
+
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
-        warmups_compiled = get_warmups_compiled(intensity, todays_wod)
+        todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
+        warmups_compiled = get_warmups_compiled(intensity, todays_wod, todays_wod_toggles)
 
         return render_template('index.html', warmups_compiled=warmups_compiled)
 
