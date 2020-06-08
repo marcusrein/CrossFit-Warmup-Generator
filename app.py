@@ -37,8 +37,8 @@ def remove_none_from_todays_wod(todays_wod):
     return cleaned_array
 
 
-def get_warmups_compiled(intensity, todays_wod):
-    """This is the big one that processes all the data."""
+def get_droms_compiled(intensity, todays_wod):
+    """This is a function that compiles DROMS for viewing."""
     # if intensity == 'low':
     ### if time_prompt is too short and todays WOD has loaded exercise, return a warning (maybe later ask for more time?)
     ### if time prompt is ok
@@ -49,19 +49,22 @@ def get_warmups_compiled(intensity, todays_wod):
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
     mov_cat = get_cat_from_todays_wod(todays_wod)
     todays_possible_droms = get_possible_droms_from_mov_cat(mov_cat)
-    drom_tally_organized = get_organized_drom_tally(todays_possible_droms)
-    drom_tally_organized_times = get_times_of_organized_drom_tally(drom_tally_organized)
+    drom_tally_organized = get_organized_drom_tally_dict(todays_possible_droms)
+    drom_tally_organized_times = get_times_of_organized_drom_tally_list(drom_tally_organized)
     drom_tally_organized_times_sum = get_sum_times_of_list(drom_tally_organized_times)
-    all_warmup_time = get_all_warmup_times(todays_wod, intensity)
+    all_warmup_times = get_all_warmup_times(todays_wod,intensity)
+    drom_prescribed_time = all_warmup_times['drom_time']
+    pop_list(drom_tally_organized, drom_tally_organized_times, drom_prescribed_time)
 
-    return {'todays wod': todays_wod, 'mov_cat': mov_cat,
+    return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod,'intensity': intensity,
+            'has kb exercise': has_kb_exercise,
+            'has barbell exercise': has_barbell_exercise,
+            'has_tough_gymnastics': has_tough_gymnastics, 'DROM CALCULATIONS: ''mov_cat': mov_cat,
             'todays possible droms': todays_possible_droms, 'drom tally organized': drom_tally_organized,
             'drom tally organized times': drom_tally_organized_times,
             'drom tally organized times sum': drom_tally_organized_times_sum,
-            'all warmup time': all_warmup_time, 'intensity': intensity,
-            'has kb exercise': has_kb_exercise,
-            'has barbell exercise': has_barbell_exercise,
-            'has_tough_gymnastics': has_tough_gymnastics}
+            'drom prescribed time': drom_prescribed_time,
+            }
     ## line32: if i have more processing to do, maybe make another function (get_best_warmups_EVER to summarize, return, print it)
 
 
@@ -152,7 +155,7 @@ def get_possible_droms_from_mov_cat(mov_cat):
     return possible_warmups
 
 
-def get_organized_drom_tally(possible_warmups):
+def get_organized_drom_tally_dict(possible_warmups):
     tally_of_warmups = {}
     for w in possible_warmups:
         if w in tally_of_warmups:
@@ -163,7 +166,7 @@ def get_organized_drom_tally(possible_warmups):
     return ordered_tally
 
 
-def get_times_of_organized_drom_tally(ordered_tally):
+def get_times_of_organized_drom_tally_list(ordered_tally):
     """Puts times of organized warmup tally into a separate list"""
     tally_of_warmups_times = []
     for k, v in ordered_tally.items():
@@ -172,9 +175,20 @@ def get_times_of_organized_drom_tally(ordered_tally):
                 tally_of_warmups_times.append(v2['time'])
     return tally_of_warmups_times
 
+def pop_list(dict, dict_organized_times, prescribed_time):
+    """
+    dict = dict of ordered tally
+    dict_organized_times = dict of the ordered tallies times
+    time_alloted = time alloted by get_all_warmup_times
+    return: Popped list
+    """
+    while sum(dict_organized_times) > prescribed_time:
+        dict.pop()
 
-def get_sum_times_of_list(
-        x):  ###ENDED CODING HERE. STARTING TO WORK ON FIGURING OUT HOW TO GET IDEAL TIME FOR WARMUP... ALSO TOTAL TIME... WRITE THIS OUT ON PAPER BEFORE GOING FARTHER
+    else:
+        print('nope!')
+
+def get_sum_times_of_list(x):  ###ENDED CODING HERE. STARTING TO WORK ON FIGURING OUT HOW TO GET IDEAL TIME FOR WARMUP... ALSO TOTAL TIME... WRITE THIS OUT ON PAPER BEFORE GOING FARTHER
     """Sums any list of numbers"""
     sum_times = sum(x)
     return sum_times
@@ -386,7 +400,7 @@ def first_page():
         
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
-        warmups_compiled = get_warmups_compiled(intensity, todays_wod)
+        warmups_compiled = get_droms_compiled(intensity, todays_wod)
 
         return render_template('index.html', warmups_compiled=warmups_compiled)
 
