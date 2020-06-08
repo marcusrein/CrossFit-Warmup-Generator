@@ -214,7 +214,7 @@ def get_optimal_warmup_time(todays_wod, intensity):
     if intensity == 'low' \
             and check_barbell_exercise(todays_wod) == True \
             and check_kb_exercise(todays_wod) == True \
-            and check_tough_gymnastics(todays_wod) == False:
+            and check_tough_gymnastics(todays_wod) == None:
         metcon_time += 2
         drom_time += 5
         barbell_time += 5
@@ -224,7 +224,7 @@ def get_optimal_warmup_time(todays_wod, intensity):
 
     if intensity == 'low' \
             and check_barbell_exercise(todays_wod) == True \
-            and check_kb_exercise(todays_wod) == False \
+            and check_kb_exercise(todays_wod) == None \
             and check_tough_gymnastics(todays_wod) == True:
         metcon_time += 2
         drom_time += 5
@@ -234,15 +234,15 @@ def get_optimal_warmup_time(todays_wod, intensity):
 
     if intensity == 'low' \
             and check_barbell_exercise(todays_wod) == True \
-            and check_kb_exercise(todays_wod) == False \
-            and check_tough_gymnastics(todays_wod) == False:
+            and check_kb_exercise(todays_wod) == None \
+            and check_tough_gymnastics(todays_wod) == None:
         metcon_time += 2
         drom_time += 5
         barbell_time += 5
         print('TFF')
 
     if intensity == 'low' \
-            and check_barbell_exercise(todays_wod) == False \
+            and check_barbell_exercise(todays_wod) == None \
             and check_kb_exercise(todays_wod) == True \
             and check_tough_gymnastics(todays_wod) == True:
         metcon_time += 2
@@ -252,17 +252,17 @@ def get_optimal_warmup_time(todays_wod, intensity):
         print('FTT')
 
     if intensity == 'low' \
-            and check_barbell_exercise(todays_wod) == False \
+            and check_barbell_exercise(todays_wod) == None \
             and check_kb_exercise(todays_wod) == True \
-            and check_tough_gymnastics(todays_wod) == False:
+            and check_tough_gymnastics(todays_wod) == None:
         metcon_time += 3
         drom_time += 5
         kb_time += 5
         print('FTF')
 
     if intensity == 'low' \
-            and check_barbell_exercise(todays_wod) == False \
-            and check_kb_exercise(todays_wod) == False \
+            and check_barbell_exercise(todays_wod) == None \
+            and check_kb_exercise(todays_wod) == None \
             and check_tough_gymnastics(todays_wod) == True:
         metcon_time += 3
         drom_time += 7
@@ -270,9 +270,9 @@ def get_optimal_warmup_time(todays_wod, intensity):
         print('FFT')
 
     if intensity == 'low' \
-            and check_barbell_exercise(todays_wod) == False \
-            and check_kb_exercise(todays_wod) == False \
-            and check_tough_gymnastics(todays_wod) == False:
+            and check_barbell_exercise(todays_wod) == None \
+            and check_kb_exercise(todays_wod) == None \
+            and check_tough_gymnastics(todays_wod) == None:
         metcon_time += 5
         drom_time += 5
         print('FFF')
@@ -393,6 +393,7 @@ def first_page():
         exercise3 = check_exercise_fuzz_80(request.form['exercise3_form'])
         exercise4 = check_exercise_fuzz_80(request.form['exercise4_form'])
         exercise5 = check_exercise_fuzz_80(request.form['exercise5_form'])
+
         exercise1_toggle = request.form['exercise1_toggle']
         exercise2_toggle = request.form['exercise2_toggle']
         exercise3_toggle = request.form['exercise3_toggle']
