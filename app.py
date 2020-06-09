@@ -37,7 +37,7 @@ def remove_none_from_todays_wod(todays_wod):
     return cleaned_array
 
 
-def get_droms_compiled(intensity, todays_wod):
+def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
     """This is a function that compiles DROMS for viewing."""
     # if intensity == 'low':
     ### if time_prompt is too short and todays WOD has loaded exercise, return a warning (maybe later ask for more time?)
@@ -49,20 +49,18 @@ def get_droms_compiled(intensity, todays_wod):
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
     mov_cat = get_cat_from_todays_wod(todays_wod)
     todays_possible_droms = get_possible_droms_from_mov_cat(mov_cat)
-    print('todays_possible_droms:',todays_possible_droms)
     drom_tally_organized_dict = get_organized_drom_tally_dict(todays_possible_droms)
-    print('drom tally organized dict:',drom_tally_organized_dict)
-
     drom_tally_organized_times_list = get_times_of_organized_drom_tally_list(drom_tally_organized_dict)
     drom_tally_organized_times_sum = get_sum_times_of_list(drom_tally_organized_times_list)
-    all_warmup_times = get_all_warmup_times(todays_wod,intensity)
-    drom_prescribed_time = all_warmup_times['drom_time']
+    all_warmup_times_pre_toggle = get_all_warmup_times(todays_wod,intensity)
+    drom_prescribed_time = all_warmup_times_pre_toggle['drom_time']
+    all_warmup_times_plus_toggles = check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle)
     selected_droms = pop_and_select(drom_tally_organized_dict, drom_tally_organized_times_list, drom_tally_organized_times_sum, drom_prescribed_time)
 
     return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod,'intensity': intensity,
             'has kb exercise': has_kb_exercise,
             'has barbell exercise': has_barbell_exercise,
-            'has_tough_gymnastics': has_tough_gymnastics, 'DROM CALCULATIONS: ''mov_cat': mov_cat,
+            'has_tough_gymnastics': has_tough_gymnastics, 'todays_wod_toggles':todays_wod_toggles,'DROM CALCULATIONS: ''mov_cat': mov_cat,
             'todays possible droms': todays_possible_droms, 'drom tally organized dict': drom_tally_organized_dict,
             'drom tally organized times list': drom_tally_organized_times_list,
             'drom tally organized times sum': drom_tally_organized_times_sum,
@@ -138,6 +136,7 @@ def check_tough_gymnastics(todays_wod):
     check = any(item in words for item in todays_wod)
     if check:
         return True
+
 
 
 def get_cat_from_todays_wod(todays_wod):
@@ -220,96 +219,96 @@ def get_all_warmup_times(todays_wod, intensity):
             and check_kb_exercise(todays_wod) == True \
             and check_tough_gymnastics(todays_wod) == True:
         metcon_time += 2
-        drom_time += 5
+        drom_time += 8
         barbell_time += 5
         kb_time += 5
         focused_gymnastics_time += 10
         print('TTT')
 
-    if intensity == 'low' \
+    elif intensity == 'low' \
             and check_barbell_exercise(todays_wod) == True \
             and check_kb_exercise(todays_wod) == True \
             and check_tough_gymnastics(todays_wod) == None:
         metcon_time += 2
-        drom_time += 5
+        drom_time += 7
         barbell_time += 5
         kb_time += 5
-        focused_gymnastics_time += 10
         print('TTF')
 
-    if intensity == 'low' \
+    elif intensity == 'low' \
             and check_barbell_exercise(todays_wod) == True \
             and check_kb_exercise(todays_wod) == None \
             and check_tough_gymnastics(todays_wod) == True:
         metcon_time += 2
-        drom_time += 5
+        drom_time += 7
         barbell_time += 5
         focused_gymnastics_time += 10
         print('TFT')
 
-    if intensity == 'low' \
+    elif intensity == 'low' \
             and check_barbell_exercise(todays_wod) == True \
             and check_kb_exercise(todays_wod) == None \
             and check_tough_gymnastics(todays_wod) == None:
         metcon_time += 2
-        drom_time += 5
+        drom_time += 6
         barbell_time += 5
         print('TFF')
 
-    if intensity == 'low' \
+    elif intensity == 'low' \
             and check_barbell_exercise(todays_wod) == None \
             and check_kb_exercise(todays_wod) == True \
             and check_tough_gymnastics(todays_wod) == True:
         metcon_time += 2
-        drom_time += 5
+        drom_time += 6
         kb_time += 5
         focused_gymnastics_time += 10
         print('FTT')
 
-    if intensity == 'low' \
+    elif intensity == 'low' \
             and check_barbell_exercise(todays_wod) == None \
             and check_kb_exercise(todays_wod) == True \
             and check_tough_gymnastics(todays_wod) == None:
-        metcon_time += 3
-        drom_time += 5
+        metcon_time += 2
+        drom_time += 6
         kb_time += 5
         print('FTF')
 
-    if intensity == 'low' \
+    elif intensity == 'low' \
             and check_barbell_exercise(todays_wod) == None \
             and check_kb_exercise(todays_wod) == None \
             and check_tough_gymnastics(todays_wod) == True:
-        metcon_time += 3
-        drom_time += 7
+        metcon_time += 2
+        drom_time += 6
         focused_gymnastics_time += 10
         print('FFT')
 
-    if intensity == 'low' \
+    elif intensity == 'low' \
             and check_barbell_exercise(todays_wod) == None \
             and check_kb_exercise(todays_wod) == None \
             and check_tough_gymnastics(todays_wod) == None:
-        metcon_time += 5
-        drom_time += 5
+        metcon_time += 3
+        drom_time += 7
         print('FFF')
 
-    # NOT NEEDED IF LOADED, WE MOVE ONTO BB OR KB TESTING
-    # if intensity == 'low' \
-    #         and check_focus_category(focus) == 'gymnastics' \
-    #         and check_loaded_exercise(todays_wod) == True \
-    #         and check_tough_gymnastics(todays_wod) == True:
-    #     metcon_time += 2
-    #     drom_time += 5
-    #     loaded_warmup_time += 5
-    #     focused_gymnastics_time += 10
-    #     print('aoiwjef')
 
     all_warmup_time = (
             metcon_time + drom_time + gymnastics_time + barbell_time + kb_time + focused_gymnastics_time + focused_barbell_time + focused_kb_time)
 
-    calculated_times = {'all_warmup_time': all_warmup_time, 'metcon_time': metcon_time, 'drom_time': drom_time}
-    print(calculated_times)
+    all_warmup_times_pre_toggle = {'all_warmup_time': all_warmup_time, 'metcon_time': metcon_time, 'drom_time': drom_time,
+                        'gymanstics_time':gymnastics_time, 'barbell_time':barbell_time, 'kb_time':kb_time,
+                        'focused_gymanstics_time':focused_gymnastics_time,'focused_barbell_time':focused_barbell_time,
+                        'focused_kb_time':focused_kb_time
+                        }
+    return all_warmup_times_pre_toggle
 
-    return calculated_times
+def check_toggles_add_time(todays_wod, todays_wod_toggles,calculated_times):
+    """Adds appropriate times if toggles are engaged"""
+    if todays_wod_toggles[0] == 'Yes':
+        breakpoint()
+        for k,v in exercises[todays_wod[0]].items():
+            print(k['loaded'])
+            # if k['loaded'] == 'kb':
+            #     print('')
 
 
 # DUMMY FUNCTIONS todo: Fill out these dummy functions!
@@ -406,7 +405,7 @@ def first_page():
         
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
-        warmups_compiled = get_droms_compiled(intensity, todays_wod)
+        warmups_compiled = get_droms_compiled(intensity, todays_wod, todays_wod_toggles)
 
         return render_template('index.html', warmups_compiled=warmups_compiled)
 
