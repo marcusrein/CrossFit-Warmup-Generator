@@ -303,12 +303,37 @@ def get_all_warmup_times(todays_wod, intensity):
 
 def check_toggles_add_time(todays_wod, todays_wod_toggles,calculated_times):
     """Adds appropriate times if toggles are engaged"""
-    if todays_wod_toggles[0] == 'Yes':
-        breakpoint()
-        for k,v in exercises[todays_wod[0]].items():
-            print(k['loaded'])
-            # if k['loaded'] == 'kb':
-            #     print('')
+
+    x1 = exercises[todays_wod[0]].keys()
+    x2 = exercises[todays_wod[1]].keys()
+    x3 = exercises[todays_wod[2]].keys()
+    x4 = exercises[todays_wod[3]].keys()
+    x5 = exercises[todays_wod[4]].keys()
+
+    exercise_kv_dict = exercises.get(todays_wod[x1])
+    loaded_value = exercise_kv_dict.get('loaded')
+        if todays_wod_toggles[x1] == 'Yes':
+
+        elif loaded_value == 'kb':
+            print(calculated_times['focused_kb_time'])
+            calculated_times['focused_kb_time'] += 5
+            print(calculated_times['focused_kb_time'])
+        elif loaded_value == 'barbell':
+            print(calculated_times['focused_barbell_time'])
+            calculated_times['focused_barbell_time'] += 10
+            print(calculated_times['focused_barbell_time'])
+        elif loaded_value == False and check_tough_gymnastics(todays_wod) == None:
+            print(calculated_times['focused_gymanstics_time'])
+            calculated_times['focused_gymanstics_time'] += 8
+            print(calculated_times['focused_gymanstics_time'])
+
+
+
+
+
+
+
+
 
 
 # DUMMY FUNCTIONS todo: Fill out these dummy functions!
