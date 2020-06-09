@@ -303,27 +303,30 @@ def get_all_warmup_times(todays_wod, intensity):
 
 ##JORDAN I CANT FIGURE OUT HOW TO ITERATE EACH ONE OF THESE. THIS IS UGLY BUT WORKS.
 
-def check_toggles_add_time_0(todays_wod, todays_wod_toggles, calculated_times):
+def check_toggles_add_time(todays_wod, todays_wod_toggles, calculated_times):
     """Adds appropriate times if toggles are engaged"""
 
-    exercise_kv_dict_0 = exercises.get(todays_wod[0])
-    loaded_value = exercise_kv_dict_0.get('loaded')
+    for i in range(0):
 
-    if todays_wod_toggles[0] == 'Yes':
-        if loaded_value == 'kb':
-            print(calculated_times['focused_kb_time'])
-            calculated_times['focused_kb_time'] += 5
-            print(calculated_times['focused_kb_time'])
-        elif loaded_value == 'barbell':
-            print(calculated_times['focused_barbell_time'])
-            calculated_times['focused_barbell_time'] += 10
-            print(calculated_times['focused_barbell_time'])
-        elif loaded_value == False and check_tough_gymnastics(todays_wod) == None:
-            print(calculated_times['focused_gymanstics_time'])
-            calculated_times['focused_gymanstics_time'] += 8
-            print(calculated_times['focused_gymanstics_time'])
-    else:
-        print('poocake')
+        exercise_kv_dict_0 = exercises.get(todays_wod[i])
+        loaded_value = exercise_kv_dict_0.get('loaded')
+
+        if todays_wod_toggles[i] == 'Yes':
+            if loaded_value == 'kb':
+                print(calculated_times['focused_kb_time'])
+                calculated_times['focused_kb_time'] += 5
+                print(calculated_times['focused_kb_time'])
+            elif loaded_value == 'barbell':
+                print(calculated_times['focused_barbell_time'])
+                calculated_times['focused_barbell_time'] += 10
+                print(calculated_times['focused_barbell_time'])
+            elif loaded_value == False and check_tough_gymnastics(todays_wod) == None:
+                print(calculated_times['focused_gymanstics_time'])
+                calculated_times['focused_gymanstics_time'] += 8
+                print(calculated_times['focused_gymanstics_time'])
+        else:
+            print('poocake')
+        print(calculated_times)
     return calculated_times
 
 
