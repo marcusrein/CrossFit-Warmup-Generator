@@ -44,23 +44,22 @@ def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
     ### if time_prompt is too short and todays WOD has loaded exercise, return a warning (maybe later ask for more time?)
     ### if time prompt is ok
     ### what jj likes to do is return a fake object at first to practice. use the fake data in other functions to get a flow! know where you want to go!
-    todays_wod_with_empties = xstr(todays_wod)
-    breakpoint()
+    todays_wod_with_empty_strings = xstr(todays_wod)
     # todays_wod_no_nones = remove_none_from_todays_wod(todays_wod)
-    has_kb_exercise = check_kb_exercise(todays_wod_no_nones)
-    has_barbell_exercise = check_barbell_exercise(todays_wod_no_nones)
-    has_tough_gymnastics = check_tough_gymnastics(todays_wod_no_nones)
-    mov_cat = get_cat_from_todays_wod(todays_wod_no_nones)
+    has_kb_exercise = check_kb_exercise(todays_wod)
+    has_barbell_exercise = check_barbell_exercise(todays_wod)
+    has_tough_gymnastics = check_tough_gymnastics(todays_wod)
+    mov_cat = get_cat_from_todays_wod(todays_wod)
     todays_possible_droms = get_possible_droms_from_mov_cat(mov_cat)
     drom_tally_organized_dict = get_organized_drom_tally_dict(todays_possible_droms)
     drom_tally_organized_times_list = get_times_of_organized_drom_tally_list(drom_tally_organized_dict)
     drom_tally_organized_times_sum = get_sum_times_of_list(drom_tally_organized_times_list)
-    all_warmup_times_pre_toggle = get_all_warmup_times(todays_wod_no_nones,intensity)
+    all_warmup_times_pre_toggle = get_all_warmup_times(todays_wod,intensity)
     drom_prescribed_time = all_warmup_times_pre_toggle['drom_time']
     all_warmup_times_plus_toggles = check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle)
     selected_droms = pop_and_select(drom_tally_organized_dict, drom_tally_organized_times_list, drom_tally_organized_times_sum, drom_prescribed_time)
 
-    return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod_no_nones,'intensity': intensity,
+    return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod,'intensity': intensity,
             'has kb exercise': has_kb_exercise,
             'has barbell exercise': has_barbell_exercise,
             'has_tough_gymnastics': has_tough_gymnastics, 'todays_wod_toggles':todays_wod_toggles,'DROM CALCULATIONS: ''mov_cat': mov_cat,
@@ -122,21 +121,24 @@ def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
 
 def check_kb_exercise(todays_wod):
     # print(todays_wod)
-    for wod in todays_wod:
+    x = remove_none_from_todays_wod(todays_wod)
+    for wod in x:
         # print(wod)
         if exercises[wod]['loaded'] == 'kb':
             return True
 
 
 def check_barbell_exercise(todays_wod):
-    for wod in todays_wod:
+    x = remove_none_from_todays_wod(todays_wod)
+    for wod in x:
         if exercises[wod]['loaded'] == 'barbell':
             return True
 
 
 def check_tough_gymnastics(todays_wod):
+    x = remove_none_from_todays_wod(todays_wod)
     words = ['pistol', 'pistols', 'handstand', 'pull up', 'pull ups', 'kipping', 'ring', 'muscle up']
-    check = any(item in words for item in todays_wod)
+    check = any(item in words for item in x)
     if check:
         return True
 
@@ -308,9 +310,20 @@ def get_all_warmup_times(todays_wod, intensity):
 
 def check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle):
     """Adds appropriate times if toggles are engaged"""
+
+    x = str(xstr(todays_wod))
+    
     for i in range(5):
-        xxx = exercises.get(todays_wod[i])
-        loaded_value = xxx.get('loaded')
+        y = exercises[i].get('loaded')
+        breakpoint()
+
+        
+        
+        # rythis = exercises.get(x[0])
+        # breakpoint()
+        # loaded_value = exercises.get('loaded')
+        # breakpoint()
+
         if todays_wod_toggles[i] == 'Yes':
             if loaded_value == 'kb':
                 print(all_warmup_times_pre_toggle['focused_kb_time'])
