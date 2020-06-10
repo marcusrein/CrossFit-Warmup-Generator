@@ -332,24 +332,24 @@ def check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_
         print(loaded_value)
 
     #
-    # for i in range(5):
-    #     if todays_wod_toggles[i] == 'Yes':
-    #         if loaded_value == 'kb':
-    #             print(all_warmup_times_pre_toggle['focused_kb_time'])
-    #             all_warmup_times_pre_toggle['focused_kb_time'] += 5
-    #             print(all_warmup_times_pre_toggle['focused_kb_time'])
-    #         elif loaded_value == 'barbell':
-    #             print(all_warmup_times_pre_toggle['focused_barbell_time'])
-    #             all_warmup_times_pre_toggle['focused_barbell_time'] += 10
-    #             print(all_warmup_times_pre_toggle['focused_barbell_time'])
-    #         elif loaded_value == False and check_tough_gymnastics(todays_wod) == None:
-    #             print(all_warmup_times_pre_toggle['focused_gymanstics_time'])
-    #             all_warmup_times_pre_toggle['focused_gymanstics_time'] += 8
-    #             print(all_warmup_times_pre_toggle['focused_gymanstics_time'])
-    #     else:
-    #         print('poocake')
-    #     print(all_warmup_times_pre_toggle)
-    #     all_warmup_times_post_toggle = all_warmup_times_pre_toggle
+    for i in range(5):
+        if todays_wod_toggles[i] == 'Yes':
+            if loaded_value == 'kb':
+                print(all_warmup_times_pre_toggle['focused_kb_time'])
+                all_warmup_times_pre_toggle['focused_kb_time'] += 5
+                print(all_warmup_times_pre_toggle['focused_kb_time'])
+            elif loaded_value == 'barbell':
+                print(all_warmup_times_pre_toggle['focused_barbell_time'])
+                all_warmup_times_pre_toggle['focused_barbell_time'] += 10
+                print(all_warmup_times_pre_toggle['focused_barbell_time'])
+            elif loaded_value == False and check_tough_gymnastics(todays_wod) == None:
+                print(all_warmup_times_pre_toggle['focused_gymanstics_time'])
+                all_warmup_times_pre_toggle['focused_gymanstics_time'] += 8
+                print(all_warmup_times_pre_toggle['focused_gymanstics_time'])
+        else:
+            print('poocake')
+        print(all_warmup_times_pre_toggle)
+        all_warmup_times_post_toggle = all_warmup_times_pre_toggle
 
     return all_warmup_times_post_toggle
 
