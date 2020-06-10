@@ -312,18 +312,16 @@ def check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_
     """Adds appropriate times if toggles are engaged"""
 
     x = str(xstr(todays_wod))
-    
+
     for i in range(5):
-        y = exercises[i].get('loaded')
-        breakpoint()
+        for wod in x:
+            for k,v in exercises.items():
+                if wod == k:
+                    loaded_value = v['loaded']
 
-        
-        
-        # rythis = exercises.get(x[0])
-        # breakpoint()
-        # loaded_value = exercises.get('loaded')
-        # breakpoint()
 
+    breakpoint()
+    for i in range(5):
         if todays_wod_toggles[i] == 'Yes':
             if loaded_value == 'kb':
                 print(all_warmup_times_pre_toggle['focused_kb_time'])
