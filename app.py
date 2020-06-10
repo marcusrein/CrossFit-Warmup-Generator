@@ -44,7 +44,9 @@ def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
     ### if time_prompt is too short and todays WOD has loaded exercise, return a warning (maybe later ask for more time?)
     ### if time prompt is ok
     ### what jj likes to do is return a fake object at first to practice. use the fake data in other functions to get a flow! know where you want to go!
-    todays_wod_no_nones = remove_none_from_todays_wod(todays_wod)
+    todays_wod_with_empties = xstr(todays_wod)
+    breakpoint()
+    # todays_wod_no_nones = remove_none_from_todays_wod(todays_wod)
     has_kb_exercise = check_kb_exercise(todays_wod_no_nones)
     has_barbell_exercise = check_barbell_exercise(todays_wod_no_nones)
     has_tough_gymnastics = check_tough_gymnastics(todays_wod_no_nones)
@@ -309,7 +311,6 @@ def check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_
     for i in range(5):
         xxx = exercises.get(todays_wod[i])
         loaded_value = xxx.get('loaded')
-        breakpoint()
         if todays_wod_toggles[i] == 'Yes':
             if loaded_value == 'kb':
                 print(all_warmup_times_pre_toggle['focused_kb_time'])
@@ -415,11 +416,18 @@ def prioritize_pop_droms():
 
 ########################################   @ APP ROUTES  @   #########################################################
 
-def xstr(s):
-    if s is None:
-        return ''
-    else:
-        return str(s)
+def xstr(todays_wod):
+    todays_wod_edit = []
+# for i in range(5):
+    for wod in todays_wod:
+        print(wod)
+        if wod is None:
+            todays_wod_edit.append('')
+            print('sureeee')
+        else:
+            todays_wod_edit.append(str(wod))
+            print('nnahhhh')
+    return todays_wod_edit
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -441,14 +449,10 @@ def first_page():
 
 
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
-        breakpoint()
-
-
-
 
 
         print(todays_wod)
-        breakpoint()
+
 
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
         warmups_compiled = get_droms_compiled(intensity, todays_wod, todays_wod_toggles)
