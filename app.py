@@ -311,34 +311,45 @@ def get_all_warmup_times(todays_wod, intensity):
 def check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle):
     """Adds appropriate times if toggles are engaged"""
 
-    x = str(xstr(todays_wod))
-
-    for i in range(5):
-        for wod in x:
-            for k,v in exercises.items():
-                if wod == k:
-                    loaded_value = v['loaded']
-
-
+    todays_wod_empties_and_list = list(xstr(todays_wod))
+    todays_wod_empties = str(xstr(todays_wod))
+    # print(x)
     breakpoint()
-    for i in range(5):
-        if todays_wod_toggles[i] == 'Yes':
-            if loaded_value == 'kb':
-                print(all_warmup_times_pre_toggle['focused_kb_time'])
-                all_warmup_times_pre_toggle['focused_kb_time'] += 5
-                print(all_warmup_times_pre_toggle['focused_kb_time'])
-            elif loaded_value == 'barbell':
-                print(all_warmup_times_pre_toggle['focused_barbell_time'])
-                all_warmup_times_pre_toggle['focused_barbell_time'] += 10
-                print(all_warmup_times_pre_toggle['focused_barbell_time'])
-            elif loaded_value == False and check_tough_gymnastics(todays_wod) == None:
-                print(all_warmup_times_pre_toggle['focused_gymanstics_time'])
-                all_warmup_times_pre_toggle['focused_gymanstics_time'] += 8
-                print(all_warmup_times_pre_toggle['focused_gymanstics_time'])
-        else:
-            print('poocake')
-        print(all_warmup_times_pre_toggle)
-        all_warmup_times_post_toggle = all_warmup_times_pre_toggle
+    # for i in range(5):
+    #     for wod in x:
+    #         for k,v in exercises.items():
+    #             if wod == k:
+    #                 loaded_value = v['loaded']
+
+    for wod in todays_wod_empties_and_list:
+        print(wod)
+        movement = exercises.get(wod)
+        print(f'MOVEMENT EQUALS: ', movement)
+        # breakpoint()
+        loaded_value = str(movement.get('loaded'))
+        # print('LOADED VALUE EQUALS: ', loaded_value)
+
+        print(loaded_value)
+
+    #
+    # for i in range(5):
+    #     if todays_wod_toggles[i] == 'Yes':
+    #         if loaded_value == 'kb':
+    #             print(all_warmup_times_pre_toggle['focused_kb_time'])
+    #             all_warmup_times_pre_toggle['focused_kb_time'] += 5
+    #             print(all_warmup_times_pre_toggle['focused_kb_time'])
+    #         elif loaded_value == 'barbell':
+    #             print(all_warmup_times_pre_toggle['focused_barbell_time'])
+    #             all_warmup_times_pre_toggle['focused_barbell_time'] += 10
+    #             print(all_warmup_times_pre_toggle['focused_barbell_time'])
+    #         elif loaded_value == False and check_tough_gymnastics(todays_wod) == None:
+    #             print(all_warmup_times_pre_toggle['focused_gymanstics_time'])
+    #             all_warmup_times_pre_toggle['focused_gymanstics_time'] += 8
+    #             print(all_warmup_times_pre_toggle['focused_gymanstics_time'])
+    #     else:
+    #         print('poocake')
+    #     print(all_warmup_times_pre_toggle)
+    #     all_warmup_times_post_toggle = all_warmup_times_pre_toggle
 
     return all_warmup_times_post_toggle
 
