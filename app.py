@@ -36,17 +36,6 @@ def remove_none_from_todays_wod(todays_wod):
             cleaned_array.append(wod)
     return cleaned_array
 
-# def add_none_to_todays_wod(todays_wod):
-#     """Adds "none" to todays_wod to help out checktoggles. If theres something there, do nothing to it. If theres
-#     nothing there, add 'None' to it."""
-#     cleaned_array = []
-#     for wod in todays_wod:
-#         if wod == '':
-#
-#             wod in todays_wod:
-#         if wod == None:
-#             cleaned_array.append(wod)
-#     return cleaned_array
 
 
 def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
@@ -425,7 +414,13 @@ def prioritize_pop_droms():
 #
 
 ########################################   @ APP ROUTES  @   #########################################################
-# TODO: add fuzzy functionality
+
+def xstr(s):
+    if s is None:
+        return ''
+    else:
+        return str(s)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
@@ -442,8 +437,19 @@ def first_page():
         exercise3_toggle = request.form['exercise3_toggle']
         exercise4_toggle = request.form['exercise4_toggle']
         exercise5_toggle = request.form['exercise5_toggle']
-        
+
+
+
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
+        breakpoint()
+
+
+
+
+
+        print(todays_wod)
+        breakpoint()
+
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
         warmups_compiled = get_droms_compiled(intensity, todays_wod, todays_wod_toggles)
 
