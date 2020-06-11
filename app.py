@@ -37,6 +37,18 @@ def remove_none_from_todays_wod(todays_wod):
     return cleaned_array
 
 
+# def add_none_to_todays_wod(todays_wod):
+#     """Adds "none" to todays_wod to help out checktoggles. If theres something there, do nothing to it. If theres
+#     nothing there, add 'None' to it."""
+#     cleaned_array = []
+#     for wod in todays_wod:
+#         if wod == '':
+#
+#             wod in todays_wod:
+#         if wod == None:
+#             cleaned_array.append(wod)
+#     return cleaned_array
+
 
 def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
     """This is a function that compiles DROMS for viewing."""
@@ -44,8 +56,7 @@ def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
     ### if time_prompt is too short and todays WOD has loaded exercise, return a warning (maybe later ask for more time?)
     ### if time prompt is ok
     ### what jj likes to do is return a fake object at first to practice. use the fake data in other functions to get a flow! know where you want to go!
-    todays_wod_with_empty_strings = xstr(todays_wod)
-    # todays_wod_no_nones = remove_none_from_todays_wod(todays_wod)
+    todays_wod = remove_none_from_todays_wod(todays_wod)
     has_kb_exercise = check_kb_exercise(todays_wod)
     has_barbell_exercise = check_barbell_exercise(todays_wod)
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
@@ -54,19 +65,21 @@ def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
     drom_tally_organized_dict = get_organized_drom_tally_dict(todays_possible_droms)
     drom_tally_organized_times_list = get_times_of_organized_drom_tally_list(drom_tally_organized_dict)
     drom_tally_organized_times_sum = get_sum_times_of_list(drom_tally_organized_times_list)
-    all_warmup_times_pre_toggle = get_all_warmup_times(todays_wod,intensity)
+    all_warmup_times_pre_toggle = get_all_warmup_times(todays_wod, intensity)
     drom_prescribed_time = all_warmup_times_pre_toggle['drom_time']
     all_warmup_times_plus_toggles = check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle)
-    selected_droms = pop_and_select(drom_tally_organized_dict, drom_tally_organized_times_list, drom_tally_organized_times_sum, drom_prescribed_time)
+    selected_droms = pop_and_select(drom_tally_organized_dict, drom_tally_organized_times_list,
+                                    drom_tally_organized_times_sum, drom_prescribed_time)
 
-    return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod,'intensity': intensity,
+    return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod, 'intensity': intensity,
             'has kb exercise': has_kb_exercise,
             'has barbell exercise': has_barbell_exercise,
-            'has_tough_gymnastics': has_tough_gymnastics, 'todays_wod_toggles':todays_wod_toggles,'DROM CALCULATIONS: ''mov_cat': mov_cat,
+            'has_tough_gymnastics': has_tough_gymnastics, 'todays_wod_toggles': todays_wod_toggles,
+            'DROM CALCULATIONS: ''mov_cat': mov_cat,
             'todays possible droms': todays_possible_droms, 'drom tally organized dict': drom_tally_organized_dict,
             'drom tally organized times list': drom_tally_organized_times_list,
             'drom tally organized times sum': drom_tally_organized_times_sum,
-            'drom prescribed time': drom_prescribed_time,'SELECTED DROMS: ': selected_droms
+            'drom prescribed time': drom_prescribed_time, 'SELECTED DROMS: ': selected_droms
             }
     ## line32: if i have more processing to do, maybe make another function (get_best_warmups_EVER to summarize, return, print it)
 
@@ -121,27 +134,23 @@ def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
 
 def check_kb_exercise(todays_wod):
     # print(todays_wod)
-    x = remove_none_from_todays_wod(todays_wod)
-    for wod in x:
+    for wod in todays_wod:
         # print(wod)
         if exercises[wod]['loaded'] == 'kb':
             return True
 
 
 def check_barbell_exercise(todays_wod):
-    x = remove_none_from_todays_wod(todays_wod)
-    for wod in x:
+    for wod in todays_wod:
         if exercises[wod]['loaded'] == 'barbell':
             return True
 
 
 def check_tough_gymnastics(todays_wod):
-    x = remove_none_from_todays_wod(todays_wod)
     words = ['pistol', 'pistols', 'handstand', 'pull up', 'pull ups', 'kipping', 'ring', 'muscle up']
-    check = any(item in words for item in x)
+    check = any(item in words for item in todays_wod)
     if check:
         return True
-
 
 
 def get_cat_from_todays_wod(todays_wod):
@@ -182,6 +191,7 @@ def get_times_of_organized_drom_tally_list(ordered_tally):
                 tally_of_warmups_times.append(v2['time'])
     return tally_of_warmups_times
 
+
 def pop_and_select(dictionary, organized_times_list, tally_organized_times_sum, prescribed_time):
     """
     dictionary = dict of ordered tally
@@ -198,7 +208,8 @@ def pop_and_select(dictionary, organized_times_list, tally_organized_times_sum, 
     return list(dictionary.keys())
 
 
-def get_sum_times_of_list(x):  ###ENDED CODING HERE. STARTING TO WORK ON FIGURING OUT HOW TO GET IDEAL TIME FOR WARMUP... ALSO TOTAL TIME... WRITE THIS OUT ON PAPER BEFORE GOING FARTHER
+def get_sum_times_of_list(
+        x):  ###ENDED CODING HERE. STARTING TO WORK ON FIGURING OUT HOW TO GET IDEAL TIME FOR WARMUP... ALSO TOTAL TIME... WRITE THIS OUT ON PAPER BEFORE GOING FARTHER
     """Sums any list of numbers"""
     sum_times = sum(x)
     return sum_times
@@ -295,44 +306,30 @@ def get_all_warmup_times(todays_wod, intensity):
         drom_time += 7
         print('FFF')
 
-
     all_warmup_time = (
             metcon_time + drom_time + gymnastics_time + barbell_time + kb_time + focused_gymnastics_time + focused_barbell_time + focused_kb_time)
 
-    all_warmup_times_pre_toggle = {'all_warmup_time': all_warmup_time, 'metcon_time': metcon_time, 'drom_time': drom_time,
-                        'gymanstics_time':gymnastics_time, 'barbell_time':barbell_time, 'kb_time':kb_time,
-                        'focused_gymanstics_time':focused_gymnastics_time,'focused_barbell_time':focused_barbell_time,
-                        'focused_kb_time':focused_kb_time
-                        }
+    all_warmup_times_pre_toggle = {'all_warmup_time': all_warmup_time, 'metcon_time': metcon_time,
+                                   'drom_time': drom_time,
+                                   'gymanstics_time': gymnastics_time, 'barbell_time': barbell_time, 'kb_time': kb_time,
+                                   'focused_gymanstics_time': focused_gymnastics_time,
+                                   'focused_barbell_time': focused_barbell_time,
+                                   'focused_kb_time': focused_kb_time
+                                   }
     return all_warmup_times_pre_toggle
+
 
 ##JORDAN I CANT FIGURE OUT HOW TO ITERATE EACH ONE OF THESE. THIS IS UGLY BUT WORKS.
 
 def check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle):
     """Adds appropriate times if toggles are engaged"""
 
-    todays_wod_empties_and_list = list(xstr(todays_wod))
-    todays_wod_empties = str(xstr(todays_wod))
-    # print(x)
-    breakpoint()
-    # for i in range(5):
-    #     for wod in x:
-    #         for k,v in exercises.items():
-    #             if wod == k:
-    #                 loaded_value = v['loaded']
 
-    for wod in todays_wod_empties_and_list:
-        print(wod)
-        movement = exercises.get(wod)
-        print(f'MOVEMENT EQUALS: ', movement)
-        # breakpoint()
-        loaded_value = str(movement.get('loaded'))
-        # print('LOADED VALUE EQUALS: ', loaded_value)
 
-        print(loaded_value)
-
-    #
-    for i in range(5):
+    for i in range(len(todays_wod)):
+        xxx = exercises.get(todays_wod[i])
+        loaded_value = xxx.get('loaded')
+        breakpoint()
         if todays_wod_toggles[i] == 'Yes':
             if loaded_value == 'kb':
                 print(all_warmup_times_pre_toggle['focused_kb_time'])
@@ -352,15 +349,6 @@ def check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_
         all_warmup_times_post_toggle = all_warmup_times_pre_toggle
 
     return all_warmup_times_post_toggle
-
-
-
-
-
-
-
-
-
 
 
 # DUMMY FUNCTIONS todo: Fill out these dummy functions!
@@ -437,20 +425,7 @@ def prioritize_pop_droms():
 #
 
 ########################################   @ APP ROUTES  @   #########################################################
-
-def xstr(todays_wod):
-    todays_wod_edit = []
-# for i in range(5):
-    for wod in todays_wod:
-        print(wod)
-        if wod is None:
-            todays_wod_edit.append('')
-            print('sureeee')
-        else:
-            todays_wod_edit.append(str(wod))
-            print('nnahhhh')
-    return todays_wod_edit
-
+# TODO: add fuzzy functionality
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
@@ -468,14 +443,7 @@ def first_page():
         exercise4_toggle = request.form['exercise4_toggle']
         exercise5_toggle = request.form['exercise5_toggle']
 
-
-
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
-
-
-        print(todays_wod)
-
-
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
         warmups_compiled = get_droms_compiled(intensity, todays_wod, todays_wod_toggles)
 
