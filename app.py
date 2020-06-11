@@ -2,6 +2,8 @@
 ## Fill out more dummy functions to make them actually work
 ## line32: if i have more processing to do, maybe make another function (get_best_warmups_EVER to summarize, return, print it)
 
+#TODO: make dropdowns for input
+
 from getters import *
 from filters import *
 from checks import *
