@@ -1,3 +1,5 @@
+from exercises_dataset import *
+from checks import *
 
 def check_kb_exercise(todays_wod):
     # print(todays_wod)
@@ -25,7 +27,7 @@ def check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_
     for i in range(len(todays_wod)):
         xxx = exercises.get(todays_wod[i])
         loaded_value = xxx.get('loaded')
-        breakpoint()
+        # breakpoint()
         if todays_wod_toggles[i] == 'Yes':
             if loaded_value == 'kb':
                 print(all_warmup_times_pre_toggle['focused_kb_time'])

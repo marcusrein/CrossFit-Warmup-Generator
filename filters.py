@@ -1,3 +1,5 @@
+
+
 def pop_and_select(dictionary, organized_times_list, tally_organized_times_sum, prescribed_time):
     """
     dictionary = dict of ordered tally

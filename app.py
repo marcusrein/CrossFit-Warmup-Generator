@@ -5,17 +5,12 @@
 from getters import *
 from filters import *
 from checks import *
-import warmups_dataset
-import exercises_dataset
+
+from exercises_dataset import *
 from fuzzywuzzy import fuzz
 from flask import Flask, render_template, request
 
-exercises = exercises_dataset.get_exercises()
-warmups = warmups_dataset.get_warmups()
-warmup_metcons = warmups_dataset.get_warmup_metcons()
-
 app = Flask(__name__)
-
 
 ########################################   @ FUNCTIONS  @   #########################################################
 
@@ -63,14 +58,7 @@ def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
             'drom prescribed time': drom_prescribed_time, 'SELECTED DROMS: ': selected_droms
             }
 
-
-
-
-
-
-
 ########################################   @ APP ROUTES  @   #########################################################
-# TODO: add fuzzy functionality
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
@@ -99,42 +87,7 @@ def first_page():
         return render_template('index.html')
 
 
-@app.route('/get_exercises', methods=['GET', 'POST'])
-def second_page():
-    global exercise1
-    global exercise2
-    if request.method == 'POST':
-        exercise1 = request.form['exercise1_form']
-        exercise2 = request.form['exercise2_form']
-
-        return render_template('tester.html', exercise1=exercise1, exercise2=exercise2)
-
-    else:
-        return render_template('tester2.html')
-
-
-#         time_prompt = request.form['time_prompt']
-#         exercise1 = request.args.get('exercise_1')
-#         exercise2 = request.args.get('exercise_2')
-#         return render_template('tester.html', exercise1=exercise1, exercise2=exercise2, time_prompt=time_prompt)
-#
-#     else:
-#         return render_template('say_time.html')
-
-# '''<h4>The first exercise is {} and its interals are {}<h4>
-# <h4>The second exercise is {} and its internals are {}<h4>'''.format(exercise1, exercises[exercise1], exercise2, exercises[exercise2])
-
 if __name__ == '__main__':
     app.run(debug=True)
 
-########################################### UNUSED CODE ##############################################
 
-
-# warmups = []
-# for wod in todays_wod:
-#     x = get_warmup_info(wod,intensity)
-#     warmups.append(x)
-# print(intensity)
-# print(todays_wod)
-# print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
-# return [{'warmup_name':'air squats', 'time': '2min'},{'warmup_name':'walking lunges', 'time':'1min'}]

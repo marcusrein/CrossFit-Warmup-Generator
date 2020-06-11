@@ -1,5 +1,6 @@
-
-
+from exercises_dataset import *
+from warmups_dataset import *
+from checks import *
 
 def get_cat_from_todays_wod(todays_wod):
     todays_cat = []
