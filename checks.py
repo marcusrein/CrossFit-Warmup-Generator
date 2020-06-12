@@ -30,9 +30,9 @@ def check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_
         # breakpoint()
         if todays_wod_toggles[i] == 'Yes':
             if loaded_value == 'kb':
-                all_warmup_times_pre_toggle['focused_kb_time'] += 5
+                all_warmup_times_pre_toggle['focused_kb_time'] += 3
             elif loaded_value == 'barbell':
-                all_warmup_times_pre_toggle['focused_barbell_time'] += 10
+                all_warmup_times_pre_toggle['focused_barbell_time'] += 5
             elif loaded_value == False and check_tough_gymnastics(todays_wod) == True:
                 all_warmup_times_pre_toggle['focused_gymanstics_time'] += 8
 
