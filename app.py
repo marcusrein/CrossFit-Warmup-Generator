@@ -17,21 +17,6 @@ app = Flask(__name__)
 ########################################   @ FUNCTIONS  @   #########################################################
 
 
-def check_exercise_fuzz_80(exercise1_prefuzz):
-    for j in list(exercises.keys()):
-        if (fuzz.ratio(exercise1_prefuzz, j)) > 80:
-            return j
-
-
-def remove_none_from_todays_wod(todays_wod):
-    """Remove "none" from todays_wod to clean it up"""
-    cleaned_array = []
-    for wod in todays_wod:
-        if wod != None:
-            cleaned_array.append(wod)
-    return cleaned_array
-
-
 def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
     """This is a function that compiles DROMS for viewing."""
     todays_wod = remove_none_from_todays_wod(todays_wod)

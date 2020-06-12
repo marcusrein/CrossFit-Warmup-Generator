@@ -1,10 +1,26 @@
 from exercises_dataset import *
 from checks import *
+from fuzzywuzzy import fuzz
+
+
+
+def check_exercise_fuzz_80(exercise1_prefuzz):
+    for j in list(exercises.keys()):
+        if (fuzz.ratio(exercise1_prefuzz, j)) > 80:
+            return j
+
+
+def remove_none_from_todays_wod(todays_wod):
+    """Remove "none" from todays_wod to clean it up"""
+    cleaned_array = []
+    for wod in todays_wod:
+        if wod != None:
+            cleaned_array.append(wod)
+    return cleaned_array
+
 
 def check_kb_exercise(todays_wod):
-    # print(todays_wod)
     for wod in todays_wod:
-        # print(wod)
         if exercises[wod]['loaded'] == 'kb':
             return True
 
@@ -21,13 +37,16 @@ def check_tough_gymnastics(todays_wod):
     if check:
         return True
 
+
+#TODO: if equal tallies in drom_tally_organized_dict, randomize that grouping of numbers
+
+
 def check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle):
     """Adds appropriate times if toggles are engaged"""
 
     for i in range(len(todays_wod)):
         xxx = exercises.get(todays_wod[i])
         loaded_value = xxx.get('loaded')
-        # breakpoint()
         if todays_wod_toggles[i] == 'Yes':
             if loaded_value == 'kb':
                 all_warmup_times_pre_toggle['focused_kb_time'] += 3
