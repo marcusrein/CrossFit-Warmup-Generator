@@ -20,14 +20,15 @@ def get_possible_droms_from_mov_cat(mov_cat):
     return possible_warmups
 
 
-def get_organized_drom_tally_dict(possible_warmups):
+def get_organized_drom_tally_dict(todays_possible_droms):
     tally_of_warmups = {}
-    for w in possible_warmups:
+    for w in todays_possible_droms:
         if w in tally_of_warmups:
             tally_of_warmups[w] += 1
         else:
             tally_of_warmups[w] = 1
     ordered_tally = {k: v for k, v in sorted(tally_of_warmups.items(), key=lambda item: item[1], reverse=True)}
+    breakpoint()
     return ordered_tally
 
 

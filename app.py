@@ -35,9 +35,13 @@ def remove_none_from_todays_wod(todays_wod):
 def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
     """This is a function that compiles DROMS for viewing."""
     todays_wod = remove_none_from_todays_wod(todays_wod)
+
+    ##CHECKS##
     has_kb_exercise = check_kb_exercise(todays_wod)
     has_barbell_exercise = check_barbell_exercise(todays_wod)
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
+
+    ##GETTERS##
     mov_cat = get_cat_from_todays_wod(todays_wod)
     todays_possible_droms = get_possible_droms_from_mov_cat(mov_cat)
     drom_tally_organized_dict = get_organized_drom_tally_dict(todays_possible_droms)
@@ -54,7 +58,7 @@ def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
             'has barbell exercise': has_barbell_exercise,
             'has_tough_gymnastics': has_tough_gymnastics, 'todays_wod_toggles': todays_wod_toggles,
             'DROM CALCULATIONS: ''mov_cat': mov_cat,
-            'todays possible droms': todays_possible_droms, 'drom tally organized dict': drom_tally_organized_dict,
+            'todays possible droms': todays_possible_droms, 'DROM TALLY ORGANIZED DICT': drom_tally_organized_dict,
             'drom tally organized times list': drom_tally_organized_times_list,
             'drom tally organized times sum': drom_tally_organized_times_sum,
             'drom prescribed time': drom_prescribed_time, 'SELECTED DROMS: ': selected_droms
