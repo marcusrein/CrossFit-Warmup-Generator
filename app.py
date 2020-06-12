@@ -58,6 +58,11 @@ def first_page():
 
     from exercises_dataset import exercises
 
+    exercise_keys = exercises.keys()
+
+    exercise_keys_range = len(exercise_keys)
+
+    # length_of_x = len(x)
     if request.method == 'POST':
         intensity = request.form['intensity_form']
 
@@ -77,7 +82,7 @@ def first_page():
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
         warmups_compiled = get_droms_compiled(intensity, todays_wod, todays_wod_toggles)
 
-        return render_template('index.html', warmups_compiled=warmups_compiled, exercises=exercises)
+        return render_template('index.html', warmups_compiled=warmups_compiled, exercise_keys=exercise_keys)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')

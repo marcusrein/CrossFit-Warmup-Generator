@@ -20,12 +20,13 @@
                 Trying out Dropdown Inputs
             </label>
             <select class="form-control" id="rating">
+            {% for i in exercise_keys %}
                 <option>
-                    {% for key in exercises.keys() %}
-                    {{ key }}
-                    {% endfor %}
+                {{ i }}
                 </option>
+            {% endfor %}
             </select>
+
         </div>
         <div>
             <label>
