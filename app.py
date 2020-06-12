@@ -86,7 +86,7 @@ def first_page():
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
-        return render_template('index.html')
+        return render_template('index.html', exercise_keys=exercise_keys)
 
 
 if __name__ == '__main__':

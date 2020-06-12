@@ -1,9 +1,12 @@
+
 <!DOCTYPE html>
 <html>
     <head>
         <body>
     <h1> Welcome to the Warmup Generator</h1>
     <h3> Input WOD info, get a warmup designed by a physical therapist/CF coach!</h3>
+    {{ exercise_keys }}
+
     <form method="POST" action="/">
         <div>
             <label>
@@ -19,97 +22,108 @@
             <label>
                 Exercise 1
             </label>
-            <select class="form-control" id="exercise1_" name="exercise1_form">
-            {% for i in exercise_keys %}
-                <option>
-                {{ i }}
-                </option>
-            {% endfor %}
-            </select>
+                <select class="form-control" id="exercise1_dropdown" name="exercise1_form">
+                {% for i in exercise_keys %}
+                    <option>
+                        {{ i }}
+                    </option>
+                {% endfor %}
+                </select>
             <label>
                 Check Box If Exercise Is Gnar Gnar
             </label>
-            <label class="switch">
-                <input id='exercise1_toggle' type='checkbox' value='Yes' name='exercise1_toggle'>
-                <input id='exercise1_toggle_hidden' type='hidden' value='No' name='exercise1_toggle'>
-                <span class="slider"></span>
-            </label>
-
+                <label class="switch">
+                    <input id='exercise1_toggle' type='checkbox' value='Yes' name='exercise1_toggle'>
+                    <input id='exercise1_toggle_hidden' type='hidden' value='No' name='exercise1_toggle'>
+                    <span class="slider"></span>
+                </label>
         </div>
         <div>
-<!--            <label>-->
-<!--                Exercise 1-->
-<!--            </label>-->
-<!--                <input type="text" name="exercise1_form">-->
-            <!-- Rectangular switch -->
-
         </div>
-        <div>
+         <div class="form-group">
             <label>
                 Exercise 2
             </label>
-            <input type="text" name="exercise2_form">
-            <!-- Rectangular switch -->
+                <select class="form-control" id="exercise2_dropdown" name="exercise2_form">
+                {% for i in exercise_keys %}
+                    <option>
+                        {{ i }}
+                    </option>
+                {% endfor %}
+                </select>
             <label>
                 Check Box If Exercise Is Gnar Gnar
             </label>
-            <label class="switch">
-                <input id='exercise2_toggle' type='checkbox' value='Yes' name='exercise2_toggle'>
-                <input id='exercise2_toggle_hidden' type='hidden' value='No' name='exercise2_toggle'>
-                <span class="slider"></span>
-            </label>
+                <label class="switch">
+                    <input id='exercise2_toggle' type='checkbox' value='Yes' name='exercise2_toggle'>
+                    <input id='exercise2_toggle_hidden' type='hidden' value='No' name='exercise2_toggle'>
+                    <span class="slider"></span>
+                </label>
         </div>
         <div>
+        </div>
+        <div class="form-group">
             <label>
                 Exercise 3
             </label>
-            <input type="text" name="exercise3_form">
-            <!-- Rectangular switch -->
+                <select class="form-control" id="exercise3_dropdown" name="exercise3_form">
+                {% for i in exercise_keys %}
+                    <option>
+                        {{ i }}
+                    </option>
+                {% endfor %}
+                </select>
             <label>
                 Check Box If Exercise Is Gnar Gnar
             </label>
-            <label class="switch">
-                <input id='exercise3_toggle' type='checkbox' value='Yes' name='exercise3_toggle'>
-                <input id='exercise3_toggle_hidden' type='hidden' value='No' name='exercise3_toggle'>
-                <span class="slider"></span>
-            </label>
+                <label class="switch">
+                    <input id='exercise3_toggle' type='checkbox' value='Yes' name='exercise3_toggle'>
+                    <input id='exercise3_toggle_hidden' type='hidden' value='No' name='exercise3_toggle'>
+                    <span class="slider"></span>
+                </label>
         </div>
         <div>
+        <div class="form-group">
             <label>
                 Exercise 4
             </label>
-            <input type="text" name="exercise4_form">
-            <!-- Rectangular switch -->
+                <select class="form-control" id="exercise4_dropdown" name="exercise4_form">
+                {% for i in exercise_keys %}
+                    <option>
+                        {{ i }}
+                    </option>
+                {% endfor %}
+                </select>
             <label>
                 Check Box If Exercise Is Gnar Gnar
             </label>
-            <label class="switch">
-                <input id='exercise4_toggle' type='checkbox' value='Yes' name='exercise4_toggle'>
-                <input id='exercise4_toggle_hidden' type='hidden' value='No' name='exercise4_toggle'>
-                <span class="slider"></span>
-            </label>
+                <label class="switch">
+                    <input id='exercise4_toggle' type='checkbox' value='Yes' name='exercise4_toggle'>
+                    <input id='exercise4_toggle_hidden' type='hidden' value='No' name='exercise4_toggle'>
+                    <span class="slider"></span>
+                </label>
         </div>
-        <div>
+        <div class="form-group">
             <label>
                 Exercise 5
             </label>
-            <input type="text" name="exercise5_form">
-            <!-- Rectangular switch -->
+                <select class="form-control" id="exercise5_dropdown" name="exercise5_form">
+                {% for i in exercise_keys %}
+                    <option>
+                        {{ i }}
+                    </option>
+                {% endfor %}
+                </select>
             <label>
                 Check Box If Exercise Is Gnar Gnar
             </label>
-            <label class="switch">
-                <input id='exercise5_toggle' type='checkbox' value='Yes' name='exercise5_toggle'>
-                <input id='exercise5_toggle_hidden' type='hidden' value='No' name='exercise5_toggle'>
-                <span class="slider"></span>
-            </label>
+                <label class="switch">
+                    <input id='exercise5_toggle' type='checkbox' value='Yes' name='exercise5_toggle'>
+                    <input id='exercise5_toggle_hidden' type='hidden' value='No' name='exercise5_toggle'>
+                    <span class="slider"></span>
+                </label>
         </div>
-<!--        <div>-->
-<!--            <label>-->
-<!--                What will be one movement you want to focus on in your workout?-->
-<!--            </label>-->
-<!--            <input type="text" name="focus">-->
-<!--        </div>-->
+
         <input type="submit" value="submit">
     </form>
 
