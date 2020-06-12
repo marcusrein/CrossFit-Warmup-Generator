@@ -7,6 +7,7 @@
 from getters import *
 from filters import *
 from checks import *
+from exercises_dataset import exercises
 
 from exercises_dataset import *
 from fuzzywuzzy import fuzz
@@ -54,8 +55,12 @@ def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
+
+    from exercises_dataset import exercises
+
     if request.method == 'POST':
         intensity = request.form['intensity_form']
+
         exercise1 = check_exercise_fuzz_80(request.form['exercise1_form'])
         exercise2 = check_exercise_fuzz_80(request.form['exercise2_form'])
         exercise3 = check_exercise_fuzz_80(request.form['exercise3_form'])
@@ -72,7 +77,7 @@ def first_page():
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
         warmups_compiled = get_droms_compiled(intensity, todays_wod, todays_wod_toggles)
 
-        return render_template('index.html', warmups_compiled=warmups_compiled)
+        return render_template('index.html', warmups_compiled=warmups_compiled, exercises=exercises)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
