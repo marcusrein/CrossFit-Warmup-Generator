@@ -59,10 +59,6 @@ def get_all_warmup_times(todays_wod, intensity):
     focused_barbell_time = 0
     focused_kb_time = 0
 
-    # print(check_focus_barbell(focus))
-    # print(check_barbell_exercise(todays_wod))
-    # print(check_tough_gymnastics(todays_wod))
-
     ## LOW GYMNASTICS ##
     if intensity == 'low' \
             and check_barbell_exercise(todays_wod) == True \
