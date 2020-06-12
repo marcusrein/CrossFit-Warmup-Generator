@@ -5,8 +5,6 @@
         <body>
     <h1> Welcome to the Warmup Generator</h1>
     <h3> Input WOD info, get a warmup designed by a physical therapist/CF coach!</h3>
-    {{ exercise_keys }}
-
     <form method="POST" action="/">
         <div>
             <label>
@@ -126,8 +124,10 @@
 
         <input type="submit" value="submit">
     </form>
+    <div>
+            {{ warmups_compiled }}
 
-    {{ warmups_compiled }}
+    </div>
 
     </body>
     </head>
