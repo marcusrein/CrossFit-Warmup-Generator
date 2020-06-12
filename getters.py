@@ -50,11 +50,16 @@ def get_sum_times_of_list(
 
 
 def get_all_warmup_times(todays_wod, intensity):
+
     metcon_time = 0
     drom_time = 0
+
     gymnastics_time = 0
     barbell_time = 0
     kb_time = 0
+
+    tough_gymnastics_time = 0
+
     focused_gymnastics_time = 0
     focused_barbell_time = 0
     focused_kb_time = 0
@@ -66,9 +71,9 @@ def get_all_warmup_times(todays_wod, intensity):
             and check_tough_gymnastics(todays_wod) == True:
         metcon_time += 2
         drom_time += 8
-        barbell_time += 5
+        barbell_time += 10
         kb_time += 5
-        focused_gymnastics_time += 10
+        tough_gymnastics_time += 10
         print('TTT')
 
     elif intensity == 'low' \
@@ -76,8 +81,8 @@ def get_all_warmup_times(todays_wod, intensity):
             and check_kb_exercise(todays_wod) == True \
             and check_tough_gymnastics(todays_wod) == None:
         metcon_time += 2
-        drom_time += 7
-        barbell_time += 5
+        drom_time += 8
+        barbell_time += 10
         kb_time += 5
         print('TTF')
 
@@ -86,9 +91,9 @@ def get_all_warmup_times(todays_wod, intensity):
             and check_kb_exercise(todays_wod) == None \
             and check_tough_gymnastics(todays_wod) == True:
         metcon_time += 2
-        drom_time += 7
-        barbell_time += 5
-        focused_gymnastics_time += 10
+        drom_time += 8
+        barbell_time += 10
+        tough_gymnastics_time += 10
         print('TFT')
 
     elif intensity == 'low' \
@@ -96,8 +101,8 @@ def get_all_warmup_times(todays_wod, intensity):
             and check_kb_exercise(todays_wod) == None \
             and check_tough_gymnastics(todays_wod) == None:
         metcon_time += 2
-        drom_time += 6
-        barbell_time += 5
+        drom_time += 8
+        barbell_time += 10
         print('TFF')
 
     elif intensity == 'low' \
@@ -105,9 +110,9 @@ def get_all_warmup_times(todays_wod, intensity):
             and check_kb_exercise(todays_wod) == True \
             and check_tough_gymnastics(todays_wod) == True:
         metcon_time += 2
-        drom_time += 6
+        drom_time += 8
         kb_time += 5
-        focused_gymnastics_time += 10
+        tough_gymnastics_time += 10
         print('FTT')
 
     elif intensity == 'low' \
@@ -115,7 +120,7 @@ def get_all_warmup_times(todays_wod, intensity):
             and check_kb_exercise(todays_wod) == True \
             and check_tough_gymnastics(todays_wod) == None:
         metcon_time += 2
-        drom_time += 6
+        drom_time += 8
         kb_time += 5
         print('FTF')
 
@@ -124,16 +129,16 @@ def get_all_warmup_times(todays_wod, intensity):
             and check_kb_exercise(todays_wod) == None \
             and check_tough_gymnastics(todays_wod) == True:
         metcon_time += 2
-        drom_time += 6
-        focused_gymnastics_time += 10
+        drom_time += 8
+        tough_gymnastics_time += 10
         print('FFT')
 
     elif intensity == 'low' \
             and check_barbell_exercise(todays_wod) == None \
             and check_kb_exercise(todays_wod) == None \
             and check_tough_gymnastics(todays_wod) == None:
-        metcon_time += 3
-        drom_time += 7
+        metcon_time += 2
+        drom_time += 8
         print('FFF')
 
     all_warmup_time = (
