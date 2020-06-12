@@ -28,7 +28,7 @@ def get_organized_drom_tally_dict(todays_possible_droms):
         else:
             tally_of_warmups[w] = 1
     ordered_tally = {k: v for k, v in sorted(tally_of_warmups.items(), key=lambda item: item[1], reverse=True)}
-    breakpoint()
+    # breakpoint()
     return ordered_tally
 
 

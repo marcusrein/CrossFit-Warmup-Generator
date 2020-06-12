@@ -9,8 +9,12 @@ def pop_and_select(dictionary, organized_times_list, tally_organized_times_sum, 
     return: selected list
     """
     x = tally_organized_times_sum
+
+    pop_dict = dictionary.copy()
+    pop_organized_time_list = organized_times_list.copy()
+
     while x > prescribed_time:
-        dictionary.popitem()
-        organized_times_list.pop()
-        x = sum(organized_times_list)
-    return list(dictionary.keys())
+        pop_dict.popitem()
+        pop_organized_time_list.pop()
+        x = sum(pop_organized_time_list)
+    return list(pop_dict.keys())

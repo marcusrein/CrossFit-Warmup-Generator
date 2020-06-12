@@ -45,6 +45,7 @@ def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
     mov_cat = get_cat_from_todays_wod(todays_wod)
     todays_possible_droms = get_possible_droms_from_mov_cat(mov_cat)
     drom_tally_organized_dict = get_organized_drom_tally_dict(todays_possible_droms)
+    # breakpoint()
     drom_tally_organized_times_list = get_times_of_organized_drom_tally_list(drom_tally_organized_dict)
     drom_tally_organized_times_sum = get_sum_times_of_list(drom_tally_organized_times_list)
     all_warmup_times_pre_toggle = get_all_warmup_times(todays_wod, intensity)
@@ -52,6 +53,7 @@ def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
     all_warmup_times_plus_toggles = check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle)
     selected_droms = pop_and_select(drom_tally_organized_dict, drom_tally_organized_times_list,
                                     drom_tally_organized_times_sum, drom_prescribed_time)
+    breakpoint()
 
     return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod, 'intensity': intensity,
             'has kb exercise': has_kb_exercise,
