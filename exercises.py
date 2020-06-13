@@ -1,5 +1,5 @@
-def get_exercises():
-    return new_exercise_dict
+# def get_exercises():
+#     return new_exercise_dict
 
 
 

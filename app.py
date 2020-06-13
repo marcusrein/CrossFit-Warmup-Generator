@@ -6,6 +6,7 @@
 
 from getters import *
 from checks import *
+from droms import *
 # from fuzzywuzzy import fuzz
 from flask import Flask, render_template, request
 
@@ -15,7 +16,7 @@ app = Flask(__name__)
 def first_page():
 
     from exercises import exercises
-
+    from droms import droms
     exercise_keys = exercises.keys()
 
     exercise_keys_range = len(exercise_keys)
@@ -38,7 +39,7 @@ def first_page():
 
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
-        warmups_compiled = get_movements_compiled(intensity, todays_wod, todays_wod_toggles)
+        warmups_compiled = get_movements_compiled(intensity, todays_wod, todays_wod_toggles, droms)
 
         return render_template('index.html', warmups_compiled=warmups_compiled, exercise_keys=exercise_keys)
 
