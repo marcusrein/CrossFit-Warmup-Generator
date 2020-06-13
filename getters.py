@@ -166,6 +166,15 @@ def get_all_movement_times(todays_wod, intensity):
     return all_warmup_times_pre_toggle
 
 
+def get_metcon_reps(selected_metcon):
+    metcon_reps = []
+
+    y = metcons.get(selected_metcon)
+    # z = selected_metcon[y]
+    z = y.get('reps')
+    final = random.choice(z)
+    return final
+
 
 def get_movements_compiled(intensity, todays_wod, todays_wod_toggles, dictionary, movement_time):
     """This is a function that compiles DROMS for viewing."""
@@ -177,7 +186,7 @@ def get_movements_compiled(intensity, todays_wod, todays_wod_toggles, dictionary
     has_barbell_exercise = check_barbell_exercise(todays_wod)
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
 
-    ##DROM GETTERS##
+    ##GETTERS##
     mov_cat = get_cat_from_todays_wod(todays_wod, exercises)
     todays_possible_movements = get_possible_movements_from_mov_cat(mov_cat, dictionary)
     tally_organized_dict = get_organized_tally_dict(todays_possible_movements)

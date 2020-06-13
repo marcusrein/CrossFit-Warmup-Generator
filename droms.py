@@ -94,18 +94,6 @@ droms = {
         'reps': ['10 seal walks forward, turn around, 10 back', '20 seal walks forward, turn around, 20 back'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
     },
-    'broad jump': {
-        'categories': ['cleans', 'jerks', 'snatches', 'gymnastics lower'],
-        'time': 2,
-        'reps': ['15 reps,', '20 reps'],
-        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-    },
-    'vertical jump': {
-        'categories': ['cleans', 'jerks', 'snatches', 'gymnastics lower'],
-        'time': 2,
-        'reps': ['15 reps,', '20 reps'],
-        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-    },
     'push ups': {
         'categories': ['jerks', 'snatches', 'presses', 'gymnastics upper'],
         'time': 2,

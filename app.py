@@ -17,11 +17,12 @@ def first_page():
 
     from exercises import exercises
     from droms import droms
+
     exercise_keys = exercises.keys()
+
     metcon_time = 'metcon_time'
     drom_time = 'drom_time'
 
-    exercise_keys_range = len(exercise_keys)
 
     # length_of_x = len(x)
     if request.method == 'POST':
@@ -42,10 +43,17 @@ def first_page():
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
 
-        metcons_compiled = get_movements_compiled(intensity, todays_wod, todays_wod_toggles, metcons, metcon_time)
-        droms_compiled = get_movements_compiled(intensity, todays_wod, todays_wod_toggles, droms, drom_time)
 
-        return render_template('index.html', droms_compiled=droms_compiled, metcons_compiled=metcons_compiled, exercise_keys=exercise_keys)
+        metcons_compiled = get_movements_compiled(intensity, todays_wod, todays_wod_toggles, metcons, metcon_time)
+        selected_metcon = metcons_compiled.get('SELECTED MOVEMENTS: ')
+        cleaned_metcon_reps = ''.join(str(x) for x in selected_metcon)
+        metcon_reps = get_metcon_reps(cleaned_metcon_reps)
+
+        droms_compiled = get_movements_compiled(intensity, todays_wod, todays_wod_toggles, droms, drom_time)
+        selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
+
+
+        return render_template('index.html', droms_compiled=droms_compiled, metcons_compiled=metcons_compiled, metcon_reps=metcon_reps, exercise_keys=exercise_keys)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
