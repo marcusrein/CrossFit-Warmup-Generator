@@ -26,7 +26,7 @@ def get_organized_drom_tally_dict(todays_possible_droms):
     """
 
     :param todays_possible_droms: inputs todays possible DROMs, tallys them, sorts them, partially randomizes them if their
-    values are equal, then sorts them again.
+    values are equal, then sorts them againnn.
     :return: organized (partially random if equal) dictionary of todays possible DROMS
     """
     tally_of_warmups = {}
