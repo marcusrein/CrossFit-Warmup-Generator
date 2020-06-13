@@ -20,7 +20,7 @@ exercises = {
 
     'burpee': {
         'category': 'gymnastics upper', 'gymnastics lower'
-                                        'intensity': 'high',
+        'intensity': 'high',
         'loaded': False
     },
 
@@ -43,7 +43,7 @@ exercises = {
 
     'mountain climber': {
         'category': 'gymnastics upper', 'gymnastics lower'
-                                        'intensity': 'high',
+        'intensity': 'high',
         'loaded': False
     },
 
