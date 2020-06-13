@@ -167,7 +167,7 @@ def get_all_movement_times(todays_wod, intensity):
 
 
 
-def get_movements_compiled(intensity, todays_wod, todays_wod_toggles, dictionary):
+def get_movements_compiled(intensity, todays_wod, todays_wod_toggles, dictionary, movement_time):
     """This is a function that compiles DROMS for viewing."""
     ##CLEANER##
     todays_wod = remove_none_from_todays_wod(todays_wod)
@@ -184,9 +184,9 @@ def get_movements_compiled(intensity, todays_wod, todays_wod_toggles, dictionary
     tally_organized_times_list = get_times_of_organized_tally_list(tally_organized_dict, dictionary)
     tally_organized_times_sum = get_sum_times_of_list(tally_organized_times_list)
     all_warmup_times_pre_toggle = get_all_movement_times(todays_wod, intensity)
-    prescribed_time = all_warmup_times_pre_toggle['drom_time']
+    prescribed_time = all_warmup_times_pre_toggle[str(movement_time)]
     all_warmup_times_plus_toggles = check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle)
-    selected_droms = pop_and_select(tally_organized_dict, tally_organized_times_list,
+    selected_movements = pop_and_select(tally_organized_dict, tally_organized_times_list,
                                     tally_organized_times_sum, prescribed_time)
 
     return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod, 'intensity': intensity,
@@ -194,9 +194,9 @@ def get_movements_compiled(intensity, todays_wod, todays_wod_toggles, dictionary
             'has barbell exercise': has_barbell_exercise,
             'has_tough_gymnastics': has_tough_gymnastics, 'todays_wod_toggles': todays_wod_toggles,
             'ALL WARMUP TIMES PLUS TOGGLES ': all_warmup_times_plus_toggles,
-            'DROM CALCULATIONS: ''mov_cat': mov_cat,
-            'todays possible droms': todays_possible_movements, 'DROM TALLY ORGANIZED DICT': tally_organized_dict,
-            'drom tally organized times list': tally_organized_times_list,
-            'drom tally organized times sum': tally_organized_times_sum,
-            'drom prescribed time': prescribed_time, 'SELECTED DROMS: ': selected_droms
+            'CALCULATIONS: ''mov_cat': mov_cat,
+            'todays possible movements': todays_possible_movements, 'TALLY ORGANIZED DICT': tally_organized_dict,
+            'tally organized times list': tally_organized_times_list,
+            'tally organized times sum': tally_organized_times_sum,
+            'prescribed time': prescribed_time, 'SELECTED MOVEMENTS: ': selected_movements
             }
