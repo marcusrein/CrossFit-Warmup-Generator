@@ -1,6 +1,7 @@
 from exercises_dataset import *
 from warmups_dataset import *
 from checks import *
+import random
 
 def get_cat_from_todays_wod(todays_wod):
     todays_cat = []
@@ -21,6 +22,12 @@ def get_possible_droms_from_mov_cat(mov_cat):
 
 
 def get_organized_drom_tally_dict(todays_possible_droms):
+    """
+
+    :param todays_possible_droms: inputs todays possible DROMs, tallys them, sorts them, partially randomizes them if their
+    values are equal, then sorts them again.
+    :return: organized (partially random if equal) dictionary of todays possible DROMS
+    """
     tally_of_warmups = {}
     for w in todays_possible_droms:
         if w in tally_of_warmups:
@@ -28,8 +35,48 @@ def get_organized_drom_tally_dict(todays_possible_droms):
         else:
             tally_of_warmups[w] = 1
     ordered_tally = {k: v for k, v in sorted(tally_of_warmups.items(), key=lambda item: item[1], reverse=True)}
+    ordered_tally_rand = ordered_tally
+    ordered_tally_rand_list = list(ordered_tally_rand.items())
+    random.shuffle(ordered_tally_rand_list)
+    ordered_tally_rand_dict = dict(ordered_tally_rand_list)
+    ordered_tally_rand_final = {k: v for k, v in sorted(ordered_tally_rand_dict.items(), key=lambda item: item[1], reverse=True)}
+
+
     # breakpoint()
-    return ordered_tally
+    return ordered_tally_rand_final
+
+
+
+# def get_rand_organized_drom_tally_dict(drom_tally_organized_dict):
+#     """
+#     :param drom_tally_organized_dict: has dict to partially randomize. if there are equal values in tally, this func
+#     randomizes the grouping
+#     :return: partially randomized dict for popping filter in the future
+#     """
+#
+#     ## If the values of multiple k,v pairs equal eachother, then make a new dicitonary of those key value pairs. Do that
+#     ## repeatedly until done. Randomize the mini dictionaries. Then combine the multiple dicitonaries into one big dictionary.
+#
+#     temp_dict_1 = {}
+#     temp_dict_2 = {}
+#     temp_dict_3 = {}
+#     temp_dict_4 = {}
+#     temp_dict_5 = {}
+#     temp_dict_6 = {}
+#     temp_dict_7 = {}
+#     temp_dict_8 = {}
+#     temp_dict_9 = {}
+#     temp_dict_10 = {}
+#
+#
+#     for k,v in drom_tally_organized_dict.items():
+#         temp_v = copy.copy(v)
+#         if v == temp_v:
+
+
+
+    rand_organized_drom_tally_dict = {}
+
 
 
 def get_times_of_organized_drom_tally_list(ordered_tally):
