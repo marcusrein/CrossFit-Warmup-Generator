@@ -14,7 +14,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
 
-    from exercises_dataset import exercises
+    from exercises import exercises
 
     exercise_keys = exercises.keys()
 

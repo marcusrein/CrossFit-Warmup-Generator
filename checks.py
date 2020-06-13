@@ -1,4 +1,4 @@
-from exercises_dataset import *
+from exercises import *
 from checks import *
 from fuzzywuzzy import fuzz
 

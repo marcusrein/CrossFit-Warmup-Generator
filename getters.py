@@ -1,5 +1,6 @@
-from exercises_dataset import *
-from warmups_dataset import *
+from exercises import *
+from droms import *
+from metcons import *
 from checks import *
 from filters import *
 import random
@@ -178,9 +179,9 @@ def get_movements_compiled(intensity, todays_wod, todays_wod_toggles):
 
     ##DROM GETTERS##
     mov_cat = get_cat_from_todays_wod(todays_wod, exercises)
-    todays_possible_droms = get_possible_movements_from_mov_cat(mov_cat, warmups)
+    todays_possible_droms = get_possible_movements_from_mov_cat(mov_cat, droms)
     drom_tally_organized_dict = get_organized_tally_dict(todays_possible_droms)
-    drom_tally_organized_times_list = get_times_of_organized_tally_list(drom_tally_organized_dict, warmups)
+    drom_tally_organized_times_list = get_times_of_organized_tally_list(drom_tally_organized_dict, droms)
     drom_tally_organized_times_sum = get_sum_times_of_list(drom_tally_organized_times_list)
     all_warmup_times_pre_toggle = get_all_movement_times(todays_wod, intensity)
     drom_prescribed_time = all_warmup_times_pre_toggle['drom_time']

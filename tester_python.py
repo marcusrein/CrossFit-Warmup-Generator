@@ -1,10 +1,10 @@
-import warmups_dataset
-import exercises_dataset
+import droms
+import exercises
 from fuzzywuzzy import fuzz
 
-exercises = exercises_dataset.get_exercises()
-warmups = warmups_dataset.get_warmups()
-warmup_metcons = warmups_dataset.get_warmup_metcons()
+exercises = exercises.get_exercises()
+warmups = droms.get_warmups()
+warmup_metcons = droms.get_warmup_metcons()
 
 #
 # def check_exercise_fuzz_80(exercise1_prefuzz):

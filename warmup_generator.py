@@ -14,15 +14,15 @@ from random import choice
 import random
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
-import exercises_dataset
-import warmups_dataset
+import exercises
+import droms
 
 spacing = ('---------------------------')
 big_spacing = ('\n---------------------------------\n')
 
-exercises = exercises_dataset.get_exercises()
-warmups = warmups_dataset.get_warmups()
-warmup_metcons = warmups_dataset.get_warmup_metcons()
+exercises = exercises.get_exercises()
+warmups = droms.get_warmups()
+warmup_metcons = droms.get_warmup_metcons()
 
 """ FUNCTION LIST"""
 

@@ -5,8 +5,6 @@ def get_exercises():
 
 exercises = {
 
-    ###METCONS
-
     ###GYMNASTICS
 
     'air squat': {
@@ -419,8 +417,3 @@ exercises = {
     },
 
 }
-
-##added in reg_warm default value to each exercise
-for k,v in exercises.items():
-    exercises[k]['reg_warm'] = 'https://www.youtube.com/watch?v=pCEpcIo-O4I'
-    new_exercise_dict = exercises
