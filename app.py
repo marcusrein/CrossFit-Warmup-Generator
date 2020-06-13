@@ -38,7 +38,7 @@ def first_page():
 
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
-        warmups_compiled = get_droms_compiled(intensity, todays_wod, todays_wod_toggles)
+        warmups_compiled = get_movements_compiled(intensity, todays_wod, todays_wod_toggles)
 
         return render_template('index.html', warmups_compiled=warmups_compiled, exercise_keys=exercise_keys)
 

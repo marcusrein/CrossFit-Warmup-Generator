@@ -4,19 +4,19 @@ from checks import *
 from filters import *
 import random
 
-def get_cat_from_todays_wod(todays_wod):
+def get_cat_from_todays_wod(todays_wod, dictionary):
     todays_cat = []
     for w in todays_wod:
-        for k, v in exercises.items():
+        for k, v in dictionary.items():
             if w == k:
                 todays_cat.append(v['category'])
     return todays_cat
 
 
-def get_possible_droms_from_mov_cat(mov_cat):
+def get_possible_movements_from_mov_cat(mov_cat, dictionary):
     possible_warmups = []
     for cat in mov_cat:
-        for k, v in warmups.items():
+        for k, v in dictionary.items():
             if cat in v['categories']:
                 possible_warmups.append(k)
     return possible_warmups
@@ -45,19 +45,18 @@ def get_organized_drom_tally_dict(todays_possible_droms):
     return ordered_tally_rand_final
 
 
-def get_times_of_organized_drom_tally_list(ordered_tally):
+def get_times_of_organized_tally_list(organized_tally, dictionary):
     """Puts times of organized warmup tally into a separate list"""
-    tally_of_warmups_times = []
-    for k, v in ordered_tally.items():
-        for k2, v2 in warmups.items():
+    tally_of_times = []
+    for k, v in organized_tally.items():
+        for k2, v2 in dictionary.items():
             if k == k2:
-                tally_of_warmups_times.append(v2['time'])
-    return tally_of_warmups_times
+                tally_of_times.append(v2['time'])
+    return tally_of_times
 
 
-def get_sum_times_of_list(
-        x):  ###ENDED CODING HERE. STARTING TO WORK ON FIGURING OUT HOW TO GET IDEAL TIME FOR WARMUP... ALSO TOTAL TIME... WRITE THIS OUT ON PAPER BEFORE GOING FARTHER
-    """Sums any list of numbers"""
+def get_sum_times_of_list(x):
+    """Sums any list of ints"""
     sum_times = sum(x)
     return sum_times
 
@@ -168,7 +167,7 @@ def get_all_warmup_times(todays_wod, intensity):
 
 
 
-def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
+def get_movements_compiled(intensity, todays_wod, todays_wod_toggles):
     """This is a function that compiles DROMS for viewing."""
     ##CLEANER##
     todays_wod = remove_none_from_todays_wod(todays_wod)
@@ -179,11 +178,10 @@ def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
 
     ##DROM GETTERS##
-    mov_cat = get_cat_from_todays_wod(todays_wod)
-    todays_possible_droms = get_possible_droms_from_mov_cat(mov_cat)
+    mov_cat = get_cat_from_todays_wod(todays_wod, exercises)
+    todays_possible_droms = get_possible_movements_from_mov_cat(mov_cat, warmups)
     drom_tally_organized_dict = get_organized_drom_tally_dict(todays_possible_droms)
-    # tester = get_rand_organized_drom_tally_dict(drom_tally_organized_dict)
-    drom_tally_organized_times_list = get_times_of_organized_drom_tally_list(drom_tally_organized_dict)
+    drom_tally_organized_times_list = get_times_of_organized_tally_list(drom_tally_organized_dict, warmups)
     drom_tally_organized_times_sum = get_sum_times_of_list(drom_tally_organized_times_list)
     all_warmup_times_pre_toggle = get_all_warmup_times(todays_wod, intensity)
     drom_prescribed_time = all_warmup_times_pre_toggle['drom_time']
