@@ -42,9 +42,10 @@ def first_page():
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
 
+        metcons_compiled = get_movements_compiled(intensity, todays_wod, todays_wod_toggles, metcons, metcon_time)
         droms_compiled = get_movements_compiled(intensity, todays_wod, todays_wod_toggles, droms, drom_time)
 
-        return render_template('index.html', droms_compiled=droms_compiled, exercise_keys=exercise_keys)
+        return render_template('index.html', droms_compiled=droms_compiled, metcons_compiled=metcons_compiled, exercise_keys=exercise_keys)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')

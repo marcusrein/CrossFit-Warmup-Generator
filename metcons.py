@@ -8,7 +8,7 @@ metcons = {
     },
     'row': {
         'categories': ['squats', 'cleans', 'gymnastics lower', 'gymnastics upper', 'snatches', 'deadlifts', 'kettlebells'],
-        'time': 3,
+        'time': 2,
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'reps': ['250m', '500m']
     },
