@@ -1,6 +1,7 @@
 from exercises_dataset import *
 from warmups_dataset import *
 from checks import *
+from filters import *
 import random
 
 def get_cat_from_todays_wod(todays_wod):
@@ -41,42 +42,7 @@ def get_organized_drom_tally_dict(todays_possible_droms):
     ordered_tally_rand_dict = dict(ordered_tally_rand_list)
     ordered_tally_rand_final = {k: v for k, v in sorted(ordered_tally_rand_dict.items(), key=lambda item: item[1], reverse=True)}
 
-
-    # breakpoint()
     return ordered_tally_rand_final
-
-
-
-# def get_rand_organized_drom_tally_dict(drom_tally_organized_dict):
-#     """
-#     :param drom_tally_organized_dict: has dict to partially randomize. if there are equal values in tally, this func
-#     randomizes the grouping
-#     :return: partially randomized dict for popping filter in the future
-#     """
-#
-#     ## If the values of multiple k,v pairs equal eachother, then make a new dicitonary of those key value pairs. Do that
-#     ## repeatedly until done. Randomize the mini dictionaries. Then combine the multiple dicitonaries into one big dictionary.
-#
-#     temp_dict_1 = {}
-#     temp_dict_2 = {}
-#     temp_dict_3 = {}
-#     temp_dict_4 = {}
-#     temp_dict_5 = {}
-#     temp_dict_6 = {}
-#     temp_dict_7 = {}
-#     temp_dict_8 = {}
-#     temp_dict_9 = {}
-#     temp_dict_10 = {}
-#
-#
-#     for k,v in drom_tally_organized_dict.items():
-#         temp_v = copy.copy(v)
-#         if v == temp_v:
-
-
-
-    rand_organized_drom_tally_dict = {}
-
 
 
 def get_times_of_organized_drom_tally_list(ordered_tally):
@@ -199,3 +165,40 @@ def get_all_warmup_times(todays_wod, intensity):
                                    'focused_kb_time': focused_kb_time
                                    }
     return all_warmup_times_pre_toggle
+
+
+
+def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
+    """This is a function that compiles DROMS for viewing."""
+    ##CLEANER##
+    todays_wod = remove_none_from_todays_wod(todays_wod)
+
+    ##CHECKS##
+    has_kb_exercise = check_kb_exercise(todays_wod)
+    has_barbell_exercise = check_barbell_exercise(todays_wod)
+    has_tough_gymnastics = check_tough_gymnastics(todays_wod)
+
+    ##DROM GETTERS##
+    mov_cat = get_cat_from_todays_wod(todays_wod)
+    todays_possible_droms = get_possible_droms_from_mov_cat(mov_cat)
+    drom_tally_organized_dict = get_organized_drom_tally_dict(todays_possible_droms)
+    # tester = get_rand_organized_drom_tally_dict(drom_tally_organized_dict)
+    drom_tally_organized_times_list = get_times_of_organized_drom_tally_list(drom_tally_organized_dict)
+    drom_tally_organized_times_sum = get_sum_times_of_list(drom_tally_organized_times_list)
+    all_warmup_times_pre_toggle = get_all_warmup_times(todays_wod, intensity)
+    drom_prescribed_time = all_warmup_times_pre_toggle['drom_time']
+    all_warmup_times_plus_toggles = check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle)
+    selected_droms = pop_and_select(drom_tally_organized_dict, drom_tally_organized_times_list,
+                                    drom_tally_organized_times_sum, drom_prescribed_time)
+
+    return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod, 'intensity': intensity,
+            'has kb exercise': has_kb_exercise,
+            'has barbell exercise': has_barbell_exercise,
+            'has_tough_gymnastics': has_tough_gymnastics, 'todays_wod_toggles': todays_wod_toggles,
+            'ALL WARMUP TIMES PLUS TOGGLES ': all_warmup_times_plus_toggles,
+            'DROM CALCULATIONS: ''mov_cat': mov_cat,
+            'todays possible droms': todays_possible_droms, 'DROM TALLY ORGANIZED DICT': drom_tally_organized_dict,
+            'drom tally organized times list': drom_tally_organized_times_list,
+            'drom tally organized times sum': drom_tally_organized_times_sum,
+            'drom prescribed time': drom_prescribed_time, 'SELECTED DROMS: ': selected_droms
+            }
