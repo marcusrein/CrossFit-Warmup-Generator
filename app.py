@@ -41,6 +41,7 @@ def first_page():
 
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
+
         droms_compiled = get_movements_compiled(intensity, todays_wod, todays_wod_toggles, droms, drom_time)
 
         return render_template('index.html', droms_compiled=droms_compiled, exercise_keys=exercise_keys)
