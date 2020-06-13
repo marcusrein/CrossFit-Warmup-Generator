@@ -6,12 +6,10 @@
 
 from getters import *
 from checks import *
-from fuzzywuzzy import fuzz
+# from fuzzywuzzy import fuzz
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-
-########################################   @ APP ROUTES  @   #########################################################
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():

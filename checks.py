@@ -38,12 +38,8 @@ def check_tough_gymnastics(todays_wod):
         return True
 
 
-#TODO: if equal tallies in drom_tally_organized_dict, randomize that grouping of numbers
-
-
 def check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle):
     """Adds appropriate times if toggles are engaged"""
-
     for i in range(len(todays_wod)):
         xxx = exercises.get(todays_wod[i])
         loaded_value = xxx.get('loaded')
