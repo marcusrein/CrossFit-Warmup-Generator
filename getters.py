@@ -22,20 +22,19 @@ def get_possible_movements_from_mov_cat(mov_cat, dictionary):
     return possible_warmups
 
 
-def get_organized_drom_tally_dict(todays_possible_droms):
+def get_organized_tally_dict(possible_movements):
     """
-
-    :param todays_possible_droms: inputs todays possible DROMs, tallys them, sorts them, partially randomizes them if their
+    :param possible_movements: inputs todays possible DROMs, tallys them, sorts them, partially randomizes them if their
     values are equal, then sorts them againnn.
     :return: organized (partially random if equal) dictionary of todays possible DROMS
     """
-    tally_of_warmups = {}
-    for w in todays_possible_droms:
-        if w in tally_of_warmups:
-            tally_of_warmups[w] += 1
+    tally_of_movements = {}
+    for w in possible_movements:
+        if w in tally_of_movements:
+            tally_of_movements[w] += 1
         else:
-            tally_of_warmups[w] = 1
-    ordered_tally = {k: v for k, v in sorted(tally_of_warmups.items(), key=lambda item: item[1], reverse=True)}
+            tally_of_movements[w] = 1
+    ordered_tally = {k: v for k, v in sorted(tally_of_movements.items(), key=lambda item: item[1], reverse=True)}
     ordered_tally_rand = ordered_tally
     ordered_tally_rand_list = list(ordered_tally_rand.items())
     random.shuffle(ordered_tally_rand_list)
@@ -61,7 +60,7 @@ def get_sum_times_of_list(x):
     return sum_times
 
 
-def get_all_warmup_times(todays_wod, intensity):
+def get_all_movement_times(todays_wod, intensity):
 
     metcon_time = 0
     drom_time = 0
@@ -180,10 +179,10 @@ def get_movements_compiled(intensity, todays_wod, todays_wod_toggles):
     ##DROM GETTERS##
     mov_cat = get_cat_from_todays_wod(todays_wod, exercises)
     todays_possible_droms = get_possible_movements_from_mov_cat(mov_cat, warmups)
-    drom_tally_organized_dict = get_organized_drom_tally_dict(todays_possible_droms)
+    drom_tally_organized_dict = get_organized_tally_dict(todays_possible_droms)
     drom_tally_organized_times_list = get_times_of_organized_tally_list(drom_tally_organized_dict, warmups)
     drom_tally_organized_times_sum = get_sum_times_of_list(drom_tally_organized_times_list)
-    all_warmup_times_pre_toggle = get_all_warmup_times(todays_wod, intensity)
+    all_warmup_times_pre_toggle = get_all_movement_times(todays_wod, intensity)
     drom_prescribed_time = all_warmup_times_pre_toggle['drom_time']
     all_warmup_times_plus_toggles = check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle)
     selected_droms = pop_and_select(drom_tally_organized_dict, drom_tally_organized_times_list,
