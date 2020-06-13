@@ -20,6 +20,7 @@ app = Flask(__name__)
 
 def get_droms_compiled(intensity, todays_wod, todays_wod_toggles):
     """This is a function that compiles DROMS for viewing."""
+    ##CLEANER##
     todays_wod = remove_none_from_todays_wod(todays_wod)
 
     ##CHECKS##
