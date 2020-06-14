@@ -78,9 +78,9 @@ def get_all_movement_times(todays_wod, intensity):
 
     ## LOW GYMNASTICS ##
     if intensity == 'low' \
-            and check_barbell_exercise(todays_wod) == True \
-            and check_kb_exercise(todays_wod) == True \
-            and check_tough_gymnastics(todays_wod) == True:
+            and check_barbell_exercise(todays_wod) \
+            and check_kb_exercise(todays_wod) \
+            and check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
         barbell_time += 10
@@ -89,9 +89,9 @@ def get_all_movement_times(todays_wod, intensity):
         print('TTT')
 
     elif intensity == 'low' \
-            and check_barbell_exercise(todays_wod) == True \
-            and check_kb_exercise(todays_wod) == True \
-            and check_tough_gymnastics(todays_wod) == None:
+            and check_barbell_exercise(todays_wod) \
+            and check_kb_exercise(todays_wod) \
+            and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
         barbell_time += 10
@@ -99,9 +99,9 @@ def get_all_movement_times(todays_wod, intensity):
         print('TTF')
 
     elif intensity == 'low' \
-            and check_barbell_exercise(todays_wod) == True \
-            and check_kb_exercise(todays_wod) == None \
-            and check_tough_gymnastics(todays_wod) == True:
+            and check_barbell_exercise(todays_wod) \
+            and not check_kb_exercise(todays_wod) \
+            and check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
         barbell_time += 10
@@ -109,18 +109,18 @@ def get_all_movement_times(todays_wod, intensity):
         print('TFT')
 
     elif intensity == 'low' \
-            and check_barbell_exercise(todays_wod) == True \
-            and check_kb_exercise(todays_wod) == None \
-            and check_tough_gymnastics(todays_wod) == None:
+            and check_barbell_exercise(todays_wod) \
+            and not check_kb_exercise(todays_wod) \
+            and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
         barbell_time += 10
         print('TFF')
 
     elif intensity == 'low' \
-            and check_barbell_exercise(todays_wod) == None \
-            and check_kb_exercise(todays_wod) == True \
-            and check_tough_gymnastics(todays_wod) == True:
+            and not check_barbell_exercise(todays_wod) \
+            and check_kb_exercise(todays_wod) \
+            and check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
         kb_time += 5
@@ -128,27 +128,27 @@ def get_all_movement_times(todays_wod, intensity):
         print('FTT')
 
     elif intensity == 'low' \
-            and check_barbell_exercise(todays_wod) == None \
-            and check_kb_exercise(todays_wod) == True \
-            and check_tough_gymnastics(todays_wod) == None:
+            and not check_barbell_exercise(todays_wod) \
+            and check_kb_exercise(todays_wod) \
+            and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
         kb_time += 5
         print('FTF')
 
     elif intensity == 'low' \
-            and check_barbell_exercise(todays_wod) == None \
-            and check_kb_exercise(todays_wod) == None \
-            and check_tough_gymnastics(todays_wod) == True:
+            and not check_barbell_exercise(todays_wod) \
+            and not check_kb_exercise(todays_wod) \
+            and check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
         tough_gymnastics_time += 10
         print('FFT')
 
     elif intensity == 'low' \
-            and check_barbell_exercise(todays_wod) == None \
-            and check_kb_exercise(todays_wod) == None \
-            and check_tough_gymnastics(todays_wod) == None:
+            and not check_barbell_exercise(todays_wod) \
+            and not check_kb_exercise(todays_wod) \
+            and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
         print('FFF')
