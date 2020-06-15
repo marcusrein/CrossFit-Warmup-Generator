@@ -23,7 +23,7 @@
                 {% endfor %}
                 </select>
             <label>
-                Check Box If Exercise Is Gnar Gnar
+                Check this box if the exercise will be challenging:
             </label>
                 <label class="switch">
                     <input id='exercise1_toggle' type='checkbox' value='Yes' name='exercise1_toggle'>
@@ -45,7 +45,7 @@
                 {% endfor %}
                 </select>
             <label>
-                Check Box If Exercise Is Gnar Gnar
+                Check this box if the exercise will be challenging:
             </label>
                 <label class="switch">
                     <input id='exercise2_toggle' type='checkbox' value='Yes' name='exercise2_toggle'>
@@ -67,7 +67,7 @@
                 {% endfor %}
                 </select>
             <label>
-                Check Box If Exercise Is Gnar Gnar
+                Check this box if the exercise will be challenging:
             </label>
                 <label class="switch">
                     <input id='exercise3_toggle' type='checkbox' value='Yes' name='exercise3_toggle'>
@@ -88,7 +88,7 @@
                 {% endfor %}
                 </select>
             <label>
-                Check Box If Exercise Is Gnar Gnar
+                Check this box if the exercise will be challenging:
             </label>
                 <label class="switch">
                     <input id='exercise4_toggle' type='checkbox' value='Yes' name='exercise4_toggle'>
@@ -108,7 +108,7 @@
                 {% endfor %}
                 </select>
             <label>
-                Check Box If Exercise Is Gnar Gnar
+                Check this box if the exercise will be challenging:
             </label>
                 <label class="switch">
                     <input id='exercise5_toggle' type='checkbox' value='Yes' name='exercise5_toggle'>
@@ -119,16 +119,16 @@
         <button type="submit" type="button" class="btn btn-secondary btn-lg" value="submit">Submit</button>
     </form>
     <div>
-<!--        <label>METCONS COMPILED</label>-->
-<!--            {{ metcons_compiled }}-->
-<!--            {{ metcon_reps }}-->
+        <label>METCONS COMPILED</label>
+            {{ metcons_compiled }}
+            {{ metcon_reps }}
     </div>
     <div>
         <p></p>
         <H3>Your Metabolic Warmup</H3>
         {% for metcon in selected_metcon %}
             <div class ="card-deck">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="max-width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">{{ metcon.title() }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">MetCon Warmup</h6>
@@ -136,29 +136,36 @@
                         <a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a>
                     </div>
+                </div>
         {% endfor %}
 
-                </div>
             </div>
     <p></p>
+        <div>
+            <label>DROMS COMPILED</label>
+            {{ droms_compiled }}
+        </div>
     <div>
          <p></p>
         <H3>Your Dynamic Range of Motion Warmup</H3>
-        <div>
+        <div class="row row-cols-1 row-cols-md-3">
         {% for drom in selected_droms %}
-            <div class ="card-deck">
-            <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">{{ drom.title() }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">DROM</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
+            <div class ="col mb-4">
+                <div class="card" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ drom.title() }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">DROM</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
             </div>
+
         {% endfor %}
 
     </div>
+
 
     </body>
 </html>
