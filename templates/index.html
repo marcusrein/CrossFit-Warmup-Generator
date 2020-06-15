@@ -9,23 +9,13 @@
     </head>
     <body>
     <h1 class="container"> Welcome to the Warmup Generator</h1>
-    <h3 class="container"> Input WOD info, get a warmup designed by a physical therapist/CF coach!</h3>
+    <h3 class="container"><small class="text-muted">Input WOD info, get a warmup designed by a physical therapist/CF coach!</h3> </small>
     <form method="POST" action="/" class="container">
-<!--        <div>-->
-<!--            <label>-->
-<!--            How Intense Will Your Workout Be?-->
-<!--            </label>-->
-<!--            <select name="intensity_form">-->
-<!--                <option value="low"> Low </option>-->
-<!--                <option value="medium"> Medium </option>-->
-<!--                <option value="high"> High </option>-->
-<!--            </select>-->
-<!--        </div>-->
         <div class="form-group">
             <label>
                 Exercise 1
             </label>
-                <select class="form-control" id="exercise1_dropdown" name="exercise1_form">
+                <select class="form-control" class="container-md" id="exercise1_dropdown" name="exercise1_form">
                 {% for i in exercise_keys %}
                     <option>
                         {{ i }}
@@ -126,8 +116,7 @@
                     <span class="slider"></span>
                 </label>
         </div>
-
-        <input type="submit" value="submit">
+        <button type="submit" type="button" class="btn btn-secondary btn-lg" value="submit">Submit</button>
     </form>
     <div>
         <label>METCONS COMPILED</label>

@@ -3,7 +3,6 @@ from checks import *
 from fuzzywuzzy import fuzz
 
 
-
 def check_exercise_fuzz_80(exercise1_prefuzz):
     for j in list(exercises.keys()):
         if (fuzz.ratio(exercise1_prefuzz, j)) > 80:

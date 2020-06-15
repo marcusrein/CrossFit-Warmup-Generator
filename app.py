@@ -2,7 +2,7 @@
 ## Fill out more dummy functions to make them actually work
 ## line32: if i have more processing to do, maybe make another function (get_best_warmups_EVER to summarize, return, print it)
 
-#TODO: make it pretty with boostrap
+# TODO: make it pretty with boostrap
 
 from getters import *
 from checks import *
@@ -12,9 +12,9 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
-
     from exercises import exercises
     from droms import droms
 
@@ -22,7 +22,6 @@ def first_page():
 
     metcon_time = 'metcon_time'
     drom_time = 'drom_time'
-
 
     # length_of_x = len(x)
     if request.method == 'POST':
@@ -43,7 +42,6 @@ def first_page():
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
 
-
         metcons_compiled = get_movements_compiled(todays_wod, todays_wod_toggles, metcons, metcon_time)
         selected_metcon = metcons_compiled.get('SELECTED MOVEMENTS: ')
         cleaned_metcon_reps = ''.join(str(x) for x in selected_metcon)
@@ -52,8 +50,8 @@ def first_page():
         droms_compiled = get_movements_compiled(todays_wod, todays_wod_toggles, droms, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
 
-
-        return render_template('index.html', droms_compiled=droms_compiled, metcons_compiled=metcons_compiled, metcon_reps=metcon_reps, exercise_keys=exercise_keys)
+        return render_template('index.html', droms_compiled=droms_compiled, metcons_compiled=metcons_compiled,
+                               metcon_reps=metcon_reps, exercise_keys=exercise_keys)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
@@ -62,5 +60,3 @@ def first_page():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
