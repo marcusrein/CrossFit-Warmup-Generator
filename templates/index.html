@@ -119,14 +119,31 @@
         <button type="submit" type="button" class="btn btn-secondary btn-lg" value="submit">Submit</button>
     </form>
     <div>
-        <label>METCONS COMPILED</label>
-            {{ metcons_compiled }}
-            {{ metcon_reps }}
+<!--        <label>METCONS COMPILED</label>-->
+<!--            {{ metcons_compiled }}-->
+<!--            {{ metcon_reps }}-->
     </div>
+    <div>
+        <p></p>
+        <H3>Your Metabolic Warmup</H3>
+        {% for metcon in selected_metcon %}
+            <div class ="card-deck">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ metcon.title() }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">MetCon Warmup</h6>
+                        <p class="card-text"> {{ metcon_reps }} </p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+        {% endfor %}
+
+                </div>
+            </div>
     <p></p>
     <div>
-        <label>DROMS COMPILED</label>
-            {{ droms_compiled }}
+         <p></p>
+        <H3>Your Dynamic Range of Motion Warmup</H3>
         <div>
         {% for drom in selected_droms %}
             <div class ="card-deck">

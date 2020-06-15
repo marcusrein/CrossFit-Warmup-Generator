@@ -50,7 +50,7 @@ def first_page():
         droms_compiled = get_movements_compiled(todays_wod, todays_wod_toggles, droms, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
 
-        return render_template('index.html', droms_compiled=droms_compiled, metcons_compiled=metcons_compiled,
+        return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
                                metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms)
 
     else:
