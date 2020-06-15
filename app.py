@@ -26,7 +26,7 @@ def first_page():
 
     # length_of_x = len(x)
     if request.method == 'POST':
-        intensity = request.form['intensity_form']
+        # intensity = request.form['intensity_form']
 
         exercise1 = check_exercise_fuzz_80(request.form['exercise1_form'])
         exercise2 = check_exercise_fuzz_80(request.form['exercise2_form'])
@@ -44,12 +44,12 @@ def first_page():
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
 
 
-        metcons_compiled = get_movements_compiled(intensity, todays_wod, todays_wod_toggles, metcons, metcon_time)
+        metcons_compiled = get_movements_compiled(todays_wod, todays_wod_toggles, metcons, metcon_time)
         selected_metcon = metcons_compiled.get('SELECTED MOVEMENTS: ')
         cleaned_metcon_reps = ''.join(str(x) for x in selected_metcon)
         metcon_reps = get_metcon_reps(cleaned_metcon_reps)
 
-        droms_compiled = get_movements_compiled(intensity, todays_wod, todays_wod_toggles, droms, drom_time)
+        droms_compiled = get_movements_compiled(todays_wod, todays_wod_toggles, droms, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
 
 

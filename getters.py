@@ -5,6 +5,7 @@ from checks import *
 from filters import *
 import random
 
+
 def get_cat_from_todays_wod(todays_wod, dictionary):
     todays_cat = []
     for w in todays_wod:
@@ -40,7 +41,8 @@ def get_organized_tally_dict(possible_movements):
     ordered_tally_rand_list = list(ordered_tally_rand.items())
     random.shuffle(ordered_tally_rand_list)
     ordered_tally_rand_dict = dict(ordered_tally_rand_list)
-    ordered_tally_rand_final = {k: v for k, v in sorted(ordered_tally_rand_dict.items(), key=lambda item: item[1], reverse=True)}
+    ordered_tally_rand_final = {k: v for k, v in
+                                sorted(ordered_tally_rand_dict.items(), key=lambda item: item[1], reverse=True)}
 
     return ordered_tally_rand_final
 
@@ -61,8 +63,7 @@ def get_sum_times_of_list(x):
     return sum_times
 
 
-def get_all_movement_times(todays_wod, intensity):
-
+def get_all_movement_times(todays_wod):
     metcon_time = 0
     drom_time = 0
 
@@ -77,8 +78,7 @@ def get_all_movement_times(todays_wod, intensity):
     focused_kb_time = 0
 
     ## LOW GYMNASTICS ##
-    if intensity == 'low' \
-            and check_barbell_exercise(todays_wod) \
+    if check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
@@ -87,9 +87,7 @@ def get_all_movement_times(todays_wod, intensity):
         kb_time += 5
         tough_gymnastics_time += 10
         print('TTT')
-
-    elif intensity == 'low' \
-            and check_barbell_exercise(todays_wod) \
+    elif check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
@@ -97,9 +95,7 @@ def get_all_movement_times(todays_wod, intensity):
         barbell_time += 10
         kb_time += 5
         print('TTF')
-
-    elif intensity == 'low' \
-            and check_barbell_exercise(todays_wod) \
+    elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
@@ -107,18 +103,14 @@ def get_all_movement_times(todays_wod, intensity):
         barbell_time += 10
         tough_gymnastics_time += 10
         print('TFT')
-
-    elif intensity == 'low' \
-            and check_barbell_exercise(todays_wod) \
+    elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
         barbell_time += 10
         print('TFF')
-
-    elif intensity == 'low' \
-            and not check_barbell_exercise(todays_wod) \
+    elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
@@ -126,27 +118,21 @@ def get_all_movement_times(todays_wod, intensity):
         kb_time += 5
         tough_gymnastics_time += 10
         print('FTT')
-
-    elif intensity == 'low' \
-            and not check_barbell_exercise(todays_wod) \
+    elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
         kb_time += 5
         print('FTF')
-
-    elif intensity == 'low' \
-            and not check_barbell_exercise(todays_wod) \
+    elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
         tough_gymnastics_time += 10
         print('FFT')
-
-    elif intensity == 'low' \
-            and not check_barbell_exercise(todays_wod) \
+    elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
@@ -176,7 +162,7 @@ def get_metcon_reps(selected_metcon):
     return final
 
 
-def get_movements_compiled(intensity, todays_wod, todays_wod_toggles, dictionary, movement_time):
+def get_movements_compiled(todays_wod, todays_wod_toggles, dictionary, movement_time):
     """This is a function that compiles DROMS for viewing."""
     ##CLEANER##
     todays_wod = remove_none_from_todays_wod(todays_wod)
@@ -192,13 +178,13 @@ def get_movements_compiled(intensity, todays_wod, todays_wod_toggles, dictionary
     tally_organized_dict = get_organized_tally_dict(todays_possible_movements)
     tally_organized_times_list = get_times_of_organized_tally_list(tally_organized_dict, dictionary)
     tally_organized_times_sum = get_sum_times_of_list(tally_organized_times_list)
-    all_warmup_times_pre_toggle = get_all_movement_times(todays_wod, intensity)
+    all_warmup_times_pre_toggle = get_all_movement_times(todays_wod)
     prescribed_time = all_warmup_times_pre_toggle[str(movement_time)]
     all_warmup_times_plus_toggles = check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle)
     selected_movements = pop_and_select(tally_organized_dict, tally_organized_times_list,
-                                    tally_organized_times_sum, prescribed_time)
+                                        tally_organized_times_sum, prescribed_time)
 
-    return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod, 'intensity': intensity,
+    return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod,
             'has kb exercise': has_kb_exercise,
             'has barbell exercise': has_barbell_exercise,
             'has_tough_gymnastics': has_tough_gymnastics, 'todays_wod_toggles': todays_wod_toggles,
