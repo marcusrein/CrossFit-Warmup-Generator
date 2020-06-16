@@ -52,12 +52,17 @@ def first_page():
         droms_compiled = get_movements_compiled(todays_wod, todays_wod_toggles, droms, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
 
-        img_test_drom = droms['bear crawls']['img']
+        img_list = []
+        for drom in selected_droms:
+            img_test_drom = droms[drom]['img']
+            img_list.append(img_test_drom)
+
+        tester_dict = dict(zip(selected_droms, img_list))
 
 
         return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
                                metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms,
-                               img_test_drom=img_test_drom)
+                               tester_dict=tester_dict)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')

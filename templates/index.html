@@ -149,14 +149,13 @@
          <p></p>
         <H3>Your Dynamic Range of Motion Warmup</H3>
         <div class="row row-cols-1 row-cols-md-3">
-        {% for drom in selected_droms %}
+        {% for k,v in tester_dict.items() %}
             <div class ="col mb-4">
                 <div class="card" style="max-width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">{{ drom.title() }}</h5>
+                        <h5 class="card-title">{{ k.title() }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">DROM</h6>
-                        <img class="card-img-top" src="cat.gif" alt="Card image cap">
-
+                        <img class="card-img-top" src="{{ v }}" alt="Card image cap" />
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a>
