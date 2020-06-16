@@ -9,6 +9,7 @@ from checks import *
 from droms import *
 # from fuzzywuzzy import fuzz
 from flask import Flask, render_template, request
+# from PIL import image
 
 app = Flask(__name__)
 
@@ -47,11 +48,16 @@ def first_page():
         cleaned_metcon_reps = ''.join(str(x) for x in selected_metcon)
         metcon_reps = get_metcon_reps(cleaned_metcon_reps)
 
+
         droms_compiled = get_movements_compiled(todays_wod, todays_wod_toggles, droms, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
 
+        img_test_drom = droms['bear crawls']['img']
+
+
         return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
-                               metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms)
+                               metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms,
+                               img_test_drom=img_test_drom)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')

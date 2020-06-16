@@ -6,6 +6,7 @@ droms = {
         'time': 2,
         'reps': ['2 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+        'img': '~/Users/MarcusMBP/PycharmProjects/flask_JJ/cat.gif'
 
     },
     'cossack lunges': {
