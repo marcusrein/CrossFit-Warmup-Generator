@@ -1,8 +1,3 @@
-## Meditate on this
-## Fill out more dummy functions to make them actually work
-## line32: if i have more processing to do, maybe make another function (get_best_warmups_EVER to summarize, return, print it)
-
-# TODO: make it pretty with boostrap
 
 from getters import *
 from checks import *
@@ -41,15 +36,17 @@ def first_page():
         exercise5_toggle = request.form['exercise5_toggle']
 
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
-        todays_wod_toggles = [exercise1_toggle, exercise2_toggle, exercise3_toggle, exercise4_toggle, exercise5_toggle]
+        todays_wod_toggles = [exercise1_toggle, exercise2_toggle,
+                              exercise3_toggle, exercise4_toggle, exercise5_toggle]
 
-        metcons_compiled = get_movements_compiled(todays_wod, todays_wod_toggles, metcons, metcon_time)
+        metcons_compiled = get_movements_compiled(
+            todays_wod, todays_wod_toggles, metcons, metcon_time)
         selected_metcon = metcons_compiled.get('SELECTED MOVEMENTS: ')
         cleaned_metcon_reps = ''.join(str(x) for x in selected_metcon)
         metcon_reps = get_metcon_reps(cleaned_metcon_reps)
 
-
-        droms_compiled = get_movements_compiled(todays_wod, todays_wod_toggles, droms, drom_time)
+        droms_compiled = get_movements_compiled(
+            todays_wod, todays_wod_toggles, droms, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
 
         img_list = []
@@ -58,7 +55,6 @@ def first_page():
             img_list.append(img_test_drom)
 
         tester_dict = dict(zip(selected_droms, img_list))
-
 
         return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
                                metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms,
