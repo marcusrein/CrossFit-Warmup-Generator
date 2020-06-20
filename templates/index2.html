@@ -5,17 +5,10 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.26.0/slimselect.min.js">
-        new SlimSelect({
-          select: '#slim-select'
-        })</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.26.0/slimselect.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.26.0/slimselect.min.css" rel="stylesheet"></link>
     </head>
-    <select id="slim-select">
-<option value="value 1">Value 1</option>
-<option value="value 2">Value 2</option>
-<option value="value 3">Value 3</option>
-</select>
+
     <body>
     <h1 class="container"> Welcome to the Warmup Generator!</h1>
     <h3 class="container"><small class="text-muted">Input WOD info, get a warmup designed by a physical therapist/CF coach!</h3> </small>
@@ -24,7 +17,7 @@
             <label>
                 Exercise 1
             </label>
-                <select class="form-control" class="container-md" id="exercise1_dropdown" name="exercise1_form">
+                <select id="slim-select1" name="exercise1_form">
                 {% for i in exercise_keys %}
                     <option>
                         {{ i }}
@@ -46,7 +39,7 @@
             <label>
                 Exercise 2
             </label>
-                <select class="form-control" id="exercise2_dropdown" name="exercise2_form">
+                <select  id="slim-select2" name="exercise2_form">
                 {% for i in exercise_keys %}
                     <option>
                         {{ i }}
@@ -68,7 +61,7 @@
             <label>
                 Exercise 3
             </label>
-                <select class="form-control" id="exercise3_dropdown" name="exercise3_form">
+                <select id="slim-select3" name="exercise3_form">
                 {% for i in exercise_keys %}
                     <option>
                         {{ i }}
@@ -89,7 +82,7 @@
             <label>
                 Exercise 4
             </label>
-                <select class="form-control" id="exercise4_dropdown" name="exercise4_form">
+                <select id="slim-select4" name="exercise4_form">
                 {% for i in exercise_keys %}
                     <option>
                         {{ i }}
@@ -109,7 +102,7 @@
             <label>
                 Exercise 5
             </label>
-                <select class="form-control" id="exercise5_dropdown" name="exercise5_form">
+                <select id="slim-select5" name="exercise5_form">
                 {% for i in exercise_keys %}
                     <option>
                         {{ i }}
@@ -129,6 +122,30 @@
     </form>
 
 
+
+    <script>
+
+      new SlimSelect({
+        select: '#slim-select1'
+      })
+
+        new SlimSelect({
+        select: '#slim-select2'
+      })
+
+        new SlimSelect({
+        select: '#slim-select3'
+      })
+
+        new SlimSelect({
+        select: '#slim-select4'
+      })
+
+        new SlimSelect({
+        select: '#slim-select5'
+      })
+
+</script>
 
     </body>
 </html>
