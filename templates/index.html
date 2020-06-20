@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,7 +5,10 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.26.0/slimselect.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.26.0/slimselect.min.css" rel="stylesheet"></link>
     </head>
+
     <body>
     <h1 class="container"> Welcome to the Warmup Generator!</h1>
     <h3 class="container"><small class="text-muted">Input WOD info, get a warmup designed by a physical therapist/CF coach!</h3> </small>
@@ -15,7 +17,8 @@
             <label>
                 Exercise 1
             </label>
-                <select class="form-control" class="container-md" id="exercise1_dropdown" name="exercise1_form">
+                <select id="slim-select1" name="exercise1_form">
+                    <option></option>
                 {% for i in exercise_keys %}
                     <option>
                         {{ i }}
@@ -37,7 +40,9 @@
             <label>
                 Exercise 2
             </label>
-                <select class="form-control" id="exercise2_dropdown" name="exercise2_form">
+                <select  id="slim-select2" name="exercise2_form">
+                    <option></option>
+
                 {% for i in exercise_keys %}
                     <option>
                         {{ i }}
@@ -59,7 +64,8 @@
             <label>
                 Exercise 3
             </label>
-                <select class="form-control" id="exercise3_dropdown" name="exercise3_form">
+                <select id="slim-select3" name="exercise3_form">
+                    <option></option>
                 {% for i in exercise_keys %}
                     <option>
                         {{ i }}
@@ -80,7 +86,8 @@
             <label>
                 Exercise 4
             </label>
-                <select class="form-control" id="exercise4_dropdown" name="exercise4_form">
+                <select id="slim-select4" name="exercise4_form">
+                    <option></option>
                 {% for i in exercise_keys %}
                     <option>
                         {{ i }}
@@ -100,7 +107,8 @@
             <label>
                 Exercise 5
             </label>
-                <select class="form-control" id="exercise5_dropdown" name="exercise5_form">
+                <select id="slim-select5" name="exercise5_form">
+                    <option></option>
                 {% for i in exercise_keys %}
                     <option>
                         {{ i }}
@@ -118,28 +126,7 @@
         </div>
         <button type="submit" type="button" class="btn btn-secondary btn-lg" value="submit">Submit</button>
     </form>
-    <div>
-        <label>METCONS COMPILED</label>
-            {{ metcons_compiled }}
-            {{ metcon_reps }}
-    </div>
-    <div>
-        <p></p>
-        <H3>Your Metabolic Warmup</H3>
-        {% for metcon in selected_metcon %}
-            <div class ="card-deck">
-                <div class="card" style="max-width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ metcon.title() }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">MetCon Warmup</h6>
-                        <p class="card-text"> {{ metcon_reps }} </p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-        {% endfor %}
-
-            </div>
+    {% if tester_dict: %}
     <p></p>
         <div>
             <label>DROMS COMPILED</label>
@@ -164,9 +151,35 @@
             </div>
 
         {% endfor %}
+            
+        {% endif %}
 
     </div>
 
+
+    <script>
+
+      new SlimSelect({
+        select: '#slim-select1'
+      })
+
+        new SlimSelect({
+        select: '#slim-select2'
+      })
+
+        new SlimSelect({
+        select: '#slim-select3'
+      })
+
+        new SlimSelect({
+        select: '#slim-select4'
+      })
+
+        new SlimSelect({
+        select: '#slim-select5'
+      })
+
+</script>
 
     </body>
 </html>
