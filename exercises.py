@@ -10,7 +10,8 @@ exercises = {
     'air squat': {
         'category': 'gymnastics lower',
         'intensity': 'high',
-        'loaded': False
+        'loaded': False,
+        'loading_priority': ['hip loading', 'ankle loading', 'core loading']
     },
     'push up': {
         'category': 'gymnastics upper',
