@@ -37,6 +37,7 @@ def first_page():
         exercise5_toggle = request.form['exercise5_toggle']
 
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
+
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle,
                               exercise3_toggle, exercise4_toggle, exercise5_toggle]
 
