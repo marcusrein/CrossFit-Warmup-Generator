@@ -4,6 +4,7 @@ from droms import *
 # import SlimSelect from SlimSelect
 # from fuzzywuzzy import fuzz
 from flask import Flask, render_template, request
+
 # from PIL import image
 
 app = Flask(__name__)
@@ -53,17 +54,25 @@ def first_page():
         for drom in selected_droms:
             img_test_drom = droms[drom]['img']
             img_list.append(img_test_drom)
+        drom_images_dict = dict(zip(selected_droms, img_list))
 
-        tester_dict = dict(zip(selected_droms, img_list))
-
+        barbell_warmup = []
         barbell_movements_from_todays_wod = which_movements_are_barbell_movements(todays_wod)
+        if barbell_movements_from_todays_wod:
+            barbell_warmup = barbell_loader(todays_wod)
 
-        barbell_warmup = barbell_loader(todays_wod)
+        kb_warmup = []
+        kb_movements_from_todays_wod = which_movements_are_kb_movements(todays_wod)
+        if kb_movements_from_todays_wod:
+            kb_warmup = kettlebell_loader(todays_wod)
 
         return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
                                metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms,
-                               tester_dict=tester_dict, barbell_warmup=barbell_warmup, barbell_movements_from_todays_wod=
-                               barbell_movements_from_todays_wod)
+                               drom_images_dict=drom_images_dict, barbell_warmup=barbell_warmup,
+                               barbell_movements_from_todays_wod=
+                               barbell_movements_from_todays_wod,
+                               kb_movements_from_todays_wod=kb_movements_from_todays_wod,
+                               kb_warmup=kb_warmup)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')

@@ -161,8 +161,20 @@ def which_movements_are_barbell_movements(todays_wod):
             if movement == k and exercises[k]['loaded'] == 'barbell':
                 barbell_movements_from_todays_wod.append(movement)
 
-    print(barbell_movements_from_todays_wod)
     return barbell_movements_from_todays_wod
+
+def which_movements_are_kb_movements(todays_wod):
+    """Delivers a list of barbell movements only from todays wod"""
+    kb_movements_from_todays_wod = []
+
+    for movement in todays_wod:
+        for k in exercises.keys():
+            if movement == k and exercises[k]['loaded'] == 'kb':
+                kb_movements_from_todays_wod.append(movement)
+
+    return kb_movements_from_todays_wod
+
+
 
 
 

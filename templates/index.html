@@ -126,7 +126,7 @@
         </div>
         <button type="submit" type="button" class="btn btn-secondary btn-lg" value="submit">Submit</button>
     </form>
-    {% if tester_dict: %}
+    {% if drom_images_dict: %}
     <p></p>
 <div>
         <label>METCONS COMPILED</label>
@@ -152,7 +152,7 @@
          <p></p>
         <H3>Your Dynamic Range of Motion Warmup</H3>
         <div class="row row-cols-1 row-cols-md-3">
-        {% for k,v in tester_dict.items() %}
+        {% for k,v in drom_images_dict.items() %}
             <div class ="col mb-4">
                 <div class="card" style="max-width: 18rem;">
                     <div class="card-body">
@@ -173,7 +173,7 @@
     </div>
     <div>
         <p></p>
-        {% if barbell_warmup: %}
+        {% if barbell_movements_from_todays_wod: %}
         <H3>Your Barbell Warmup</H3>
             <div class ="card-deck">
                 {% for barbell_movement in barbell_movements_from_todays_wod %}
@@ -182,6 +182,25 @@
                         <h5 class="card-title">{{ barbell_movement.title() }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Barbell Warmup</h6>
                         <p class="card-text"> {{ barbell_warmup }} </p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+        <div>
+        <p></p>
+        {% if kb_movements_from_todays_wod: %}
+        <H3>Your KB Warmup</H3>
+            <div class ="card-deck">
+                {% for kb_movement in kb_movements_from_todays_wod %}
+                <div class="card" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ kb_movement.title() }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Kettlebell Warmup</h6>
+                        <p class="card-text"> {{ kb_warmup }} </p>
                         <a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a>
                     </div>

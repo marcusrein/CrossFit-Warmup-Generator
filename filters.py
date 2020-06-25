@@ -28,4 +28,9 @@ def barbell_loader(todays_wod):
     if check_barbell_exercise(todays_wod):
         return x
 
+def kettlebell_loader(todays_wod):
+    """Delivers a warmup for kettlebell movements"""
+    x = '10 Goatbag Swings, 10 Goblet Squats, 10 KB Swings'
+    if check_kb_exercise(todays_wod):
+        return x
 
