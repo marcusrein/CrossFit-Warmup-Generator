@@ -1,4 +1,3 @@
-
 droms = {
     'bear crawls': {
         'categories': ['snatches', 'cleans', 'deadlifts', 'presses', 'gymanstics upper', 'gymnastics lower',

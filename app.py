@@ -1,8 +1,5 @@
 from getters import *
 from checks import *
-from droms import *
-# import SlimSelect from SlimSelect
-from fuzzywuzzy import fuzz
 from flask import Flask, render_template, request
 
 # from PIL import image
