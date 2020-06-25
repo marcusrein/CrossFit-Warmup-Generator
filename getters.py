@@ -174,6 +174,16 @@ def which_movements_are_kb_movements(todays_wod):
 
     return kb_movements_from_todays_wod
 
+def which_movements_are_gymnastics_movements(todays_wod):
+    """Delivers a list of barbell movements only from todays wod"""
+    gymnastics_movements_from_todays_wod = []
+
+    for movement in todays_wod:
+        for k in exercises.keys():
+            if movement == k and not exercises[k]['loaded']:
+                gymnastics_movements_from_todays_wod.append(movement)
+
+    return gymnastics_movements_from_todays_wod
 
 
 

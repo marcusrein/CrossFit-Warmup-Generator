@@ -66,13 +66,20 @@ def first_page():
         if kb_movements_from_todays_wod:
             kb_warmup = kettlebell_loader(todays_wod)
 
+        gymnastics_warmup = []
+        gymnastics_movements_from_todays_wod = which_movements_are_gymnastics_movements(todays_wod)
+        if gymnastics_movements_from_todays_wod:
+            gymnastics_warmup = gymnastics_loader(todays_wod)
+
         return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
                                metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms,
                                drom_images_dict=drom_images_dict, barbell_warmup=barbell_warmup,
                                barbell_movements_from_todays_wod=
                                barbell_movements_from_todays_wod,
                                kb_movements_from_todays_wod=kb_movements_from_todays_wod,
-                               kb_warmup=kb_warmup)
+                               kb_warmup=kb_warmup, gymnastics_movements_from_todays_wod=
+                               gymnastics_movements_from_todays_wod,
+                               gymnastics_warmup=gymnastics_warmup)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')

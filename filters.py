@@ -34,3 +34,8 @@ def kettlebell_loader(todays_wod):
     if check_kb_exercise(todays_wod):
         return x
 
+def gymnastics_loader(todays_wod):
+    """Delivers a warmup for kettlebell movements (COULD BE CHANGED TO CHECKING FOR MINUTES OF GYMNASTICS"""
+    x = 'Wiggle around and figure it out'
+    if check_tough_gymnastics(todays_wod):
+        return x

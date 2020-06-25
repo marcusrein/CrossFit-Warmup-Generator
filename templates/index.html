@@ -208,6 +208,25 @@
                 {% endfor %}
             </div>
         {% endif %}
+               <div>
+        <p></p>
+        {% if gymnastics_movements_from_todays_wod: %}
+        <H3>Your Gymnastics Warmup</H3>
+            <div class ="card-deck">
+                {% for gymnastics_movement in gymnastics_movements_from_todays_wod %}
+                <div class="card" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ gymnastics_movement.title() }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
+                        <p class="card-text"> {{ gymnastics_warmup }} </p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+               </div>
     </div>
     </div>
 
