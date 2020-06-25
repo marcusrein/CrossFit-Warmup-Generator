@@ -154,7 +154,6 @@ def get_all_movement_times(todays_wod):
 
 def get_metcon_reps(selected_metcon):
     metcon_reps = []
-
     y = metcons.get(selected_metcon)
     # z = selected_metcon[y]
     z = y.get('reps')

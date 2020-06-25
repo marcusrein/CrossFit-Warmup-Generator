@@ -39,6 +39,7 @@ def check_tough_gymnastics(todays_wod):
 
 def check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle):
     """Adds appropriate times if toggles are engaged"""
+
     for i in range(len(todays_wod)):
         xxx = exercises.get(todays_wod[i])
         loaded_value = xxx.get('loaded')
@@ -50,6 +51,6 @@ def check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_
             elif loaded_value == False and check_tough_gymnastics(todays_wod) == True:
                 all_warmup_times_pre_toggle['focused_gymanstics_time'] += 8
 
-        all_warmup_times_post_toggle = all_warmup_times_pre_toggle
+    all_warmup_times_post_toggle = all_warmup_times_pre_toggle
 
     return all_warmup_times_post_toggle
