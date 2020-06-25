@@ -174,13 +174,13 @@
     </div>
         <div>
         <p></p>
-        {% if gymnastics_movements_from_todays_wod: %}
+        {% if tough_gymnastics_movements_from_todays_wod: %}
         <H3>Your Gymnastics Warmup</H3>
             <div class ="card-deck">
-                {% for gymnastics_movement in gymnastics_movements_from_todays_wod %}
+                {% for tough_gymnastics_movement in tough_gymnastics_movements_from_todays_wod %}
                 <div class="card" style="max-width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">{{ gymnastics_movement.title() }}</h5>
+                        <h5 class="card-title">{{ tough_gymnastics_movement }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
                         <p class="card-text"> {{ gymnastics_warmup }} </p>
                         <a href="#" class="card-link">Card link</a>
@@ -233,7 +233,7 @@
     </div>
 
 <p></p>
-            <div>
+    <div>
 
 
 {{ droms_compiled }}

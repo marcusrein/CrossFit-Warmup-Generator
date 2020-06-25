@@ -34,6 +34,7 @@ def first_page():
         exercise5_toggle = request.form['exercise5_toggle']
 
         todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
+        todays_wod = remove_none_from_todays_wod(todays_wod)
 
         todays_wod_toggles = [exercise1_toggle, exercise2_toggle,
                               exercise3_toggle, exercise4_toggle, exercise5_toggle]
@@ -65,8 +66,8 @@ def first_page():
             kb_warmup = kettlebell_loader(todays_wod)
 
         gymnastics_warmup = []
-        gymnastics_movements_from_todays_wod = which_movements_are_gymnastics_movements(todays_wod)
-        if gymnastics_movements_from_todays_wod:
+        tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)
+        if tough_gymnastics_movements_from_todays_wod:
             gymnastics_warmup = gymnastics_loader(todays_wod)
 
         return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
@@ -75,8 +76,8 @@ def first_page():
                                barbell_movements_from_todays_wod=
                                barbell_movements_from_todays_wod,
                                kb_movements_from_todays_wod=kb_movements_from_todays_wod,
-                               kb_warmup=kb_warmup, gymnastics_movements_from_todays_wod=
-                               gymnastics_movements_from_todays_wod,
+                               kb_warmup=kb_warmup, tough_gymnastics_movements_from_todays_wod=
+                               tough_gymnastics_movements_from_todays_wod,
                                gymnastics_warmup=gymnastics_warmup)
 
     else:

@@ -163,6 +163,7 @@ def which_movements_are_barbell_movements(todays_wod):
 
     return barbell_movements_from_todays_wod
 
+
 def which_movements_are_kb_movements(todays_wod):
     """Delivers a list of barbell movements only from todays wod"""
     kb_movements_from_todays_wod = []
@@ -174,18 +175,16 @@ def which_movements_are_kb_movements(todays_wod):
 
     return kb_movements_from_todays_wod
 
-def which_movements_are_gymnastics_movements(todays_wod):
+
+def which_movements_are_tough_gymnastics_movements(todays_wod):
     """Delivers a list of barbell movements only from todays wod"""
-    gymnastics_movements_from_todays_wod = []
+    tough_gymnastics_movements_from_todays_wod = []
 
-    for movement in todays_wod:
-        for k in exercises.keys():
-            if movement == k and not exercises[k]['loaded']:
-                gymnastics_movements_from_todays_wod.append(movement)
-
-    return gymnastics_movements_from_todays_wod
-
-
+    for x in todays_wod:
+        if x == 'pull up' or x == 'pistol' or x == 'pistols' or x == 'handstand pushup' or x == 'handstand walk'\
+                or x == 'kipping pull up' or x == 'ring muscle up' or x == 'bar muscle up':
+            tough_gymnastics_movements_from_todays_wod.append(x.title())
+    return tough_gymnastics_movements_from_todays_wod
 
 
 def get_metcon_reps(selected_metcon):
