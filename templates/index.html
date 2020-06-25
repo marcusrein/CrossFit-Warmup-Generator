@@ -128,7 +128,7 @@
     </form>
     {% if drom_images_dict: %}
     <p></p>
-<div>
+    <div>
         <label>METCONS COMPILED</label>
             {{ metcons_compiled }}
             {{ metcon_reps }}
@@ -148,6 +148,7 @@
                     </div>
                 </div>
         {% endfor %}        </div>
+    </div>
     <div>
          <p></p>
         <H3>Your Dynamic Range of Motion Warmup</H3>
@@ -171,6 +172,44 @@
         {% endif %}
         </div>
     </div>
+        <div>
+        <p></p>
+        {% if gymnastics_movements_from_todays_wod: %}
+        <H3>Your Gymnastics Warmup</H3>
+            <div class ="card-deck">
+                {% for gymnastics_movement in gymnastics_movements_from_todays_wod %}
+                <div class="card" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ gymnastics_movement.title() }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
+                        <p class="card-text"> {{ gymnastics_warmup }} </p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+       </div>
+        <div>
+        <p></p>
+        {% if kb_movements_from_todays_wod: %}
+        <H3>Your KB Warmup</H3>
+            <div class ="card-deck">
+                {% for kb_movement in kb_movements_from_todays_wod %}
+                <div class="card" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ kb_movement.title() }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Kettlebell Warmup</h6>
+                        <p class="card-text"> {{ kb_warmup }} </p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        </div>
     <div>
         <p></p>
         {% if barbell_movements_from_todays_wod: %}
@@ -190,44 +229,7 @@
             </div>
         {% endif %}
     </div>
-        <div>
-        <p></p>
-        {% if kb_movements_from_todays_wod: %}
-        <H3>Your KB Warmup</H3>
-            <div class ="card-deck">
-                {% for kb_movement in kb_movements_from_todays_wod %}
-                <div class="card" style="max-width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ kb_movement.title() }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Kettlebell Warmup</h6>
-                        <p class="card-text"> {{ kb_warmup }} </p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        {% endif %}
-               <div>
-        <p></p>
-        {% if gymnastics_movements_from_todays_wod: %}
-        <H3>Your Gymnastics Warmup</H3>
-            <div class ="card-deck">
-                {% for gymnastics_movement in gymnastics_movements_from_todays_wod %}
-                <div class="card" style="max-width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ gymnastics_movement.title() }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
-                        <p class="card-text"> {{ gymnastics_warmup }} </p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        {% endif %}
-               </div>
-    </div>
+
     </div>
 
 <p></p>
