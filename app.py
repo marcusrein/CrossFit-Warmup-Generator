@@ -56,11 +56,14 @@ def first_page():
 
         tester_dict = dict(zip(selected_droms, img_list))
 
+        barbell_movements_from_todays_wod = which_movements_are_barbell_movements(todays_wod)
+
         barbell_warmup = barbell_loader(todays_wod)
 
         return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
                                metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms,
-                               tester_dict=tester_dict, barbell_warmup=barbell_warmup)
+                               tester_dict=tester_dict, barbell_warmup=barbell_warmup, barbell_movements_from_todays_wod=
+                               barbell_movements_from_todays_wod)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')

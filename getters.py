@@ -152,6 +152,20 @@ def get_all_movement_times(todays_wod):
     return all_warmup_times_pre_toggle
 
 
+def which_movements_are_barbell_movements(todays_wod):
+    """Delivers a list of barbell movements only from todays wod"""
+    barbell_movements_from_todays_wod = []
+
+    for movement in todays_wod:
+        for k in exercises.keys():
+            if movement == k and exercises[k]['loaded'] == 'barbell':
+                barbell_movements_from_todays_wod.append(movement)
+
+    print(barbell_movements_from_todays_wod)
+    return barbell_movements_from_todays_wod
+
+
+
 def get_metcon_reps(selected_metcon):
     metcon_reps = []
     y = metcons.get(selected_metcon)

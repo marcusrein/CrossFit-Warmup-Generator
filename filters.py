@@ -23,6 +23,7 @@ def pop_and_select(dictionary, organized_times_list, tally_organized_times_sum, 
 
 
 def barbell_loader(todays_wod):
+    """Delivers a warmup for barbell movements"""
     x = '5 reps at 40%, 5 reps at 50%, 3 reps at 60%'
     if check_barbell_exercise(todays_wod):
         return x
