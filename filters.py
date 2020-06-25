@@ -1,4 +1,6 @@
 from checks import *
+from loading import *
+import random
 
 
 
@@ -35,7 +37,20 @@ def kettlebell_loader(todays_wod):
         return x
 
 def gymnastics_loader(todays_wod):
-    """Delivers a warmup for kettlebell movements (COULD BE CHANGED TO CHECKING FOR MINUTES OF GYMNASTICS"""
-    x = 'Wiggle around and figure it out'
-    if check_tough_gymnastics(todays_wod):
-        return x
+    """Delivers a warmup for gymnastics movements (COULD BE CHANGED TO CHECKING FOR MINUTES OF GYMNASTICS"""
+    tough_gymnastics_warmups = []
+    for wod in todays_wod:
+        for k,v in loading.items():
+            for thing in v['exercises']:
+                if wod == thing:
+                    tough_gymnastics_warmups.append(thing)
+    return tough_gymnastics_warmups
+
+breakpoint()
+def gymnastics_rep_finder(tough_gymnastics_warmups):
+    tough_gymnastics_warmup_reps = []
+    for wu in tough_gymnastics_warmups:
+        x = loading.get(wu['reps'])
+        tough_gymnastics_warmup_reps.append(x)
+    return tough_gymnastics_warmup_reps
+        
