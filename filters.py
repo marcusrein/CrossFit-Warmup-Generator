@@ -43,14 +43,14 @@ def gymnastics_loader(todays_wod):
         for k,v in loading.items():
             for thing in v['exercises']:
                 if wod == thing:
-                    tough_gymnastics_warmups.append(thing)
+                    tough_gymnastics_warmups.append(k)
     return tough_gymnastics_warmups
 
-breakpoint()
 def gymnastics_rep_finder(tough_gymnastics_warmups):
     tough_gymnastics_warmup_reps = []
     for wu in tough_gymnastics_warmups:
         x = loading.get(wu['reps'])
+        breakpoint()
         tough_gymnastics_warmup_reps.append(x)
     return tough_gymnastics_warmup_reps
         
