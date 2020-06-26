@@ -16,36 +16,37 @@
         <div>
             <div class="row">
                 <div class="col-sm">
-<div class="form-group">
-            <label>
-                Easy Exercises
-            </label>
-                <select multiple id="slim-select1" name="exercise1_form">
-                    <option></option>
-                {% for i in exercise_keys %}
-                    <option>
-                        {{ i }}
-                    </option>
-                {% endfor %}
-                </select>
-        </div>                </div>
-            <div class="col-sm">
-<div class="form-group">
-            <label>
-                Tough Exercises
-            </label>
-                <select multiple id="slim-select2" name="exercise2_form">
-                    <option></option>
-
-                {% for i in exercise_keys %}
-                    <option>
-                        {{ i }}
-                    </option>
-                {% endfor %}
-                </select>
-        </div>            </div>
+                    <div class="form-group">
+                        <label>
+                            Easy Exercises
+                        </label>
+                        <select multiple id="slim-select1" name="exercise1_form">
+                            <option></option>
+                        {% for i in exercise_keys %}
+                            <option>
+                                {{ i }}
+                            </option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label>
+                            Tough Exercises
+                        </label>
+                            <select multiple id="slim-select2" name="exercise2_form">
+                                <option></option>
+                            {% for i in exercise_keys %}
+                                <option>
+                                    {{ i }}
+                                </option>
+                            {% endfor %}
+                            </select>
+                    </div>
+                </div>
             </div>
-</div>
+        </div>
 
 
 
@@ -231,6 +232,7 @@
 
 
 {{ droms_compiled }}
+{{ easy_exercises }}
 
     </div>
 

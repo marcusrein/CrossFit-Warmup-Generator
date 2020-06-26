@@ -2,6 +2,7 @@ from getters import *
 from checks import *
 from flask import Flask, render_template, request
 
+
 # from PIL import image
 
 app = Flask(__name__)
@@ -21,23 +22,38 @@ def first_page():
     if request.method == 'POST':
         # intensity = request.form['intensity_form']
 
-        exercise1 = check_exercise_fuzz_80(request.form['exercise1_form'])
-        exercise2 = check_exercise_fuzz_80(request.form['exercise2_form'])
-        exercise3 = check_exercise_fuzz_80(request.form['exercise3_form'])
-        exercise4 = check_exercise_fuzz_80(request.form['exercise4_form'])
-        exercise5 = check_exercise_fuzz_80(request.form['exercise5_form'])
+        # exercise1 = check_exercise_fuzz_80(request.form['exercise1_form'])
+        # exercise2 = check_exercise_fuzz_80(request.form['exercise2_form'])
+        # exercise3 = check_exercise_fuzz_80(request.form['exercise3_form'])
+        # exercise4 = check_exercise_fuzz_80(request.form['exercise4_form'])
+        # exercise5 = check_exercise_fuzz_80(request.form['exercise5_form'])
 
-        exercise1_toggle = request.form['exercise1_toggle']
-        exercise2_toggle = request.form['exercise2_toggle']
-        exercise3_toggle = request.form['exercise3_toggle']
-        exercise4_toggle = request.form['exercise4_toggle']
-        exercise5_toggle = request.form['exercise5_toggle']
+        easy_exercises = request.form.getlist('exercise1_form')
 
-        todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
+        # exercise1_toggle = request.form['exercise1_toggle']
+        # exercise2_toggle = request.form['exercise2_toggle']
+        # exercise3_toggle = request.form['exercise3_toggle']
+        # exercise4_toggle = request.form['exercise4_toggle']
+        # exercise5_toggle = request.form['exercise5_toggle']
+
+        # todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
+
+
+        """ DUMMY CODE!! """
+        todays_wod = easy_exercises
+        """ DUMMY CODE!! """
+
+
         todays_wod = remove_none_from_todays_wod(todays_wod)
 
-        todays_wod_toggles = [exercise1_toggle, exercise2_toggle,
-                              exercise3_toggle, exercise4_toggle, exercise5_toggle]
+        # todays_wod_toggles = [exercise1_toggle, exercise2_toggle,
+        #                       exercise3_toggle, exercise4_toggle, exercise5_toggle]
+
+
+        """ DUMMY CODE!! """
+        todays_wod_toggles = ['No', 'No', 'No', 'No', 'No']
+        """ DUMMY CODE!! """
+
 
         metcons_compiled = get_movements_compiled(
             todays_wod, todays_wod_toggles, metcons, metcon_time)
@@ -84,7 +100,7 @@ def first_page():
                                kb_warmup=kb_warmup, tough_gymnastics_movements_from_todays_wod=
                                tough_gymnastics_movements_from_todays_wod,
                                tough_gymnastics_wu_and_reps_dict=tough_gymnastics_wu_and_reps_dict,
-                               tough_gymnastics_img_dict=tough_gymnastics_img_dict)
+                               tough_gymnastics_img_dict=tough_gymnastics_img_dict, easy_exercises=easy_exercises)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
