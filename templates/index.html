@@ -13,11 +13,14 @@
     <h1 class="container"> Welcome to the Warmup Generator!</h1>
     <h3 class="container"><small class="text-muted">Input WOD info, get a warmup designed by a physical therapist/CF coach!</h3> </small>
     <form method="POST" action="/" class="container">
-        <div class="form-group">
+        <div>
+            <div class="row">
+                <div class="col-sm">
+<div class="form-group">
             <label>
-                Exercise 1
+                Easy Exercises
             </label>
-                <select id="slim-select1" name="exercise1_form">
+                <select multiple id="slim-select1" name="exercise1_form">
                     <option></option>
                 {% for i in exercise_keys %}
                     <option>
@@ -25,22 +28,13 @@
                     </option>
                 {% endfor %}
                 </select>
+        </div>                </div>
+            <div class="col-sm">
+<div class="form-group">
             <label>
-                Check this box if the exercise will be challenging:
+                Tough Exercises
             </label>
-                <label class="switch">
-                    <input id='exercise1_toggle' type='checkbox' value='Yes' name='exercise1_toggle'>
-                    <input id='exercise1_toggle_hidden' type='hidden' value='No' name='exercise1_toggle'>
-                    <span class="slider"></span>
-                </label>
-        </div>
-        <div>
-        </div>
-         <div class="form-group">
-            <label>
-                Exercise 2
-            </label>
-                <select  id="slim-select2" name="exercise2_form">
+                <select multiple id="slim-select2" name="exercise2_form">
                     <option></option>
 
                 {% for i in exercise_keys %}
@@ -49,15 +43,12 @@
                     </option>
                 {% endfor %}
                 </select>
-            <label>
-                Check this box if the exercise will be challenging:
-            </label>
-                <label class="switch">
-                    <input id='exercise2_toggle' type='checkbox' value='Yes' name='exercise2_toggle'>
-                    <input id='exercise2_toggle_hidden' type='hidden' value='No' name='exercise2_toggle'>
-                    <span class="slider"></span>
-                </label>
-        </div>
+        </div>            </div>
+            </div>
+</div>
+
+
+
         <div>
         </div>
         <div class="form-group">
@@ -178,15 +169,18 @@
         <H3>Your Gymnastics Warmup</H3>
             <div class ="card-deck">
                 {% for k,v in tough_gymnastics_wu_and_reps_dict.items() %}
-                <div class="card" style="max-width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ k.title() }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
-                        <p class="card-text"> {{ v }} </p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                    {% for k2,v2 in tough_gymnastics_img_dict.items() %}
+                    <div class="card" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ k.title() }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
+                            <img class="card-img-top" src="{{ v2 }}" alt="Card image cap" />
+                            <p class="card-text"> {{ v }} </p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
                     </div>
-                </div>
+                    {% endfor %}
                 {% endfor %}
             </div>
         {% endif %}

@@ -229,3 +229,11 @@ def get_movements_compiled(todays_wod, todays_wod_toggles, dictionary, movement_
             'tally organized times sum': tally_organized_times_sum,
             'prescribed time': prescribed_time, 'SELECTED MOVEMENTS: ': selected_movements
             }
+
+def get_images_for_display(selected_movements, dictionary):
+    img_list = []
+    for movement in selected_movements:
+        img_test = dictionary[movement]['img']
+        img_list.append(img_test)
+    return img_list
+

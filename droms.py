@@ -95,14 +95,6 @@ droms = {
         'img': 'https://media1.giphy.com/media/ND6xkVPaj8tHO/giphy.gif'
 
     },
-    'scap pull ups': {
-        'categories': ['presses', 'jerks', 'snatches', 'gymnastics upper'],
-        'time': 2,
-        'reps': ['Perform 2, then 4, then 6, then 8', 'Perform 5, then 10'],
-        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        'img': 'https://i.imgur.com/xjVyKfZ.mp4'
-
-    },
     'banded side steps': {
         'categories': ['squats', 'cleans', 'jerks', 'snatches', 'deadlifts'],
         'time': 2,

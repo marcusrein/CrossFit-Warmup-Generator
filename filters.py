@@ -47,6 +47,7 @@ def gymnastics_loader(todays_wod):
     return tough_gymnastics_warmups
 
 def gymnastics_rep_finder(tough_gymnastics_warmups):
+    """Finds reps for tough gymnastics movements in WOD"""
     tough_gymnastics_warmup_reps_pre_random = []
     tough_gymnastics_warmup_reps_post_random = []
 
