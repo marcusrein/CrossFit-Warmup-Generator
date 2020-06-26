@@ -69,8 +69,8 @@ def first_page():
         tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)
         if tough_gymnastics_movements_from_todays_wod:
             tough_gymnastics_warmups = gymnastics_loader(todays_wod)
-
-        gymnastics_rep_finder(tough_gymnastics_warmups)
+            tough_gymnastics_reps = gymnastics_rep_finder(tough_gymnastics_warmups)
+            tough_gymnastics_wu_and_reps_dict = dict(zip(tough_gymnastics_warmups,tough_gymnastics_reps))
 
         return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
                                metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms,
@@ -80,7 +80,7 @@ def first_page():
                                kb_movements_from_todays_wod=kb_movements_from_todays_wod,
                                kb_warmup=kb_warmup, tough_gymnastics_movements_from_todays_wod=
                                tough_gymnastics_movements_from_todays_wod,
-                               tough_gymnastics_warmup=tough_gymnastics_warmups)
+                               tough_gymnastics_wu_and_reps_dict=tough_gymnastics_wu_and_reps_dict)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')

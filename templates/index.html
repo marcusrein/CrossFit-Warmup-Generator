@@ -177,12 +177,12 @@
         {% if tough_gymnastics_movements_from_todays_wod: %}
         <H3>Your Gymnastics Warmup</H3>
             <div class ="card-deck">
-                {% for tough_gymnastics_movement in tough_gymnastics_movements_from_todays_wod %}
+                {% for k,v in tough_gymnastics_wu_and_reps_dict.items() %}
                 <div class="card" style="max-width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">{{ tough_gymnastics_movement }}</h5>
+                        <h5 class="card-title">{{ k.title() }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
-                        <p class="card-text"> {{ gymnastics_warmup }} </p>
+                        <p class="card-text"> {{ v }} </p>
                         <a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a>
                     </div>
