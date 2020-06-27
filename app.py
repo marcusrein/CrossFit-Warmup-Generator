@@ -44,8 +44,10 @@ def first_page():
         # todays_wod_toggles = [exercise1_toggle, exercise2_toggle,
         #                       exercise3_toggle, exercise4_toggle, exercise5_toggle]
 
+        """ GOTTA MAKE CODE THAT SAYS 'IF TOUGH EXERCISE, automaticcaly make it toggle YES"""
+
         """ DUMMY CODE!! """
-        todays_wod_toggles = ['No', 'No', 'No', 'No', 'No']
+        todays_wod_toggles = ['No', 'No', 'No', 'No', 'No', 'Yes']
         """ DUMMY CODE!! """
 
         metcons_compiled = get_movements_compiled(
