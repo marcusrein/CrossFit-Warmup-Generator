@@ -11,7 +11,11 @@
 
     <body>
     <h1 class="container"> Welcome to the Warmup Generator!</h1>
-    <h3 class="container"><small class="text-muted">Input WOD info, get a warmup designed by a physical therapist/CF coach!</h3> </small>
+    <h3 class="container"><small class="text-muted">Input Your WOD Movements, Categorized By "Easy" and "Tough"</h3> </small>
+    <p></p>
+    <h5 class="container"><small class="text-muted">You Decide Which WOD Movements are "Easy" and "Tough"</small></h5>
+    <h5 class="container"><small class="text-muted">This Helps the Generator Warm You Up Properly!</small></h5>
+
     <form method="POST" action="/" class="container">
         <div>
             <div class="row">
@@ -56,11 +60,11 @@
     </form>
     {% if drom_images_dict: %}
     <p></p>
-    <div class="container">
-        <label>METCONS COMPILED</label>
-            {{ metcons_compiled }}
-            {{ metcon_reps }}
-    </div>
+<!--    <div class="container">-->
+<!--        <label>METCONS COMPILED</label>-->
+<!--            {{ metcons_compiled }}-->
+<!--            {{ metcon_reps }}-->
+<!--    </div>-->
     <div class="container">
         <p></p>
         <H3>Your Metabolic Warmup</H3>
