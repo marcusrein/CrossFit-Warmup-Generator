@@ -55,15 +55,25 @@ def first_page():
         #GYMNASTICS SELECTION
         tough_gymnastics_wu_and_reps_dict = {}
 
+        new_gymnastics_temp_dict = {}
         tough_gymnastics_warmups = []
         tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)
-        if tough_gymnastics_movements_from_todays_wod:
-            tough_gymnastics_warmups = gymnastics_loader(todays_wod)
-            tough_gymnastics_reps = gymnastics_rep_finder(tough_gymnastics_warmups)
-            tough_gymnastics_wu_and_reps_dict = dict(zip(tough_gymnastics_warmups, tough_gymnastics_reps))
+        # if tough_gymnastics_movements_from_todays_wod:
+        tough_gymnastics_warmups = gymnastics_loader(todays_wod)
+        new_gymnastics_temp_dict = {}
+        for tough_gymnastics_movement in tough_gymnastics_warmups:
+            m = loading[tough_gymnastics_movement]['reps']
+            rand_rep_choice = random.choice(m)
+            loading[tough_gymnastics_movement]['reps'] = rand_rep_choice
+            for k,v in loading.items():
+                if tough_gymnastics_movement == k:
+                    new_gymnastics_temp_dict[k] = v
+        tough_gymnastics_reps = gymnastics_rep_finder(tough_gymnastics_warmups)
 
+        tough_gymnastics_wu_and_reps_dict = dict(zip(tough_gymnastics_warmups, tough_gymnastics_reps))
         tough_gymnastics_img_list = get_images_for_display(tough_gymnastics_warmups, loading)
-        tough_gymnastics_img_dict = dict(zip(tough_gymnastics_warmups, tough_gymnastics_img_list))
+        tough_gymnastics_dict = dict(zip(tough_gymnastics_warmups, tough_gymnastics_img_list))
+        tough_gymnastics_dict['reps'] = tough_gymnastics_reps
 
         return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
                                metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms,
@@ -74,8 +84,8 @@ def first_page():
                                kb_warmup=kb_warmup, tough_gymnastics_movements_from_todays_wod=
                                tough_gymnastics_movements_from_todays_wod,
                                tough_gymnastics_wu_and_reps_dict=tough_gymnastics_wu_and_reps_dict,
-                               tough_gymnastics_img_dict=tough_gymnastics_img_dict, easy_exercises=easy_exercises,
-                               tough_exercises=tough_exercises)
+                               tough_gymnastics_dict=tough_gymnastics_dict, easy_exercises=easy_exercises,
+                               tough_exercises=tough_exercises, new_gymnastics_temp_dict=new_gymnastics_temp_dict)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')

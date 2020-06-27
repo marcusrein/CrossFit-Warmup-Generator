@@ -47,15 +47,13 @@ def gymnastics_loader(todays_wod):
     return tough_gymnastics_warmups
 
 def gymnastics_rep_finder(tough_gymnastics_warmups):
-    """Finds reps for tough gymnastics movements in WOD"""
-    tough_gymnastics_warmup_reps_pre_random = []
+    """Finds reps for tough gymnastics movements in WOD and outputs in a list"""
     tough_gymnastics_warmup_reps_post_random = []
 
     for wu in tough_gymnastics_warmups:
-        for reps in loading[wu]['reps']:
-            tough_gymnastics_warmup_reps_pre_random.append(reps)
-    x = random.choice(tough_gymnastics_warmup_reps_pre_random)
-    tough_gymnastics_warmup_reps_post_random.append(x)
+        x = loading[wu].get('reps')
+        y = random.choice(x)
+        tough_gymnastics_warmup_reps_post_random.append(y)
 
     return tough_gymnastics_warmup_reps_post_random
         

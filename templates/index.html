@@ -104,22 +104,20 @@
         <p></p>
         {% if tough_gymnastics_movements_from_todays_wod: %}
         <H3>Your Gymnastics Warmup</H3>
-            <div class ="card-deck">
-                {% for k,v in tough_gymnastics_wu_and_reps_dict.items() %}
-                    {% for k2,v2 in tough_gymnastics_img_dict.items() %}
+            {% for k,v in new_gymnastics_temp_dict.items() %}
+                <div class ="col mb-4">
                     <div class="card" style="max-width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">{{ k.title() }}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
-                            <img class="card-img-top" src="{{ v2 }}" alt="Card image cap" />
-                            <p class="card-text"> {{ v }} </p>
+                            <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
+                            <p class="card-text"> {{ v['reps'] }} </p>
                             <a href="#" class="card-link">Card link</a>
                             <a href="#" class="card-link">Another link</a>
                         </div>
                     </div>
-                    {% endfor %}
-                {% endfor %}
             </div>
+        {% endfor %}
         {% endif %}
        </div>
         <div class="container">
