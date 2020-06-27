@@ -2,11 +2,9 @@ from getters import *
 from checks import *
 from flask import Flask, render_template, request
 
-
-# from PIL import image
-
 app = Flask(__name__)
 
+# TODO: 1. Change toggle routing, 2. Get gymnastics warmup to populate properly. 3. Program for various BB Warmups
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
@@ -39,20 +37,16 @@ def first_page():
 
         # todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
 
-
-        """ DUMMY CODE!! """
         todays_wod = easy_exercises + tough_exercises
-        """ DUMMY CODE!! """
+
         todays_wod = remove_none_from_todays_wod(todays_wod)
 
         # todays_wod_toggles = [exercise1_toggle, exercise2_toggle,
         #                       exercise3_toggle, exercise4_toggle, exercise5_toggle]
 
-
         """ DUMMY CODE!! """
         todays_wod_toggles = ['No', 'No', 'No', 'No', 'No']
         """ DUMMY CODE!! """
-
 
         metcons_compiled = get_movements_compiled(
             todays_wod, todays_wod_toggles, metcons, metcon_time)
@@ -84,11 +78,10 @@ def first_page():
         if tough_gymnastics_movements_from_todays_wod:
             tough_gymnastics_warmups = gymnastics_loader(todays_wod)
             tough_gymnastics_reps = gymnastics_rep_finder(tough_gymnastics_warmups)
-            tough_gymnastics_wu_and_reps_dict = dict(zip(tough_gymnastics_warmups,tough_gymnastics_reps))
+            tough_gymnastics_wu_and_reps_dict = dict(zip(tough_gymnastics_warmups, tough_gymnastics_reps))
 
         tough_gymnastics_img_list = get_images_for_display(tough_gymnastics_warmups, loading)
-        tough_gymnastics_img_dict = dict(zip(tough_gymnastics_warmups,tough_gymnastics_img_list))
-
+        tough_gymnastics_img_dict = dict(zip(tough_gymnastics_warmups, tough_gymnastics_img_list))
 
         return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
                                metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms,
