@@ -20,7 +20,7 @@
                         <label>
                             Easy Exercises
                         </label>
-                        <select multiple id="slim-select1" name="exercise1_form">
+                        <select multiple id="slim-select1" name="easy_exercises_form">
                             <option></option>
                         {% for i in exercise_keys %}
                             <option>
@@ -35,7 +35,7 @@
                         <label>
                             Tough Exercises
                         </label>
-                            <select multiple id="slim-select2" name="exercise2_form">
+                            <select multiple id="slim-select2" name="tough_exercises_form">
                                 <option></option>
                             {% for i in exercise_keys %}
                                 <option>
@@ -50,82 +50,18 @@
 
 
 
-        <div>
-        </div>
-        <div class="form-group">
-            <label>
-                Exercise 3
-            </label>
-                <select id="slim-select3" name="exercise3_form">
-                    <option></option>
-                {% for i in exercise_keys %}
-                    <option>
-                        {{ i }}
-                    </option>
-                {% endfor %}
-                </select>
-            <label>
-                Check this box if the exercise will be challenging:
-            </label>
-                <label class="switch">
-                    <input id='exercise3_toggle' type='checkbox' value='Yes' name='exercise3_toggle'>
-                    <input id='exercise3_toggle_hidden' type='hidden' value='No' name='exercise3_toggle'>
-                    <span class="slider"></span>
-                </label>
-        </div>
-        <div>
-        <div class="form-group">
-            <label>
-                Exercise 4
-            </label>
-                <select id="slim-select4" name="exercise4_form">
-                    <option></option>
-                {% for i in exercise_keys %}
-                    <option>
-                        {{ i }}
-                    </option>
-                {% endfor %}
-                </select>
-            <label>
-                Check this box if the exercise will be challenging:
-            </label>
-                <label class="switch">
-                    <input id='exercise4_toggle' type='checkbox' value='Yes' name='exercise4_toggle'>
-                    <input id='exercise4_toggle_hidden' type='hidden' value='No' name='exercise4_toggle'>
-                    <span class="slider"></span>
-                </label>
-        </div>
-        <div class="form-group">
-            <label>
-                Exercise 5
-            </label>
-                <select id="slim-select5" name="exercise5_form">
-                    <option></option>
-                {% for i in exercise_keys %}
-                    <option>
-                        {{ i }}
-                    </option>
-                {% endfor %}
-                </select>
-            <label>
-                Check this box if the exercise will be challenging:
-            </label>
-                <label class="switch">
-                    <input id='exercise5_toggle' type='checkbox' value='Yes' name='exercise5_toggle'>
-                    <input id='exercise5_toggle_hidden' type='hidden' value='No' name='exercise5_toggle'>
-                    <span class="slider"></span>
-                </label>
+
         </div>
         <button type="submit" type="button" class="btn btn-secondary btn-lg" value="submit">Submit</button>
     </form>
     {% if drom_images_dict: %}
     <p></p>
-    <div>
+    <div class="container">
         <label>METCONS COMPILED</label>
             {{ metcons_compiled }}
             {{ metcon_reps }}
     </div>
-    <div>
+    <div class="container">
         <p></p>
         <H3>Your Metabolic Warmup</H3>
         {% for metcon in selected_metcon %}
@@ -141,7 +77,7 @@
                 </div>
         {% endfor %}        </div>
     </div>
-    <div>
+    <div class="container">
          <p></p>
         <H3>Your Dynamic Range of Motion Warmup</H3>
         <div class="row row-cols-1 row-cols-md-3">
@@ -164,7 +100,7 @@
         {% endif %}
         </div>
     </div>
-        <div>
+        <div class="container">
         <p></p>
         {% if tough_gymnastics_movements_from_todays_wod: %}
         <H3>Your Gymnastics Warmup</H3>
@@ -186,7 +122,7 @@
             </div>
         {% endif %}
        </div>
-        <div>
+        <div class="container">
         <p></p>
         {% if kb_movements_from_todays_wod: %}
         <H3>Your KB Warmup</H3>
@@ -205,7 +141,7 @@
             </div>
         {% endif %}
         </div>
-    <div>
+    <div class="container">
         <p></p>
         {% if barbell_movements_from_todays_wod: %}
         <H3>Your Barbell Warmup</H3>
@@ -228,7 +164,7 @@
     </div>
 
 <p></p>
-    <div>
+    <div class="container">
 
 
 {{ droms_compiled }}

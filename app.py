@@ -28,7 +28,8 @@ def first_page():
         # exercise4 = check_exercise_fuzz_80(request.form['exercise4_form'])
         # exercise5 = check_exercise_fuzz_80(request.form['exercise5_form'])
 
-        easy_exercises = request.form.getlist('exercise1_form')
+        easy_exercises = request.form.getlist('easy_exercises_form')
+        tough_exercises = request.form.getlist('tough_exercises_form')
 
         # exercise1_toggle = request.form['exercise1_toggle']
         # exercise2_toggle = request.form['exercise2_toggle']
@@ -40,10 +41,8 @@ def first_page():
 
 
         """ DUMMY CODE!! """
-        todays_wod = easy_exercises
+        todays_wod = easy_exercises + tough_exercises
         """ DUMMY CODE!! """
-
-
         todays_wod = remove_none_from_todays_wod(todays_wod)
 
         # todays_wod_toggles = [exercise1_toggle, exercise2_toggle,
