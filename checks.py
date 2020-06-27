@@ -39,35 +39,16 @@ def check_tough_gymnastics(todays_wod):
 
 def check_tough_input_add_time(tough_exercises, all_warmup_times_pre_toggle):
     """Adds appropriate times for tough exercises"""
-    for i in range(len(tough_exercises)):
-        xxx = exercises.get(tough_exercises[i])
+    for tough_exercise in tough_exercises:
+        xxx = exercises.get(tough_exercise)
         loaded_value = xxx.get('loaded')
-        if tough_exercises[i] == 'Yes':
-            if loaded_value == 'kb':
-                all_warmup_times_pre_toggle['focused_kb_time'] += 3
-            elif loaded_value == 'barbell':
-                all_warmup_times_pre_toggle['focused_barbell_time'] += 5
-            elif loaded_value == False and check_tough_gymnastics(tough_exercises) == True:
-                all_warmup_times_pre_toggle['focused_gymanstics_time'] += 8
+        if loaded_value == 'kb':
+            all_warmup_times_pre_toggle['focused_kb_time'] += 3
+        elif loaded_value == 'barbell':
+            all_warmup_times_pre_toggle['focused_barbell_time'] += 5
+        elif loaded_value == False and check_tough_gymnastics(tough_exercises) == True:
+            all_warmup_times_pre_toggle['focused_gymanstics_time'] += 8
 
     all_warmup_times_post_toggle = all_warmup_times_pre_toggle
-
     return all_warmup_times_post_toggle
 
-# def check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle):
-#     """Adds appropriate times if toggles are engaged"""
-#
-#     for i in range(len(todays_wod)):
-#         xxx = exercises.get(todays_wod[i])
-#         loaded_value = xxx.get('loaded')
-#         if todays_wod_toggles[i] == 'Yes':
-#             if loaded_value == 'kb':
-#                 all_warmup_times_pre_toggle['focused_kb_time'] += 3
-#             elif loaded_value == 'barbell':
-#                 all_warmup_times_pre_toggle['focused_barbell_time'] += 5
-#             elif loaded_value == False and check_tough_gymnastics(todays_wod) == True:
-#                 all_warmup_times_pre_toggle['focused_gymanstics_time'] += 8
-#
-#     all_warmup_times_post_toggle = all_warmup_times_pre_toggle
-#
-#     return all_warmup_times_post_toggle
