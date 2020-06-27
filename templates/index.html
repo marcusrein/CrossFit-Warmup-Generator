@@ -100,12 +100,12 @@
         {% endif %}
         </div>
     </div>
+        {% if tough_gymnastics_movements_from_todays_wod: %}
         <div class="container">
         <p></p>
-        {% if tough_gymnastics_movements_from_todays_wod: %}
         <H3>Your Gymnastics Warmup</H3>
+        <div class="card-deck">
             {% for k,v in new_gymnastics_temp_dict.items() %}
-                <div class ="col mb-4">
                     <div class="card" style="max-width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">{{ k.title() }}</h5>
