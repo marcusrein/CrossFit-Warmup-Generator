@@ -18,44 +18,21 @@ def first_page():
 
     # length_of_x = len(x)
     if request.method == 'POST':
-        # intensity = request.form['intensity_form']
-
-        # exercise1 = check_exercise_fuzz_80(request.form['exercise1_form'])
-        # exercise2 = check_exercise_fuzz_80(request.form['exercise2_form'])
-        # exercise3 = check_exercise_fuzz_80(request.form['exercise3_form'])
-        # exercise4 = check_exercise_fuzz_80(request.form['exercise4_form'])
-        # exercise5 = check_exercise_fuzz_80(request.form['exercise5_form'])
-
+        #INPUT
         easy_exercises = request.form.getlist('easy_exercises_form')
         tough_exercises = request.form.getlist('tough_exercises_form')
 
-        # exercise1_toggle = request.form['exercise1_toggle']
-        # exercise2_toggle = request.form['exercise2_toggle']
-        # exercise3_toggle = request.form['exercise3_toggle']
-        # exercise4_toggle = request.form['exercise4_toggle']
-        # exercise5_toggle = request.form['exercise5_toggle']
-
-        # todays_wod = [exercise1, exercise2, exercise3, exercise4, exercise5]
-
+        #TODAYSWOD
         todays_wod = easy_exercises + tough_exercises
 
-        todays_wod = remove_none_from_todays_wod(todays_wod)
-
-        # todays_wod_toggles = [exercise1_toggle, exercise2_toggle,
-        #                       exercise3_toggle, exercise4_toggle, exercise5_toggle]
-
-        """ GOTTA MAKE CODE THAT SAYS 'IF TOUGH EXERCISE, automaticcaly make it toggle YES"""
-
-        """ DUMMY CODE!! """
-        todays_wod_toggles = ['No', 'No', 'No', 'No', 'No', 'Yes']
-        """ DUMMY CODE!! """
-
+        #METCON SELECTION
         metcons_compiled = get_movements_compiled(
             todays_wod, tough_exercises, metcons, metcon_time)
         selected_metcon = metcons_compiled.get('SELECTED MOVEMENTS: ')
         cleaned_metcon_reps = ''.join(str(x) for x in selected_metcon)
         metcon_reps = get_metcon_reps(cleaned_metcon_reps)
 
+        #DROM SELECTION AND IMAGE SELECTION
         droms_compiled = get_movements_compiled(
             todays_wod, tough_exercises, droms, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
@@ -63,16 +40,19 @@ def first_page():
         drom_img_list = get_images_for_display(selected_droms, droms)
         drom_images_dict = dict(zip(selected_droms, drom_img_list))
 
+        #BARBELL SELECTION
         barbell_warmup = []
         barbell_movements_from_todays_wod = which_movements_are_barbell_movements(todays_wod)
         if barbell_movements_from_todays_wod:
             barbell_warmup = barbell_loader(todays_wod)
 
+        #KB SELECTION
         kb_warmup = []
         kb_movements_from_todays_wod = which_movements_are_kb_movements(todays_wod)
         if kb_movements_from_todays_wod:
             kb_warmup = kettlebell_loader(todays_wod)
 
+        #GYMNASTICS SELECTION
         tough_gymnastics_wu_and_reps_dict = {}
 
         tough_gymnastics_warmups = []

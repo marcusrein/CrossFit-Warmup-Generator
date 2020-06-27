@@ -3,12 +3,14 @@ from checks import *
 from fuzzywuzzy import fuzz
 
 
+# DONT NEED?
 def check_exercise_fuzz_80(exercise1_prefuzz):
     for j in list(exercises.keys()):
         if (fuzz.ratio(exercise1_prefuzz, j)) > 80:
             return j
 
 
+# DONT NEED?
 def remove_none_from_todays_wod(todays_wod):
     """Remove "none" from todays_wod to clean it up"""
     cleaned_array = []
@@ -51,4 +53,3 @@ def check_tough_input_add_time(tough_exercises, all_warmup_times_pre_toggle):
 
     all_warmup_times_post_toggle = all_warmup_times_pre_toggle
     return all_warmup_times_post_toggle
-
