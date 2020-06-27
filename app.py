@@ -51,13 +51,13 @@ def first_page():
         """ DUMMY CODE!! """
 
         metcons_compiled = get_movements_compiled(
-            todays_wod, todays_wod_toggles, metcons, metcon_time)
+            todays_wod, tough_exercises, metcons, metcon_time)
         selected_metcon = metcons_compiled.get('SELECTED MOVEMENTS: ')
         cleaned_metcon_reps = ''.join(str(x) for x in selected_metcon)
         metcon_reps = get_metcon_reps(cleaned_metcon_reps)
 
         droms_compiled = get_movements_compiled(
-            todays_wod, todays_wod_toggles, droms, drom_time)
+            todays_wod, tough_exercises, droms, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
 
         drom_img_list = get_images_for_display(selected_droms, droms)
@@ -94,7 +94,8 @@ def first_page():
                                kb_warmup=kb_warmup, tough_gymnastics_movements_from_todays_wod=
                                tough_gymnastics_movements_from_todays_wod,
                                tough_gymnastics_wu_and_reps_dict=tough_gymnastics_wu_and_reps_dict,
-                               tough_gymnastics_img_dict=tough_gymnastics_img_dict, easy_exercises=easy_exercises)
+                               tough_gymnastics_img_dict=tough_gymnastics_img_dict, easy_exercises=easy_exercises,
+                               tough_exercises=tough_exercises)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')

@@ -3,6 +3,7 @@ from droms import *
 from metcons import *
 from checks import *
 from filters import *
+
 import random
 
 
@@ -196,7 +197,7 @@ def get_metcon_reps(selected_metcon):
     return final
 
 
-def get_movements_compiled(todays_wod, todays_wod_toggles, dictionary, movement_time):
+def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):
     """This is a function that compiles DROMS for viewing."""
     ##CLEANER##
     todays_wod = remove_none_from_todays_wod(todays_wod)
@@ -214,14 +215,14 @@ def get_movements_compiled(todays_wod, todays_wod_toggles, dictionary, movement_
     tally_organized_times_sum = get_sum_times_of_list(tally_organized_times_list)
     all_warmup_times_pre_toggle = get_all_movement_times(todays_wod)
     prescribed_time = all_warmup_times_pre_toggle[str(movement_time)]
-    all_warmup_times_plus_toggles = check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle)
+    all_warmup_times_plus_toggles = check_tough_input_add_time(tough_exercises,all_warmup_times_pre_toggle)
     selected_movements = pop_and_select(tally_organized_dict, tally_organized_times_list,
                                         tally_organized_times_sum, prescribed_time)
 
     return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod,
             'has kb exercise': has_kb_exercise,
             'has barbell exercise': has_barbell_exercise,
-            'has_tough_gymnastics': has_tough_gymnastics, 'todays_wod_toggles': todays_wod_toggles,
+            'has_tough_gymnastics': has_tough_gymnastics, 'tough_exercises': tough_exercises,
             'ALL WARMUP TIMES PLUS TOGGLES ': all_warmup_times_plus_toggles,
             'CALCULATIONS: ''mov_cat': mov_cat,
             'todays possible movements': todays_possible_movements, 'TALLY ORGANIZED DICT': tally_organized_dict,
