@@ -53,21 +53,17 @@ def first_page():
             kb_warmup = kettlebell_loader(todays_wod)
 
         #GYMNASTICS SELECTION
-        tough_gymnastics_wu_and_reps_dict = {}
+        tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)
+        tough_gymnastics_warmups = gymnastics_loader(todays_wod)
 
         new_gymnastics_temp_dict = {}
-        tough_gymnastics_warmups = []
-        tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)
-        # if tough_gymnastics_movements_from_todays_wod:
-        tough_gymnastics_warmups = gymnastics_loader(todays_wod)
-        new_gymnastics_temp_dict = {}
-        for tough_gymnastics_movement in tough_gymnastics_warmups:
-            m = loading[tough_gymnastics_movement]['reps']
-            rand_rep_choice = random.choice(m)
-            loading[tough_gymnastics_movement]['reps'] = rand_rep_choice
-            for k,v in loading.items():
+
+        for k,v in loading.items():
+            for tough_gymnastics_movement in tough_gymnastics_warmups:
                 if tough_gymnastics_movement == k:
                     new_gymnastics_temp_dict[k] = v
+
+
         tough_gymnastics_reps = gymnastics_rep_finder(tough_gymnastics_warmups)
 
         tough_gymnastics_wu_and_reps_dict = dict(zip(tough_gymnastics_warmups, tough_gymnastics_reps))
