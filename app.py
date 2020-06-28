@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# TODO: 1. Change toggle routing, 2. Get gymnastics warmup to populate properly. 3. Program for various BB Warmups
+# TODO: 1. Clean up code. 2. Program for various BB Warmups
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
@@ -16,11 +16,12 @@ def first_page():
     metcon_time = 'metcon_time'
     drom_time = 'drom_time'
 
-    # length_of_x = len(x)
     if request.method == 'POST':
         #INPUT
         easy_exercises = request.form.getlist('easy_exercises_form')
+        easy_exercises = [easy_exercise.lower() for easy_exercise in easy_exercises]
         tough_exercises = request.form.getlist('tough_exercises_form')
+        tough_exercises = [tough_exercise.lower() for tough_exercise in tough_exercises]
 
         #TODAYSWOD
         todays_wod = easy_exercises + tough_exercises
@@ -63,14 +64,6 @@ def first_page():
                 if tough_gymnastics_movement == k:
                     new_gymnastics_temp_dict[k] = v
 
-
-        tough_gymnastics_reps = gymnastics_rep_finder(tough_gymnastics_warmups)
-
-        tough_gymnastics_wu_and_reps_dict = dict(zip(tough_gymnastics_warmups, tough_gymnastics_reps))
-        tough_gymnastics_img_list = get_images_for_display(tough_gymnastics_warmups, loading)
-        tough_gymnastics_dict = dict(zip(tough_gymnastics_warmups, tough_gymnastics_img_list))
-        tough_gymnastics_dict['reps'] = tough_gymnastics_reps
-
         return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
                                metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms,
                                drom_images_dict=drom_images_dict, barbell_warmup=barbell_warmup,
@@ -79,9 +72,8 @@ def first_page():
                                kb_movements_from_todays_wod=kb_movements_from_todays_wod,
                                kb_warmup=kb_warmup, tough_gymnastics_movements_from_todays_wod=
                                tough_gymnastics_movements_from_todays_wod,
-                               tough_gymnastics_wu_and_reps_dict=tough_gymnastics_wu_and_reps_dict,
-                               tough_gymnastics_dict=tough_gymnastics_dict, easy_exercises=easy_exercises,
-                               tough_exercises=tough_exercises, new_gymnastics_temp_dict=new_gymnastics_temp_dict)
+                               easy_exercises=easy_exercises, tough_exercises=tough_exercises,
+                               new_gymnastics_temp_dict=new_gymnastics_temp_dict)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')

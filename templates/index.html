@@ -13,8 +13,6 @@
     <h1 class="container"> Welcome to the Warmup Generator!</h1>
     <h3 class="container"><small class="text-muted">Input Your WOD Movements, Categorized By "Easy" and "Tough"</h3> </small>
     <p></p>
-    <h5 class="container"><small class="text-muted">You Decide Which WOD Movements are "Easy" and "Tough"</small></h5>
-
     <form method="POST" action="/" class="container">
         <div>
             <div class="row">
@@ -27,7 +25,7 @@
                             <option></option>
                         {% for i in exercise_keys %}
                             <option>
-                                {{ i }}
+                                {{ i.title() }}
                             </option>
                         {% endfor %}
                         </select>
@@ -42,7 +40,7 @@
                                 <option></option>
                             {% for i in exercise_keys %}
                                 <option>
-                                    {{ i }}
+                                    {{ i.title() }}
                                 </option>
                             {% endfor %}
                             </select>
@@ -164,10 +162,11 @@
 
 
 {{ droms_compiled }}
-        <H3>EasyExercises:</H3>
-{{ easy_exercises }}
-        <H3>ToughExercises:</H3>
-
+    <p></p>
+    <p></p>
+        {{ easy_exercises }}
+<p></p>
+        <p></p>
 {{ tough_exercises }}
 
     </div>
@@ -181,18 +180,6 @@
 
         new SlimSelect({
         select: '#slim-select2'
-      })
-
-        new SlimSelect({
-        select: '#slim-select3'
-      })
-
-        new SlimSelect({
-        select: '#slim-select4'
-      })
-
-        new SlimSelect({
-        select: '#slim-select5'
       })
 
 </script>
