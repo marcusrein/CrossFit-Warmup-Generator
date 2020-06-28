@@ -203,7 +203,6 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
     addendum = ''
     if 'air squat' in todays_wod and 'air squats' not in selected_movements:
         addendum = 'air squats'
-    else:
     return addendum
 
 
