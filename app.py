@@ -4,7 +4,9 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# TODO: 1. Clean up code. 2. Program for various BB Warmups
+# TODO: 1. Make code more accurate in choosing DROMS (reduce number of things that
+#  could be applicable in categories? Increase minutes? Require dependencies [if air squats in workout you must do
+#  airsquats in warmup] YEP thats it! Easier is better!. 2. Program for various BB Warmups
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
@@ -37,6 +39,11 @@ def first_page():
         droms_compiled = get_movements_compiled(
             todays_wod, tough_exercises, droms, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
+        x = get_selected_movements_addendum_droms(todays_wod, selected_droms)
+        if x:
+            selected_droms.pop()
+            selected_droms.append(x)
+
 
         drom_img_list = get_images_for_display(selected_droms, droms)
         drom_images_dict = dict(zip(selected_droms, drom_img_list))

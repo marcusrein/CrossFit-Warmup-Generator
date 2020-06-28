@@ -182,7 +182,7 @@ def which_movements_are_tough_gymnastics_movements(todays_wod):
     tough_gymnastics_movements_from_todays_wod = []
 
     for x in todays_wod:
-        if x == 'pull up' or x == 'pistol' or x == 'pistols' or x == 'handstand pushup' or x == 'handstand walk'\
+        if x == 'pull up' or x == 'pistol' or x == 'pistols' or x == 'handstand pushup' or x == 'handstand walk' \
                 or x == 'kipping pull up' or x == 'ring muscle up' or x == 'bar muscle up':
             tough_gymnastics_movements_from_todays_wod.append(x.title())
     return tough_gymnastics_movements_from_todays_wod
@@ -195,6 +195,16 @@ def get_metcon_reps(selected_metcon):
     z = y.get('reps')
     final = random.choice(z)
     return final
+
+
+def get_selected_movements_addendum_droms(todays_wod, selected_movements):
+    """Adds dependencies. E.G. if air squats is in todays wod and not in selected movements, add airsquats
+    to addendum (which will be added to selected movements for DROMS"""
+    addendum = ''
+    if 'air squat' in todays_wod and 'air squats' not in selected_movements:
+        addendum = 'air squats'
+    else:
+    return addendum
 
 
 def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):
@@ -215,7 +225,7 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
     tally_organized_times_sum = get_sum_times_of_list(tally_organized_times_list)
     all_warmup_times_pre_toggle = get_all_movement_times(todays_wod)
     prescribed_time = all_warmup_times_pre_toggle[str(movement_time)]
-    all_warmup_times_plus_toggles = check_tough_input_add_time(tough_exercises,all_warmup_times_pre_toggle)
+    all_warmup_times_plus_toggles = check_tough_input_add_time(tough_exercises, all_warmup_times_pre_toggle)
     selected_movements = pop_and_select(tally_organized_dict, tally_organized_times_list,
                                         tally_organized_times_sum, prescribed_time)
 
@@ -231,10 +241,10 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
             'prescribed time': prescribed_time, 'SELECTED MOVEMENTS: ': selected_movements
             }
 
+
 def get_images_for_display(selected_movements, dictionary):
     img_list = []
     for movement in selected_movements:
         img_test = dictionary[movement]['img']
         img_list.append(img_test)
     return img_list
-
