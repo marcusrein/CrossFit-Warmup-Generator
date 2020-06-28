@@ -101,14 +101,20 @@ exercises = {
     ## LUNGES LOADED
 
     'kettlebell lunge': {
-        'category': 'kettlebells',
+        'category': 'lunges',
         'intensity': 'high',
         'loaded': 'kb'
     },
-    'dumbbell lunge': {
-        'category': 'dumbbells' ,
+    # THIS CODE DOESNT WORK YET BECAUSSE DB CATEGORY DOESN"T EXIST THORUHGOUT CODE YET
+    # 'dumbbell lunge': {
+    #     'category': 'dumbbells' ,
+    #     'intensity': 'high',
+    #     'loaded': 'db'
+    # },
+    'barbell lunge': {
+        'category': 'lunges',
         'intensity': 'high',
-        'loaded': 'db'
+        'loaded': 'barbell'
     },
 
     ###BB SQUATS

@@ -1,7 +1,7 @@
 metcons = {
 
     'run': {
-        'categories': ['squats', 'cleans', 'gymnastics lower', 'snatches', 'deadlifts', 'kettlebells', 'jerks'],
+        'categories': ['squats', 'lunges', 'cleans', 'gymnastics lower', 'snatches', 'deadlifts', 'kettlebells', 'jerks'],
         'time': 2,
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'reps': ['200m', '400m']

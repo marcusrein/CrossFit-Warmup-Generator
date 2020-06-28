@@ -208,23 +208,11 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
     if 'push up' in todays_wod and 'push ups' not in selected_movements:
         addendum.append('push ups')
 
-    if 'lunge' in todays_wod and 'walking lunges' not in selected_movements:
+    if any('lunge' in wod for wod in todays_wod) and 'walking lunges' not in selected_movements:
         addendum.append('walking lunges')
 
-    if 'jumping lunge' in todays_wod and 'walking lunges' not in selected_movements:
-        addendum.append('walking lunges')
-
-    if 'jumping lunge' in todays_wod and 'walking lunges' not in selected_movements:
-        addendum.append('walking lunges')
-
-    if 'kettlebell lunge' in todays_wod and 'walking lunges' not in selected_movements:
-        addendum.append('walking lunges')
-
-    if 'dumbbell lunge' in todays_wod and 'walking lunges' not in selected_movements:
-        addendum.append('walking lunges')
-
-    # if 'barbell lunge' in todays_wod and 'walking lunges' not in selected_movements:
-    #     addendum.append('lunges')
+    if any('press' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
+        addendum.append('shoulder passthroughs')
 
     return addendum
 

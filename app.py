@@ -4,9 +4,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# TODO: 1. Make code more accurate in choosing DROMS (reduce number of things that
-#  could be applicable in categories? Increase minutes? Require dependencies [if air squats in workout you must do
-#  airsquats in warmup] YEP thats it! Easier is better!. 2. Program for various BB Warmups
+# TODO: 1. differentiate between presses overhead vs presses frontal. 2. Create DB category throughout code
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():

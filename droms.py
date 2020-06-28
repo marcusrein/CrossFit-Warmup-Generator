@@ -9,14 +9,14 @@ droms = {
 
     },
     'cossack lunges': {
-        'categories': ['squats', 'cleans', 'deadlifts', 'gymnastics lower', 'kettlebells'],
+        'categories': ['squats', 'cleans', 'deadlifts', 'lunges', 'gymnastics lower', 'kettlebells'],
         'time': 1,
         'reps': ['10 reps', '20 reps', '30 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media0.giphy.com/media/v6aOjy0Qo1fIA/giphy.gif'
     },
     'walking lunges': {
-        'categories': ['squats', 'cleans', 'deadlifts', 'gymnastics lower', 'kettlebells'],
+        'categories': ['squats', 'cleans', 'deadlifts', 'lunges', 'gymnastics lower', 'kettlebells'],
         'time': 1,
         'reps': ['10 reps', '20 reps', '30 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
@@ -39,7 +39,7 @@ droms = {
 
     },
     'worlds greatest stretch': {
-        'categories': ['squats', 'cleans', 'deadlifts', 'snatches', 'gymnastics lower', 'gymnastics upper'],
+        'categories': ['squats', 'cleans', 'deadlifts', 'snatches', 'lunges', 'gymnastics lower', 'gymnastics upper'],
         'time': 3,
         'reps': ['3 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
@@ -64,7 +64,7 @@ droms = {
 
     },
     'walking forward kicks': {
-        'categories': ['squats', 'cleans', 'snatches', 'jerks', 'deadlifts', 'kettlebells'],
+        'categories': ['squats', 'cleans', 'snatches', 'jerks', 'lunges', 'deadlifts', 'kettlebells'],
         'time': 1,
         'reps': ['10 reps', '20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
@@ -72,7 +72,7 @@ droms = {
 
     },
     'walking back kicks': {
-        'categories': ['squats', 'cleans', 'snatches', 'jerks', 'deadlifts', 'kettlebells'],
+        'categories': ['squats', 'cleans', 'snatches', 'jerks', 'lunges', 'deadlifts', 'kettlebells'],
         'time': 1,
         'reps': ['10 reps', '20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
@@ -112,6 +112,14 @@ droms = {
 
     },
     'push ups': {
+        'categories': ['jerks', 'snatches', 'presses', 'gymnastics upper'],
+        'time': 2,
+        'reps': ['15 reps,', '20 reps', '25 reps'],
+        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+        'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
+
+    },
+    'shoulder passthroughs': {
         'categories': ['jerks', 'snatches', 'presses', 'gymnastics upper'],
         'time': 2,
         'reps': ['15 reps,', '20 reps', '25 reps'],
