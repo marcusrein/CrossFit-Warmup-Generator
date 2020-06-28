@@ -1,6 +1,6 @@
 droms = {
     'bear crawls': {
-        'categories': ['snatches', 'cleans', 'deadlifts', 'presses', 'gymanstics upper', 'gymnastics lower',
+        'categories': ['snatches', 'cleans', 'deadlifts', 'saggital presses', 'gymanstics upper', 'gymnastics lower',
                        'kettlebells'],
         'time': 2,
         'reps': ['2 min'],
@@ -10,7 +10,7 @@ droms = {
     },
     'cossack lunges': {
         'categories': ['squats', 'cleans', 'deadlifts', 'lunges', 'gymnastics lower', 'kettlebells'],
-        'time': 1,
+        'time': 2,
         'reps': ['10 reps', '20 reps', '30 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media0.giphy.com/media/v6aOjy0Qo1fIA/giphy.gif'
@@ -32,7 +32,7 @@ droms = {
     },
     'spidermans': {
         'categories': ['squats', 'cleans', 'deadlifts', 'snatches', 'gymnastics lower'],
-        'time': 2,
+        'time': 3,
         'reps': ['2 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media.tenor.com/images/47b81948be5023555549c01d88ae3289/tenor.gif'
@@ -47,8 +47,8 @@ droms = {
 
     },
     'inchworms': {
-        'categories': ['presses', 'squats', 'cleans', 'deadlifts', 'gymnastics lower', 'gymnastics upper',
-                       'kettlebells'],
+        'categories': ['saggital presses', 'squats', 'cleans', 'deadlifts', 'gymnastics lower', 'gymnastics upper',
+                       'kettlebells', 'overhead presses'],
         'time': 2,
         'reps': ['2 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
@@ -56,7 +56,7 @@ droms = {
 
     },
     'thoracic bridge': {
-        'categories': ['presses', 'cleans', 'snatches', 'gymnastics upper', 'kettlebells'],
+        'categories': ['saggital presses', 'cleans', 'snatches', 'gymnastics upper', 'kettlebells', 'overhead presses'],
         'time': 2,
         'reps': ['2 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
@@ -81,14 +81,14 @@ droms = {
     },
     'frog walk': {
         'categories': ['squats', 'snatches', 'cleans'],
-        'time': 1,
+        'time': 2,
         'reps': ['1 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://i.pinimg.com/originals/ca/f1/29/caf12983c2cfa59546814d3051f423df.gif'
 
     },
     'arm circles': {
-        'categories': ['presses', 'jerks', 'snatches', 'gymnastics upper'],
+        'categories': ['saggital presses', 'jerks', 'snatches', 'gymnastics upper', 'overhead presses'],
         'time': 1,
         'reps': ['20 forward, 20 backward'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
@@ -104,24 +104,32 @@ droms = {
 
     },
     'seal walk': {
-        'categories': ['presses', 'jerks', 'gymnastics upper'],
-        'time': 1,
+        'categories': ['saggital presses', 'jerks', 'gymnastics upper'],
+        'time': 2,
         'reps': ['10 seal walks forward, turn around, 10 back', '20 seal walks forward, turn around, 20 back'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media.giphy.com/media/8Ag4AORS8xPYHdeU6f/giphy.gif'
 
     },
     'push ups': {
-        'categories': ['jerks', 'snatches', 'presses', 'gymnastics upper'],
-        'time': 2,
+        'categories': ['jerks', 'snatches', 'saggital presses', 'gymnastics upper'],
+        'time': 1,
+        'reps': ['15 reps,', '20 reps', '25 reps'],
+        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+        'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
+
+    },
+    'burpees': {
+        'categories': ['saggital presses', 'gymnastics upper', 'gymnastics lower'],
+        'time': 1,
         'reps': ['15 reps,', '20 reps', '25 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
 
     },
     'shoulder passthroughs': {
-        'categories': ['jerks', 'snatches', 'presses', 'gymnastics upper'],
-        'time': 2,
+        'categories': ['jerks', 'snatches', 'overhead presses','saggital presses', 'gymnastics upper'],
+        'time': 1,
         'reps': ['15 reps,', '20 reps', '25 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'

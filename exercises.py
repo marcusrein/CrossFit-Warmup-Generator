@@ -15,7 +15,7 @@ exercises = {
     },
 
     'burpee': {
-        'category': 'gymnastics upper', 'gymnastics lower'
+        'category': 'gymnastics upper',
         'intensity': 'high',
         'loaded': False
     },
@@ -38,7 +38,7 @@ exercises = {
     },
 
     'mountain climber': {
-        'category': 'gymnastics upper', 'gymnastics lower'
+        'category': 'gymnastics upper',
         'intensity': 'high',
         'loaded': False
     },
@@ -257,39 +257,39 @@ exercises = {
 
     ###PRESSES
     'bench press': {
-        'category': 'presses',
+        'category': 'saggital presses',
         'intensity': 'high',
         'loaded': 'barbell',
         'tech': 'youtubelink for techbench',
         'reg_warm': 'youtubelink for regwarmbench',
     },
     'floor press': {
-        'category': 'presses',
+        'category': 'saggital presses',
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'seated press': {
-        'category': 'presses',
+        'category': 'overhead presses',
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'strict press': {
-        'category': 'presses',
+        'category': 'overhead presses',
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'snatch grip push press': {
-        'category': 'presses',
+        'category': 'overhead presses',
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'sotts press': {
-        'category': 'presses',
+        'category': 'overhead presses',
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'shoulder press': {
-        'category': 'presses',
+        'category': 'overhead presses',
         'intensity': 'high',
         'loaded': 'barbell'
     },

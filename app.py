@@ -4,7 +4,8 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# TODO: 1. differentiate between presses overhead vs presses frontal. 2. Create DB category throughout code
+# TODO: 1. differentiate between presses overhead vs presses frontal. 2. Create DB category throughout code,
+#  3. sort out how things like 'burpee' in exercises can have multiple categories 'gymnastics upper/gymnastics lower'
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
