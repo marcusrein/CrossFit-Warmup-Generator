@@ -200,9 +200,16 @@ def get_metcon_reps(selected_metcon):
 def get_selected_movements_addendum_droms(todays_wod, selected_movements):
     """Adds dependencies. E.G. if air squats is in todays wod and not in selected movements, add airsquats
     to addendum (which will be added to selected movements for DROMS"""
-    addendum = ''
+    addendum = []
+    print('todays_wod: ',todays_wod)
+    print('SELECGTTED MOVEMENTS :', selected_movements)
+
     if 'air squat' in todays_wod and 'air squats' not in selected_movements:
-        addendum = 'air squats'
+        addendum.append('air squats')
+
+    if 'push up' in todays_wod and 'push ups' not in selected_movements:
+        addendum.append('push ups')
+
     return addendum
 
 

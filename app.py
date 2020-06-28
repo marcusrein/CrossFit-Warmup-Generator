@@ -41,9 +41,12 @@ def first_page():
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
         x = get_selected_movements_addendum_droms(todays_wod, selected_droms)
         if x:
-            selected_droms.pop()
-            selected_droms.append(x)
-
+            for i in range(len(x)):
+                print(i)
+                selected_droms.pop()
+            for item in x:
+                selected_droms.append(item)
+        print('post processing selected droms: ', selected_droms)
 
         drom_img_list = get_images_for_display(selected_droms, droms)
         drom_images_dict = dict(zip(selected_droms, drom_img_list))
