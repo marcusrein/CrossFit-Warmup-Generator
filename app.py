@@ -29,6 +29,7 @@ def first_page():
         todays_wod = easy_exercises + tough_exercises
 
         #METCON SELECTION
+        # breakpoint()
         metcons_compiled = get_movements_compiled(
             todays_wod, tough_exercises, metcons, metcon_time)
         selected_metcon = metcons_compiled.get('SELECTED MOVEMENTS: ')
@@ -39,6 +40,7 @@ def first_page():
         droms_compiled = get_movements_compiled(
             todays_wod, tough_exercises, droms, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
+        print('PREPROCCESING SELECTED DROMS: ', selected_droms)
         x = get_selected_movements_addendum_droms(todays_wod, selected_droms)
         if x:
             for i in range(len(x)):

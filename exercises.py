@@ -98,17 +98,17 @@ exercises = {
         'loaded': 'kb'
     },
 
-    ## KB or DB
+    ## LUNGES LOADED
 
     'kettlebell lunge': {
-        'category': ['kettlebells', 'dumbbells'],
+        'category': 'kettlebells',
         'intensity': 'high',
         'loaded': 'kb'
     },
     'dumbbell lunge': {
-        'category': ['kettlebells', 'dumbbells', ],
+        'category': 'dumbbells' ,
         'intensity': 'high',
-        'loaded': 'kb'
+        'loaded': 'db'
     },
 
     ###BB SQUATS
