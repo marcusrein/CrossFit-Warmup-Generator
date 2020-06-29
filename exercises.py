@@ -15,7 +15,7 @@ exercises = {
     },
 
     'burpee': {
-        'category': 'gymnastics upper',
+        'category': ['gymnastics upper', 'gymnastics lower'],
         'intensity': 'high',
         'loaded': False
     },
