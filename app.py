@@ -36,10 +36,11 @@ def first_page():
         metcon_reps = get_metcon_reps(cleaned_metcon_reps)
 
         #DROM SELECTION AND IMAGE SELECTION
+
         droms_compiled = get_movements_compiled(
             todays_wod, tough_exercises, droms, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
-        print('PREPROCCESING SELECTED DROMS: ', selected_droms)
+        # print('PREPROCCESING SELECTED DROMS: ', selected_droms)
         x = get_selected_movements_addendum_droms(todays_wod, selected_droms)
         if x:
             for i in range(len(x)):
@@ -47,10 +48,24 @@ def first_page():
                 selected_droms.pop()
             for item in x:
                 selected_droms.append(item)
-        print('post processing selected droms: ', selected_droms)
+        # print('post processing selected droms: ', selected_droms)
+
+        drom_reps = get_drom_reps(selected_droms)
 
         drom_img_list = get_images_for_display(selected_droms, droms)
         drom_images_dict = dict(zip(selected_droms, drom_img_list))
+        # print('DROM IMAGES DICT: ',drom_images_dict)
+
+        drom_final_dict = {}
+        for selected_movement in selected_droms:
+            drom_final_dict[selected_movement]
+        drom_final_dict['img'] = drom_img_list
+        drom_final_dict['reps'] = drom_reps
+
+        print('DROM FINAL DICT ',drom_final_dict)
+
+
+
 
         #BARBELL SELECTION
         barbell_warmup = []
@@ -84,7 +99,7 @@ def first_page():
                                kb_warmup=kb_warmup, tough_gymnastics_movements_from_todays_wod=
                                tough_gymnastics_movements_from_todays_wod,
                                easy_exercises=easy_exercises, tough_exercises=tough_exercises,
-                               new_gymnastics_temp_dict=new_gymnastics_temp_dict)
+                               new_gymnastics_temp_dict=new_gymnastics_temp_dict, drom_final_dict=drom_final_dict)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')

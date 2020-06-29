@@ -207,6 +207,20 @@ def get_metcon_reps(selected_metcon):
     final = random.choice(z)
     return final
 
+def get_drom_reps(post_processing_selected_droms):
+    reps_big_list = []
+    reps_random_chosen = []
+
+    for drom in post_processing_selected_droms:
+        reps_big_list.append(droms.get(drom)['reps'])
+
+    for x in reps_big_list:
+        y = random.choice(x)
+        reps_random_chosen.append(y)
+
+    return reps_random_chosen
+
+
 
 def get_selected_movements_addendum_droms(todays_wod, selected_movements):
     """Adds dependencies. E.G. if air squats is in todays wod and not in selected movements, add airsquats
