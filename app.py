@@ -51,16 +51,29 @@ def first_page():
         # print('post processing selected droms: ', selected_droms)
 
         drom_reps = get_drom_reps(selected_droms)
-
         drom_img_list = get_images_for_display(selected_droms, droms)
+
         drom_images_dict = dict(zip(selected_droms, drom_img_list))
         # print('DROM IMAGES DICT: ',drom_images_dict)
 
         drom_final_dict = {}
-        for selected_movement in selected_droms:
-            drom_final_dict[selected_movement]
-        drom_final_dict['img'] = drom_img_list
-        drom_final_dict['reps'] = drom_reps
+
+        for idx,item in enumerate(drom_img_list):
+            drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx])}
+
+        # print(drom_final_dict)
+
+        # breakpoint()
+
+
+
+
+
+
+
+        # breakpoint()
+        # drom_final_dict['img'] = drom_img_list
+        # drom_final_dict['reps'] = drom_reps
 
         print('DROM FINAL DICT ',drom_final_dict)
 
