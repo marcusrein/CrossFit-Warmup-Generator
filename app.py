@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+
 # TODO: 1. Put reps in DROM index 2. Create DB category throughout code,
 #  3. sort out how things like 'burpee' in exercises can have multiple categories 'gymnastics upper/gymnastics lower'
 
@@ -18,16 +19,16 @@ def first_page():
     drom_time = 'drom_time'
 
     if request.method == 'POST':
-        #INPUT
+        # INPUT
         easy_exercises = request.form.getlist('easy_exercises_form')
         easy_exercises = [easy_exercise.lower() for easy_exercise in easy_exercises]
         tough_exercises = request.form.getlist('tough_exercises_form')
         tough_exercises = [tough_exercise.lower() for tough_exercise in tough_exercises]
 
-        #TODAYSWOD
+        # TODAYSWOD
         todays_wod = easy_exercises + tough_exercises
 
-        #METCON SELECTION
+        # METCON SELECTION
         # breakpoint()
         metcons_compiled = get_movements_compiled(
             todays_wod, tough_exercises, metcons, metcon_time)
@@ -35,7 +36,7 @@ def first_page():
         cleaned_metcon_reps = ''.join(str(x) for x in selected_metcon)
         metcon_reps = get_metcon_reps(cleaned_metcon_reps)
 
-        #DROM SELECTION AND IMAGE SELECTION
+        # DROM SELECTION AND IMAGE SELECTION
 
         droms_compiled = get_movements_compiled(
             todays_wod, tough_exercises, droms, drom_time)
@@ -48,64 +49,42 @@ def first_page():
                 selected_droms.pop()
             for item in x:
                 selected_droms.append(item)
-        # print('post processing selected droms: ', selected_droms)
 
+            ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
         drom_reps = get_drom_reps(selected_droms)
         drom_img_list = get_images_for_display(selected_droms, droms)
 
-        drom_images_dict = dict(zip(selected_droms, drom_img_list))
-        # print('DROM IMAGES DICT: ',drom_images_dict)
-
         drom_final_dict = {}
 
-        for idx,item in enumerate(drom_img_list):
+        for idx, item in enumerate(drom_img_list):
             drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx])}
 
-        # print(drom_final_dict)
-
-        # breakpoint()
-
-
-
-
-
-
-
-        # breakpoint()
-        # drom_final_dict['img'] = drom_img_list
-        # drom_final_dict['reps'] = drom_reps
-
-        print('DROM FINAL DICT ',drom_final_dict)
-
-
-
-
-        #BARBELL SELECTION
+        # BARBELL SELECTION
         barbell_warmup = []
         barbell_movements_from_todays_wod = which_movements_are_barbell_movements(todays_wod)
         if barbell_movements_from_todays_wod:
             barbell_warmup = barbell_loader(todays_wod)
 
-        #KB SELECTION
+        # KB SELECTION
         kb_warmup = []
         kb_movements_from_todays_wod = which_movements_are_kb_movements(todays_wod)
         if kb_movements_from_todays_wod:
             kb_warmup = kettlebell_loader(todays_wod)
 
-        #GYMNASTICS SELECTION
+        # GYMNASTICS SELECTION
         tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)
         tough_gymnastics_warmups = gymnastics_loader(todays_wod)
 
         new_gymnastics_temp_dict = {}
 
-        for k,v in loading.items():
+        for k, v in loading.items():
             for tough_gymnastics_movement in tough_gymnastics_warmups:
                 if tough_gymnastics_movement == k:
                     new_gymnastics_temp_dict[k] = v
         # breakpoint()
         return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
                                metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms,
-                               drom_images_dict=drom_images_dict, barbell_warmup=barbell_warmup,
+                               barbell_warmup=barbell_warmup,
                                barbell_movements_from_todays_wod=
                                barbell_movements_from_todays_wod,
                                kb_movements_from_todays_wod=kb_movements_from_todays_wod,
