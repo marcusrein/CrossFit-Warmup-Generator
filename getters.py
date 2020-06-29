@@ -3,7 +3,18 @@ from droms import *
 from metcons import *
 from checks import *
 from filters import *
+
 import random
+
+
+def convert(s):
+    # initialization of string to ""
+    new = ""
+    # traverse in the string
+    for x in s:
+        new += x
+        # return string
+    return new
 
 
 def get_cat_from_todays_wod(todays_wod, dictionary):
@@ -11,8 +22,10 @@ def get_cat_from_todays_wod(todays_wod, dictionary):
     for w in todays_wod:
         for k, v in dictionary.items():
             if w == k:
-                todays_cat.append(v['category'])
-    return todays_cat
+                todays_cat = (v['category'])
+
+    print('todays CAT: ', todays_cat)
+    return list(todays_cat)
 
 
 def get_possible_movements_from_mov_cat(mov_cat, dictionary):
@@ -21,6 +34,7 @@ def get_possible_movements_from_mov_cat(mov_cat, dictionary):
         for k, v in dictionary.items():
             if cat in v['categories']:
                 possible_warmups.append(k)
+
     return possible_warmups
 
 
@@ -163,6 +177,7 @@ def which_movements_are_barbell_movements(todays_wod):
 
     return barbell_movements_from_todays_wod
 
+
 def which_movements_are_kb_movements(todays_wod):
     """Delivers a list of barbell movements only from todays wod"""
     kb_movements_from_todays_wod = []
@@ -174,30 +189,63 @@ def which_movements_are_kb_movements(todays_wod):
 
     return kb_movements_from_todays_wod
 
-def which_movements_are_gymnastics_movements(todays_wod):
+
+def which_movements_are_tough_gymnastics_movements(todays_wod):
     """Delivers a list of barbell movements only from todays wod"""
-    gymnastics_movements_from_todays_wod = []
+    tough_gymnastics_movements_from_todays_wod = []
 
-    for movement in todays_wod:
-        for k in exercises.keys():
-            if movement == k and not exercises[k]['loaded']:
-                gymnastics_movements_from_todays_wod.append(movement)
-
-    return gymnastics_movements_from_todays_wod
-
-
+    for x in todays_wod:
+        if x == 'pull up' or x == 'pistol' or x == 'pistols' or x == 'handstand pushup' or x == 'handstand walk' \
+                or x == 'kipping pull up' or x == 'ring muscle up' or x == 'bar muscle up':
+            tough_gymnastics_movements_from_todays_wod.append(x.title())
+    return tough_gymnastics_movements_from_todays_wod
 
 
 def get_metcon_reps(selected_metcon):
-    metcon_reps = []
     y = metcons.get(selected_metcon)
-    # z = selected_metcon[y]
     z = y.get('reps')
     final = random.choice(z)
     return final
 
+def get_drom_reps(post_processing_selected_droms):
+    reps_big_list = []
+    reps_random_chosen = []
 
-def get_movements_compiled(todays_wod, todays_wod_toggles, dictionary, movement_time):
+    for drom in post_processing_selected_droms:
+        reps_big_list.append(droms.get(drom)['reps'])
+
+    for x in reps_big_list:
+        y = random.choice(x)
+        reps_random_chosen.append(y)
+
+    return reps_random_chosen
+
+
+
+def get_selected_movements_addendum_droms(todays_wod, selected_movements):
+    """Adds dependencies. E.G. if air squats is in todays wod and not in selected movements, add airsquats
+    to addendum (which will be added to selected movements for DROMS"""
+    addendum = []
+
+    if 'air squat' in todays_wod and 'air squats' not in selected_movements:
+        addendum.append('air squats')
+
+    if 'push up' in todays_wod and 'push ups' not in selected_movements:
+        addendum.append('push ups')
+
+    if 'burpee' in todays_wod and 'burpees' not in selected_movements:
+        addendum.append('burpees')
+
+    if any('lunge' in wod for wod in todays_wod) and 'walking lunges' not in selected_movements:
+        addendum.append('walking lunges')
+
+    if any('press' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
+        addendum.append('shoulder passthroughs')
+
+    return addendum
+
+
+def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):
     """This is a function that compiles DROMS for viewing."""
     ##CLEANER##
     todays_wod = remove_none_from_todays_wod(todays_wod)
@@ -215,14 +263,14 @@ def get_movements_compiled(todays_wod, todays_wod_toggles, dictionary, movement_
     tally_organized_times_sum = get_sum_times_of_list(tally_organized_times_list)
     all_warmup_times_pre_toggle = get_all_movement_times(todays_wod)
     prescribed_time = all_warmup_times_pre_toggle[str(movement_time)]
-    all_warmup_times_plus_toggles = check_toggles_add_time(todays_wod, todays_wod_toggles, all_warmup_times_pre_toggle)
+    all_warmup_times_plus_toggles = check_tough_input_add_time(tough_exercises, all_warmup_times_pre_toggle)
     selected_movements = pop_and_select(tally_organized_dict, tally_organized_times_list,
                                         tally_organized_times_sum, prescribed_time)
 
     return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod,
             'has kb exercise': has_kb_exercise,
             'has barbell exercise': has_barbell_exercise,
-            'has_tough_gymnastics': has_tough_gymnastics, 'todays_wod_toggles': todays_wod_toggles,
+            'has_tough_gymnastics': has_tough_gymnastics, 'tough_exercises': tough_exercises,
             'ALL WARMUP TIMES PLUS TOGGLES ': all_warmup_times_plus_toggles,
             'CALCULATIONS: ''mov_cat': mov_cat,
             'todays possible movements': todays_possible_movements, 'TALLY ORGANIZED DICT': tally_organized_dict,
@@ -230,3 +278,11 @@ def get_movements_compiled(todays_wod, todays_wod_toggles, dictionary, movement_
             'tally organized times sum': tally_organized_times_sum,
             'prescribed time': prescribed_time, 'SELECTED MOVEMENTS: ': selected_movements
             }
+
+
+def get_images_for_display(selected_movements, dictionary):
+    img_list = []
+    for movement in selected_movements:
+        img_test = dictionary[movement]['img']
+        img_list.append(img_test)
+    return img_list

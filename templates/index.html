@@ -11,129 +11,55 @@
 
     <body>
     <h1 class="container"> Welcome to the Warmup Generator!</h1>
-    <h3 class="container"><small class="text-muted">Input WOD info, get a warmup designed by a physical therapist/CF coach!</h3> </small>
+    <h3 class="container"><small class="text-muted">Input Your WOD Movements, Categorized By "Easy" and "Tough"</h3> </small>
+    <p></p>
     <form method="POST" action="/" class="container">
-        <div class="form-group">
-            <label>
-                Exercise 1
-            </label>
-                <select id="slim-select1" name="exercise1_form">
-                    <option></option>
-                {% for i in exercise_keys %}
-                    <option>
-                        {{ i }}
-                    </option>
-                {% endfor %}
-                </select>
-            <label>
-                Check this box if the exercise will be challenging:
-            </label>
-                <label class="switch">
-                    <input id='exercise1_toggle' type='checkbox' value='Yes' name='exercise1_toggle'>
-                    <input id='exercise1_toggle_hidden' type='hidden' value='No' name='exercise1_toggle'>
-                    <span class="slider"></span>
-                </label>
-        </div>
         <div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label>
+                            Easier Exercises
+                        </label>
+                        <select multiple id="slim-select1" name="easy_exercises_form">
+                            <option></option>
+                        {% for i in exercise_keys %}
+                            <option>
+                                {{ i.title() }}
+                            </option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label>
+                            Tougher Exercises
+                        </label>
+                            <select multiple id="slim-select2" name="tough_exercises_form">
+                                <option></option>
+                            {% for i in exercise_keys %}
+                                <option>
+                                    {{ i.title() }}
+                                </option>
+                            {% endfor %}
+                            </select>
+                    </div>
+                </div>
+            </div>
         </div>
-         <div class="form-group">
-            <label>
-                Exercise 2
-            </label>
-                <select  id="slim-select2" name="exercise2_form">
-                    <option></option>
 
-                {% for i in exercise_keys %}
-                    <option>
-                        {{ i }}
-                    </option>
-                {% endfor %}
-                </select>
-            <label>
-                Check this box if the exercise will be challenging:
-            </label>
-                <label class="switch">
-                    <input id='exercise2_toggle' type='checkbox' value='Yes' name='exercise2_toggle'>
-                    <input id='exercise2_toggle_hidden' type='hidden' value='No' name='exercise2_toggle'>
-                    <span class="slider"></span>
-                </label>
-        </div>
-        <div>
-        </div>
-        <div class="form-group">
-            <label>
-                Exercise 3
-            </label>
-                <select id="slim-select3" name="exercise3_form">
-                    <option></option>
-                {% for i in exercise_keys %}
-                    <option>
-                        {{ i }}
-                    </option>
-                {% endfor %}
-                </select>
-            <label>
-                Check this box if the exercise will be challenging:
-            </label>
-                <label class="switch">
-                    <input id='exercise3_toggle' type='checkbox' value='Yes' name='exercise3_toggle'>
-                    <input id='exercise3_toggle_hidden' type='hidden' value='No' name='exercise3_toggle'>
-                    <span class="slider"></span>
-                </label>
-        </div>
-        <div>
-        <div class="form-group">
-            <label>
-                Exercise 4
-            </label>
-                <select id="slim-select4" name="exercise4_form">
-                    <option></option>
-                {% for i in exercise_keys %}
-                    <option>
-                        {{ i }}
-                    </option>
-                {% endfor %}
-                </select>
-            <label>
-                Check this box if the exercise will be challenging:
-            </label>
-                <label class="switch">
-                    <input id='exercise4_toggle' type='checkbox' value='Yes' name='exercise4_toggle'>
-                    <input id='exercise4_toggle_hidden' type='hidden' value='No' name='exercise4_toggle'>
-                    <span class="slider"></span>
-                </label>
-        </div>
-        <div class="form-group">
-            <label>
-                Exercise 5
-            </label>
-                <select id="slim-select5" name="exercise5_form">
-                    <option></option>
-                {% for i in exercise_keys %}
-                    <option>
-                        {{ i }}
-                    </option>
-                {% endfor %}
-                </select>
-            <label>
-                Check this box if the exercise will be challenging:
-            </label>
-                <label class="switch">
-                    <input id='exercise5_toggle' type='checkbox' value='Yes' name='exercise5_toggle'>
-                    <input id='exercise5_toggle_hidden' type='hidden' value='No' name='exercise5_toggle'>
-                    <span class="slider"></span>
-                </label>
         </div>
         <button type="submit" type="button" class="btn btn-secondary btn-lg" value="submit">Submit</button>
     </form>
-    {% if drom_images_dict: %}
+    {% if drom_final_dict: %}
     <p></p>
-    <div>
-        <label>METCONS COMPILED</label>
-            {{ metcons_compiled }}
-            {{ metcon_reps }}
-    </div>
-    <div>
+<!--    <div class="container">-->
+<!--        <label>METCONS COMPILED</label>-->
+<!--            {{ metcons_compiled }}-->
+<!--            {{ metcon_reps }}-->
+<!--    </div>-->
+    <div class="container">
         <p></p>
         <H3>Your Metabolic Warmup</H3>
         {% for metcon in selected_metcon %}
@@ -149,18 +75,18 @@
                 </div>
         {% endfor %}        </div>
     </div>
-    <div>
+    <div class="container">
          <p></p>
         <H3>Your Dynamic Range of Motion Warmup</H3>
         <div class="row row-cols-1 row-cols-md-3">
-        {% for k,v in drom_images_dict.items() %}
+        {% for k,v in drom_final_dict.items() %}
             <div class ="col mb-4">
                 <div class="card" style="max-width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">{{ k.title() }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">DROM</h6>
-                        <img class="card-img-top" src="{{ v }}" alt="Card image cap" />
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
+                        <p class="card-text">{{ v['reps'] }}</p>
                         <a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a>
                     </div>
@@ -172,26 +98,33 @@
         {% endif %}
         </div>
     </div>
-        <div>
-        <p></p>
-        {% if gymnastics_movements_from_todays_wod: %}
+        {% if new_gymnastics_temp_dict: %}
+         <p></p>
+    <div class="container">
+         <p></p>
         <H3>Your Gymnastics Warmup</H3>
-            <div class ="card-deck">
-                {% for gymnastics_movement in gymnastics_movements_from_todays_wod %}
+        <div class="row row-cols-1 row-cols-md-3">
+        {% for k,v in new_gymnastics_temp_dict.items() %}
+            <div class ="col mb-4">
                 <div class="card" style="max-width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">{{ gymnastics_movement.title() }}</h5>
+                        <h5 class="card-title">{{ k.title() }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
-                        <p class="card-text"> {{ gymnastics_warmup }} </p>
+                        <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
+                        <p class="card-text">{{ v['reps'] }}</p>
                         <a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a>
+                        <p class="card-text"><small class="text-muted">Gymnastics Warmup</small></p>
+
                     </div>
                 </div>
-                {% endfor %}
             </div>
+        {% endfor %}
+        </div>
+    </div>
         {% endif %}
-       </div>
-        <div>
+    </div>
+        <div class="container">
         <p></p>
         {% if kb_movements_from_todays_wod: %}
         <H3>Your KB Warmup</H3>
@@ -210,7 +143,7 @@
             </div>
         {% endif %}
         </div>
-    <div>
+    <div class="container">
         <p></p>
         {% if barbell_movements_from_todays_wod: %}
         <H3>Your Barbell Warmup</H3>
@@ -233,10 +166,16 @@
     </div>
 
 <p></p>
-            <div>
+    <div class="container">
 
 
 {{ droms_compiled }}
+    <p></p>
+    <p></p>
+        {{ easy_exercises }}
+<p></p>
+        <p></p>
+{{ tough_exercises }}
 
     </div>
 
@@ -249,18 +188,6 @@
 
         new SlimSelect({
         select: '#slim-select2'
-      })
-
-        new SlimSelect({
-        select: '#slim-select3'
-      })
-
-        new SlimSelect({
-        select: '#slim-select4'
-      })
-
-        new SlimSelect({
-        select: '#slim-select5'
       })
 
 </script>
