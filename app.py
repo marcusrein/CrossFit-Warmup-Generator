@@ -74,7 +74,7 @@ def first_page():
             for tough_gymnastics_movement in tough_gymnastics_warmups:
                 if tough_gymnastics_movement == k:
                     new_gymnastics_temp_dict[k] = v
-
+        # breakpoint()
         return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
                                metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms,
                                drom_images_dict=drom_images_dict, barbell_warmup=barbell_warmup,
