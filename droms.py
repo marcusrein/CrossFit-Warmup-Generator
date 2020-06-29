@@ -1,7 +1,7 @@
 droms = {
     'bear crawls': {
-        'categories': ['snatches', 'cleans', 'deadlifts', 'saggital presses', 'gymanstics upper', 'gymnastics lower',
-                       'kettlebells'],
+        'categories': ['snatches', 'cleans', 'core', 'deadlifts', 'saggital presses', 'gymanstics upper',
+                       'gymnastics lower', 'kettlebells'],
         'time': 2,
         'reps': ['2 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
@@ -96,11 +96,12 @@ droms = {
 
     },
     'banded side steps': {
-        'categories': ['squats', 'cleans', 'jerks', 'snatches', 'deadlifts'],
+        'categories': ['squats', 'cleans', 'jerks', 'snatches', 'deadlifts','lunges'],
         'time': 2,
         'reps': ['1 min', '2 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        'img': 'https://media4.s-nbcnews.com/j/newscms/2019_05/2738466/better_standing_lateral_band_walk_4a7c397f4668e1be769cc7b6bddc339f.fit-560w.gif'
+        'img': 'https://media4.s-nbcnews.com/j/newscms/2019_05/2738466'
+               '/better_standing_lateral_band_walk_4a7c397f4668e1be769cc7b6bddc339f.fit-560w.gif '
 
     },
     'seal walk': {
@@ -128,12 +129,45 @@ droms = {
 
     },
     'shoulder passthroughs': {
-        'categories': ['jerks', 'snatches', 'overhead presses','saggital presses', 'gymnastics upper'],
+        'categories': ['jerks', 'snatches', 'overhead presses', 'saggital presses', 'gymnastics upper'],
         'time': 1,
         'reps': ['15 reps,', '20 reps', '25 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
-
+    },
+    'supermans': {
+        'categories': ['gymnastics upper', 'core', 'deadlifts'],
+        'time': 1,
+        'reps': ['15 reps,', '20 reps', '25 reps'],
+        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+        'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
+    },
+    'dead bugs': {
+        'categories': ['gymnastics upper', 'core', 'deadlifts', 'squats', 'cleans', 'jerks'],
+        'time': 1,
+        'reps': ['15 reps,', '20 reps', '25 reps'],
+        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+        'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
+    },
+    'core rolling': {
+        'categories': ['gymnastics upper', 'core', 'deadlifts', 'squats', 'cleans', 'jerks'],
+        'time': 2,
+        'reps': ['10 reps,', '20 reps'],
+        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+        'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
+    },
+    'vertical jumps': {
+        'categories': ['cleans', 'jerks', 'snatches', 'plyos'],
+        'time': 1,
+        'reps': ['10 reps,', '20 reps'],
+        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+        'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
+    },
+    'broad jumps': {
+        'categories': ['cleans', 'jerks', 'snatches', 'plyos', 'kettlebells'],
+        'time': 1,
+        'reps': ['10 reps,', '20 reps'],
+        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+        'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
     },
 }
-

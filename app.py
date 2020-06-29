@@ -31,7 +31,6 @@ def first_page():
         # breakpoint()
         metcons_compiled = get_movements_compiled(
             todays_wod, tough_exercises, metcons, metcon_time)
-        breakpoint()
         selected_metcon = metcons_compiled.get('SELECTED MOVEMENTS: ')
         cleaned_metcon_reps = ''.join(str(x) for x in selected_metcon)
         metcon_reps = get_metcon_reps(cleaned_metcon_reps)

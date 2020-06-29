@@ -3,13 +3,13 @@ exercises = {
     ###GYMNASTICS
 
     'air squat': {
-        'category': 'gymnastics lower',
+        'category': ['gymnastics lower', 'squats'],
         'intensity': 'high',
         'loaded': False,
         'loading_priority': ['hip loading', 'ankle loading', 'core loading']
     },
     'push up': {
-        'category': 'gymnastics upper',
+        'category': ['gymnastics upper'],
         'intensity': 'high',
         'loaded': False
     },
@@ -20,37 +20,51 @@ exercises = {
         'loaded': False
     },
 
-    'pull up': {
-        'category': 'gymnastics upper',
+    'strict pull up': {
+        'category': ['gymnastics upper'],
+        'intensity': 'high',
+        'loaded': False
+    },
+    'kipping pull up': {
+        'category': ['gymnastics upper'],
+        'intensity': 'high',
+        'loaded': False
+    },
+    'butterfly pull up': {
+        'category': ['gymnastics upper'],
+        'intensity': 'high',
+        'loaded': False
+    },
+    'chin up': {
+        'category': ['gymnastics upper'],
         'intensity': 'high',
         'loaded': False
     },
     'sit up': {
-        'category': 'gymnastics upper',
+        'category': ['gymnastics upper'],
         'intensity': 'high',
         'loaded': False
     },
-
     'hollow rock': {
-        'category': 'gymnastics upper',
+        'category': ['gymnastics upper', 'core'],
         'intensity': 'high',
         'loaded': False
     },
 
     'mountain climber': {
-        'category': 'gymnastics upper',
+        'category': ['core'],
         'intensity': 'high',
         'loaded': False
     },
 
     'lunge': {
-        'category': 'gymnastics lower',
+        'category': ['lunges'],
         'intensity': 'high',
         'loaded': False
     },
 
     'jumping lunge': {
-        'category': 'gymnastics lower',
+        'category': ['lunges', 'plyos'],
         'intensity': 'high',
         'loaded': False
     },
@@ -58,50 +72,50 @@ exercises = {
     ###KETTLEBELLS
 
     'kettlebell swing': {
-        'category': 'kettlebells',
+        'category': ['kettlebells'],
         'intensity': 'high',
         'loaded': 'kb'
     },
     'goblet squat': {
-        'category': 'kettlebells',
+        'category': ['kettlebells'],
         'intensity': 'high',
         'loaded': 'kb'
     },
 
     'kettlebell snatch': {
-        'category': 'kettlebells',
+        'category': ['kettlebells'],
         'intensity': 'high',
         'loaded': 'kb'
     },
 
     'kettlebell clean': {
-        'category': 'kettlebells',
+        'category': ['kettlebells'],
         'intensity': 'high',
         'loaded': 'kb'
     },
 
     'kettlebell jerk': {
-        'category': 'kettlebells',
+        'category': ['kettlebells'],
         'intensity': 'high',
         'loaded': 'kb'
     },
 
     'kettlebell press': {
-        'category': 'kettlebells',
+        'category': ['kettlebells'],
         'intensity': 'high',
         'loaded': 'kb'
     },
 
     'turkish get up': {
-        'category': 'kettlebells',
+        'category': ['kettlebells'],
         'intensity': 'high',
         'loaded': 'kb'
     },
 
-    ## LUNGES LOADED
+    # LUNGES LOADED
 
     'kettlebell lunge': {
-        'category': 'lunges',
+        'category': ['lunges'],
         'intensity': 'high',
         'loaded': 'kb'
     },
@@ -112,88 +126,88 @@ exercises = {
     #     'loaded': 'db'
     # },
     'barbell lunge': {
-        'category': 'lunges',
+        'category': ['lunges'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
-    ###BB SQUATS
+    # BB SQUATS
 
     'squat': {
-        'category': 'squats',
+        'category': ['squats'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'front squat': {
-        'category': 'squats',
+        'category': ['squats'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'back squat': {
-        'category': 'squats',
+        'category': ['squats'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'box squat': {
-        'category': 'squats',
+        'category': ['squats'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'back pause squat': {
-        'category': 'squats',
+        'category': ['squats'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'front box squat': {
-        'category': 'squats',
+        'category': ['squats'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'front pause squat': {
-        'category': 'squats',
+        'category': ['squats'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'high bar back squat': {
-        'category': 'squats',
+        'category': ['squats'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'low bar back squat': {
-        'category': 'squats',
+        'category': ['squats'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'overhead squat': {
-        'category': 'squats',
+        'category': ['squats'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'split squat': {
-        'category': 'squats',
+        'category': ['squats'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'zurcher squat': {
-        'category': 'squats',
+        'category': ['squats'],
         'intensity': 'high',
     },
 
     ###BB CLEANS
 
     'clean': {
-        'category': 'cleans',
+        'category': ['cleans'],
         'intensity': 'high',
         'loaded': 'barbell',
         'tech': 'https://www.youtube.com/watch?v=DEZx3PmXU4c',
@@ -202,218 +216,218 @@ exercises = {
     },
 
     'power clean': {
-        'category': 'cleans',
+        'category': ['cleans'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'squat clean': {
-        'category': 'cleans',
+        'category': ['cleans'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'clean extension': {
-        'category': 'cleans',
+        'category': ['cleans'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'clean pull': {
-        'category': 'cleans',
+        'category': ['cleans'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'hang clean': {
-        'category': 'cleans',
+        'category': ['cleans'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'hang power clean': {
-        'category': 'cleans',
+        'category': ['cleans'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'hang squat clean': {
-        'category': 'cleans',
+        'category': ['cleans'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'muscle clean': {
-        'category': 'cleans',
+        'category': ['cleans'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'squat pause clean': {
-        'category': 'cleans',
+        'category': ['cleans'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     ###PRESSES
     'bench press': {
-        'category': 'saggital presses',
+        'category': ['saggital presses'],
         'intensity': 'high',
         'loaded': 'barbell',
         'tech': 'youtubelink for techbench',
         'reg_warm': 'youtubelink for regwarmbench',
     },
     'floor press': {
-        'category': 'saggital presses',
+        'category': ['saggital presses'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'seated press': {
-        'category': 'overhead presses',
+        'category': ['overhead presses'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'strict press': {
-        'category': 'overhead presses',
+        'category': ['overhead presses'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'snatch grip push press': {
-        'category': 'overhead presses',
+        'category': ['overhead presses'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'sotts press': {
-        'category': 'overhead presses',
+        'category': ['overhead presses'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'shoulder press': {
-        'category': 'overhead presses',
+        'category': ['overhead presses'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     ###JERKS
     'jerk balance': {
-        'category': 'jerks',
+        'category': ['jerks'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'jerk dip': {
-        'category': 'jerks',
+        'category': ['jerks'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'push jerk': {
-        'category': 'jerks',
+        'category': ['jerks'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'split jerk': {
-        'category': 'jerks',
+        'category': ['jerks'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'squat jerk': {
-        'category': 'jerks',
+        'category': ['jerks'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     ###SNATCHES
     'hang power snatch': {
-        'category': 'snatches',
+        'category': ['snatches'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'hang squat snatch': {
-        'category': 'snatches',
+        'category': ['snatches'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'power snatch': {
-        'category': 'snatches',
+        'category': ['snatches'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'muscle snatch': {
-        'category': 'snatches',
+        'category': ['snatches'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'snatch': {
-        'category': 'snatches',
+        'category': ['snatches'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'snatch balance': {
-        'category': 'snatches',
+        'category': ['snatches'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'snatch extension': {
-        'category': 'snatches',
+        'category': ['snatches'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'snatch pull': {
-        'category': 'snatches',
+        'category': ['snatches'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'squat pause snatch': {
-        'category': 'snatches',
+        'category': ['snatches'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
     'squat snatch': {
-        'category': 'snatches',
+        'category': ['snatches'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     ###DEADLIFTS
     'deadlift': {
-        'category': 'deadlifts',
+        'category': ['deadlifts'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'romanian deadlift': {
-        'category': 'deadlifts',
+        'category': ['deadlifts'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'snatch grip deadlift': {
-        'category': 'deadlifts',
+        'category': ['deadlifts'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'stiff legged deadlift': {
-        'category': 'deadlifts',
+        'category': ['deadlifts'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'sumo deadlift': {
-        'category': 'deadlifts',
+        'category': ['deadlifts'],
         'intensity': 'high',
         'loaded': 'barbell'
     },
 
     'sumo deadlift high pull': {
-        'category': 'deadlifts',
+        'category': ['deadlifts'],
         'intensity': 'high',
         'loaded': 'barbell'
     },

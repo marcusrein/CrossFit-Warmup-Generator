@@ -7,13 +7,25 @@ from filters import *
 import random
 
 
+def convert(s):
+    # initialization of string to ""
+    new = ""
+    # traverse in the string
+    for x in s:
+        new += x
+        # return string
+    return new
+
+
 def get_cat_from_todays_wod(todays_wod, dictionary):
     todays_cat = []
     for w in todays_wod:
         for k, v in dictionary.items():
             if w == k:
-                todays_cat.append(v['category'])
-    return todays_cat
+                todays_cat = (v['category'])
+
+    print('todays CAT: ', todays_cat)
+    return list(todays_cat)
 
 
 def get_possible_movements_from_mov_cat(mov_cat, dictionary):
@@ -22,6 +34,7 @@ def get_possible_movements_from_mov_cat(mov_cat, dictionary):
         for k, v in dictionary.items():
             if cat in v['categories']:
                 possible_warmups.append(k)
+
     return possible_warmups
 
 
@@ -189,9 +202,7 @@ def which_movements_are_tough_gymnastics_movements(todays_wod):
 
 
 def get_metcon_reps(selected_metcon):
-    metcon_reps = []
     y = metcons.get(selected_metcon)
-    # z = selected_metcon[y]
     z = y.get('reps')
     final = random.choice(z)
     return final
@@ -216,7 +227,6 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
 
     if any('press' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
         addendum.append('shoulder passthroughs')
-
 
     return addendum
 
