@@ -119,12 +119,11 @@ exercises = {
         'intensity': 'high',
         'loaded': 'kb'
     },
-    # THIS CODE DOESNT WORK YET BECAUSSE DB CATEGORY DOESN"T EXIST THORUHGOUT CODE YET
-    # 'dumbbell lunge': {
-    #     'category': 'dumbbells' ,
-    #     'intensity': 'high',
-    #     'loaded': 'db'
-    # },
+    'dumbbell lunge': {
+        'category': ['lunges'] ,
+        'intensity': 'high',
+        'loaded': 'db'
+    },
     'barbell lunge': {
         'category': ['lunges'],
         'intensity': 'high',

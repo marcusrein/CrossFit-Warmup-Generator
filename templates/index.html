@@ -11,7 +11,7 @@
 
     <body>
     <h1 class="container"> Welcome to the Warmup Generator!</h1>
-    <h3 class="container"><small class="text-muted">Input Your WOD Movements, Categorized By "Easy" and "Tough"</h3> </small>
+    <h3 class="container"><small class="text-muted">Input Your WOD Movements, Categorized By "Easier" and "Tougher"</h3> </small>
     <p></p>
     <form method="POST" action="/" class="container">
         <div>
@@ -23,11 +23,25 @@
                         </label>
                         <select multiple id="slim-select1" name="easy_exercises_form">
                             <option></option>
-                        {% for i in exercise_keys %}
+                        {% if easy_exercises: %}
+                            {% for exercise in easy_exercises: %}
+                                <option selected>{{ exercise.title() }}</option>
+                            {% endfor %}
+
+                            {% for i in exercise_keys %}
+                                <option>
+                                    {{ i.title() }}
+                                </option>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in exercise_keys %}
                             <option>
                                 {{ i.title() }}
                             </option>
-                        {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+
+
                         </select>
                     </div>
                 </div>
@@ -52,13 +66,10 @@
         </div>
         <button type="submit" type="button" class="btn btn-secondary btn-lg" value="submit">Submit</button>
     </form>
+
     {% if drom_final_dict: %}
     <p></p>
-<!--    <div class="container">-->
-<!--        <label>METCONS COMPILED</label>-->
-<!--            {{ metcons_compiled }}-->
-<!--            {{ metcon_reps }}-->
-<!--    </div>-->
+
     <div class="container">
         <p></p>
         <H3>Your Metabolic Warmup</H3>

@@ -24,7 +24,6 @@ def get_cat_from_todays_wod(todays_wod, dictionary):
             if w == k:
                 todays_cat = (v['category'])
 
-    print('todays CAT: ', todays_cat)
     return list(todays_cat)
 
 

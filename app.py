@@ -5,8 +5,8 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
-# TODO: 1. Put reps in DROM index 2. Create DB category throughout code,
-#  3. sort out how things like 'burpee' in exercises can have multiple categories 'gymnastics upper/gymnastics lower'
+# TODO: 1. Create DB category throughout code, 2. fix bug in index.html that doubles-up input (it lookslike
+#  I can put in airsquat 2x) 3. sort out how things like 'burpee' in exercises can have multiple categories 'gymnastics upper/gymnastics lower'
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
@@ -91,7 +91,8 @@ def first_page():
                                kb_warmup=kb_warmup, tough_gymnastics_movements_from_todays_wod=
                                tough_gymnastics_movements_from_todays_wod,
                                easy_exercises=easy_exercises, tough_exercises=tough_exercises,
-                               new_gymnastics_temp_dict=new_gymnastics_temp_dict, drom_final_dict=drom_final_dict)
+                               new_gymnastics_temp_dict=new_gymnastics_temp_dict, drom_final_dict=drom_final_dict,
+                               todays_wod=todays_wod)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
