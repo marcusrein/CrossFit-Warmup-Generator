@@ -1,6 +1,6 @@
 droms = {
     'air squats': {
-        'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'squats', 'squats', 'squats'],
+        'categories': ['cleans', 'deadlifts', 'gymnastics lower'],
         'time': 1,
         'reps': ['10 reps', '20 reps', '30 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
