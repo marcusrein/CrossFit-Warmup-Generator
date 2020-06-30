@@ -73,12 +73,51 @@ exercises = {
         'category': ['kettlebells'],
         'loaded': 'kb'
     },
-    'single leg kettlebell romanian deadlift': {
+    'kettlebell single leg romanian deadlift': {
         'category': ['kettlebells'],
         'loaded': 'kb'
     },
     'turkish get up': {
         'category': ['kettlebells'],
+        'loaded': 'kb'
+    },
+
+    # DUMBBELLS
+
+    'dumbbell swing': {
+        'category': ['dumbbells'],
+        'loaded': 'kb'
+    },
+    'dumbbell front squat': {
+        'category': ['dumbbells'],
+        'loaded': 'kb'
+    },
+    'dumbbell snatch': {
+        'category': ['dumbbells'],
+        'loaded': 'kb'
+    },
+    'dumbbell clean': {
+        'category': ['dumbbells'],
+        'loaded': 'kb'
+    },
+    'dumbbell jerk': {
+        'category': ['dumbbells'],
+        'loaded': 'kb'
+    },
+    'dumbbell press': {
+        'category': ['dumbbells'],
+        'loaded': 'kb'
+    },
+    'dumbbell romanian deadlift': {
+        'category': ['dumbbells'],
+        'loaded': 'kb'
+    },
+    'dumbbell single leg romanian deadlift': {
+        'category': ['dumbbells'],
+        'loaded': 'kb'
+    },
+    'dumbbell turkish get up': {
+        'category': ['dumbbells'],
         'loaded': 'kb'
     },
 

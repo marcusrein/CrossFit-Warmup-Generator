@@ -1,12 +1,12 @@
 from getters import *
-from checks import *
 from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
 
 # TODO: 1. Create DB category throughout code, 2. fix bug in index.html that doubles-up input (it lookslike
-#  I can put in airsquat 2x) 3. sort out how things like 'burpee' in exercises can have multiple categories 'gymnastics upper/gymnastics lower'
+#  I can put in airsquat 2x) 3. create 'equipment' thing. 4. have users log in
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
