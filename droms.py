@@ -81,7 +81,7 @@ droms = {
     'push ups': {
         'categories': ['gymnastics upper', 'jerks', 'saggital presses', 'snatches'],
         'time': 1,
-        'reps': ['15 reps,', '20 reps', '25 reps'],
+        'reps': ['15 reps', '20 reps', '25 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
     },

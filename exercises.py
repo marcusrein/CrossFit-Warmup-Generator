@@ -362,11 +362,11 @@ exercises = {
     }
 }
 
-
-for k in exercises:
-    del exercises[k]['intensity']
-
-print(exercises)
+#
+# for k in exercises:
+#     del exercises[k]['intensity']
+#
+# print(exercises)
 
 # for i in sorted (droms) :
 #     print ((i, droms[i]), end =" ")

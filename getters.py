@@ -206,6 +206,7 @@ def get_metcon_reps(selected_metcon):
     final = random.choice(z)
     return final
 
+
 def get_drom_reps(post_processing_selected_droms):
     reps_big_list = []
     reps_random_chosen = []
@@ -220,27 +221,38 @@ def get_drom_reps(post_processing_selected_droms):
     return reps_random_chosen
 
 
-
 def get_selected_movements_addendum_droms(todays_wod, selected_movements):
     """Adds dependencies. E.G. if air squats is in todays wod and not in selected movements, add airsquats
     to addendum (which will be added to selected movements for DROMS"""
     addendum = []
-
-    if 'air squat' in todays_wod and 'air squats' not in selected_movements:
-        addendum.append('air squats')
-
+    print(todays_wod)
+    print(selected_movements)
+    # breakpoint()
     if 'push up' in todays_wod and 'push ups' not in selected_movements:
         addendum.append('push ups')
 
     if 'burpee' in todays_wod and 'burpees' not in selected_movements:
         addendum.append('burpees')
 
+    if any('squat' in wod for wod in todays_wod) and 'air squats' not in selected_movements:
+        addendum.append('air squats')
+
     if any('lunge' in wod for wod in todays_wod) and 'walking lunges' not in selected_movements:
         addendum.append('walking lunges')
 
-    if any('press' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
+    if any('press' in wod for wod in todays_wod) and 'shoulder passthroughs' \
+            not in selected_movements:
         addendum.append('shoulder passthroughs')
+        print('ya')
+    #
+    # elif any('press' or 'jerk' or 'snatch' or 'overhead' in wod for wod in todays_wod) and 'shoulder passthroughs' \
+    #         not in selected_movements:
+    #     addendum.append('shoulder passthroughs')
+    #
+    # elif any('squat' or 'clean' in wod for wod in todays_wod) and 'air squats' not in selected_movements:
+    #     addendum.append('banded side steps')
 
+    print(addendum)
     return addendum
 
 
