@@ -234,26 +234,46 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
     if 'burpee' in todays_wod and 'burpees' not in selected_movements:
         addendum.append('burpees')
 
+    if 'pull up' in todays_wod and 'shoulder passthroughs' not in selected_movements:
+        addendum.append('shoulder passthroughs')
+
     if any('squat' in wod for wod in todays_wod) and 'air squats' not in selected_movements:
         addendum.append('air squats')
 
     if any('lunge' in wod for wod in todays_wod) and 'walking lunges' not in selected_movements:
         addendum.append('walking lunges')
 
-    if any('press' in wod for wod in todays_wod) and 'shoulder passthroughs' \
+    if any('press' or 'jerk' or 'snatch' or 'overhead' in wod for wod in todays_wod) and 'shoulder passthroughs' \
             not in selected_movements:
         addendum.append('shoulder passthroughs')
-        print('ya')
-    #
-    # elif any('press' or 'jerk' or 'snatch' or 'overhead' in wod for wod in todays_wod) and 'shoulder passthroughs' \
-    #         not in selected_movements:
-    #     addendum.append('shoulder passthroughs')
-    #
-    # elif any('squat' or 'clean' in wod for wod in todays_wod) and 'air squats' not in selected_movements:
-    #     addendum.append('banded side steps')
 
-    print(addendum)
+    if any('press' or 'jerk' or 'snatch' or 'overhead' in wod for wod in todays_wod) and 'thoracic bridges' \
+            not in selected_movements:
+        addendum.append('thoracic bridges')
+
+    if any('squat' or 'clean' or 'snatch' or 'swing' in wod for wod in todays_wod) and 'banded side steps' \
+            not in selected_movements:
+        addendum.append('banded side steps')
+
+    if any('clean' or 'snatch' or 'swing' or 'jump' in wod for wod in todays_wod) and 'walking forward kicks' \
+            not in selected_movements:
+        addendum.append('walking forward kicks')
+
+    if any('turkish' in wod for wod in todays_wod) and 'thoracic bridges' \
+            not in selected_movements:
+        addendum.append('thoracic bridges')
+
+    print('final addendum: ' ,addendum)
     return addendum
+
+
+### ITS POSSIBLE with this code that this can happen:
+# todays_wod: ['push up', 'turkish get up']
+# selected droms ['cossack lunges', 'walking forward kicks', 'broad jumps', 'walking back kicks', 'thoracic bridges']
+# final addendum:  ['push ups', 'shoulder passthroughs', 'banded side steps']
+
+# even though selecte droms had thoracic bridges (YES it should!), it was popped due to the length of final addendum.
+# figure this out!
 
 
 def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):

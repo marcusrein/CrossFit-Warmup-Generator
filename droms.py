@@ -97,7 +97,7 @@ droms = {
     'shoulder passthroughs': {
         'categories': ['gymnastics upper', 'jerks', 'overhead presses', 'saggital presses', 'snatches'],
         'time': 1,
-        'reps': ['15 reps,', '20 reps', '25 reps'],
+        'reps': ['15 reps', '20 reps', '25 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
     },
@@ -115,7 +115,7 @@ droms = {
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
     },
-    'thoracic bridge': {
+    'thoracic bridges': {
         'categories': ['cleans', 'gymnastics upper', 'kettlebells', 'overhead presses', 'saggital presses', 'snatches'],
         'time': 2,
         'reps': ['2 min'],

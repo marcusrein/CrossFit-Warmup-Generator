@@ -52,11 +52,19 @@
                         </label>
                             <select multiple id="slim-select2" name="tough_exercises_form">
                                 <option></option>
-                            {% for i in exercise_keys %}
+                            {% if tough_exercises: %}
+                                {% for exercise in tough_exercises: %}
+                                    <option selected>{{ exercise.title() }}</option>
+                                {% endfor %}
+
+                            {% else %}
+                                {% for i in exercise_keys %}
                                 <option>
                                     {{ i.title() }}
                                 </option>
-                            {% endfor %}
+                                {% endfor %}
+                        {% endif %}
+
                             </select>
                     </div>
                 </div>
