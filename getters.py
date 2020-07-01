@@ -270,8 +270,11 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
     if any('turkish' in wod for wod in todays_wod) and 'thoracic bridges' \
             not in selected_movements:
         addendum.append('thoracic bridges')
-
+    print(addendum)
     return addendum
+
+## ISSUE! When a good item is in there such as 'thoracic bridges' and its toward the end of the list, it could
+# get popped with this code
 
 
 def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):

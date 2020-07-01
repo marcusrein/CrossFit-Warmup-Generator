@@ -1,13 +1,12 @@
 from exercises import *
 from checks import *
-from fuzzywuzzy import fuzz
 
 
 # DONT NEED?
-def check_exercise_fuzz_80(exercise1_prefuzz):
-    for j in list(exercises.keys()):
-        if (fuzz.ratio(exercise1_prefuzz, j)) > 80:
-            return j
+# def check_exercise_fuzz_80(exercise1_prefuzz):
+#     for j in list(exercises.keys()):
+#         if (fuzz.ratio(exercise1_prefuzz, j)) > 80:
+#             return j
 
 
 # DONT NEED?

@@ -42,15 +42,24 @@ def first_page():
             todays_wod, tough_exercises, droms, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
         # print('PREPROCCESING SELECTED DROMS: ', selected_droms)
-        x = get_selected_movements_addendum_droms(todays_wod, selected_droms)
-        if x:
+        addendum_droms = get_selected_movements_addendum_droms(todays_wod, selected_droms)
+        protected_droms = []
+        print('selectedDROMS: ', selected_droms)
+        print('addendumDROMS: ',addendum_droms)
+        if addendum_droms:
+            # for addendum_drom in addendum_droms:
+            #     for selected_drom in selected_droms:
+            #         if addendum_drom == selected_drom:
+            #             protected_droms.append(addendum_drom)
+            # print('protected: ' ,protected_droms)
+
             try:
-                for i in range(len(x)):
+                for i in range(len(addendum_droms)):
                     selected_droms.pop()
-                for item in x:
-                    selected_droms.append(item)
+                for item in addendum_droms:
+                    selected_droms.insert(0, item)
             except IndexError:
-                selected_droms = x
+                selected_droms = addendum_droms
 
 
             ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
