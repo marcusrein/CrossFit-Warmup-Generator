@@ -92,9 +92,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ metcon.title() }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">MetCon Warmup</h6>
-                        <p class="card-text"> {{ metcon_reps }} </p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <p class="card-subtitle mb-2 text-muted"> {{ metcon_reps }} </p>
                     </div>
                 </div>
         {% endfor %}        </div>
@@ -110,9 +108,8 @@
                         <h5 class="card-title">{{ k.title() }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">DROM</h6>
                         <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-                        <p class="card-text">{{ v['reps'] }}</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <p></p>
+                        <p class="card-subtitle mb-2 text-muted">{{ v['reps'] }}</p>
                     </div>
                 </div>
             </div>
@@ -136,8 +133,6 @@
                         <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
                         <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
                         <p class="card-text">{{ v['reps'] }}</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
                         <p class="card-text"><small class="text-muted">Gymnastics Warmup</small></p>
 
                     </div>
@@ -159,8 +154,6 @@
                         <h5 class="card-title">{{ kb_movement.title() }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Kettlebell Warmup</h6>
                         <p class="card-text"> {{ kb_warmup }} </p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
                     </div>
                 </div>
                 {% endfor %}
@@ -178,8 +171,6 @@
                         <h5 class="card-title">{{ barbell_movement.title() }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Barbell Warmup</h6>
                         <p class="card-text"> {{ barbell_warmup }} </p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
                     </div>
                 </div>
                 {% endfor %}

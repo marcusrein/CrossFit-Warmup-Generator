@@ -46,12 +46,10 @@ def first_page():
         if x:
             try:
                 for i in range(len(x)):
-                    print(i)
                     selected_droms.pop()
                 for item in x:
                     selected_droms.append(item)
             except IndexError:
-                print('sure')
                 selected_droms = x
 
 

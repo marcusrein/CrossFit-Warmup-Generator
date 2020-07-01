@@ -152,11 +152,15 @@ def get_all_movement_times(todays_wod, tough_exercises):
         drom_time += 8
         print('FFF')
 
-    elif len(tough_exercises) == 1:
-        drom_time = 10
+    if len(tough_exercises) == 1:
+        drom_time += 2
 
-    elif len(tough_exercises) > 1:
-        drom_time = 12
+    if len(tough_exercises) > 1:
+        drom_time += 4
+
+    print(drom_time)
+
+
 
     all_warmup_time = (
             metcon_time + drom_time + gymnastics_time + barbell_time + kb_time + focused_gymnastics_time + focused_barbell_time + focused_kb_time)
@@ -231,8 +235,6 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
     """Adds dependencies. E.G. if air squats is in todays wod and not in selected movements, add airsquats
     to addendum (which will be added to selected movements for DROMS"""
     addendum = []
-    print(todays_wod)
-    print(selected_movements)
     # breakpoint()
     if 'push up' in todays_wod and 'push ups' not in selected_movements:
         addendum.append('push ups')
@@ -269,10 +271,7 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
             not in selected_movements:
         addendum.append('thoracic bridges')
 
-    print('final addendum: ' ,addendum)
     return addendum
-
-
 
 
 def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):

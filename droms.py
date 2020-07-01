@@ -11,7 +11,7 @@ droms = {
         'time': 1,
         'reps': ['20 forward, 20 backward'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        'img': 'https://media2.giphy.com/media/11sJmQcnMcMeQM/200.gif'
+        'img': 'https://data.whicdn.com/images/306295449/original.gif'
     },
     'banded side steps': {
         'categories': ['cleans', 'deadlifts', 'jerks', 'lunges', 'snatches', 'squats'],
@@ -31,23 +31,23 @@ droms = {
     'broad jumps': {
         'categories': ['cleans', 'jerks', 'kettlebells', 'plyos', 'snatches'],
         'time': 1,
-        'reps': ['10 reps,', '20 reps'],
+        'reps': ['10 reps', '20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
     },
     'burpees': {
         'categories': ['gymnastics lower', 'gymnastics upper', 'saggital presses'],
         'time': 1,
-        'reps': ['15 reps,', '20 reps', '25 reps'],
+        'reps': ['15 reps', '20 reps', '25 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
     },
     'core rolling': {
         'categories': ['cleans', 'core', 'deadlifts', 'gymnastics upper', 'jerks', 'squats'],
         'time': 2,
-        'reps': ['10 reps,', '20 reps'],
+        'reps': ['10 reps', '20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
+        'img': 'https://i.imgur.com/dcwuwLs.gif'
     },
     'cossack lunges': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'kettlebells', 'lunges', 'squats'],
@@ -59,9 +59,9 @@ droms = {
     'dead bugs': {
         'categories': ['cleans', 'core', 'deadlifts', 'gymnastics upper', 'jerks', 'squats'],
         'time': 1,
-        'reps': ['15 reps,', '20 reps', '25 reps'],
+        'reps': ['15 reps', '20 reps', '25 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
+        'img': 'https://thumbs.gfycat.com/DecentSarcasticAmethystsunbird-size_restricted.gif'
     },
     'frog walk': {
         'categories': ['cleans', 'snatches', 'squats'],
@@ -111,7 +111,7 @@ droms = {
     'supermans': {
         'categories': ['core', 'deadlifts'],
         'time': 1,
-        'reps': ['15 reps,', '20 reps', '25 reps'],
+        'reps': ['15 reps', '20 reps', '25 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
     },
@@ -125,7 +125,7 @@ droms = {
     'vertical jumps': {
         'categories': ['cleans', 'jerks', 'plyos', 'snatches'],
         'time': 1,
-        'reps': ['10 reps,', '20 reps'],
+        'reps': ['10 reps', '20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
     },
