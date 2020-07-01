@@ -76,7 +76,7 @@ def get_sum_times_of_list(x):
     return sum_times
 
 
-def get_all_movement_times(todays_wod):
+def get_all_movement_times(todays_wod, tough_exercises):
     metcon_time = 0
     drom_time = 0
 
@@ -151,6 +151,12 @@ def get_all_movement_times(todays_wod):
         metcon_time += 2
         drom_time += 8
         print('FFF')
+
+    elif len(tough_exercises) == 1:
+        drom_time = 10
+
+    elif len(tough_exercises) > 1:
+        drom_time = 12
 
     all_warmup_time = (
             metcon_time + drom_time + gymnastics_time + barbell_time + kb_time + focused_gymnastics_time + focused_barbell_time + focused_kb_time)
@@ -267,13 +273,6 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
     return addendum
 
 
-### ITS POSSIBLE with this code that this can happen:
-# todays_wod: ['push up', 'turkish get up']
-# selected droms ['cossack lunges', 'walking forward kicks', 'broad jumps', 'walking back kicks', 'thoracic bridges']
-# final addendum:  ['push ups', 'shoulder passthroughs', 'banded side steps']
-
-# even though selecte droms had thoracic bridges (YES it should!), it was popped due to the length of final addendum.
-# figure this out!
 
 
 def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):
@@ -292,7 +291,7 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
     tally_organized_dict = get_organized_tally_dict(todays_possible_movements)
     tally_organized_times_list = get_times_of_organized_tally_list(tally_organized_dict, dictionary)
     tally_organized_times_sum = get_sum_times_of_list(tally_organized_times_list)
-    all_warmup_times_pre_toggle = get_all_movement_times(todays_wod)
+    all_warmup_times_pre_toggle = get_all_movement_times(todays_wod, tough_exercises)
     prescribed_time = all_warmup_times_pre_toggle[str(movement_time)]
     all_warmup_times_plus_toggles = check_tough_input_add_time(tough_exercises, all_warmup_times_pre_toggle)
     selected_movements = pop_and_select(tally_organized_dict, tally_organized_times_list,

@@ -83,7 +83,7 @@ droms = {
         'time': 1,
         'reps': ['15 reps', '20 reps', '25 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
+        'img': 'https://thumbs.gfycat.com/GlossySkinnyDuckbillcat-small.gif'
     },
     'seal walk': {
         'categories': ['gymnastics upper', 'jerks', 'saggital presses'],
@@ -99,7 +99,7 @@ droms = {
         'time': 1,
         'reps': ['15 reps', '20 reps', '25 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif'
+        'img': 'https://www.goldsgym.com/wp-content/uploads/sites/1/2019/10/PVC_min.gif'
     },
     'spidermans': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'snatches', 'squats'],
