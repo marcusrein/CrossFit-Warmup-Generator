@@ -44,11 +44,16 @@ def first_page():
         # print('PREPROCCESING SELECTED DROMS: ', selected_droms)
         x = get_selected_movements_addendum_droms(todays_wod, selected_droms)
         if x:
-            for i in range(len(x)):
-                print(i)
-                selected_droms.pop()
-            for item in x:
-                selected_droms.append(item)
+            try:
+                for i in range(len(x)):
+                    print(i)
+                    selected_droms.pop()
+                for item in x:
+                    selected_droms.append(item)
+            except IndexError:
+                print('sure')
+                selected_droms = x
+
 
             ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
         drom_reps = get_drom_reps(selected_droms)
