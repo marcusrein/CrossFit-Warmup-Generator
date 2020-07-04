@@ -1,15 +1,8 @@
 from exercises import *
 from checks import *
 
+# All of these should return True or False
 
-# DONT NEED?
-# def check_exercise_fuzz_80(exercise1_prefuzz):
-#     for j in list(exercises.keys()):
-#         if (fuzz.ratio(exercise1_prefuzz, j)) > 80:
-#             return j
-
-
-# DONT NEED?
 def remove_none_from_todays_wod(todays_wod):
     """Remove "none" from todays_wod to clean it up"""
     cleaned_array = []

@@ -296,8 +296,8 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
     all_warmup_times_pre_toggle = get_all_movement_times(todays_wod, tough_exercises)
     prescribed_time = all_warmup_times_pre_toggle[str(movement_time)]
     all_warmup_times_plus_toggles = check_tough_input_add_time(tough_exercises, all_warmup_times_pre_toggle)
-    selected_movements = pop_and_select(tally_organized_dict, tally_organized_times_list,
-                                        tally_organized_times_sum, prescribed_time)
+    selected_movements = filter_pop_and_select(tally_organized_dict, tally_organized_times_list,
+                                               tally_organized_times_sum, prescribed_time)
 
     return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod,
             'has kb exercise': has_kb_exercise,
@@ -318,3 +318,40 @@ def get_images_for_display(selected_movements, dictionary):
         img_test = dictionary[movement]['img']
         img_list.append(img_test)
     return img_list
+
+
+def get_barbell_warmup(todays_wod):
+    """Delivers a warmup for barbell movements"""
+    x = '5 reps at 40%, 5 reps at 50%, 3 reps at 60%'
+    if check_barbell_exercise(todays_wod):
+        return x
+
+
+def get_kettlebell_warmup(todays_wod):
+    """Delivers a warmup for kettlebell movements"""
+    x = '10 Goatbag Swings, 10 Goblet Squats, 10 KB Swings'
+    if check_kb_exercise(todays_wod):
+        return x
+
+
+def get_gymnastics_warmup(todays_wod):
+    """Delivers a warmup for gymnastics movements (COULD BE CHANGED TO CHECKING FOR MINUTES OF GYMNASTICS"""
+    tough_gymnastics_warmups = []
+    for wod in todays_wod:
+        for k, v in loading.items():
+            for thing in v['exercises']:
+                if wod == thing:
+                    tough_gymnastics_warmups.append(k)
+    return tough_gymnastics_warmups
+
+
+def get_gymnastics_warmup_reps(tough_gymnastics_warmups):
+    """Finds reps for tough gymnastics movements in WOD and outputs in a list"""
+    tough_gymnastics_warmup_reps_post_random = []
+
+    for wu in tough_gymnastics_warmups:
+        x = loading[wu].get('reps')
+        y = random.choice(x)
+        tough_gymnastics_warmup_reps_post_random.append(y)
+
+    return tough_gymnastics_warmup_reps_post_random

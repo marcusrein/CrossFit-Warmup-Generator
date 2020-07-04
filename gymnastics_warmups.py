@@ -1,4 +1,4 @@
-loading = {
+gymnastics_warmups = {
     'scap pull ups':
         {
             'exercises': ['chin up', 'strict pull up', 'kipping pull up', 'butterfly pull up',

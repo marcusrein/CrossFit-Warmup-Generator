@@ -3,6 +3,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+
 # TODO: see line 270 on getters.py
 # TODO: 1. Create DB category throughout code, 2. fix bug in index.html that doubles-up input (it lookslike
 #  I can put in airsquat 2x) 3. create 'equipment' thing. 4. have users log in 5. figure out barbell loading
@@ -44,7 +45,7 @@ def first_page():
         addendum_droms = get_selected_movements_addendum_droms(todays_wod, selected_droms)
         protected_droms = []
         print('selectedDROMS: ', selected_droms)
-        print('addendumDROMS: ',addendum_droms)
+        print('addendumDROMS: ', addendum_droms)
         if addendum_droms:
             # for addendum_drom in addendum_droms:
             #     for selected_drom in selected_droms:
@@ -60,7 +61,6 @@ def first_page():
             except IndexError:
                 selected_droms = addendum_droms
 
-
             ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
         drom_reps = get_drom_reps(selected_droms)
         drom_img_list = get_images_for_display(selected_droms, droms)
@@ -74,17 +74,17 @@ def first_page():
         barbell_warmup = []
         barbell_movements_from_todays_wod = which_movements_are_barbell_movements(todays_wod)
         if barbell_movements_from_todays_wod:
-            barbell_warmup = barbell_loader(todays_wod)
+            barbell_warmup = get_barbell_warmup(todays_wod)
 
         # KB SELECTION
         kb_warmup = []
         kb_movements_from_todays_wod = which_movements_are_kb_movements(todays_wod)
         if kb_movements_from_todays_wod:
-            kb_warmup = kettlebell_loader(todays_wod)
+            kb_warmup = get_kettlebell_warmup(todays_wod)
 
         # GYMNASTICS SELECTION
         tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)
-        tough_gymnastics_warmups = gymnastics_loader(todays_wod)
+        tough_gymnastics_warmups = get_gymnastics_warmup(todays_wod)
 
         new_gymnastics_temp_dict = {}
 
