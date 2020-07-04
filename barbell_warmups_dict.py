@@ -9,8 +9,9 @@ barbell_warmups = {
         },
     'Progressive Barbell Loading':
         {
-            'category': ['squats','deadlifts','cleans','snatches','jerks']
+            'category': ['squats','deadlifts','cleans','snatches','jerks'],
+            'gif': 'https://media4.giphy.com/media/ydPTjG5XbHVEQ/giphy-downsized.gif',
             'text': 'Warm-Up Set #1: 40% of your 1RM x 5 \n Warm-Up Set #2: 50% of your 1RM x 5 \n Warm-Up Set #3: '
                     '60% of your 1RM x 3'
-        }
+        },
 }

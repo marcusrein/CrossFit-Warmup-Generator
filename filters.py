@@ -3,7 +3,6 @@ from gymnastics_warmups import *
 import random
 
 
-
 def filter_pop_and_select(dictionary, organized_times_list, tally_organized_times_sum, prescribed_time):
     """
     This is the POP FILTER. Describe better in upcoming update.
@@ -24,5 +23,3 @@ def filter_pop_and_select(dictionary, organized_times_list, tally_organized_time
         pop_organized_time_list.pop()
         x = sum(pop_organized_time_list)
     return list(pop_dict.keys())
-
-

@@ -3,6 +3,7 @@ from droms import *
 from metcons import *
 from checks import *
 from filters import *
+from barbell_warmups_dict import *
 
 import random
 
@@ -320,11 +321,15 @@ def get_images_for_display(selected_movements, dictionary):
     return img_list
 
 
-def get_barbell_warmup(todays_wod):
+def get_barbell_warmup_movements(todays_wod, barbell_warmups_dict):
     """Delivers a warmup for barbell movements"""
-    x = '5 reps at 40%, 5 reps at 50%, 3 reps at 60%'
-    if check_barbell_exercise(todays_wod):
-        return x
+    selected_barbell_warmups = []
+    if 'clean' or 'jerk' or 'snatch' in todays_wod:
+        print('ya')
+        selected_barbell_warmups.append(barbell_warmups_dict['Basic Burgener Warmup With PVC Pipe'])
+    else:
+        print('naaa')
+    return selected_barbell_warmups
 
 
 def get_kettlebell_warmup(todays_wod):

@@ -1,5 +1,7 @@
+import barbell_warmups_dict
 from getters import *
 from flask import Flask, render_template, request
+from barbell_warmups_dict import *
 
 app = Flask(__name__)
 
@@ -62,19 +64,20 @@ def first_page():
                 selected_droms = addendum_droms
 
             ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
-        drom_reps = get_drom_reps(selected_droms)
         drom_img_list = get_images_for_display(selected_droms, droms)
+        drom_reps = get_drom_reps(selected_droms)
 
         drom_final_dict = {}
 
         for idx, item in enumerate(drom_img_list):
             drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx])}
 
+
         # BARBELL SELECTION
         barbell_warmup = []
         barbell_movements_from_todays_wod = which_movements_are_barbell_movements(todays_wod)
         if barbell_movements_from_todays_wod:
-            barbell_warmup = get_barbell_warmup(todays_wod)
+            barbell_warmup = get_barbell_warmup_movements(todays_wod, barbell_warmups_dict)
 
         # KB SELECTION
         kb_warmup = []
@@ -88,7 +91,7 @@ def first_page():
 
         new_gymnastics_temp_dict = {}
 
-        for k, v in loading.items():
+        for k, v in gymnastics_warmups.items():
             for tough_gymnastics_movement in tough_gymnastics_warmups:
                 if tough_gymnastics_movement == k:
                     new_gymnastics_temp_dict[k] = v
