@@ -165,12 +165,13 @@
         {% if barbell_movements_from_todays_wod: %}
         <H3>Your Barbell Warmup</H3>
             <div class ="card-deck">
-                {% for barbell_movement in barbell_movements_from_todays_wod %}
+                {% for k,v in barbell_warmups.items() %}
                 <div class="card" style="max-width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">{{ barbell_movement.title() }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Barbell Warmup</h6>
-                        <p class="card-text"> {{ barbell_warmup }} </p>
+                        <h5 class="card-title">{{ k.title() }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Olympic Lift Warmup</h6>
+                        <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
+                        <p class="card-text"> {{ v['text'] }} </p>
                     </div>
                 </div>
                 {% endfor %}

@@ -24,7 +24,7 @@ def get_cat_from_todays_wod(todays_wod, dictionary):
         for k, v in dictionary.items():
             if w == k:
                 todays_cat = (v['category'])
-
+    print(todays_cat)
     return list(todays_cat)
 
 
@@ -343,7 +343,7 @@ def get_gymnastics_warmup(todays_wod):
     """Delivers a warmup for gymnastics movements (COULD BE CHANGED TO CHECKING FOR MINUTES OF GYMNASTICS"""
     tough_gymnastics_warmups = []
     for wod in todays_wod:
-        for k, v in loading.items():
+        for k, v in gymnastics_warmups.items():
             for thing in v['exercises']:
                 if wod == thing:
                     tough_gymnastics_warmups.append(k)
@@ -355,7 +355,7 @@ def get_gymnastics_warmup_reps(tough_gymnastics_warmups):
     tough_gymnastics_warmup_reps_post_random = []
 
     for wu in tough_gymnastics_warmups:
-        x = loading[wu].get('reps')
+        x = gymnastics_warmups[wu].get('reps')
         y = random.choice(x)
         tough_gymnastics_warmup_reps_post_random.append(y)
 
