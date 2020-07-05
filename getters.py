@@ -326,7 +326,7 @@ def get_barbell_warmup_movements(todays_wod, barbell_warmups_dict):
     selected_barbell_warmups = []
     if 'clean' or 'jerk' or 'snatch' in todays_wod:
         print('ya')
-        selected_barbell_warmups.append(barbell_warmups_dict['Basic Burgener Warmup With PVC Pipe'])
+        selected_barbell_warmups.append('Basic Burgener Warmup With PVC Pipe')
     else:
         print('naaa')
     return selected_barbell_warmups
