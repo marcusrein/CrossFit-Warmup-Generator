@@ -4,6 +4,8 @@ from metcons import *
 from checks import *
 from filters import *
 from barbell_warmups_dict import *
+import re
+
 
 import random
 
@@ -19,13 +21,43 @@ def convert(s):
 
 
 def get_cat_from_todays_wod(todays_wod, dictionary):
+    todays_cat_with_dupes = []
     todays_cat = []
     for w in todays_wod:
         for k, v in dictionary.items():
             if w == k:
-                todays_cat = (v['category'])
+                x = v.get("category")
+                for item in x:
+                    todays_cat_with_dupes.append(item)
+
+    for i in todays_cat_with_dupes:
+        if i not in todays_cat:
+            todays_cat.append(i)
+
+                # for k2, v2 in v.items():
+                # print(k2)
+                # for category in v2['category']:
+                #     if w == k:
+                #         todays_cat.append(category)
     print(todays_cat)
-    return list(todays_cat)
+
+
+    # print(todays_cat)
+    # str_join_map = " ".join(map(str, todays_cat))
+    # # str_join_map2 = " ".join(map(str, str_join_map))
+    # # print(str_join_map)
+    # # print(re.sub(r'\(.*\)', '', str_join_map2))
+    # line = re.sub(r'[\[\]]', "", str_join_map)
+    # print(line)
+    # print(re.sub('[]'))
+    # line = todays_cat.replace('[','')
+    # y = str(x).strip("[]")
+    # z = str(y).strip("[]")
+    # print(y)
+    # print(z)
+    breakpoint()
+    return list(todays_cat_with_dupes)
+
 
 
 def get_possible_movements_from_mov_cat(mov_cat, dictionary):
