@@ -7,7 +7,7 @@ barbell_warmups = {
             'text': '1. Down and up \n 2. Elbows high and outside \n 3.Muscle snatch \n 4. Snatch land \n 5. Snatch drop '
                     '\n 6. Hang power snatch'
         },
-    'Barbell Clean Warmup' :
+    'Barbell Clean Warmup':
         {
             'category': ['cleans'],
             'url': 'https://www.youtube.com/watch?v=1_IK2yYA3ig',
