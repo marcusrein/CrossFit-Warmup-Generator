@@ -108,7 +108,6 @@ def get_all_movement_times(todays_wod, tough_exercises):
         barbell_time += 10
         kb_time += 5
         tough_gymnastics_time += 10
-        print('TTT')
     elif check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
@@ -116,7 +115,6 @@ def get_all_movement_times(todays_wod, tough_exercises):
         drom_time += 8
         barbell_time += 10
         kb_time += 5
-        print('TTF')
     elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
@@ -124,14 +122,12 @@ def get_all_movement_times(todays_wod, tough_exercises):
         drom_time += 8
         barbell_time += 10
         tough_gymnastics_time += 10
-        print('TFT')
     elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
         barbell_time += 10
-        print('TFF')
     elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
@@ -139,27 +135,23 @@ def get_all_movement_times(todays_wod, tough_exercises):
         drom_time += 8
         kb_time += 5
         tough_gymnastics_time += 10
-        print('FTT')
     elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
         kb_time += 5
-        print('FTF')
     elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
         tough_gymnastics_time += 10
-        print('FFT')
     elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
         drom_time += 8
-        print('FFF')
 
     if len(tough_exercises) == 1:
         drom_time += 2
@@ -167,7 +159,6 @@ def get_all_movement_times(todays_wod, tough_exercises):
     if len(tough_exercises) > 1:
         drom_time += 4
 
-    print(drom_time)
 
     all_warmup_time = (
             metcon_time + drom_time + gymnastics_time + barbell_time + kb_time + focused_gymnastics_time + focused_barbell_time + focused_kb_time)
@@ -351,9 +342,7 @@ def get_barbell_warmup_movements(todays_wod):
     for wod in todays_wod:
         for k, v in exercises.items():
             if wod == k:
-                print(v['category'])
                 if v['category'] == ['cleans']:
-                    print('true')
                     selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup With PVC Pipe')
                     selected_barbell_warmups_with_dupes.append('Barbell Clean Warmup')
                 if v['category'] == ['jerks']:
@@ -374,7 +363,19 @@ def get_barbell_warmup_movements(todays_wod):
     for i in selected_barbell_warmups_with_dupes:
         if i not in selected_barbell_warmups:
             selected_barbell_warmups.append(i)
-    print(selected_barbell_warmups)
+
+    if 'Basic Burgener Warmup With PVC Pipe' in selected_barbell_warmups:
+        selected_barbell_warmups.remove('Basic Burgener Warmup With PVC Pipe')
+        selected_barbell_warmups.insert(0, 'Basic Burgener Warmup With PVC Pipe')
+    if 'Barbell Jerk Warmup' in selected_barbell_warmups:
+        selected_barbell_warmups.remove('Barbell Jerk Warmup')
+        selected_barbell_warmups.insert(1, 'Barbell Jerk Warmup')
+    if 'Barbell Snatch Warmup' in selected_barbell_warmups:
+        selected_barbell_warmups.remove('Barbell Snatch Warmup')
+        selected_barbell_warmups.insert(1, 'Barbell Snatch Warmup')
+    if 'Barbell Clean Warmup' in selected_barbell_warmups:
+        selected_barbell_warmups.remove('Barbell Clean Warmup')
+        selected_barbell_warmups.insert(1, 'Barbell Clean Warmup')
     return selected_barbell_warmups
 
 
