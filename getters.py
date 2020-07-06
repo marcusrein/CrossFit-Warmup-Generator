@@ -351,22 +351,30 @@ def get_barbell_warmup_movements(todays_wod):
     for wod in todays_wod:
         for k, v in exercises.items():
             if wod == k:
-                if 'cleans' or 'jerks' or 'snatches' in v['category']:
+                print(v['category'])
+                if v['category'] == ['cleans']:
+                    print('true')
                     selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup With PVC Pipe')
-                if 'cleans' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Barbell Clean Warmup')
-                if 'jerks' in v['category']:
+                if v['category'] == ['jerks']:
+                    selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup With PVC Pipe')
                     selected_barbell_warmups_with_dupes.append('Barbell Jerk Warmup')
-                if 'snatches' in v['category']:
+                if v['category'] == ['snatches']:
+                    selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup With PVC Pipe')
                     selected_barbell_warmups_with_dupes.append('Barbell Snatch Warmup')
-                if 'presses' or 'overhead presses' or 'deadlifts' in v['category']:
-                    selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading')
-                    break
+                if v['category'] == ['presses']:
+                    selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Pressing')
+                if v['category'] == ['overhead presses']:
+                    selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Pressing')
+                if v['category'] == ['deadlifts']:
+                    selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Deadlifting')
+                if v['category'] == ['squats']:
+                    selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Squatting')
 
     for i in selected_barbell_warmups_with_dupes:
         if i not in selected_barbell_warmups:
             selected_barbell_warmups.append(i)
-
+    print(selected_barbell_warmups)
     return selected_barbell_warmups
 
 
