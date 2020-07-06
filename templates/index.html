@@ -25,22 +25,40 @@
       height: 15vw;
       object-fit: cover;
     }
+
+    .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;
+    display: flex;
+    flex-flow: column;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
   </style>
 </head>
 
 <body>
 
   <main class="row">
-    <section class="col-sm-2">
-      <div class="p-3 mb-2 bg-light text-dark">
+    <section class="col-sm-3 sidebar p-3 mb-2 bg-light text-dark">
+        <h1 style="font-size: 32px; margin-bottom: 0;">
+          <svg style="margin-top: -7px;" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 512 512" width="60" height="60"><path d="M472,176h-8V144a23.992,23.992,0,0,0-32-22.624V88a24.028,24.028,0,0,0-24-24H392a24.028,24.028,0,0,0-24,24v88H342.624a23.976,23.976,0,0,0-31.47-14.3,23.977,23.977,0,0,0-32-16A23.978,23.978,0,0,0,240,134.131,23.984,23.984,0,0,0,200,152v8h-8a24.039,24.039,0,0,0-22.624,16H144V88a24.028,24.028,0,0,0-24-24H104A24.028,24.028,0,0,0,80,88v33.376A23.992,23.992,0,0,0,48,144v32H40a24.027,24.027,0,0,0-24,24v16a24.027,24.027,0,0,0,24,24h8v32a23.992,23.992,0,0,0,32,22.624V328a24.028,24.028,0,0,0,24,24h16a24.028,24.028,0,0,0,24-24V240h24v24a8,8,0,0,0,1.344,4.438L200,314.422V440a8,8,0,0,0,8,8H320a8,8,0,0,0,8-8V313.3l15.589-46.768A8,8,0,0,0,344,264V240h24v88a24.028,24.028,0,0,0,24,24h16a24.028,24.028,0,0,0,24-24V294.624A23.992,23.992,0,0,0,464,272V240h8a24.027,24.027,0,0,0,24-24V200A24.027,24.027,0,0,0,472,176Zm-152,0a8.009,8.009,0,0,1,8,8v32a8,8,0,0,1-16,0V184A8.009,8.009,0,0,1,320,176Zm-32-16a8.009,8.009,0,0,1,8,8v48a8,8,0,0,1-16,0V168A8.009,8.009,0,0,1,288,160Zm-32-16a8.009,8.009,0,0,1,8,8v64a8,8,0,0,1-16,0V152A8.009,8.009,0,0,1,256,144Zm-24,72a8,8,0,0,1-16,0v-8h8a23.885,23.885,0,0,0,8-1.376Zm-16-64a8,8,0,0,1,16,0v8H216ZM40,224a8.009,8.009,0,0,1-8-8V200a8.009,8.009,0,0,1,8-8h8v32Zm32,56a8.009,8.009,0,0,1-8-8V144a8,8,0,0,1,16,0V272A8.009,8.009,0,0,1,72,280Zm56,48a8.009,8.009,0,0,1-8,8H104a8.009,8.009,0,0,1-8-8V88a8.009,8.009,0,0,1,8-8h16a8.009,8.009,0,0,1,8,8Zm16-104V192h24v32Zm184,38.7L312.411,309.47A8,8,0,0,0,312,312V432H216V336h24a8,8,0,0,0,0-16H216v-8a8,8,0,0,0-1.344-4.438L184,261.578V184a8.009,8.009,0,0,1,8-8h40v8a8.009,8.009,0,0,1-8,8H208a8,8,0,0,0-8,8v32a8,8,0,0,0,8,8,40.045,40.045,0,0,1,40,40,8,8,0,0,0,16,0,55.82,55.82,0,0,0-16.862-40H328ZM342.624,224A23.889,23.889,0,0,0,344,216V192h24v32ZM416,328a8.009,8.009,0,0,1-8,8H392a8.009,8.009,0,0,1-8-8V88a8.009,8.009,0,0,1,8-8h16a8.009,8.009,0,0,1,8,8Zm32-56a8,8,0,0,1-16,0V144a8,8,0,0,1,16,0Zm32-56a8.009,8.009,0,0,1-8,8h-8V192h8a8.009,8.009,0,0,1,8,8Z"/></svg>
+          Warmup Generator
+          <span class="badge badge-warning badge-pill inline-block text-xs blocks" style="font-size: 13px; margin-top: -7px;">Ver 0.1</span>
+
+        </h1>
 
         <form method="POST" action="/" id="form" class="container">
+        <hr/>
+
           <div>
             <div class="row">
-              <div class="">
-                <div class="form-group">
+                <div class="form-group w-100">
                   <label>
-                    Easier Exercises
+                    Your Easy Exercises
                   </label>
                   <select multiple id="slim-select1" name="easy_exercises_form">
                     <option></option>
@@ -64,12 +82,10 @@
 
 
                   </select>
-                </div>
               </div>
-              <div class=""">
-                <div class="form-group">
+                <div class="form-group w-100">
                   <label>
-                    Tougher Exercises
+                    Your Tough Exercises
                   </label>
                   <select multiple id="slim-select2" name="tough_exercises_form">
                     <option></option>
@@ -92,22 +108,100 @@
                     {% endif %}
 
                   </select>
+
+                  <button type="submit" type="button" class="btn btn-primary btn-block mt-4" value="submit">Get Warmups</button>
+
                 </div>
-              </div>
+
+
+
             </div>
+
           </div>
 
-          <button type="submit" type="button" class="btn btn-secondary btn-lg" value="submit">Submit</button>
         </form>
-      </div>
+
+        <div class="overflow-auto w-100 mt-4 container">
+          <div class="list-group w-100">
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              <b>Metcon Warmups</b>
+            </a>
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Banded Side Steps
+              <span class="badge badge-primary badge-pill">15 reps</span>
+            </a>
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Shoulder Passthroughs
+              <span class="badge badge-primary badge-pill">30 reps</span>
+            </a>
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Air Squats
+              <span class="badge badge-primary badge-pill">30 reps</span>
+            </a>
+          </div>
+
+          <div class="list-group w-100 mt-3">
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              <b>Metcon Warmups</b>
+            </a>
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Banded Side Steps
+              <span class="badge badge-primary badge-pill">15 reps</span>
+            </a>
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Shoulder Passthroughs
+              <span class="badge badge-primary badge-pill">30 reps</span>
+            </a>
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Air Squats
+              <span class="badge badge-primary badge-pill">30 reps</span>
+            </a>
+          </div>
+
+          <div class="list-group w-100 mt-3">
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              <b>Metcon Warmups</b>
+            </a>
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Banded Side Steps
+              <span class="badge badge-primary badge-pill">15 reps</span>
+            </a>
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Shoulder Passthroughs
+              <span class="badge badge-primary badge-pill">30 reps</span>
+            </a>
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Air Squats
+              <span class="badge badge-primary badge-pill">30 reps</span>
+            </a>
+          </div>
+
+          <div class="list-group w-100 mt-3">
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              <b>Metcon Warmups</b>
+            </a>
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Banded Side Steps
+              <span class="badge badge-primary badge-pill">15 reps</span>
+            </a>
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Shoulder Passthroughs
+              <span class="badge badge-primary badge-pill">30 reps</span>
+            </a>
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Air Squats
+              <span class="badge badge-primary badge-pill">30 reps</span>
+            </a>
+          </div>
+
+        </div>
     </section>
 
-        <section class="col-sm">
+        <section class="col-sm-9 ml-sm-auto">
           {% if drom_final_dict: %}
 
           <div class="container border-bottom">
             <p></p>
-            <H3>Your Metabolic Warmup</H3>
             {% for metcon in selected_metcon %}
             <div class="card-deck">
               <div class="card" style="max-width: 18rem;">
@@ -123,7 +217,6 @@
           </div>
           <div class="container border-bottom">
             <p></p>
-            <H3>Your Dynamic Range of Motion Warmup</H3>
             <div class="row row-cols-1 row-cols-md-3">
               {% for k,v in drom_final_dict.items() %}
               <div class="col mb-4">
@@ -147,7 +240,6 @@
           <p></p>
           <div class="container border-bottom">
             <p></p>
-            <H3>Your Gymnastics Warmup</H3>
             <div class="row row-cols-1 row-cols-md-3">
               {% for k,v in new_gymnastics_temp_dict.items() %}
               <div class="col mb-4">
@@ -216,7 +308,7 @@
           </div>
 
           <p></p>
-          <div class="container">
+          <!-- <div class="container">
 
 
             {{ droms_compiled }}
@@ -227,7 +319,7 @@
             <p></p>
             {{ tough_exercises }}
 
-          </div>
+          </div> -->
 
         </section>
   </main>
