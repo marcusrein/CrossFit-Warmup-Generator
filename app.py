@@ -74,10 +74,18 @@ def first_page():
 
 
         # BARBELL SELECTION
-        barbell_warmup = []
         barbell_movements_from_todays_wod = which_movements_are_barbell_movements(todays_wod)
         if barbell_movements_from_todays_wod:
-            barbell_warmup = get_barbell_warmup_movements(todays_wod, barbell_warmups_dict)
+            barbell_warmup_final_dict = {}
+            barbell_warmup_movements_list = get_barbell_warmup_movements(todays_wod)
+            barbell_warmup_text_list = get_text_for_display(barbell_warmup_movements_list, barbell_warmups)
+            barbell_warmup_img_list = get_images_for_display(barbell_warmup_movements_list, barbell_warmups)
+            barbell_warmup_url_list = get_url_for_display(barbell_warmup_movements_list, barbell_warmups)
+            for idx, item in enumerate(barbell_warmup_movements_list):
+                barbell_warmup_final_dict[barbell_warmup_movements_list[idx]] = {'img': (barbell_warmup_img_list[idx]),
+                                                                                 'url': (barbell_warmup_url_list[idx]),
+                                                                                 'text': (barbell_warmup_text_list[idx])}
+        breakpoint()
 
         # KB SELECTION
         kb_warmup = []

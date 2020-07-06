@@ -326,58 +326,48 @@ def get_images_for_display(selected_movements, dictionary):
     return img_list
 
 
-def get_barbell_warmup_movements(todays_wod, blah):
+def get_url_for_display(selected_movements, dictionary):
+    vid_list = []
+    for movement in selected_movements:
+        vid_test = dictionary[movement]['url']
+        vid_list.append(vid_test)
+    return vid_list
+
+
+def get_text_for_display(selected_movements, dictionary):
+    text_list = []
+    for movement in selected_movements:
+        text_test = dictionary[movement]['text']
+        text_list.append(text_test)
+    return text_list
+
+
+def get_barbell_warmup_movements(todays_wod):
     """Delivers a warmup for barbell movements"""
 
     selected_barbell_warmups_with_dupes = []
     selected_barbell_warmups = []
 
     for wod in todays_wod:
-
         for k, v in exercises.items():
             if wod == k:
                 if 'cleans' or 'jerks' or 'snatches' in v['category']:
-                    print('ya')
                     selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup With PVC Pipe')
                 if 'cleans' in v['category']:
-                    print('sure')
                     selected_barbell_warmups_with_dupes.append('Barbell Clean Warmup')
                 if 'jerks' in v['category']:
-                    print('damn')
                     selected_barbell_warmups_with_dupes.append('Barbell Jerk Warmup')
                 if 'snatches' in v['category']:
-                    print('pooo')
                     selected_barbell_warmups_with_dupes.append('Barbell Snatch Warmup')
+                if 'presses' or 'overhead presses' or 'deadlifts' in v['category']:
+                    selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading')
+                    break
 
     for i in selected_barbell_warmups_with_dupes:
         if i not in selected_barbell_warmups:
             selected_barbell_warmups.append(i)
 
-    print(selected_barbell_warmups)
-
-
-    # for wod2 in todays_wod:
-    #     for k2, v2 in exercises.items():
-    #         if wod2 == k2:
-    #             breakpoint()
-    #
-    #             if v2['category'] == 'cleans':
-    #
-    #                 selected_barbell_warmups.append('Barbell Clean Warmup')
-    #                 print('sure')
-
-    # for wod in todays_wod:
-    #     for k, v in exercises.items():
-    #         if wod == k:
-    #             breakpoint()
-    #             if v['category'] == 'presses' or 'overhead presses' or 'deadlifts':
-    #                 print('ya')
-    #                 selected_barbell_warmups.append('Progressive Barbell Loading')
-    #                 break
-
-    # if 'squat', or 'press':
-
-    return selected_barbell_warmups_with_dupes
+    return selected_barbell_warmups
 
 
 def get_kettlebell_warmup(todays_wod):

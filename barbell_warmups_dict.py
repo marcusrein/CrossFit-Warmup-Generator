@@ -28,9 +28,23 @@ barbell_warmups = {
             'gif': 'https://media.tenor.com/images/63673ac0244c6f70e8f8cc3df7231076/tenor.gif',
             'text': 'Follow the instructional video'
         },
-    'Progressive Barbell Loading':
+    'Progressive Barbell Loading for Pressing':
         {
-            'category': ['squats','deadlifts','cleans','snatches','jerks'],
+            'category': ['presses'],
+            'gif': 'https://media4.giphy.com/media/ydPTjG5XbHVEQ/giphy-downsized.gif',
+            'text': 'Warm-Up Set #1: 40% of your 1RM x 5 \n Warm-Up Set #2: 50% of your 1RM x 5 \n Warm-Up Set #3: '
+                    '60% of your 1RM x 3'
+        },
+    'Progressive Barbell Loading for Squatting':
+        {
+            'category': ['presses'],
+            'gif': 'https://media4.giphy.com/media/ydPTjG5XbHVEQ/giphy-downsized.gif',
+            'text': 'Warm-Up Set #1: 40% of your 1RM x 5 \n Warm-Up Set #2: 50% of your 1RM x 5 \n Warm-Up Set #3: '
+                    '60% of your 1RM x 3'
+        },
+    'Progressive Barbell Loading for Deadlifting':
+        {
+            'category': ['presses'],
             'gif': 'https://media4.giphy.com/media/ydPTjG5XbHVEQ/giphy-downsized.gif',
             'text': 'Warm-Up Set #1: 40% of your 1RM x 5 \n Warm-Up Set #2: 50% of your 1RM x 5 \n Warm-Up Set #3: '
                     '60% of your 1RM x 3'
