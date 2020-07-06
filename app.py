@@ -68,7 +68,7 @@ def first_page():
 
             ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
         drom_img_list = get_images_for_display(selected_droms, droms)
-        drom_reps = get_drom_reps(selected_droms, tough_exercises)
+        drom_reps = get_reps(selected_droms, tough_exercises, droms)
         drom_final_dict = {}
 
         for idx, item in enumerate(drom_img_list):
@@ -92,13 +92,14 @@ def first_page():
 
         kb_movements_from_todays_wod = which_movements_are_kb_movements(todays_wod)
         kb_warmup_movements_list = get_kettlebell_warmup(todays_wod)
-        kb_warmup_text_list = get_text_for_display(kb_warmup_movements_list, kb_warmups_dict)
         kb_warmup_img_list = get_images_for_display(kb_warmup_movements_list, kb_warmups_dict)
         kb_warmup_url_list = get_url_for_display(kb_warmup_movements_list, kb_warmups_dict)
+        kb_warmup_reps_list = get_reps(kb_warmup_movements_list, tough_exercises, kb_warmups_dict)
         for idx, item in enumerate(kb_warmup_movements_list):
             kb_warmup[kb_warmup_movements_list[idx]] = {'img': (kb_warmup_img_list[idx]),
                                                         'url': (kb_warmup_url_list[idx]),
-                                                        'text': (kb_warmup_text_list[idx])}
+                                                        'reps': (kb_warmup_reps_list[idx]),
+                                                        }
 
         # GYMNASTICS SELECTION
         tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)

@@ -215,12 +215,14 @@ def get_metcon_reps(selected_metcon):
     return final
 
 
-def get_drom_reps(post_processing_selected_droms, tough_exercises):
+def get_reps(selected_movements, tough_exercises, dictionary):
     reps_big_list = []
     reps_chosen = []
 
-    for drom in post_processing_selected_droms:
-        reps_big_list.append(droms.get(drom)['reps'])
+    for movement in selected_movements:
+        reps_big_list.append(dictionary.get(movement)['reps'])
+
+    print(reps_big_list)
 
     if len(tough_exercises) == 0:
         for x in reps_big_list:
