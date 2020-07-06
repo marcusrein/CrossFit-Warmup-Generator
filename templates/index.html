@@ -86,7 +86,7 @@
     {% if drom_final_dict: %}
     <p></p>
 
-    <div class="container">
+    <div class="container border-bottom">
         <p></p>
         <H3>Your Metabolic Warmup</H3>
         {% for metcon in selected_metcon %}
@@ -99,8 +99,9 @@
                     </div>
                 </div>
         {% endfor %}        </div>
+        <p></p>
     </div>
-    <div class="container">
+    <div class="container border-bottom">
          <p></p>
         <H3>Your Dynamic Range of Motion Warmup</H3>
         <div class="row row-cols-1 row-cols-md-3">
@@ -124,7 +125,7 @@
     </div>
         {% if new_gymnastics_temp_dict: %}
          <p></p>
-    <div class="container">
+    <div class="container border-bottom">
          <p></p>
         <H3>Your Gymnastics Warmup</H3>
         <div class="row row-cols-1 row-cols-md-3">
@@ -147,9 +148,9 @@
         {% endif %}
     </div>
 
-    <div class="container">
     <p></p>
     {% if kb_warmup: %}
+   <div class="container border-bottom">
     <H3>Your Kettlebell Warmup</H3>
     <div class="row row-cols-1 row-cols-md-3">
         {% for k,v in kb_warmup.items() %}
@@ -169,9 +170,9 @@
     {% endif %}
 </div>
 
-<div class="container">
     <p></p>
     {% if barbell_movements_from_todays_wod: %}
+   <div class="container border-bottom">
     <H3>Your Barbell Warmup</H3>
     <div class="row row-cols-1 row-cols-md-3">
         {% for k,v in barbell_warmup.items() %}
