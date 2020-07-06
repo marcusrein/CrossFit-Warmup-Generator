@@ -46,8 +46,8 @@ def first_page():
         # print('PREPROCCESING SELECTED DROMS: ', selected_droms)
         addendum_droms = get_selected_movements_addendum_droms(todays_wod, selected_droms)
         protected_droms = []
-        # print('selectedDROMS: ', selected_droms)
-        # print('addendumDROMS: ', addendum_droms)
+        print('selectedDROMS: ', selected_droms)
+        print('addendumDROMS: ', addendum_droms)
         if addendum_droms:
             # for addendum_drom in addendum_droms:
             #     for selected_drom in selected_droms:
@@ -65,8 +65,7 @@ def first_page():
 
             ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
         drom_img_list = get_images_for_display(selected_droms, droms)
-        drom_reps = get_drom_reps(selected_droms)
-
+        drom_reps = get_drom_reps(selected_droms, tough_exercises)
         drom_final_dict = {}
 
         for idx, item in enumerate(drom_img_list):
@@ -75,16 +74,15 @@ def first_page():
 
         # BARBELL SELECTION
         barbell_movements_from_todays_wod = which_movements_are_barbell_movements(todays_wod)
-        if barbell_movements_from_todays_wod:
-            barbell_warmup = {}
-            barbell_warmup_movements_list = get_barbell_warmup_movements(todays_wod)
-            barbell_warmup_text_list = get_text_for_display(barbell_warmup_movements_list, barbell_warmups)
-            barbell_warmup_img_list = get_images_for_display(barbell_warmup_movements_list, barbell_warmups)
-            barbell_warmup_url_list = get_url_for_display(barbell_warmup_movements_list, barbell_warmups)
-            for idx, item in enumerate(barbell_warmup_movements_list):
-                barbell_warmup[barbell_warmup_movements_list[idx]] = {'img': (barbell_warmup_img_list[idx]),
-                                                                                 'url': (barbell_warmup_url_list[idx]),
-                                                                                 'text': (barbell_warmup_text_list[idx])}
+        barbell_warmup = {}
+        barbell_warmup_movements_list = get_barbell_warmup_movements(todays_wod)
+        barbell_warmup_text_list = get_text_for_display(barbell_warmup_movements_list, barbell_warmups)
+        barbell_warmup_img_list = get_images_for_display(barbell_warmup_movements_list, barbell_warmups)
+        barbell_warmup_url_list = get_url_for_display(barbell_warmup_movements_list, barbell_warmups)
+        for idx, item in enumerate(barbell_warmup_movements_list):
+            barbell_warmup[barbell_warmup_movements_list[idx]] = {'img': (barbell_warmup_img_list[idx]),
+                                                                             'url': (barbell_warmup_url_list[idx]),
+                                                                             'text': (barbell_warmup_text_list[idx])}
 
         # KB SELECTION
         kb_warmup = []

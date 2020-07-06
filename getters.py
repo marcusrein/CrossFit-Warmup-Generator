@@ -215,18 +215,26 @@ def get_metcon_reps(selected_metcon):
     return final
 
 
-def get_drom_reps(post_processing_selected_droms):
+def get_drom_reps(post_processing_selected_droms, tough_exercises):
     reps_big_list = []
-    reps_random_chosen = []
+    reps_chosen = []
 
     for drom in post_processing_selected_droms:
         reps_big_list.append(droms.get(drom)['reps'])
 
-    for x in reps_big_list:
-        y = random.choice(x)
-        reps_random_chosen.append(y)
-
-    return reps_random_chosen
+    if len(tough_exercises) == 0:
+        for x in reps_big_list:
+            y = x[0]
+            reps_chosen.append(y)
+    elif len(tough_exercises) == 1:
+        for x in reps_big_list:
+            y = x[1]
+            reps_chosen.append(y)
+    elif len(tough_exercises) >= 2:
+        for x in reps_big_list:
+            y = x[2]
+            reps_chosen.append(y)
+    return reps_chosen
 
 
 def get_selected_movements_addendum_droms(todays_wod, selected_movements):
