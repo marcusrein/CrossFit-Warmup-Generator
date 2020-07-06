@@ -143,26 +143,29 @@
     </div>
         {% endif %}
     </div>
-        <div class="container">
-        <p></p>
-        {% if kb_movements_from_todays_wod: %}
-        <H3>Your KB Warmup</H3>
-            <div class ="card-deck">
-                {% for kb_movement in kb_movements_from_todays_wod %}
+
+    <div class="container">
+    <p></p>
+    {% if kb_warmup: %}
+    <H3>Your Kettlebell Warmup</H3>
+    <div class="row row-cols-1 row-cols-md-3">
+        {% for k,v in kb_warmup.items() %}
+            <div class ="col mb-4">
                 <div class="card" style="max-width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">{{ kb_movement.title() }}</h5>
+                        <h5 class="card-title">{{ k.title() }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Kettlebell Warmup</h6>
-                        <p class="card-text"> {{ kb_warmup }} </p>
-                    </div>
+                        <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
+                        <p class="card-text"> {{ v['text'] }} </p>
+                        <a href="{{ v['url'] }}" class="card-link">Video Link</a>
+                     </div>
                 </div>
-                {% endfor %}
             </div>
-        {% endif %}
+            {% endfor %}
         </div>
+    {% endif %}
+</div>
 
-
-    </div>
 <div class="container">
     <p></p>
     {% if barbell_movements_from_todays_wod: %}

@@ -2,8 +2,10 @@ import barbell_warmups_dict
 from getters import *
 from flask import Flask, render_template, request
 from barbell_warmups_dict import *
+from kb_warmups import *
 
 app = Flask(__name__)
+
 
 # TODO: fix names of barbell_warmups_dict.py and barbell_warmups dict (CONFUSING!)
 # TODO: Import stickies copy/paste when barbell wod is ready again
@@ -72,7 +74,6 @@ def first_page():
         for idx, item in enumerate(drom_img_list):
             drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx])}
 
-
         # BARBELL SELECTION
         barbell_warmup = {}
 
@@ -83,21 +84,21 @@ def first_page():
         barbell_warmup_url_list = get_url_for_display(barbell_warmup_movements_list, barbell_warmups)
         for idx, item in enumerate(barbell_warmup_movements_list):
             barbell_warmup[barbell_warmup_movements_list[idx]] = {'img': (barbell_warmup_img_list[idx]),
-                                                                             'url': (barbell_warmup_url_list[idx]),
-                                                                             'text': (barbell_warmup_text_list[idx])}
+                                                                  'url': (barbell_warmup_url_list[idx]),
+                                                                  'text': (barbell_warmup_text_list[idx])}
 
         # KB SELECTION
-        # kb_warmup = {}
+        kb_warmup = {}
+
         kb_movements_from_todays_wod = which_movements_are_kb_movements(todays_wod)
-        kb_warmup = get_kettlebell_warmup(todays_wod)
-        # kb_warmup_movements_list = get_kb_warmup_movements(todays_wod)
-        # barbell_warmup_text_list = get_text_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
-        # barbell_warmup_img_list = get_images_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
-        # barbell_warmup_url_list = get_url_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
-        # for idx, item in enumerate(barbell_warmup_movements_list):
-        #     barbell_warmup[barbell_warmup_movements_list[idx]] = {'img': (barbell_warmup_img_list[idx]),
-        #                                                           'url': (barbell_warmup_url_list[idx]),
-        #                                                           'text': (barbell_warmup_te
+        kb_warmup_movements_list = get_kettlebell_warmup(todays_wod)
+        kb_warmup_text_list = get_text_for_display(kb_warmup_movements_list, kb_warmups_dict)
+        kb_warmup_img_list = get_images_for_display(kb_warmup_movements_list, kb_warmups_dict)
+        kb_warmup_url_list = get_url_for_display(kb_warmup_movements_list, kb_warmups_dict)
+        for idx, item in enumerate(kb_warmup_movements_list):
+            kb_warmup[kb_warmup_movements_list[idx]] = {'img': (kb_warmup_img_list[idx]),
+                                                        'url': (kb_warmup_url_list[idx]),
+                                                        'text': (kb_warmup_text_list[idx])}
 
         # GYMNASTICS SELECTION
         tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)

@@ -347,22 +347,22 @@ def get_barbell_warmup_movements(todays_wod):
     for wod in todays_wod:
         for k, v in exercises.items():
             if wod == k:
-                if v['category'] == ['cleans']:
+                if 'cleans' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup With PVC Pipe')
                     selected_barbell_warmups_with_dupes.append('Barbell Clean Warmup')
-                if v['category'] == ['jerks']:
+                if 'jerks' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup With PVC Pipe')
                     selected_barbell_warmups_with_dupes.append('Barbell Jerk Warmup')
-                if v['category'] == ['snatches']:
+                if 'snatches' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup With PVC Pipe')
                     selected_barbell_warmups_with_dupes.append('Barbell Snatch Warmup')
-                if v['category'] == ['presses']:
+                if 'presses' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Pressing')
-                if v['category'] == ['overhead presses']:
+                if 'overhead presses' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Pressing')
-                if v['category'] == ['deadlifts']:
+                if 'deadlifts' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Deadlifting')
-                if v['category'] == ['squats']:
+                if 'squats' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Squatting')
 
     for i in selected_barbell_warmups_with_dupes:
@@ -414,6 +414,12 @@ def get_kettlebell_warmup(todays_wod):
     if 'Goblet Squats' in selected_kb_warmups:
         selected_kb_warmups.remove('Goblet Squats')
         selected_kb_warmups.insert(1, 'Goblet Squats')
+    if 'Kettlebell Halos' in selected_kb_warmups:
+        selected_kb_warmups.remove('Kettlebell Halos')
+        selected_kb_warmups.insert(1, 'Kettlebell Halos')
+    if 'Kettlebell Swings' in selected_kb_warmups:
+        selected_kb_warmups.remove('Kettlebell Swings')
+        selected_kb_warmups.append('Kettlebell Swings')
     return selected_kb_warmups
 
 
