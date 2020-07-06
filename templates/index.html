@@ -167,15 +167,17 @@
     <p></p>
     {% if barbell_movements_from_todays_wod: %}
     <H3>Your Barbell Warmup</H3>
-        <div class ="card-deck">
-            {% for k,v in barbell_warmup.items() %}
-            <div class="card" style="max-width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ k.title() }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Barbell Lift Warmup</h6>
-                    <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-                    <p class="card-text"> {{ v['text'] }} </p>
-                    <a href="{{ v['url'] }}" class="card-link">Video Link</a>
+    <div class="row row-cols-1 row-cols-md-3">
+        {% for k,v in barbell_warmup.items() %}
+            <div class ="col mb-4">
+                <div class="card" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ k.title() }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Barbell Lift Warmup</h6>
+                        <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
+                        <p class="card-text"> {{ v['text'] }} </p>
+                        <a href="{{ v['url'] }}" class="card-link">Video Link</a>
+                     </div>
                 </div>
             </div>
             {% endfor %}
