@@ -17,8 +17,8 @@ barbell_warmups = {
     'Barbell Jerk Warmup':
         {
             'category': ['jerks'],
-            'url': 'https://thumbs.gfycat.com/FlawedDazzlingBengaltiger-small.gif',
-            'img': 'https://i.imgur.com/bT38k9u.gif',
+            'url': 'https://www.youtube.com/watch?v=oaUrbXs5fe0',
+            'img': 'https://thumbs.gfycat.com/FlawedDazzlingBengaltiger-small.gif',
             'text': 'Follow the instructional video'
         },
     'Barbell Snatch Warmup':
