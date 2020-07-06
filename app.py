@@ -7,7 +7,7 @@ from kb_warmups import *
 app = Flask(__name__)
 
 # TODO: fix if no input, site crashes
-# TODO: href id link click jump to location. update code from JJ to reflect live code.
+# TODO: href not working
 # TODO: 1. Create DB category throughout code, 2. fix bug in index.html that doubles-up input (it lookslike
 #  I can put in airsquat 2x) 3. create 'equipment' thing. 4. have users log in 5. figure out barbell loading
 
@@ -81,10 +81,14 @@ def first_page():
         barbell_warmup_text_list = get_text_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
         barbell_warmup_img_list = get_images_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
         barbell_warmup_url_list = get_url_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
+        barbell_warmup_reps_list = get_reps(barbell_warmup_movements_list, tough_exercises, barbell_warmups_dict)
+
         for idx, item in enumerate(barbell_warmup_movements_list):
             barbell_warmup[barbell_warmup_movements_list[idx]] = {'img': (barbell_warmup_img_list[idx]),
                                                                   'url': (barbell_warmup_url_list[idx]),
-                                                                  'text': (barbell_warmup_text_list[idx])}
+                                                                  'text': (barbell_warmup_text_list[idx]),
+                                                                  'reps': (barbell_warmup_reps_list[idx])
+                                                                  }
 
         # KB SELECTION
         kb_warmup = {}
