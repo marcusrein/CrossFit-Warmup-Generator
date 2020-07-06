@@ -46,6 +46,7 @@ def first_page():
         # print('PREPROCCESING SELECTED DROMS: ', selected_droms)
         addendum_droms = get_selected_movements_addendum_droms(todays_wod, selected_droms)
         protected_droms = []
+        print(todays_wod)
         print('selectedDROMS: ', selected_droms)
         print('addendumDROMS: ', addendum_droms)
         if addendum_droms:
@@ -87,8 +88,7 @@ def first_page():
         # KB SELECTION
         kb_warmup = []
         kb_movements_from_todays_wod = which_movements_are_kb_movements(todays_wod)
-        if kb_movements_from_todays_wod:
-            kb_warmup = get_kettlebell_warmup(todays_wod)
+        kb_warmup = get_kettlebell_warmup(todays_wod)
 
         # GYMNASTICS SELECTION
         tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)

@@ -104,7 +104,7 @@ def get_all_movement_times(todays_wod, tough_exercises):
             and check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 8
+        drom_time += 10
         barbell_time += 10
         kb_time += 5
         tough_gymnastics_time += 10
@@ -112,46 +112,46 @@ def get_all_movement_times(todays_wod, tough_exercises):
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 8
+        drom_time += 10
         barbell_time += 10
         kb_time += 5
     elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 8
+        drom_time += 10
         barbell_time += 10
         tough_gymnastics_time += 10
     elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 8
+        drom_time += 10
         barbell_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 8
+        drom_time += 10
         kb_time += 5
         tough_gymnastics_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 8
+        drom_time += 10
         kb_time += 5
     elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 8
+        drom_time += 10
         tough_gymnastics_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 8
+        drom_time += 10
 
     if len(tough_exercises) == 1:
         drom_time += 2
@@ -268,10 +268,6 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
     if any('squat' or 'clean' or 'snatch' or 'swing' in wod for wod in todays_wod) and 'banded side steps' \
             not in selected_movements:
         addendum.append('banded side steps')
-
-    if any('clean' or 'snatch' or 'swing' or 'jump' in wod for wod in todays_wod) and 'walking forward kicks' \
-            not in selected_movements:
-        addendum.append('walking forward kicks')
 
     if any('turkish' in wod for wod in todays_wod) and 'thoracic bridges' \
             not in selected_movements:
