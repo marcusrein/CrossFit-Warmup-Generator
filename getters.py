@@ -342,6 +342,7 @@ def get_barbell_warmup_movements(todays_wod):
 
     selected_barbell_warmups_with_dupes = []
     selected_barbell_warmups = []
+ #### ERROR NOT CORRECTED YET: ONLY MATCHES IF CATGORIES ARE PERFECTLY MATCHED, NOT IF MULTPLE CATEGORIES PRESENT
 
     for wod in todays_wod:
         for k, v in exercises.items():
@@ -384,10 +385,36 @@ def get_barbell_warmup_movements(todays_wod):
 
 
 def get_kettlebell_warmup(todays_wod):
-    """Delivers a warmup for kettlebell movements"""
-    x = '10 Goatbag Swings, 10 Goblet Squats, 10 KB Swings'
-    if check_kb_exercise(todays_wod):
-        return x
+    """Delivers a warmup for kb movements"""
+
+    selected_kb_warmups_with_dupes = []
+    selected_kb_warmups = []
+
+    for wod in todays_wod:
+        for k, v in exercises.items():
+            if wod == k:
+                if 'swings' in v['category']:
+                    selected_kb_warmups_with_dupes.append('Kettlebell Swings')
+                    selected_kb_warmups_with_dupes.append('Goatbag Swings')
+                if 'kettlebell overhead' in v['category']:
+                    selected_kb_warmups_with_dupes.append('Kettlebell Halos')
+                if 'kettlebell squats' in v['category']:
+                    selected_kb_warmups_with_dupes.append('Goblet Squats')
+                if 'kettlebells' in v['category']:
+                    selected_kb_warmups_with_dupes.append('Goblet Squats')
+                    selected_kb_warmups_with_dupes.append('Goatbag Swings')
+
+    for i in selected_kb_warmups_with_dupes:
+        if i not in selected_kb_warmups:
+            selected_kb_warmups.append(i)
+
+    if 'Goatbag Swings' in selected_kb_warmups:
+        selected_kb_warmups.remove('Goatbag Swings')
+        selected_kb_warmups.insert(0, 'Goatbag Swings')
+    if 'Goblet Squats' in selected_kb_warmups:
+        selected_kb_warmups.remove('Goblet Squats')
+        selected_kb_warmups.insert(1, 'Goblet Squats')
+    return selected_kb_warmups
 
 
 def get_gymnastics_warmup(todays_wod):

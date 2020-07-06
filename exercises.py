@@ -46,27 +46,27 @@ exercises = {
     # KETTLEBELLS
 
     'kettlebell swing': {
-        'category': ['kettlebells'],
+        'category': ['kettlebells', 'swings'],
         'loaded': 'kb'
     },
     'goblet squat': {
-        'category': ['kettlebells'],
+        'category': ['kettlebells', 'kettlebell squats'],
         'loaded': 'kb'
     },
     'kettlebell snatch': {
-        'category': ['kettlebells'],
+        'category': ['kettlebells', 'kettlebell olympic'],
         'loaded': 'kb'
     },
     'kettlebell clean': {
-        'category': ['kettlebells'],
+        'category': ['kettlebells', 'kettlebell olympic'],
         'loaded': 'kb'
     },
     'kettlebell jerk': {
-        'category': ['kettlebells'],
+        'category': ['kettlebells', 'kettlebell olympic', 'kettlebell overhead'],
         'loaded': 'kb'
     },
     'kettlebell press': {
-        'category': ['kettlebells'],
+        'category': ['kettlebells', 'kettlebell overhead'],
         'loaded': 'kb'
     },
     'kettlebell romanian deadlift': {
