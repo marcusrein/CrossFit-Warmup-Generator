@@ -6,7 +6,6 @@ from filters import *
 from barbell_warmups_dict import *
 import re
 
-
 import random
 
 
@@ -170,8 +169,6 @@ def get_all_movement_times(todays_wod, tough_exercises):
 
     print(drom_time)
 
-
-
     all_warmup_time = (
             metcon_time + drom_time + gymnastics_time + barbell_time + kb_time + focused_gymnastics_time + focused_barbell_time + focused_kb_time)
 
@@ -280,8 +277,8 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
     if any('turkish' in wod for wod in todays_wod) and 'thoracic bridges' \
             not in selected_movements:
         addendum.append('thoracic bridges')
-    print(addendum)
     return addendum
+
 
 ## ISSUE! When a good item is in there such as 'thoracic bridges' and its toward the end of the list, it could
 # get popped with this code
@@ -296,7 +293,6 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
     has_kb_exercise = check_kb_exercise(todays_wod)
     has_barbell_exercise = check_barbell_exercise(todays_wod)
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
-
     ##GETTERS##
     mov_cat = get_cat_from_todays_wod(todays_wod, exercises)
     todays_possible_movements = get_possible_movements_from_mov_cat(mov_cat, dictionary)
@@ -333,11 +329,27 @@ def get_images_for_display(selected_movements, dictionary):
 def get_barbell_warmup_movements(todays_wod, barbell_warmups_dict):
     """Delivers a warmup for barbell movements"""
     selected_barbell_warmups = []
-    if 'clean' or 'jerk' or 'snatch' in todays_wod:
-        print('ya')
-        selected_barbell_warmups.append('Basic Burgener Warmup With PVC Pipe')
-    else:
-        print('naaa')
+    for wod in todays_wod:
+        for k, v in exercises.items():
+            if wod == k:
+                breakpoint()
+                if v['category'] == 'cleans' or 'jerks' or 'snatches':
+                    print('ya')
+                    selected_barbell_warmups.append('Basic Burgener Warmup With PVC Pipe')
+                    selected_barbell_warmups.append
+                    break
+
+    for wod in todays_wod:
+        for k, v in exercises.items():
+            if wod == k:
+                breakpoint()
+                if v['category'] == 'presses' or 'overhead presses' or 'deadlifts':
+                    print('ya')
+                    selected_barbell_warmups.append('Progressive Barbell Loading')
+                    break
+
+    # if 'squat', or 'press':
+
     return selected_barbell_warmups
 
 

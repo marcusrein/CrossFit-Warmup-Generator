@@ -16,7 +16,6 @@ def filter_pop_and_select(dictionary, organized_times_list, tally_organized_time
     x = tally_organized_times_sum
     pop_dict = dictionary.copy()
     pop_organized_time_list = organized_times_list.copy()
-    breakpoint()
 
     while x > prescribed_time:
         pop_dict.popitem()
