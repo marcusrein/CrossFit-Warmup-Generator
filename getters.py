@@ -3,7 +3,7 @@ from droms import *
 from metcons import *
 from checks import *
 from filters import *
-from barbell_warmups_dict import *
+from barbell_warmups import *
 import re
 
 import random
@@ -222,8 +222,6 @@ def get_reps(selected_movements, tough_exercises, dictionary):
     for movement in selected_movements:
         reps_big_list.append(dictionary.get(movement)['reps'])
 
-    print(reps_big_list)
-
     if len(tough_exercises) == 0:
         for x in reps_big_list:
             y = x[0]
@@ -277,7 +275,7 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
     return addendum
 
 
-## ISSUE! When a good item is in there such as 'thoracic bridges' and its toward the end of the list, it could
+## BUG THATS NOT FIXED! When a good item is in there such as 'thoracic bridges' and its toward the end of the list, it could
 # get popped with this code
 
 

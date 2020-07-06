@@ -1,13 +1,13 @@
-import barbell_warmups_dict
+import barbell_warmups
 from getters import *
 from flask import Flask, render_template, request
-from barbell_warmups_dict import *
+from barbell_warmups import *
 from kb_warmups import *
 
 app = Flask(__name__)
 
 
-# TODO: fix names of barbell_warmups_dict.py and barbell_warmups dict (CONFUSING!)
+# TODO: fix names of barbell_warmups.py and barbell_warmups dict (CONFUSING!)
 # TODO: Import stickies copy/paste when barbell wod is ready again
 # TODO: 1. Create DB category throughout code, 2. fix bug in index.html that doubles-up input (it lookslike
 #  I can put in airsquat 2x) 3. create 'equipment' thing. 4. have users log in 5. figure out barbell loading
@@ -79,9 +79,9 @@ def first_page():
 
         barbell_movements_from_todays_wod = which_movements_are_barbell_movements(todays_wod)
         barbell_warmup_movements_list = get_barbell_warmup_movements(todays_wod)
-        barbell_warmup_text_list = get_text_for_display(barbell_warmup_movements_list, barbell_warmups)
-        barbell_warmup_img_list = get_images_for_display(barbell_warmup_movements_list, barbell_warmups)
-        barbell_warmup_url_list = get_url_for_display(barbell_warmup_movements_list, barbell_warmups)
+        barbell_warmup_text_list = get_text_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
+        barbell_warmup_img_list = get_images_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
+        barbell_warmup_url_list = get_url_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
         for idx, item in enumerate(barbell_warmup_movements_list):
             barbell_warmup[barbell_warmup_movements_list[idx]] = {'img': (barbell_warmup_img_list[idx]),
                                                                   'url': (barbell_warmup_url_list[idx]),

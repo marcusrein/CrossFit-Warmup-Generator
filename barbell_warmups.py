@@ -1,4 +1,4 @@
-barbell_warmups = {
+barbell_warmups_dict = {
     'Basic Burgener Warmup With PVC Pipe' :
         {
             'category': ['cleans', 'snatches', 'jerks'],
