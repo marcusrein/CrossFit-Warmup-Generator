@@ -1,4 +1,4 @@
-import barbell_warmups
+import sys
 from getters import *
 from flask import Flask, render_template, request
 from barbell_warmups import *
@@ -29,10 +29,13 @@ def first_page():
         tough_exercises = [tough_exercise.lower() for tough_exercise in tough_exercises]
 
         # TODAYSWOD
+
         todays_wod = easy_exercises + tough_exercises
+        error_message = check_no_input_todays_wod(todays_wod)
+
+
 
         # METCON SELECTION
-        # breakpoint()
         metcons_compiled = get_movements_compiled(
             todays_wod, tough_exercises, metcons, metcon_time)
         selected_metcon = metcons_compiled.get('SELECTED MOVEMENTS: ')
@@ -125,7 +128,7 @@ def first_page():
                                tough_gymnastics_movements_from_todays_wod,
                                easy_exercises=easy_exercises, tough_exercises=tough_exercises,
                                new_gymnastics_temp_dict=new_gymnastics_temp_dict, drom_final_dict=drom_final_dict,
-                               todays_wod=todays_wod)
+                               todays_wod=todays_wod, error_message=error_message)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')

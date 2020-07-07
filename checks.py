@@ -3,6 +3,14 @@ from checks import *
 
 # All of these should return True or False
 
+def check_no_input_todays_wod(todays_wod):
+    if not todays_wod:
+        global error_message
+        error_message = 'Please enter your exercises'
+    else:
+        error_message = ''
+    return error_message
+
 def remove_none_from_todays_wod(todays_wod):
     """Remove "none" from todays_wod to clean it up"""
     cleaned_array = []

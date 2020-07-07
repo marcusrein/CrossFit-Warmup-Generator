@@ -209,10 +209,14 @@ def which_movements_are_tough_gymnastics_movements(todays_wod):
 
 
 def get_metcon_reps(selected_metcon):
-    y = metcons.get(selected_metcon)
-    z = y.get('reps')
-    final = random.choice(z)
+    if selected_metcon:
+        y = metcons.get(selected_metcon)
+        z = y.get('reps')
+        final = random.choice(z)
+    else:
+        final = ''
     return final
+
 
 
 def get_reps(selected_movements, tough_exercises, dictionary):

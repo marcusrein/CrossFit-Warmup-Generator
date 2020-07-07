@@ -115,6 +115,11 @@
                   </select>
                 </div>
                   </div>
+            </div>
+              <div> {% if error_message: %}
+                <h6 class="card-subtitle mb-2 text-muted"> {{ error_message }} </h6>
+              {% endif %}
+                </div>
                   <button type="submit" type="button" class="btn btn-primary btn-block mt-4" value="submit">Get Warmups</button>
 
                 </div>
