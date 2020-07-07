@@ -249,36 +249,36 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
 
     if 'push up' in todays_wod and 'push ups' not in selected_movements:
         addendum.append('push ups')
-        print('zxcv')
+        # print('zxcv')
 
     if 'burpee' in todays_wod and 'burpees' not in selected_movements:
         addendum.append('burpees')
-        print('oijiojoij')
+        # print('oijiojoij')
 
     if 'pull up' in todays_wod and 'shoulder passthroughs' not in selected_movements:
         addendum.append('shoulder passthroughs')
-        print('nnnnaaa')
+        # print('nnnnaaa')
 
     if any('squat' in wod for wod in todays_wod) and 'air squats' not in selected_movements:
         addendum.append('air squats')
-        print('gaaaaaaaa')
+        # print('gaaaaaaaa')
 
     if any('lunge' in wod for wod in todays_wod) and 'walking lunges' not in selected_movements:
         addendum.append('walking lunges')
-        print('feeee')
+        # print('feeee')
 
     if any('press' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
         addendum.append('shoulder passthroughs')
         addendum.append('thoracic bridges')
-        print('foooo')
+        # print('foooo')
     if any('jerk' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
         addendum.append('shoulder passthroughs')
         addendum.append('thoracic bridges')
-        print('fiiii')
+        # print('fiiii')
     if any('snatch' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
         addendum.append('shoulder passthroughs')
         addendum.append('thoracic bridges')
-        print('moo')
+        # print('moo')
     if any('overhead' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
         addendum.append('shoulder passthroughs')
         addendum.append('thoracic bridges')
@@ -286,24 +286,24 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
 
     if any('squat' in wod for wod in todays_wod) and 'banded side steps' not in selected_movements:
         addendum.append('banded side steps')
-        print('asss')
+        # print('asss')
     if any('clean' in wod for wod in todays_wod) and 'banded side steps' not in selected_movements:
         addendum.append('banded side steps')
-        print('asss')
+        # print('asss')
     if any('snatch' in wod for wod in todays_wod) and 'banded side steps' not in selected_movements:
         addendum.append('banded side steps')
-        print('asss')
+        # print('asss')
     if any('swing' in wod for wod in todays_wod) and 'banded side steps' not in selected_movements:
         addendum.append('banded side steps')
-        print('asss')
+        # print('asss')
     if any('lunge' in wod for wod in todays_wod) and 'banded side steps' not in selected_movements:
         addendum.append('banded side steps')
-        print('asss')
+        # print('asss')
 
     if any('turkish' in wod for wod in todays_wod) and 'thoracic bridges' \
             not in selected_movements:
         addendum.append('thoracic bridges')
-        print('goo')
+        # print('goo')
     return addendum
 
 
