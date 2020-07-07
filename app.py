@@ -6,6 +6,7 @@ from kb_warmups import *
 
 app = Flask(__name__)
 
+
 # TODO: fix if no input, site crashes
 # TODO: href not working
 # TODO: 1. Create DB category throughout code, 2. fix bug in index.html that doubles-up input (it lookslike
@@ -33,14 +34,18 @@ def first_page():
         todays_wod = easy_exercises + tough_exercises
         error_message = check_no_input_todays_wod(todays_wod)
 
-
-
         # METCON SELECTION
+
+        metcon_warmup = {}
+
         metcons_compiled = get_movements_compiled(
             todays_wod, tough_exercises, metcons, metcon_time)
         selected_metcon = metcons_compiled.get('SELECTED MOVEMENTS: ')
-        cleaned_metcon_reps = ''.join(str(x) for x in selected_metcon)
-        metcon_reps = get_metcon_reps(cleaned_metcon_reps)
+        metcon_reps = get_reps(selected_metcon, tough_exercises, metcons)
+        metcon_images = get_images_for_display(selected_metcon, metcons)
+        for idx, item in enumerate(selected_metcon):
+            metcon_warmup[selected_metcon[idx]] = {'img': (metcon_images[idx]),
+                                                   'reps': (metcon_reps[idx])}
 
         # DROM SELECTION AND IMAGE SELECTION
 
@@ -118,8 +123,8 @@ def first_page():
                 if tough_gymnastics_movement == k:
                     new_gymnastics_temp_dict[k] = v
         # breakpoint()
-        return render_template('index.html', droms_compiled=droms_compiled, selected_metcon=selected_metcon,
-                               metcon_reps=metcon_reps, exercise_keys=exercise_keys, selected_droms=selected_droms,
+        return render_template('index.html', droms_compiled=droms_compiled, metcon_warmup=metcon_warmup,
+                               exercise_keys=exercise_keys, selected_droms=selected_droms,
                                barbell_warmup=barbell_warmup,
                                barbell_movements_from_todays_wod=
                                barbell_movements_from_todays_wod,
