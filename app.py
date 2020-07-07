@@ -55,9 +55,9 @@ def first_page():
         # print('PREPROCCESING SELECTED DROMS: ', selected_droms)
         addendum_droms = get_selected_movements_addendum_droms(todays_wod, selected_droms)
         protected_droms = []
-        # print(todays_wod)
-        # print('selectedDROMS: ', selected_droms)
-        # print('addendumDROMS: ', addendum_droms)
+        print(todays_wod)
+        print('selectedDROMS: ', selected_droms)
+        print('addendumDROMS: ', addendum_droms)
         if addendum_droms:
             # for addendum_drom in addendum_droms:
             #     for selected_drom in selected_droms:
