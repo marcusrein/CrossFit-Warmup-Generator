@@ -3,14 +3,15 @@ from getters import *
 from flask import Flask, render_template, request
 from barbell_warmups import *
 from kb_warmups import *
+from media import *
 
 app = Flask(__name__)
 
-
-# TODO: fix if no input, site crashes
+# TODO: Barbell Warmups in sidebar pops out a bit?
 # TODO: href not working
+# TODO: changed index width things to make it look better but now it doesn't shrink properly. so close though!
 # TODO: 1. Create DB category throughout code, 2. fix bug in index.html that doubles-up input (it lookslike
-#  I can put in airsquat 2x) 3. create 'equipment' thing. 4. have users log in 5. figure out barbell loading
+#  I can put in airsquat 2x) 3. create 'equipment' thing. 4. have users log in
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
@@ -21,6 +22,10 @@ def first_page():
 
     metcon_time = 'metcon_time'
     drom_time = 'drom_time'
+
+    background_image = media_dict['barbell']['img']
+
+    print(background_image)
 
     if request.method == 'POST':
         # INPUT
@@ -133,11 +138,11 @@ def first_page():
                                tough_gymnastics_movements_from_todays_wod,
                                easy_exercises=easy_exercises, tough_exercises=tough_exercises,
                                new_gymnastics_temp_dict=new_gymnastics_temp_dict, drom_final_dict=drom_final_dict,
-                               todays_wod=todays_wod, error_message=error_message)
+                               todays_wod=todays_wod, error_message=error_message, background_image=background_image)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
-        return render_template('index.html', exercise_keys=exercise_keys)
+        return render_template('index.html', exercise_keys=exercise_keys, background_image=background_image)
 
 
 if __name__ == '__main__':
