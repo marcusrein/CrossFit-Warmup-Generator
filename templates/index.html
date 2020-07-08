@@ -62,7 +62,7 @@
 <body>
 
 <main class="row">
-    <section class="col-xs-12 col-sm-12 col-md-6 col-lg-4  sidebar p-3 mb-2 bg-light text-dark">
+    <section class="col-xs-12 col-sm-12 col-md-6 col-lg-4  sidebar p-3 mb-2 bg-light text-dark" style="overflow-y: scroll;">
         <h1 style="font-size: 32px; margin-bottom: 0;">
             <svg style="margin-top: -7px;" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 512 512"
                  width="60" height="60">
@@ -176,6 +176,7 @@
             <div class="list-group w-100 mt-3">
                 <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                     <b>Dynamic Range of Motion (DROM) Warmups</b>
+                    <p></p>
                 </a>
                 {% for k,v in drom_final_dict.items(): %}
                 <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
@@ -238,115 +239,116 @@
 
     </section>
     <section class="col-xs-0 col-sm-0 col-md-6 col-lg-8 ml-sm-auto">
-        {% if metcon_warmup: %}
-        <div class="container border-bottom">
-            <p></p>
-            {% for k,v in metcon_warmup.items() %}
-            <div class="card-deck">
-                <div class="card" style="max-width: 18rem;">
-                    <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ k.title() }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">MetCon Warmup</h6>
-                        <p class="card-subtitle mb-2 text-muted"> {{ v['reps'] }} </p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            <p></p>
-        </div>
-        <div class="container border-bottom">
-            <p></p>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-                {% for k,v in drom_final_dict.items() %}
-                <div class="col mb-4">
+        <div class=".d-none .d-md-block .d-xl-none">
+            {% if metcon_warmup: %}
+            <div class="container border-bottom">
+                <!--            <H3>MetCon Warmup</H3>-->
+                {% for k,v in metcon_warmup.items() %}
+                <div class="card-deck">
                     <div class="card" style="max-width: 18rem;">
                         <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
                         <div class="card-body">
                             <h5 class="card-title">{{ k.title() }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">DROM Warmup</h6>
-                            <p></p>
-                            <p class="card-subtitle mb-2 text-muted">{{ v['reps'] }}</p>
+                            <h6 class="card-subtitle mb-2 text-muted">MetCon Warmup</h6>
+                            <p class="card-subtitle mb-2 text-muted"> {{ v['reps'] }} </p>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
+                <p></p>
+            </div>
+            <div class="container border-bottom">
+                <!--            <H3>Dynamic Range of Motion Warmups</H3>-->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                    {% for k,v in drom_final_dict.items() %}
+                    <div class="col mb-4">
+                        <div class="card" style="max-width: 18rem;">
+                            <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ k.title() }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">DROM Warmup</h6>
+                                <p></p>
+                                <p class="card-subtitle mb-2 text-muted">{{ v['reps'] }}</p>
+                            </div>
+                        </div>
+                    </div>
 
-                {% endfor %}
+                    {% endfor %}
 
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if new_gymnastics_temp_dict: %}
+            <a id="gymnastics"></a>
+            <p></p>
+            <div class="container border-bottom">
+                <!--            <H3>Gymnastics Warmups</H3>-->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                    {% for k,v in new_gymnastics_temp_dict.items() %}
+                    <div class="col mb-4">
+                        <div class="card" style="max-width: 18rem;">
+                            <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+
+                            <div class="card-body">
+                                <h5 class="card-title">{{ k.title() }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
+                                <p class="card-text">{{ v['reps'] }}</p>
+                                <p class="card-text"><small class="text-muted">Gymnastics Warmup</small></p>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <p></p>
+            {% if kb_warmup: %}
+            <div class="container border-bottom">
+                <!--            <H3>Kettlebell Warmups</H3>-->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                    {% for k,v in kb_warmup.items() %}
+                    <div class="col mb-4">
+                        <div class="card" style="max-width: 18rem;">
+                            <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+
+                            <div class="card-body">
+                                <h5 class="card-title">{{ k.title() }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Kettlebell Warmup</h6>
+                                <p class="card-text"> {{ v['reps'] }} </p>
+                                <a href="{{ v['url'] }}" class="card-link">Video Link</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
                 {% endif %}
             </div>
-        </div>
-        {% if new_gymnastics_temp_dict: %}
-        <a id="gymnastics"></a>
 
-        <p></p>
-        <div class="container border-bottom">
-            <p></p>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-                {% for k,v in new_gymnastics_temp_dict.items() %}
-                <div class="col mb-4">
-                    <div class="card" style="max-width: 18rem;">
-                        <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
 
-                        <div class="card-body">
-                            <h5 class="card-title">{{ k.title() }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
-                            <p class="card-text">{{ v['reps'] }}</p>
-                            <p class="card-text"><small class="text-muted">Gymnastics Warmup</small></p>
+            {% if barbell_movements_from_todays_wod: %}
+            <div class="container border-bottom">
+                <!--            <H3>Barbell Warmup</H3>-->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                    {% for k,v in barbell_warmup.items() %}
+                    <div class="col mb-4">
+                        <div class="card" style="max-width: 18rem;">
+                            <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
 
+                            <div class="card-body">
+                                <h5 class="card-title">{{ k.title() }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Barbell Warmup</h6>
+                                <p class="card-text"> {{ v['text'] }} </p>
+                                <a href="{{ v['url'] }}" class="card-link">Video Link</a>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                {% endif %}
             </div>
-        </div>
-        {% endif %}
-        </div>
-
-        <p></p>
-        {% if kb_warmup: %}
-        <div class="container border-bottom">
-            <H3>Kettlebell Warmup</H3>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-                {% for k,v in kb_warmup.items() %}
-                <div class="col mb-4">
-                    <div class="card" style="max-width: 18rem;">
-                        <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
-
-                        <div class="card-body">
-                            <h5 class="card-title">{{ k.title() }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Kettlebell Warmup</h6>
-                            <p class="card-text"> {{ v['reps'] }} </p>
-                            <a href="{{ v['url'] }}" class="card-link">Video Link</a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            {% endif %}
-        </div>
-
-
-        {% if barbell_movements_from_todays_wod: %}
-        <div class="container border-bottom">
-            <H3>Barbell Warmup</H3>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-                {% for k,v in barbell_warmup.items() %}
-                <div class="col mb-4">
-                    <div class="card" style="max-width: 18rem;">
-                        <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
-
-                        <div class="card-body">
-                            <h5 class="card-title">{{ k.title() }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Barbell Warmup</h6>
-                            <p class="card-text"> {{ v['text'] }} </p>
-                            <a href="{{ v['url'] }}" class="card-link">Video Link</a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            {% endif %}
         </div>
 
 
