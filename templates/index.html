@@ -57,7 +57,7 @@
 <body>
 
 <main class="row">
-    <section class="col-sm-4 sidebar p-3 mb-2 bg-light text-dark">
+    <section class="col-xs-12 col-sm-12 col-md-6 col-lg-4  sidebar p-3 mb-2 bg-light text-dark">
         <h1 style="font-size: 32px; margin-bottom: 0;">
             <svg style="margin-top: -7px;" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 512 512"
                  width="60" height="60">
@@ -233,7 +233,7 @@
 
     </section>
 
-    <section class="col-sm-8 ml-sm-auto">
+    <section class=".d-none .d-md-block .d-xl-none col-xs-0 col-sm-0 col-md-6 col-lg-8 ml-sm-auto">
         {% if metcon_warmup: %}
         <div class="container border-bottom">
             <p></p>
@@ -253,7 +253,7 @@
         </div>
         <div class="container border-bottom">
             <p></p>
-            <div class="row row-cols-1 row-cols-md-3">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 {% for k,v in drom_final_dict.items() %}
                 <div class="col mb-4">
                     <div class="card" style="max-width: 18rem;">
@@ -278,7 +278,7 @@
         <p></p>
         <div class="container border-bottom">
             <p></p>
-            <div class="row row-cols-1 row-cols-md-3">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 {% for k,v in new_gymnastics_temp_dict.items() %}
                 <div class="col mb-4">
                     <div class="card" style="max-width: 18rem;">
@@ -303,7 +303,7 @@
         {% if kb_warmup: %}
         <div class="container border-bottom">
             <H3>Kettlebell Warmup</H3>
-            <div class="row row-cols-1 row-cols-md-3">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 {% for k,v in kb_warmup.items() %}
                 <div class="col mb-4">
                     <div class="card" style="max-width: 18rem;">
@@ -326,7 +326,7 @@
         {% if barbell_movements_from_todays_wod: %}
         <div class="container border-bottom">
             <H3>Barbell Warmup</H3>
-            <div class="row row-cols-1 row-cols-md-3">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 {% for k,v in barbell_warmup.items() %}
                 <div class="col mb-4">
                     <div class="card" style="max-width: 18rem;">
