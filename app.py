@@ -7,9 +7,9 @@ from media import *
 
 app = Flask(__name__)
 
-# TODO: Barbell Warmups in sidebar pops out a bit?
 # TODO: href not working
-# TODO: changed index width things to make it look better but now it doesn't shrink properly. so close though!
+# TODO: mobile scrolling not working
+# TODO: splash page
 # TODO: 1. Create DB category throughout code, 2. fix bug in index.html that doubles-up input (it lookslike
 #  I can put in airsquat 2x) 3. create 'equipment' thing. 4. have users log in
 
