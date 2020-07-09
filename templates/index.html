@@ -135,14 +135,14 @@
             <div class="card-header" id="headingOne">
               <h2 class="mb-0">
                 <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                   {{ k.title() }}
                   <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
                 </button>
               </h2>
             </div>
 
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body card-deck">
                 {% for k,v in metcon_warmup.items() %}
                 <div class="card" style="max-width: 18rem;">
@@ -173,13 +173,13 @@
             <div class="card-header" id="headingOne2">
               <h2 class="mb-0">
                 <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        data-target="#collapseOne2" aria-expanded="false" aria-controls="collapseOne2">
                   {{ k.title() }}
                   <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
                 </button>
               </h2>
           </div>
-            <div id="collapseOne2" class="collapse show" aria-labelledby="headingOne2" data-parent="#accordionExample2">
+            <div id="collapseOne2" class="collapse" aria-labelledby="headingOne2" data-parent="#accordionExample">
               <div class="card-body card-deck">
                 <div class="card" style="max-width: 18rem;">
                   <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
@@ -204,18 +204,18 @@
           <b>Gymnastics Warmups</b>
         </a>
         {% for k,v in gymnastics_final_dict.items() %}
-        <div class="accordion d-md-none" id="accordionExample{{v['dropdowns']}}">
+        <div class="accordion d-md-none" id="accordionExample3">
           <div class="card">
-            <div class="card-header" id="headingOne{{v['dropdowns']}}">
+            <div class="card-header" id="headingOne3">
               <h2 class="mb-0">
                 <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        data-target="#collapseOne3" aria-expanded="false" aria-controls="collapseOne3">
                   {{ k.title() }}
                   <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
                 </button>
               </h2>
           </div>
-            <div id="collapseOne{{v['dropdowns']}}" class="collapse show" aria-labelledby="headingOne{{v['dropdowns']}}" data-parent="#accordionExample{{v['dropdowns']}}">
+            <div id="collapseOne3" class="collapse" aria-labelledby="headingOne3" data-parent="#accordionExample">
               <div class="card-body card-deck">
                 <div class="card" style="max-width: 18rem;">
                   <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
@@ -232,47 +232,79 @@
         </div>
           {% endfor %}
       {% endif %}
+
+        <p></p>
+      {% if kb_warmup: %}
+        <a href="#kb_warmup"
+           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+          <b>Kettlebell Warmups</b>
+        </a>
+        {% for k,v in kb_warmup.items() %}
+        <div class="accordion d-md-none" id="accordionExample4">
           <div class="card">
-            <div class="card-header" id="headingTwo">
+            <div class="card-header" id="headingOne4">
               <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                  data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Collapsible Group Item #2
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                        data-target="#collapseOne4" aria-expanded="false" aria-controls="collapseOne4">
+                  {{ k.title() }}
+                  <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
                 </button>
               </h2>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-              </div>
-            </div>
           </div>
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                  data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Collapsible Group Item #3
-                </button>
-              </h2>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            <div id="collapseOne4" class="collapse" aria-labelledby="headingOne4" data-parent="#accordionExample">
+              <div class="card-body card-deck">
+                <div class="card" style="max-width: 18rem;">
+                  <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                  <div class="card-body">
+                    <h5 class="card-title">{{ k.title() }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Kettlebell Warmup</h6>
+                    <p class="card-subtitle mb-2 text-muted"> {{ v['reps'] }} </p>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
+          {% endfor %}
+      {% endif %}
+
+
+        <p></p>
+      {% if barbell_warmup: %}
+        <a href="#kb_warmup"
+           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+          <b>Barbell Warmups</b>
+        </a>
+        {% for k,v in barbell_warmup.items() %}
+        <div class="accordion d-md-none" id="accordionExample5">
+          <div class="card">
+            <div class="card-header" id="headingOne5">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                        data-target="#collapseOne5" aria-expanded="false" aria-controls="collapseOne5">
+                  {{ k.title() }}
+                  <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                </button>
+              </h2>
+          </div>
+            <div id="collapseOne5" class="collapse" aria-labelledby="headingOne5" data-parent="#accordionExample">
+              <div class="card-body card-deck">
+                <div class="card" style="max-width: 18rem;">
+                  <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                  <div class="card-body">
+                    <h5 class="card-title">{{ k.title() }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Barbell Warmup</h6>
+                    <p class="card-subtitle mb-2 text-muted"> {{ v['reps'] }} </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+          {% endfor %}
+      {% endif %}
 
 
 
@@ -280,7 +312,7 @@
 
 
 
-        <div class="list-group w-100">
+        <div class="list-group w-100 d-none d-md-block">
           <a href="#metcon_warmup"
             class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             <b>Metcon Warmups</b>
@@ -297,7 +329,7 @@
 
         {% if drom_final_dict: %}
 
-        <div class="list-group w-100 mt-3">
+        <div class="list-group w-100 mt-3 d-none d-md-block">
           <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             <b>Dynamic Range of Motion (DROM) Warmups</b>
             <p></p>
@@ -313,7 +345,7 @@
 
         {% if new_gymnastics_temp_dict: %}
 
-        <div class="list-group w-100 mt-3">
+        <div class="list-group w-100 mt-3 d-none d-md-block">
           <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             <b>Gymnastics Warmups</b>
           </a>
@@ -329,7 +361,7 @@
 
 
         {% if kb_warmup: %}
-        <div class="list-group w-100 mt-3">
+        <div class="list-group w-100 mt-3 d-none d-md-block">
           <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             <b>Kettlebell Warmups</b>
           </a>
@@ -346,7 +378,7 @@
 
 
         {% if barbell_movements_from_todays_wod: %}
-        <div class="list-group w-100 mt-3">
+        <div class="list-group w-100 mt-3 d-none d-md-block">
           <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             <b>Barbell Warmups</b>
           </a>
@@ -403,6 +435,7 @@
         <p></p>
       </div>
       <div class="container border-bottom">
+        <p></p>
         <!--            <H3>Dynamic Range of Motion Warmups</H3>-->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
           {% for k,v in drom_final_dict.items() %}
@@ -472,6 +505,7 @@
         {% endif %}
       </div>
 
+      <p></p>
 
       {% if barbell_movements_from_todays_wod: %}
       <div class="container border-bottom">
