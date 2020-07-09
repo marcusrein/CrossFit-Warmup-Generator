@@ -121,17 +121,23 @@
         </div>
       </form>
 
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%THIS IS WHERE THE ACCORDIONS LIVE %%%%%%%%%%%%%%%-->
+
       {% if metcon_warmup: %}
 
       <div class="overflow-auto w-100 mt-4 container">
-
+        <a href="#metcon_warmup"
+            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+            <b>Metcon Warmups</b>
+          </a>
+        {% for k,v in metcon_warmup.items() %}
         <div class="accordion d-md-none" id="accordionExample">
           <div class="card">
             <div class="card-header" id="headingOne">
               <h2 class="mb-0">
                 <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                   data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Collapsible Group Item #1
+                  {{ k.title() }}
                 </button>
               </h2>
             </div>
@@ -147,6 +153,7 @@
               </div>
             </div>
           </div>
+          {% endfor %}
           <div class="card">
             <div class="card-header" id="headingTwo">
               <h2 class="mb-0">
