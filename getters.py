@@ -353,6 +353,13 @@ def get_insert_remove_odd_conditionals_droms(selected_droms, selected_metcon):
     # print('selected: ',selected_droms)
 
 
+def get_length_of_final_drom_dict_for_index_dropdowns(drom_reps):
+    numbered_list = []
+    for index, item in enumerate(drom_reps):
+        numbered_list.append(index)
+    return numbered_list
+
+
 def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):
     """This is a function that compiles DROMS for viewing."""
     ##CLEANER##

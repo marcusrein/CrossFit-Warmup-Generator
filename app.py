@@ -77,11 +77,17 @@ def first_page():
         # print(selected_droms)
 
             ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
+        drom_final_dict = {}
+
         drom_img_list = get_images_for_display(selected_droms, droms)
         drom_reps = get_reps(selected_droms, tough_exercises, droms)
-        drom_final_dict = {}
+        # USED FOR ITERATING COLLAPSABLE DROPDOWNS IN INDEX.HTML
+        list_of_numbers_for_collapsable_dropdowns = get_length_of_final_drom_dict_for_index_dropdowns(drom_reps)
+        print(list_of_numbers_for_collapsable_dropdowns)
         for idx, item in enumerate(drom_img_list):
-            drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx])}
+            drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
+                'dropdowns': (list_of_numbers_for_collapsable_dropdowns[idx])}
+
 
         # GYMNASTICS SELECTION
         tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)
