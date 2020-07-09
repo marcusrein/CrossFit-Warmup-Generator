@@ -1,6 +1,10 @@
+# CURRENT CATEGORIES: 'cleans, 'core', 'deadlifts,' 'dumbbells', 'gymnastics lower', 'gymnastics upper', 'handstand',
+# 'jerks, 'kettlebells','kettlebell olympic', 'kettlebell overhead', 'lunges', 'plyos', 'snatches', 'squats', 'swings'
+
+
 droms = {
     'air squats': {
-        'categories': ['cleans', 'deadlifts', 'gymnastics lower'],
+        'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'snatches'],
         'time': 1,
         'reps': ['10 reps', '20 reps', '30 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',

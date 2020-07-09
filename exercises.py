@@ -1,5 +1,11 @@
 from collections import OrderedDict
 
+# CURRENT CATEGORIES: 'cleans, 'core', 'deadlifts,' 'dumbbells', 'gymnastics lower', 'gymnastics upper', 'handstand',
+# 'jerks, 'kettlebells','kettlebell olympic', 'kettlebell overhead', 'lunges', 'plyos', 'snatches', 'squats', 'swings'
+#
+
+# CATEGORIES TO ADD: rows
+
 exercises = {
     # GYMNASTICS
     'air squat': {
@@ -43,6 +49,18 @@ exercises = {
         'loaded': False
     },
     'ring row': {
+        'category': ['gymnastics upper'],
+        'loaded': False
+    },
+    'handstand': {
+        'category': ['gymnastics upper', 'handstand'],
+        'loaded': False
+    },
+    'handstand pushup': {
+        'category': ['gymnastics upper'],
+        'loaded': False
+    },
+    'handstand pushup': {
         'category': ['gymnastics upper'],
         'loaded': False
     },

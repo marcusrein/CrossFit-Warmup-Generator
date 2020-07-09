@@ -12,9 +12,9 @@ gymnastics_warmups = {
             'reps': '25 reps',
             'img': 'https://tinyurl.com/yap8m62n'
         },
-    'barrel rolls':
+    'wall walks':
         {
-            'exercises': ['none', 'potato'],
+            'exercises': ['handstand pushup', 'handstand', 'pike pushup'],
             'reps': '5',
             'img': 'sure.com',
         }

@@ -306,9 +306,6 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements, select
     return addendum
 
 
-
-
-
 def get_ordered_drom_list(selected_droms):
     ordered_drom_list = []
 
@@ -332,6 +329,7 @@ def get_ordered_drom_list(selected_droms):
 
     return ordered_drom_list
 
+
 def get_insert_remove_odd_conditionals_droms(selected_droms, selected_metcon):
     """After appending ^^, finds specific odd appendings"""
     if 'banded side steps' in selected_droms:
@@ -343,18 +341,17 @@ def get_insert_remove_odd_conditionals_droms(selected_droms, selected_metcon):
         selected_droms.append('down dog to up dog')
 
     for selected_drom in selected_droms:
-        for k,v in droms.items():
+        for k, v in droms.items():
             if selected_drom == k:
                 if 'plyos' in v['categories']:
                     selected_droms.remove(selected_drom)
                     selected_droms.append(selected_drom)
 
-
-
     print('selected DROMS after odd conditonasls', selected_droms)
     return selected_droms
 
     # print('selected: ',selected_droms)
+
 
 def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):
     """This is a function that compiles DROMS for viewing."""

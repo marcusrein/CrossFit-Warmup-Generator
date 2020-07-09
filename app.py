@@ -53,14 +53,12 @@ def first_page():
                                                    'reps': (metcon_reps[idx])}
 
         # DROM SELECTION AND IMAGE SELECTION
-
         droms_compiled = get_movements_compiled(
             todays_wod, tough_exercises, droms, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
-        print('selectedDROMS: ', selected_droms)
-
+        # print('selectedDROMS: ', selected_droms)
         addendum_droms = get_selected_movements_addendum_droms(todays_wod, selected_droms, selected_metcon)
-        print('addendumDROMS: ', addendum_droms)
+        # print('addendumDROMS: ', addendum_droms)
         if addendum_droms:
             try:
                 for i in range(len(addendum_droms)):
@@ -69,22 +67,47 @@ def first_page():
                     selected_droms.insert(0, item)
             except IndexError:
                 selected_droms = addendum_droms
-        print('selected_DROMS after addendums added: ',selected_droms)
+        # print('selected_DROMS after addendums added: ',selected_droms)
         selected_droms_after_ordered_list = get_ordered_drom_list(selected_droms)
-        print('selected drom after addendums and orderings:', selected_droms_after_ordered_list)
+        # print('selected drom after addendums and orderings:', selected_droms_after_ordered_list)
         selected_droms_after_addendums_and_odd_conditionals = get_insert_remove_odd_conditionals_droms(selected_droms_after_ordered_list,selected_metcon)
-        print('selectedDROMS after addendums, orderings, and odd condiontlas',selected_droms_after_addendums_and_odd_conditionals)
+        # print('selectedDROMS after addendums, orderings, and odd condiontlas',
+        # selected_droms_after_addendums_and_odd_conditionals)
         selected_droms = selected_droms_after_addendums_and_odd_conditionals
-        print(selected_droms)
-
+        # print(selected_droms)
 
             ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
         drom_img_list = get_images_for_display(selected_droms, droms)
         drom_reps = get_reps(selected_droms, tough_exercises, droms)
         drom_final_dict = {}
-
         for idx, item in enumerate(drom_img_list):
             drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx])}
+
+        # GYMNASTICS SELECTION
+        tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)
+        tough_gymnastics_warmups = get_gymnastics_warmup(todays_wod)
+
+        new_gymnastics_temp_dict = {}
+
+        for k, v in gymnastics_warmups.items():
+            for tough_gymnastics_movement in tough_gymnastics_warmups:
+                if tough_gymnastics_movement == k:
+                    new_gymnastics_temp_dict[k] = v
+
+
+        # KB SELECTION
+        kb_warmup = {}
+
+        kb_movements_from_todays_wod = which_movements_are_kb_movements(todays_wod)
+        kb_warmup_movements_list = get_kettlebell_warmup(todays_wod)
+        kb_warmup_img_list = get_images_for_display(kb_warmup_movements_list, kb_warmups_dict)
+        kb_warmup_url_list = get_url_for_display(kb_warmup_movements_list, kb_warmups_dict)
+        kb_warmup_reps_list = get_reps(kb_warmup_movements_list, tough_exercises, kb_warmups_dict)
+        for idx, item in enumerate(kb_warmup_movements_list):
+            kb_warmup[kb_warmup_movements_list[idx]] = {'img': (kb_warmup_img_list[idx]),
+                                                        'url': (kb_warmup_url_list[idx]),
+                                                        'reps': (kb_warmup_reps_list[idx]),
+                                                        }
 
         # BARBELL SELECTION
         barbell_warmup = {}
@@ -103,30 +126,7 @@ def first_page():
                                                                   'reps': (barbell_warmup_reps_list[idx])
                                                                   }
 
-        # KB SELECTION
-        kb_warmup = {}
 
-        kb_movements_from_todays_wod = which_movements_are_kb_movements(todays_wod)
-        kb_warmup_movements_list = get_kettlebell_warmup(todays_wod)
-        kb_warmup_img_list = get_images_for_display(kb_warmup_movements_list, kb_warmups_dict)
-        kb_warmup_url_list = get_url_for_display(kb_warmup_movements_list, kb_warmups_dict)
-        kb_warmup_reps_list = get_reps(kb_warmup_movements_list, tough_exercises, kb_warmups_dict)
-        for idx, item in enumerate(kb_warmup_movements_list):
-            kb_warmup[kb_warmup_movements_list[idx]] = {'img': (kb_warmup_img_list[idx]),
-                                                        'url': (kb_warmup_url_list[idx]),
-                                                        'reps': (kb_warmup_reps_list[idx]),
-                                                        }
-
-        # GYMNASTICS SELECTION
-        tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)
-        tough_gymnastics_warmups = get_gymnastics_warmup(todays_wod)
-
-        new_gymnastics_temp_dict = {}
-
-        for k, v in gymnastics_warmups.items():
-            for tough_gymnastics_movement in tough_gymnastics_warmups:
-                if tough_gymnastics_movement == k:
-                    new_gymnastics_temp_dict[k] = v
         # breakpoint()
         return render_template('index.html', droms_compiled=droms_compiled, metcon_warmup=metcon_warmup,
                                exercise_keys=exercise_keys, selected_droms=selected_droms,
