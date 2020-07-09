@@ -306,9 +306,41 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
         # print('goo')
     return addendum
 
+def get_drom_list_organized(selected_droms, selected_metcon):
+    """Organizes Selected DROMS appropriately"""
+    if 'banded side steps' in selected_droms:
+        selected_droms.remove('banded side steps')
+        selected_droms.insert(0, 'banded side steps')
 
-## BUG THATS NOT FIXED! When a good item is in there such as 'thoracic bridges' and its toward the end of the list, it could
-# get popped with this code
+    if 'burpee' in selected_metcon:
+        selected_droms.remove('burpees')
+        selected_droms.append('down dog to up dog')
+
+
+    print('selected: ',selected_droms)
+    ordered_drom_list = []
+
+    for drom in selected_droms:
+        for k,v in droms.items():
+            if drom == k:
+                if v['rpe'] == 3:
+                    ordered_drom_list.append(drom)
+                elif v['rpe'] == 2:
+                    ordered_drom_list.insert(0, drom)
+
+    for drom in selected_droms:
+        for k2,v2 in droms.items():
+            if drom == k2:
+                if v2['rpe'] == 1:
+                    ordered_drom_list.insert(0, drom)
+
+    print('ordered', ordered_drom_list)
+
+    return ordered_drom_list
+
+
+
+
 
 
 def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):

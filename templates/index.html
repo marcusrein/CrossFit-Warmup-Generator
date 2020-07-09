@@ -239,14 +239,19 @@
 
     </section>
 
-<!--    <section class="row col bg">-->
-<!--         <div class="col bg">-->
+<!--    {% if not metcon_warmup: %}-->
+<!--    <div class="container">-->
+<!--            <div class="row"-->
+<!--            style="background:transparent url('https://cdn.pixabay.com/photo/2017/03/25/17/55/color-2174045__340.png') no-repeat center center /cover"></div>-->
+<!--                <div class="col-xs-0 col-sm-0 col-md-6 col-lg-8 ml-sm-auto ">-->
+<!--                </div>-->
+<!--    </div>-->
+<!--    </div>-->
 
-<!--         </div>-->
-<!--    </section>-->
+<!--    {% endif %}-->
 
-    <section class="col-xs-0 col-sm-0 col-md-6 col-lg-8 ml-sm-auto bg">
-        <div class=".d-none .d-md-block .d-xl-none">
+    <section class="col-xs-0 col-sm-0 col-md-6 col-lg-8 ml-sm-auto">
+<!--        <div class=".d-none .d-md-block .d-xl-none">-->
             {% if metcon_warmup: %}
             <div class="container border-bottom">
                 <!--            <H3>MetCon Warmup</H3>-->
@@ -357,7 +362,7 @@
                 {% endif %}
             </div>
         </div>
-
+</div>
 
 
         <p></p>

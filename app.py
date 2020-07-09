@@ -6,7 +6,7 @@ from kb_warmups import *
 from media import *
 
 app = Flask(__name__)
-
+# TODO: Change droms.py (droms) to droms_dict
 # TODO: href not working
 # TODO: mobile scrolling not working
 # TODO: splash page
@@ -77,6 +77,8 @@ def first_page():
                     selected_droms.insert(0, item)
             except IndexError:
                 selected_droms = addendum_droms
+        selected_droms = get_drom_list_organized(selected_droms, selected_metcon)
+        print(selected_droms)
 
             ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
         drom_img_list = get_images_for_display(selected_droms, droms)
