@@ -7,18 +7,18 @@ droms = {
         'img': 'https://thumbs.gfycat.com/ParchedSpitefulDeviltasmanian-size_restricted.gif',
         'rpe': 1,
     },
-    'arm circles': {
-        'categories': ['gymnastics upper', 'jerks', 'overhead presses', 'saggital presses', 'snatches'],
-        'time': 1,
-        'reps': ['10 forward, 10 backward', '20 forward, 20 backward','30 forward, 30 backward'],
-        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        'img': 'https://data.whicdn.com/images/306295449/original.gif',
-        'rpe': 1,
-    },
+    # 'arm circles': {
+    #     'categories': ['gymnastics upper', 'jerks', 'overhead presses', 'saggital presses', 'snatches'],
+    #     'time': 1,
+    #     'reps': ['10 forward, 10 backward', '20 forward, 20 backward','30 forward, 30 backward'],
+    #     'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+    #     'img': 'https://data.whicdn.com/images/306295449/original.gif',
+    #     'rpe': 1,
+    # },
     'banded side steps': {
         'categories': ['cleans', 'deadlifts', 'jerks', 'lunges', 'snatches', 'squats'],
         'time': 2,
-        'reps': ['1 min', '2 min', '2.5 min'],
+        'reps': ['30s', '1 min', '1.5 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media4.s-nbcnews.com/j/newscms/2019_05/2738466/better_standing_lateral_band_walk_4a7c397f4668e1be769cc7b6bddc339f.fit-560w.gif ',
         'rpe': 1,
@@ -27,7 +27,7 @@ droms = {
         'categories': ['cleans', 'core', 'deadlifts', 'gymanstics upper', 'gymnastics lower', 'kettlebells',
                        'saggital presses', 'snatches', 'squats'],
         'time': 1,
-        'reps': ['1 min', '2 min', '2.5 min'],
+        'reps': ['30s', '1 min', '1.5 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://tinyurl.com/yasf6uep',
         'rpe': 2,
@@ -43,25 +43,16 @@ droms = {
     'burpees': {
         'categories': ['gymnastics lower', 'gymnastics upper', 'saggital presses'],
         'time': 1,
-        'reps': ['10 reps', '15 reps', '20 reps'],
+        'reps': ['5 reps', '10 reps', '15 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif',
         'rpe': 2,
     },
-    'down dog to up dog': {
-        'categories': ['gymnastics lower', 'gymnastics upper', 'saggital presses'],
-        'time': 1,
-        'reps': ['5 reps', '10 reps', '15 reps'],
-        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        'img': 'https://media1.popsugar-assets.com/files/thumbor/t2JA-yhWz775S2EFLvtdtaz2Fd8/fit-in/1024x1024/filters'
-               ':format_auto-!!-:strip_icc-!!-/2013/12/16/734/n/1922729/b15fc22c292d8369_Tuck-Toe-Up-Dog.gif',
-        'rpe': 2,
 
-    },
     'core rolling': {
         'categories': ['cleans', 'core', 'deadlifts', 'gymnastics upper', 'jerks', 'squats'],
         'time': 2,
-        'reps': ['10 reps', '15 reps', '20 reps'],
+        'reps': ['5 reps', '10 reps', '15 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://i.imgur.com/dcwuwLs.gif',
         'rpe': 2,
@@ -80,6 +71,15 @@ droms = {
         'reps': ['15 reps', '20 reps', '25 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://thumbs.gfycat.com/DecentSarcasticAmethystsunbird-size_restricted.gif',
+        'rpe': 2,
+    },
+    'down dog to up dog': {
+        'categories': ['gymnastics lower', 'gymnastics upper', 'saggital presses'],
+        'time': 1,
+        'reps': ['5 reps', '10 reps', '10 reps'],
+        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+        'img': 'https://media1.popsugar-assets.com/files/thumbor/t2JA-yhWz775S2EFLvtdtaz2Fd8/fit-in/1024x1024/filters'
+               ':format_auto-!!-:strip_icc-!!-/2013/12/16/734/n/1922729/b15fc22c292d8369_Tuck-Toe-Up-Dog.gif',
         'rpe': 2,
     },
     'frog walk': {
@@ -102,7 +102,7 @@ droms = {
     'push ups': {
         'categories': ['gymnastics upper', 'jerks', 'saggital presses', 'snatches'],
         'time': 1,
-        'reps': ['15 reps', '20 reps', '25 reps'],
+        'reps': ['10 reps', '15 reps', '20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://thumbs.gfycat.com/GlossySkinnyDuckbillcat-small.gif',
         'rpe': 2,
@@ -110,10 +110,10 @@ droms = {
     'seal walk': {
         'categories': ['gymnastics upper', 'jerks', 'saggital presses'],
         'time': 1,
-        'reps': ['30s', '1 min', '1.5 min'],
+        'reps': ['30s', '1 min', '1 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media.giphy.com/media/8Ag4AORS8xPYHdeU6f/giphy.gif',
-        'rpe': 2,
+        'rpe': 3,
     },
     'shoulder passthroughs': {
         'categories': ['gymnastics upper', 'jerks', 'overhead presses', 'saggital presses', 'snatches'],
@@ -126,7 +126,7 @@ droms = {
     'spidermans': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'snatches', 'squats'],
         'time': 2,
-        'reps': ['1 min', '1.5 min', '2 min'],
+        'reps': ['1 min', '1.5 min', '1.5 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media1.tenor.com/images/1d67a12af3ce871fd0601723bf86f5c2/tenor.gif?itemid=10818779',
         'rpe': 2,
@@ -134,7 +134,7 @@ droms = {
     'supermans': {
         'categories': ['core', 'deadlifts'],
         'time': 1,
-        'reps': ['15 reps', '25 reps', '30 reps'],
+        'reps': ['10 reps', '15 reps', '20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif',
         'rpe': 2,
@@ -142,7 +142,7 @@ droms = {
     'thoracic bridges': {
         'categories': ['cleans', 'gymnastics upper', 'kettlebells', 'overhead presses', 'saggital presses', 'snatches'],
         'time': 2,
-        'reps': ['3 on each arm', '5 on each arm', '6 on each arm'],
+        'reps': ['3 on each arm', '4 on each arm', '5 on each arm'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://jensinkler.com/wp-content/uploads/2019/06/Bodyweight-Thoracic-Bridge-With-Reach.gif',
                'rpe': 2,

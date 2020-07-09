@@ -159,7 +159,6 @@ def get_all_movement_times(todays_wod, tough_exercises):
     if len(tough_exercises) > 1:
         drom_time += 4
 
-
     all_warmup_time = (
             metcon_time + drom_time + gymnastics_time + barbell_time + kb_time + focused_gymnastics_time + focused_barbell_time + focused_kb_time)
 
@@ -218,7 +217,6 @@ def get_metcon_reps(selected_metcon):
     return final
 
 
-
 def get_reps(selected_movements, tough_exercises, dictionary):
     reps_big_list = []
     reps_chosen = []
@@ -241,7 +239,7 @@ def get_reps(selected_movements, tough_exercises, dictionary):
     return reps_chosen
 
 
-def get_selected_movements_addendum_droms(todays_wod, selected_movements):
+def get_selected_movements_addendum_droms(todays_wod, selected_movements, selected_metcon):
     """Adds dependencies. E.G. if air squats is in todays wod and not in selected movements, add airsquats
     to addendum (which will be added to selected movements for DROMS"""
     addendum = []
@@ -304,44 +302,59 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements):
             not in selected_movements:
         addendum.append('thoracic bridges')
         # print('goo')
+
     return addendum
 
-def get_drom_list_organized(selected_droms, selected_metcon):
-    """Organizes Selected DROMS appropriately"""
-    if 'banded side steps' in selected_droms:
-        selected_droms.remove('banded side steps')
-        selected_droms.insert(0, 'banded side steps')
-
-    if 'burpee' in selected_metcon:
-        selected_droms.remove('burpees')
-        selected_droms.append('down dog to up dog')
 
 
-    print('selected: ',selected_droms)
+
+
+def get_ordered_drom_list(selected_droms):
     ordered_drom_list = []
 
     for drom in selected_droms:
-        for k,v in droms.items():
+        for k, v in droms.items():
             if drom == k:
                 if v['rpe'] == 3:
                     ordered_drom_list.append(drom)
-                elif v['rpe'] == 2:
+
+    for drom in selected_droms:
+        for k2, v2 in droms.items():
+            if drom == k2:
+                if v2['rpe'] == 2:
                     ordered_drom_list.insert(0, drom)
 
     for drom in selected_droms:
-        for k2,v2 in droms.items():
+        for k2, v2 in droms.items():
             if drom == k2:
                 if v2['rpe'] == 1:
                     ordered_drom_list.insert(0, drom)
 
-    print('ordered', ordered_drom_list)
-
     return ordered_drom_list
 
+def get_insert_remove_odd_conditionals_droms(selected_droms, selected_metcon):
+    """After appending ^^, finds specific odd appendings"""
+    if 'banded side steps' in selected_droms:
+        selected_droms.remove('banded side steps')
+        selected_droms.insert(0, 'banded side steps')
+
+    if 'burpees' in selected_droms and 'burpees' in selected_metcon:
+        selected_droms.remove('burpees')
+        selected_droms.append('down dog to up dog')
+
+    for selected_drom in selected_droms:
+        for k,v in droms.items():
+            if selected_drom == k:
+                if 'plyos' in v['categories']:
+                    selected_droms.remove(selected_drom)
+                    selected_droms.append(selected_drom)
 
 
 
+    print('selected DROMS after odd conditonasls', selected_droms)
+    return selected_droms
 
+    # print('selected: ',selected_droms)
 
 def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):
     """This is a function that compiles DROMS for viewing."""
@@ -406,7 +419,7 @@ def get_barbell_warmup_movements(todays_wod):
 
     selected_barbell_warmups_with_dupes = []
     selected_barbell_warmups = []
- #### ERROR NOT CORRECTED YET: ONLY MATCHES IF CATGORIES ARE PERFECTLY MATCHED, NOT IF MULTPLE CATEGORIES PRESENT
+    #### ERROR NOT CORRECTED YET: ONLY MATCHES IF CATGORIES ARE PERFECTLY MATCHED, NOT IF MULTPLE CATEGORIES PRESENT
 
     for wod in todays_wod:
         for k, v in exercises.items():

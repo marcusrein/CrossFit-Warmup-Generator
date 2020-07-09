@@ -42,6 +42,11 @@ exercises = {
         'category': ['core'],
         'loaded': False
     },
+    'ring row': {
+        'category': ['gymnastics upper'],
+        'loaded': False
+    },
+
 
     # KETTLEBELLS
 
