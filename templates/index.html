@@ -143,13 +143,18 @@
             </div>
 
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
-                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              <div class="card-body card-deck">
+                {% for k,v in metcon_warmup.items() %}
+          <div class="card" style="max-width: 18rem;">
+            <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
+            <div class="card-body">
+              <h5 class="card-title">{{ k.title() }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">MetCon Warmup</h6>
+              <p class="card-subtitle mb-2 text-muted"> {{ v['reps'] }} </p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
               </div>
             </div>
           </div>
@@ -195,6 +200,12 @@
             </div>
           </div>
         </div>
+
+
+
+<!--        %%%%%%%%%%%%%%%%%% THIS IS THE LISTED ELEMENT SECTION ON THE LEFT SMALL COLUMN %%%%%%%%%%%%%%%%%%%%%%%%%-->
+
+
 
         <div class="list-group w-100">
           <a href="#metcon_warmup"
@@ -283,7 +294,7 @@
 
 
 
-<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%THE BIG WHITESPACE AREA %%%%%%%%%%%%%%%%%%-->
+<!--        %%%%%%%%%%%%%%%%%% THIS IS THE CARD SECTION SECTION ON THE RIGHT BIG COLUMN %%%%%%%%%%%%%%%%%%%%%%%%%-->
 
 
 
