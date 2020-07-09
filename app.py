@@ -87,18 +87,19 @@ def first_page():
         for idx, item in enumerate(drom_img_list):
             drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
                 'dropdowns': (list_of_numbers_for_collapsable_dropdowns[idx])}
+        print(drom_final_dict)
 
 
         # GYMNASTICS SELECTION
         tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)
         tough_gymnastics_warmups = get_gymnastics_warmup(todays_wod)
 
-        new_gymnastics_temp_dict = {}
+        gymnastics_final_dict = {}
 
         for k, v in gymnastics_warmups.items():
             for tough_gymnastics_movement in tough_gymnastics_warmups:
                 if tough_gymnastics_movement == k:
-                    new_gymnastics_temp_dict[k] = v
+                    gymnastics_final_dict[k] = v
 
 
         # KB SELECTION
@@ -143,7 +144,7 @@ def first_page():
                                kb_warmup=kb_warmup, tough_gymnastics_movements_from_todays_wod=
                                tough_gymnastics_movements_from_todays_wod,
                                easy_exercises=easy_exercises, tough_exercises=tough_exercises,
-                               new_gymnastics_temp_dict=new_gymnastics_temp_dict, drom_final_dict=drom_final_dict,
+                               gymnastics_final_dict=gymnastics_final_dict, drom_final_dict=drom_final_dict,
                                todays_wod=todays_wod, error_message=error_message, background_image=background_image)
 
     else:
