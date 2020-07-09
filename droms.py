@@ -2,6 +2,7 @@
 # 'jerks, 'kettlebells','kettlebell olympic', 'kettlebell overhead', 'lunges', 'plyos', 'snatches', 'squats', 'swings'
 
 
+
 droms = {
     'air squats': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'snatches'],
@@ -11,7 +12,7 @@ droms = {
         'img': 'https://thumbs.gfycat.com/ParchedSpitefulDeviltasmanian-size_restricted.gif',
         'rpe': 1,
     },
-    # 'arm circles': {
+    # 'ring dips (assisted or jumping)': {
     #     'categories': ['gymnastics upper', 'jerks', 'overhead presses', 'saggital presses', 'snatches'],
     #     'time': 1,
     #     'reps': ['10 forward, 10 backward', '20 forward, 20 backward','30 forward, 30 backward'],
@@ -52,7 +53,6 @@ droms = {
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif',
         'rpe': 2,
     },
-
     'core rolling': {
         'categories': ['cleans', 'core', 'deadlifts', 'gymnastics upper', 'jerks', 'squats'],
         'time': 2,
@@ -78,7 +78,7 @@ droms = {
         'rpe': 2,
     },
     'down dog to up dog': {
-        'categories': ['gymnastics lower', 'gymnastics upper', 'saggital presses'],
+        'categories': ['gymnastics lower', 'gymnastics upper', 'saggital presses', ''],
         'time': 1,
         'reps': ['5 reps', '10 reps', '10 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
@@ -120,7 +120,7 @@ droms = {
         'rpe': 3,
     },
     'shoulder passthroughs': {
-        'categories': ['gymnastics upper', 'jerks', 'overhead presses', 'saggital presses', 'snatches'],
+        'categories': ['gymnastics upper', 'jerks', 'overhead presses', 'rows', 'saggital presses', 'snatches'],
         'time': 1,
         'reps': ['20 reps', '25 reps', '30 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',

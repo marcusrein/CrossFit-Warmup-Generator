@@ -14,8 +14,14 @@ gymnastics_warmups = {
         },
     'wall walks':
         {
-            'exercises': ['handstand pushup', 'handstand', 'pike pushup'],
+            'exercises': ['handstand pushup', 'handstand hold', 'box pike pushup'],
             'reps': '5',
-            'img': 'sure.com',
+            'img': 'https://tinyurl.com/yap8m62n',
+        },
+    'ring dips (assisted or jumping)':
+        {
+            'exercises': ['ring muscle up', 'ring dip', 'bar muscle up'],
+            'reps': '5',
+            'img': 'https://tinyurl.com/yap8m62n',
         }
 }

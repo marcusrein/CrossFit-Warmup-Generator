@@ -4,7 +4,10 @@ from collections import OrderedDict
 # 'jerks, 'kettlebells','kettlebell olympic', 'kettlebell overhead', 'lunges', 'plyos', 'snatches', 'squats', 'swings'
 #
 
-# CATEGORIES TO ADD: rows
+# CATEGORIES TO ADD: rows, rings
+
+
+### CATEGORY talks to DROMS.PY
 
 exercises = {
     # GYMNASTICS
@@ -48,10 +51,6 @@ exercises = {
         'category': ['core'],
         'loaded': False
     },
-    'ring row': {
-        'category': ['gymnastics upper'],
-        'loaded': False
-    },
     'handstand': {
         'category': ['gymnastics upper', 'handstand'],
         'loaded': False
@@ -60,11 +59,30 @@ exercises = {
         'category': ['gymnastics upper'],
         'loaded': False
     },
-    'handstand pushup': {
+    'handstand hold': {
         'category': ['gymnastics upper'],
         'loaded': False
     },
-
+    'box pike pushup': {
+        'category': ['gymnastics upper'],
+        'loaded': False
+    },
+    'ring dip': {
+        'category': ['gymnastics upper'],
+        'loaded': False
+    },
+    'ring muscle up': {
+        'category': ['gymnastics upper'],
+        'loaded': False
+    },
+    'bar muscle up': {
+        'category': ['gymnastics upper'],
+        'loaded': False
+    },
+    'ring row': {
+        'category': ['gymnastics upper', 'rows'],
+        'loaded': False
+    },
 
     # KETTLEBELLS
 
