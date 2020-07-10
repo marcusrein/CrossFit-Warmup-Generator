@@ -8,6 +8,7 @@ from jinja2 import Template
 
 
 app = Flask(__name__)
+# TODO: dont let 0.1 on the logo drop down so early
 # TODO: cant get height right for mobile dropdown
 # TODO: Get screen orientation to lock
 # TODO: Change droms.py (droms) to droms_dict

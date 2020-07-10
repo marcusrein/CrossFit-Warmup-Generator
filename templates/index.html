@@ -33,7 +33,7 @@
 <body>
 
 
-<!--%%%%%%%%%%%%%%%%%%%%%% LEFT SIDEBAR FOR SMALL SCREENS %%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+<!--%%%%%%%%%%%%%%%%%%%%%% LEFT SIDEBAR FOR SMALL SCREENS HEADER %%%%%%%%%%%%%%%%%%%%%%%%%%%-->
 <main class="row">
     <section class="col-xs-12 col-sm-12 col-md-6 col-lg-4 sidebar p-3 mb-2 bg-light text-dark"
              style="overflow-y: scroll;">
@@ -276,19 +276,19 @@
                 <b>DROM Warmups</b>
             </a>
             {% for k,v in drom_final_dict.items() %}
-            <div class="accordion d-md-none" id="accordionExample2">
+            <div class="accordion d-md-none" id="{{ k }}">
                 <div class="card">
                     <div class="card-header" id="headingOne2">
                         <h2 class="mb-0">
                             <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                                    data-target="#collapseOne2" aria-expanded="false" aria-controls="collapseOne2">
+                                    data-target="#{{k}}" aria-expanded="false" aria-controls="collapseOne2">
                                 {{ k.title() }}
                                 <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
                             </button>
                         </h2>
                     </div>
-                    <div id="collapseOne2" class="collapse" aria-labelledby="headingOne2"
-                         data-parent="#accordionExample">
+                    <div id="{{k}}" class="collapse" aria-labelledby="headingOne2"
+                         data-parent="#accordionExample2">
                         <div class="card-body card-deck">
                             <div class="card" style="max-width: 18rem;">
                                 <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
