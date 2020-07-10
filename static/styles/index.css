@@ -54,11 +54,11 @@
   position: absolute;
 }
 
-/* .collapse.in, .collapse{ */
-/*   height: 200px; */
-/*   overflow-y: scroll; */
-/*   max-height:200px; */
-/* } */
+.collapse.in {
+  height: auto !important;
+  overflow-y: scroll;
+  max-height:400px;
+}
 /* #instrument.collapsing{ */
-/*     max-height:200px; */
+/*     max-height:400px; */
 /* } */
