@@ -4,6 +4,8 @@ from flask import Flask, render_template, request
 from barbell_warmups import *
 from kb_warmups import *
 from media import *
+from jinja2 import Template
+
 
 app = Flask(__name__)
 # TODO: Change droms.py (droms) to droms_dict
@@ -88,6 +90,7 @@ def first_page():
             drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
                 'dropdowns': (list_of_numbers_for_collapsable_dropdowns[idx])}
         print(drom_final_dict)
+        print(drom_final_dict.values())
 
 
         # GYMNASTICS SELECTION
