@@ -8,10 +8,9 @@ from jinja2 import Template
 
 
 app = Flask(__name__)
+# TODO: cant get height right for mobile dropdown
+# TODO: Get screen orientation to lock
 # TODO: Change droms.py (droms) to droms_dict
-# TODO: href not working
-# TODO: mobile scrolling not working
-# TODO: splash page
 # TODO: 1. Create DB category throughout code, 2. fix bug in index.html that doubles-up input (it lookslike
 #  I can put in airsquat 2x) 3. create 'equipment' thing. 4. have users log in
 
