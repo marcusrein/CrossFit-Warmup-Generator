@@ -53,3 +53,12 @@
   height: 100vh;
   position: absolute;
 }
+
+/* .collapse.in, .collapse{ */
+/*   height: 200px; */
+/*   overflow-y: scroll; */
+/*   max-height:200px; */
+/* } */
+/* #instrument.collapsing{ */
+/*     max-height:200px; */
+/* } */
