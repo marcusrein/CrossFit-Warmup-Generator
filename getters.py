@@ -5,7 +5,7 @@ from checks import *
 from filters import *
 from barbell_warmups import *
 import re
-
+import string
 import random
 
 
@@ -347,7 +347,7 @@ def get_insert_remove_odd_conditionals_droms(selected_droms, selected_metcon):
                     selected_droms.remove(selected_drom)
                     selected_droms.append(selected_drom)
 
-    print('selected DROMS after odd conditonasls', selected_droms)
+    # print('selected DROMS after odd conditonasls', selected_droms)
     return selected_droms
 
     # print('selected: ',selected_droms)
@@ -358,6 +358,26 @@ def get_length_of_final_drom_dict_for_index_dropdowns(drom_reps):
     for index, item in enumerate(drom_reps):
         numbered_list.append(index)
     return numbered_list
+
+
+def get_random_word_for_accordions(drom_reps):
+    random_string_list = []
+    N = 7
+    for index, item in enumerate(drom_reps):
+        res = ''.join(random.choices(string.ascii_lowercase, k=N))
+        random_string_list.append(res)
+    print(random_string_list)
+    return random_string_list
+
+def get_random_word_for_accordions_2(drom_reps):
+    random_string_list = []
+    N = 7
+    for index, item in enumerate(drom_reps):
+        res = ''.join(random.choices(string.ascii_lowercase, k=N))
+        random_string_list.append(res)
+    print(random_string_list)
+    return random_string_list
+
 
 
 def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):

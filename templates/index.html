@@ -276,19 +276,19 @@
                 <b>DROM Warmups</b>
             </a>
             {% for k,v in drom_final_dict.items() %}
-            <div class="accordion d-md-none" id="accordionExample2">
+            <div class="accordion d-md-none" id="{{ v['dropdowns'] }}">
                 <div class="card">
-                    <div class="card-header" id="headingOne2">
+                    <div class="card-header" id="{{ v['dropdowns_rand1'] }}">
                         <h2 class="mb-0">
                             <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                                    data-target="#HELPME" aria-expanded="false" aria-controls="collapseOne2">
+                                    data-target="#{{ v['dropdowns_rand2'] }}" aria-expanded="false" aria-controls="{{ v['dropdowns_rand2'] }}">
                                 {{ k.title() }}
                                 <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
                             </button>
                         </h2>
                     </div>
-                    <div id="HELPME" class="collapse" aria-labelledby="headingOne2"
-                         data-parent="#accordionExample2">
+                    <div id="{{ v['dropdowns_rand2'] }} " class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}"
+                         data-parent="#{{ v['dropdowns'] }}">
                         <div class="card">
                             <div class="card-body" style="max-width: 18rem;">
                                 <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>

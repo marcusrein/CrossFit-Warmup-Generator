@@ -6,8 +6,9 @@ from kb_warmups import *
 from media import *
 from jinja2 import Template
 
-
 app = Flask(__name__)
+
+
 # TODO: get all the dropdown HREF things to work correctly in sidebar small screen, then center the items
 # TODO: dont let 0.1 on the logo drop down so early
 # TODO: cant get height right for mobile dropdown
@@ -73,13 +74,14 @@ def first_page():
         # print('selected_DROMS after addendums added: ',selected_droms)
         selected_droms_after_ordered_list = get_ordered_drom_list(selected_droms)
         # print('selected drom after addendums and orderings:', selected_droms_after_ordered_list)
-        selected_droms_after_addendums_and_odd_conditionals = get_insert_remove_odd_conditionals_droms(selected_droms_after_ordered_list,selected_metcon)
+        selected_droms_after_addendums_and_odd_conditionals = get_insert_remove_odd_conditionals_droms(
+            selected_droms_after_ordered_list, selected_metcon)
         # print('selectedDROMS after addendums, orderings, and odd condiontlas',
         # selected_droms_after_addendums_and_odd_conditionals)
         selected_droms = selected_droms_after_addendums_and_odd_conditionals
         # print(selected_droms)
 
-            ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
+        ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
         drom_final_dict = {}
 
         drom_img_list = get_images_for_display(selected_droms, droms)
@@ -87,12 +89,16 @@ def first_page():
         # USED FOR ITERATING COLLAPSABLE DROPDOWNS IN INDEX.HTML
         list_of_numbers_for_collapsable_dropdowns = get_length_of_final_drom_dict_for_index_dropdowns(drom_reps)
         print(list_of_numbers_for_collapsable_dropdowns)
+
+        rand_words_for_accordion1 = get_random_word_for_accordions(drom_reps)
+        rand_words_for_accordion2 = get_random_word_for_accordions_2(drom_reps)
         for idx, item in enumerate(drom_img_list):
             drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
-                'dropdowns': (list_of_numbers_for_collapsable_dropdowns[idx])}
-        print(drom_final_dict)
-        print(drom_final_dict.values())
-
+                                                    'dropdowns': (list_of_numbers_for_collapsable_dropdowns[idx]),
+                                                    'dropdowns_rand1': (rand_words_for_accordion1[idx]),
+                                                    'dropdowns_rand2': (rand_words_for_accordion2[idx])}
+        # print(drom_final_dict)
+        # print(drom_final_dict.values())
 
         # GYMNASTICS SELECTION
         tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)
@@ -104,7 +110,6 @@ def first_page():
             for tough_gymnastics_movement in tough_gymnastics_warmups:
                 if tough_gymnastics_movement == k:
                     gymnastics_final_dict[k] = v
-
 
         # KB SELECTION
         kb_warmup = {}
@@ -136,7 +141,6 @@ def first_page():
                                                                   'text': (barbell_warmup_text_list[idx]),
                                                                   'reps': (barbell_warmup_reps_list[idx])
                                                                   }
-
 
         # breakpoint()
         return render_template('index.html', droms_compiled=droms_compiled, metcon_warmup=metcon_warmup,
