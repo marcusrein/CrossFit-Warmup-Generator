@@ -276,7 +276,7 @@
                 <b>DROM Warmups</b>
             </a>
             {% for k,v in drom_final_dict.items() %}
-            <div class="accordion d-md-none" id="{{ v['dropdowns'] }}">
+            <div class="accordion d-md-none" id="{{ v['dropdowns_rand0'] }}">
                 <div class="card">
                     <div class="card-header" id="{{ v['dropdowns_rand1'] }}">
                         <h2 class="mb-0">
@@ -288,7 +288,7 @@
                         </h2>
                     </div>
                     <div id="{{ v['dropdowns_rand2'] }} " class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}"
-                         data-parent="#{{ v['dropdowns'] }}">
+                         data-parent="#{{ v['dropdowns_rand0'] }}">
                         <div class="card">
                             <div class="card-body" style="max-width: 18rem;">
                                 <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>

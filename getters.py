@@ -359,8 +359,7 @@ def get_length_of_final_drom_dict_for_index_dropdowns(drom_reps):
         numbered_list.append(index)
     return numbered_list
 
-
-def get_random_word_for_accordions(drom_reps):
+def get_random_word_for_accordions00(drom_reps):
     random_string_list = []
     N = 7
     for index, item in enumerate(drom_reps):
@@ -369,7 +368,26 @@ def get_random_word_for_accordions(drom_reps):
     print(random_string_list)
     return random_string_list
 
-def get_random_word_for_accordions_2(drom_reps):
+
+def get_random_word_for_accordions0(drom_reps):
+    random_string_list = []
+    N = 7
+    for index, item in enumerate(drom_reps):
+        res = ''.join(random.choices(string.ascii_lowercase, k=N))
+        random_string_list.append(res)
+    print(random_string_list)
+    return random_string_list
+
+def get_random_word_for_accordions1(drom_reps):
+    random_string_list = []
+    N = 7
+    for index, item in enumerate(drom_reps):
+        res = ''.join(random.choices(string.ascii_lowercase, k=N))
+        random_string_list.append(res)
+    print(random_string_list)
+    return random_string_list
+
+def get_random_word_for_accordions2(drom_reps):
     random_string_list = []
     N = 7
     for index, item in enumerate(drom_reps):

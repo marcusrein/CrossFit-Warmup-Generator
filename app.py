@@ -87,14 +87,17 @@ def first_page():
         drom_img_list = get_images_for_display(selected_droms, droms)
         drom_reps = get_reps(selected_droms, tough_exercises, droms)
         # USED FOR ITERATING COLLAPSABLE DROPDOWNS IN INDEX.HTML
-        list_of_numbers_for_collapsable_dropdowns = get_length_of_final_drom_dict_for_index_dropdowns(drom_reps)
-        print(list_of_numbers_for_collapsable_dropdowns)
+        # list_of_numbers_for_collapsable_dropdowns = get_length_of_final_drom_dict_for_index_dropdowns(drom_reps)
+        # print(list_of_numbers_for_collapsable_dropdowns)
 
-        rand_words_for_accordion1 = get_random_word_for_accordions(drom_reps)
-        rand_words_for_accordion2 = get_random_word_for_accordions_2(drom_reps)
+        rand_words_for_accordion00 = get_random_word_for_accordions00(drom_reps)
+        rand_words_for_accordion0 = get_random_word_for_accordions0(drom_reps)
+        rand_words_for_accordion1 = get_random_word_for_accordions1(drom_reps)
+        rand_words_for_accordion2 = get_random_word_for_accordions2(drom_reps)
         for idx, item in enumerate(drom_img_list):
             drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
-                                                    'dropdowns': (list_of_numbers_for_collapsable_dropdowns[idx]),
+                                                    'dropdowns_rand00': (rand_words_for_accordion00[idx]),
+                                                    'dropdowns_rand0': (rand_words_for_accordion0[idx]),
                                                     'dropdowns_rand1': (rand_words_for_accordion1[idx]),
                                                     'dropdowns_rand2': (rand_words_for_accordion2[idx])}
         # print(drom_final_dict)
