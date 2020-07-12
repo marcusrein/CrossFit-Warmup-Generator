@@ -20,7 +20,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
     from exercises import exercises
-    from droms import droms
+    from droms import droms_dict
 
     exercise_keys = exercises.keys()
 
@@ -58,7 +58,7 @@ def first_page():
 
         # DROM SELECTION AND IMAGE SELECTION
         droms_compiled = get_movements_compiled(
-            todays_wod, tough_exercises, droms, drom_time)
+            todays_wod, tough_exercises, droms_dict, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
         # print('selectedDROMS: ', selected_droms)
         addendum_droms = get_selected_movements_addendum_droms(todays_wod, selected_droms, selected_metcon)
@@ -81,14 +81,17 @@ def first_page():
         selected_droms = selected_droms_after_addendums_and_odd_conditionals
         # print(selected_droms)
 
+
         ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
         drom_final_dict = {}
 
-        drom_img_list = get_images_for_display(selected_droms, droms)
-        drom_reps = get_reps(selected_droms, tough_exercises, droms)
+        drom_img_list = get_images_for_display(selected_droms, droms_dict)
+        drom_reps = get_reps(selected_droms, tough_exercises, droms_dict)
         # USED FOR ITERATING COLLAPSABLE DROPDOWNS IN INDEX.HTML
         # list_of_numbers_for_collapsable_dropdowns = get_length_of_final_drom_dict_for_index_dropdowns(drom_reps)
         # print(list_of_numbers_for_collapsable_dropdowns)
+
+
 
         rand_words_for_accordion00 = get_random_word_for_accordions00(drom_reps)
         rand_words_for_accordion0 = get_random_word_for_accordions0(drom_reps)
@@ -102,6 +105,7 @@ def first_page():
                                                     'dropdowns_rand2': (rand_words_for_accordion2[idx])}
         # print(drom_final_dict)
         # print(drom_final_dict.values())
+        why_drom = get_why_drom_selected_dict(drom_final_dict, todays_wod)
 
         # GYMNASTICS SELECTION
         tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)

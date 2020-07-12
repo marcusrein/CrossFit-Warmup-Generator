@@ -2,8 +2,7 @@
 # 'jerks, 'kettlebells','kettlebell olympic', 'kettlebell overhead', 'lunges', 'plyos', 'snatches', 'squats', 'swings'
 
 
-
-droms = {
+droms_dict = {
     'air squats': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'snatches'],
         'time': 1,
@@ -149,7 +148,7 @@ droms = {
         'reps': ['3 on each arm', '4 on each arm', '5 on each arm'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://jensinkler.com/wp-content/uploads/2019/06/Bodyweight-Thoracic-Bridge-With-Reach.gif',
-               'rpe': 2,
+        'rpe': 2,
     },
     'vertical jumps': {
         'categories': ['cleans', 'jerks', 'plyos', 'snatches'],

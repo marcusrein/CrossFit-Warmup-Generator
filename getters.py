@@ -310,19 +310,19 @@ def get_ordered_drom_list(selected_droms):
     ordered_drom_list = []
 
     for drom in selected_droms:
-        for k, v in droms.items():
+        for k, v in droms_dict.items():
             if drom == k:
                 if v['rpe'] == 3:
                     ordered_drom_list.append(drom)
 
     for drom in selected_droms:
-        for k2, v2 in droms.items():
+        for k2, v2 in droms_dict.items():
             if drom == k2:
                 if v2['rpe'] == 2:
                     ordered_drom_list.insert(0, drom)
 
     for drom in selected_droms:
-        for k2, v2 in droms.items():
+        for k2, v2 in droms_dict.items():
             if drom == k2:
                 if v2['rpe'] == 1:
                     ordered_drom_list.insert(0, drom)
@@ -341,7 +341,7 @@ def get_insert_remove_odd_conditionals_droms(selected_droms, selected_metcon):
         selected_droms.append('down dog to up dog')
 
     for selected_drom in selected_droms:
-        for k, v in droms.items():
+        for k, v in droms_dict.items():
             if selected_drom == k:
                 if 'plyos' in v['categories']:
                     selected_droms.remove(selected_drom)
@@ -358,6 +358,7 @@ def get_length_of_final_drom_dict_for_index_dropdowns(drom_reps):
     for index, item in enumerate(drom_reps):
         numbered_list.append(index)
     return numbered_list
+
 
 def get_random_word_for_accordions00(drom_reps):
     random_string_list = []
@@ -378,6 +379,7 @@ def get_random_word_for_accordions0(drom_reps):
     print(random_string_list)
     return random_string_list
 
+
 def get_random_word_for_accordions1(drom_reps):
     random_string_list = []
     N = 7
@@ -387,6 +389,7 @@ def get_random_word_for_accordions1(drom_reps):
     print(random_string_list)
     return random_string_list
 
+
 def get_random_word_for_accordions2(drom_reps):
     random_string_list = []
     N = 7
@@ -395,7 +398,6 @@ def get_random_word_for_accordions2(drom_reps):
         random_string_list.append(res)
     print(random_string_list)
     return random_string_list
-
 
 
 def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):
@@ -563,3 +565,29 @@ def get_gymnastics_warmup_reps(tough_gymnastics_warmups):
         tough_gymnastics_warmup_reps_post_random.append(y)
 
     return tough_gymnastics_warmup_reps_post_random
+
+
+def get_why_drom_selected_dict(drom_final_dict, todays_wod):
+    """If a drom is selected, what does it warm up? Compare that list to what is in the WOD. Output list of what that
+    DROM warms up"""
+    drom_chosen = []
+    exercises_chosen = []
+    for key in drom_final_dict.keys():
+        for drom_category in droms_dict[key]['categories']:
+            for wod in todays_wod:
+                for exercise_cat in exercises[wod]['category']:
+                    if drom_category == exercise_cat:
+                        drom_chosen.append(key)
+                        exercises_chosen.append(wod)
+                        break
+
+    print(drom_chosen)
+    print(exercises_chosen)
+
+    combo = dict(zip(drom_chosen, exercises_chosen))
+
+    print(combo)
+
+def add_why_drom_selected_to_drom_final_dict(drom_final_dict, combo):
+
+
