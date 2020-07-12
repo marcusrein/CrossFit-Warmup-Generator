@@ -12,7 +12,7 @@ from collections import OrderedDict
 exercises = {
     # GYMNASTICS
     'air squat': {
-        'category': ['gymnastics lower', 'squats'],
+        'category': ['gymnastics lower'],
         'loaded': False,
     },
     'burpee': {

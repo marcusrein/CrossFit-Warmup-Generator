@@ -130,14 +130,13 @@ def first_page():
 
         # BARBELL SELECTION
         barbell_warmup = {}
-
+        
         barbell_movements_from_todays_wod = which_movements_are_barbell_movements(todays_wod)
         barbell_warmup_movements_list = get_barbell_warmup_movements(todays_wod)
         barbell_warmup_text_list = get_text_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
         barbell_warmup_img_list = get_images_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
         barbell_warmup_url_list = get_url_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
         barbell_warmup_reps_list = get_reps(barbell_warmup_movements_list, tough_exercises, barbell_warmups_dict)
-
         for idx, item in enumerate(barbell_warmup_movements_list):
             barbell_warmup[barbell_warmup_movements_list[idx]] = {'img': (barbell_warmup_img_list[idx]),
                                                                   'url': (barbell_warmup_url_list[idx]),
@@ -145,7 +144,6 @@ def first_page():
                                                                   'reps': (barbell_warmup_reps_list[idx])
                                                                   }
 
-        # breakpoint()
         return render_template('index.html', droms_compiled=droms_compiled, metcon_warmup=metcon_warmup,
                                exercise_keys=exercise_keys, selected_droms=selected_droms,
                                barbell_warmup=barbell_warmup,
