@@ -7,6 +7,7 @@ from barbell_warmups import *
 import re
 import string
 import random
+from collections import defaultdict
 
 
 def convert(s):
@@ -347,6 +348,7 @@ def get_insert_remove_odd_conditionals_droms(selected_droms, selected_metcon):
                     selected_droms.remove(selected_drom)
                     selected_droms.append(selected_drom)
 
+
     # print('selected DROMS after odd conditonasls', selected_droms)
     return selected_droms
 
@@ -573,21 +575,76 @@ def get_why_drom_selected_dict(drom_final_dict, todays_wod):
     drom_chosen = []
     exercises_chosen = []
     for key in drom_final_dict.keys():
+        print(key)
         for drom_category in droms_dict[key]['categories']:
             for wod in todays_wod:
                 for exercise_cat in exercises[wod]['category']:
                     if drom_category == exercise_cat:
                         drom_chosen.append(key)
                         exercises_chosen.append(wod)
-                        break
 
-    print(drom_chosen)
-    print(exercises_chosen)
+    print('DROM CHOSEN: ',drom_chosen)
+    print('EXERCISES CHOSEN:', exercises_chosen)
 
-    combo = dict(zip(drom_chosen, exercises_chosen))
-
-    print(combo)
-
-def add_why_drom_selected_to_drom_final_dict(drom_final_dict, combo):
+    # list = [(k, v) for k, v in dict.items()]
 
 
+    combo = tuple(zip(drom_chosen, exercises_chosen))
+    print('COMBO', combo)
+
+    # print('COMBO', list(zip(drom_chosen, exercises_chosen)))
+    return combo
+
+def add_why_drom_selected_to_drom_final_dict(drom_final_dict, why_drom):
+    """ok, but I need duplicates"""
+    # breakpoint()
+    drom_tester_dict = dict(drom_final_dict)
+
+    for k,v in drom_final_dict.items():
+        bb = []
+
+        # print(k)
+        for x in why_drom:
+            # print(x)
+    #         # breakpoint()
+            for y in x:
+                if y == k:
+                    print('yaaaa')
+                    print(x[1])
+
+                    bb.append(x[1])
+
+                    drom_final_dict[k]['targets'] = bb
+    #
+    print('DROMTESTERDICT:', drom_final_dict)
+
+    result = {}
+    for k, v in drom_tester_dict.items():
+        if v not in result.values():
+            result[k] = v
+
+    print("RESULTSSSOIJFEWOIFJEWOIEWJF", result)
+
+    # not_dupes = []
+    #
+    # for k,v in result.items():
+    #     for item in v['targets']:
+    #         if item not in not_dupes:
+    #             not_dupes.append(item)
+    #     v['targets'] == not_dupes
+    #
+    # print(result)
+    new_list = []
+    for k, v in result.items():
+        new_list.append(v['targets'])
+
+    print(new_list)
+
+    # for k, v in result.items()
+    #     for item in v['targets']:
+    #         if item not in final_list:
+    #
+
+    # print("NEW REULTSOITS:", result)
+    #
+    return new_list

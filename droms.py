@@ -9,7 +9,7 @@ droms_dict = {
         'reps': ['10 reps', '20 reps', '30 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://thumbs.gfycat.com/ParchedSpitefulDeviltasmanian-size_restricted.gif',
-        'rpe': 1,
+        'rpe': 2,
     },
     # 'ring dips (assisted or jumping)': {
     #     'categories': ['gymnastics upper', 'jerks', 'overhead presses', 'saggital presses', 'snatches'],
@@ -20,7 +20,7 @@ droms_dict = {
     #     'rpe': 1,
     # },
     'banded side steps': {
-        'categories': ['cleans', 'deadlifts', 'jerks', 'lunges', 'snatches', 'squats'],
+        'categories': ['cleans', 'deadlifts', 'jerks', 'lunges', 'snatches', 'squats', 'kettlebells'],
         'time': 2,
         'reps': ['30s', '1 min', '1.5 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',

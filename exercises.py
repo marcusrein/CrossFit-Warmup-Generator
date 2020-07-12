@@ -91,7 +91,7 @@ exercises = {
         'loaded': 'kb'
     },
     'goblet squat': {
-        'category': ['kettlebells', 'kettlebell squats'],
+        'category': ['kettlebells', 'squats'],
         'loaded': 'kb'
     },
     'kettlebell snatch': {

@@ -4,16 +4,15 @@ from flask import Flask, render_template, request
 from barbell_warmups import *
 from kb_warmups import *
 from media import *
-from jinja2 import Template
-
+import itertools
 app = Flask(__name__)
 
-
+# TODO: Ryan Notes: WGS before squats. Create banded section.
+# TODO: Pullups warmups not appearing in output
 # TODO: get all the dropdown HREF things to work correctly in sidebar small screen, then center the items
 # TODO: dont let 0.1 on the logo drop down so early
 # TODO: cant get height right for mobile dropdown
 # TODO: Get screen orientation to lock in portrait mode
-# TODO: Change droms.py (droms) to droms_dict
 # TODO: 1. Create DB category throughout code, 2. fix bug in index.html that doubles-up input (it lookslike
 #  I can put in airsquat 2x) 3. create 'equipment' thing. 4. have users log in
 
@@ -91,21 +90,26 @@ def first_page():
         # list_of_numbers_for_collapsable_dropdowns = get_length_of_final_drom_dict_for_index_dropdowns(drom_reps)
         # print(list_of_numbers_for_collapsable_dropdowns)
 
-
-
         rand_words_for_accordion00 = get_random_word_for_accordions00(drom_reps)
         rand_words_for_accordion0 = get_random_word_for_accordions0(drom_reps)
         rand_words_for_accordion1 = get_random_word_for_accordions1(drom_reps)
         rand_words_for_accordion2 = get_random_word_for_accordions2(drom_reps)
         for idx, item in enumerate(drom_img_list):
             drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
-                                                    'dropdowns_rand00': (rand_words_for_accordion00[idx]),
-                                                    'dropdowns_rand0': (rand_words_for_accordion0[idx]),
-                                                    'dropdowns_rand1': (rand_words_for_accordion1[idx]),
-                                                    'dropdowns_rand2': (rand_words_for_accordion2[idx])}
-        # print(drom_final_dict)
-        # print(drom_final_dict.values())
+                                                    # 'dropdowns_rand00': (rand_words_for_accordion00[idx]),
+                                                    # 'dropdowns_rand0': (rand_words_for_accordion0[idx]),
+                                                    # 'dropdowns_rand1': (rand_words_for_accordion1[idx]),
+                                                    # 'dropdowns_rand2': (rand_words_for_accordion2[idx]),
+                                                    # 'targets':?[idx])
+                                                    }
         why_drom = get_why_drom_selected_dict(drom_final_dict, todays_wod)
+        this = add_why_drom_selected_to_drom_final_dict(drom_final_dict, why_drom)
+        print(this)
+        res = list(set(tuple(sorted(sub)) for sub in this))
+        print(res)
+
+
+
 
         # GYMNASTICS SELECTION
         tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)
