@@ -104,20 +104,8 @@ def first_page():
                                                     }
         why_drom = get_why_drom_selected_dict(drom_final_dict, todays_wod)
         this = add_why_drom_selected_to_drom_final_dict(drom_final_dict, why_drom)
-        # print(this)
-        # res = list(set(tuple(sorted(sub)) for sub in this))
-        # print(res)
-        lists = []
-        length_of_this = len(this)
-        for p in range(length_of_this):
-            lists.append([])
+        print(this)
 
-        for idx, val in enumerate(this[idx]):
-            print(val)
-            if val not in lists[idx]:
-                lists[idx].append(val)
-
-        print(lists)
 
 
 
@@ -174,7 +162,8 @@ def first_page():
                                tough_gymnastics_movements_from_todays_wod,
                                easy_exercises=easy_exercises, tough_exercises=tough_exercises,
                                gymnastics_final_dict=gymnastics_final_dict, drom_final_dict=drom_final_dict,
-                               todays_wod=todays_wod, error_message=error_message, background_image=background_image)
+                               todays_wod=todays_wod, error_message=error_message, background_image=background_image,
+                               this=this)
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
