@@ -313,6 +313,18 @@ def get_ordered_drom_list(selected_droms):
     for drom in selected_droms:
         for k, v in droms_dict.items():
             if drom == k:
+                if v['rpe'] == 5:
+                    ordered_drom_list.append(drom)
+
+    for drom in selected_droms:
+        for k, v in droms_dict.items():
+            if drom == k:
+                if v['rpe'] == 4:
+                    ordered_drom_list.append(drom)
+
+    for drom in selected_droms:
+        for k, v in droms_dict.items():
+            if drom == k:
                 if v['rpe'] == 3:
                     ordered_drom_list.append(drom)
 
@@ -345,6 +357,26 @@ def get_insert_remove_odd_conditionals_droms(selected_droms, selected_metcon):
             selected_droms.index('air squats') < selected_droms.index('worlds greatest stretch'):
             selected_droms.remove('air squats')
             selected_droms.insert(selected_droms.index('worlds greatest stretch') + 1, 'air squats')
+
+    if all(x in selected_droms for x in ['air squats', 'inchworms']) and \
+            selected_droms.index('air squats') < selected_droms.index('inchworms'):
+            selected_droms.remove('air squats')
+            selected_droms.insert(selected_droms.index('inchworms') + 1, 'air squats')
+
+    if all(x in selected_droms for x in ['walking lunges', 'worlds greatest stretch']) and \
+            selected_droms.index('walking lunges') < selected_droms.index('worlds greatest stretch'):
+            selected_droms.remove('walking lunges')
+            selected_droms.insert(selected_droms.index('worlds greatest stretch') + 1, 'walking lunges')
+
+    if all(x in selected_droms for x in ['walking lunges', 'inchworms']) and \
+            selected_droms.index('walking lunges') < selected_droms.index('inchworms'):
+            selected_droms.remove('walking lunges')
+            selected_droms.insert(selected_droms.index('inchworms') + 1, 'walking lunges')
+
+    if all(x in selected_droms for x in ['push ups', 'thoracic bridges']) and \
+            selected_droms.index('push ups') < selected_droms.index('thoracic bridges'):
+            selected_droms.remove('push ups')
+            selected_droms.insert(selected_droms.index('thoracic bridges') + 1, 'push ups')
 
 
 
