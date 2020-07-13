@@ -596,7 +596,7 @@ def get_why_drom_selected_dict(drom_final_dict, todays_wod):
     return combo
 
 def add_why_drom_selected_to_drom_final_dict(drom_final_dict, why_drom):
-    """ok, but I need duplicates"""
+    """THIS CODE ADDS WHAT THE DROM IS TARGETING but I cant get rid of dupes in the 'targets' output"""
     # breakpoint()
     drom_tester_dict = dict(drom_final_dict)
 
@@ -618,33 +618,11 @@ def add_why_drom_selected_to_drom_final_dict(drom_final_dict, why_drom):
     #
     print('DROMTESTERDICT:', drom_final_dict)
 
-    result = {}
+    result_with_dup_targets = {}
     for k, v in drom_tester_dict.items():
-        if v not in result.values():
-            result[k] = v
+        if v not in result_with_dup_targets.values():
+            result_with_dup_targets[k] = v
 
-    print("RESULTSSSOIJFEWOIFJEWOIEWJF", result)
+    print("RESULTSSSOIJFEWOIFJEWOIEWJF", result_with_dup_targets)
 
-    # not_dupes = []
-    #
-    # for k,v in result.items():
-    #     for item in v['targets']:
-    #         if item not in not_dupes:
-    #             not_dupes.append(item)
-    #     v['targets'] == not_dupes
-    #
-    # print(result)
-    new_list = []
-    for k, v in result.items():
-        new_list.append(v['targets'])
-
-    print(new_list)
-
-    # for k, v in result.items()
-    #     for item in v['targets']:
-    #         if item not in final_list:
-    #
-
-    # print("NEW REULTSOITS:", result)
-    #
-    return new_list
+    return result_with_dup_targets

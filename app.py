@@ -104,9 +104,21 @@ def first_page():
                                                     }
         why_drom = get_why_drom_selected_dict(drom_final_dict, todays_wod)
         this = add_why_drom_selected_to_drom_final_dict(drom_final_dict, why_drom)
-        print(this)
-        res = list(set(tuple(sorted(sub)) for sub in this))
-        print(res)
+        # print(this)
+        # res = list(set(tuple(sorted(sub)) for sub in this))
+        # print(res)
+        lists = []
+        length_of_this = len(this)
+        for p in range(length_of_this):
+            lists.append([])
+
+        for idx, val in enumerate(this[idx]):
+            print(val)
+            if val not in lists[idx]:
+                lists[idx].append(val)
+
+        print(lists)
+
 
 
 

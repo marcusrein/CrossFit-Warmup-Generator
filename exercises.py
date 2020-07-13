@@ -52,7 +52,7 @@ exercises = {
         'loaded': False
     },
     'handstand': {
-        'category': ['gymnastics upper', 'handstand'],
+        'category': ['gymnastics upper'],
         'loaded': False
     },
     'handstand pushup': {
@@ -80,34 +80,34 @@ exercises = {
         'loaded': False
     },
     'ring row': {
-        'category': ['gymnastics upper', 'rows'],
+        'category': ['gymnastics upper'],
         'loaded': False
     },
 
     # KETTLEBELLS
 
     'kettlebell swing': {
-        'category': ['kettlebells', 'swings'],
+        'category': ['kettlebells'],
         'loaded': 'kb'
     },
     'goblet squat': {
-        'category': ['kettlebells', 'squats'],
+        'category': ['kettlebells'],
         'loaded': 'kb'
     },
     'kettlebell snatch': {
-        'category': ['kettlebells', 'kettlebell olympic'],
+        'category': ['kettlebells'],
         'loaded': 'kb'
     },
     'kettlebell clean': {
-        'category': ['kettlebells', 'kettlebell olympic'],
+        'category': ['kettlebells'],
         'loaded': 'kb'
     },
     'kettlebell jerk': {
-        'category': ['kettlebells', 'kettlebell olympic', 'kettlebell overhead'],
+        'category': ['kettlebells'],
         'loaded': 'kb'
     },
     'kettlebell press': {
-        'category': ['kettlebells', 'kettlebell overhead'],
+        'category': ['kettlebells'],
         'loaded': 'kb'
     },
     'kettlebell romanian deadlift': {
@@ -169,7 +169,7 @@ exercises = {
         'loaded': False
     },
     'jumping lunge': {
-        'category': ['lunges', 'plyos'],
+        'category': ['lunges'],
         'loaded': False
     },
     'kettlebell lunge': {
