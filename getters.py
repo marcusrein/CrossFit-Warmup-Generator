@@ -341,6 +341,13 @@ def get_insert_remove_odd_conditionals_droms(selected_droms, selected_metcon):
         selected_droms.remove('burpees')
         selected_droms.append('down dog to up dog')
 
+    if all(x in selected_droms for x in ['air squats', 'worlds greatest stretch']) and \
+            selected_droms.index('air squats') < selected_droms.index('worlds greatest stretch'):
+            selected_droms.remove('air squats')
+            selected_droms.insert(selected_droms.index('worlds greatest stretch') + 1, 'air squats')
+
+
+
     for selected_drom in selected_droms:
         for k, v in droms_dict.items():
             if selected_drom == k:
@@ -368,7 +375,7 @@ def get_random_word_for_accordions00(drom_reps):
     for index, item in enumerate(drom_reps):
         res = ''.join(random.choices(string.ascii_lowercase, k=N))
         random_string_list.append(res)
-    print(random_string_list)
+    # print(random_string_list)
     return random_string_list
 
 
@@ -378,7 +385,7 @@ def get_random_word_for_accordions0(drom_reps):
     for index, item in enumerate(drom_reps):
         res = ''.join(random.choices(string.ascii_lowercase, k=N))
         random_string_list.append(res)
-    print(random_string_list)
+    # print(random_string_list)
     return random_string_list
 
 
@@ -388,7 +395,7 @@ def get_random_word_for_accordions1(drom_reps):
     for index, item in enumerate(drom_reps):
         res = ''.join(random.choices(string.ascii_lowercase, k=N))
         random_string_list.append(res)
-    print(random_string_list)
+    # print(random_string_list)
     return random_string_list
 
 
@@ -398,7 +405,7 @@ def get_random_word_for_accordions2(drom_reps):
     for index, item in enumerate(drom_reps):
         res = ''.join(random.choices(string.ascii_lowercase, k=N))
         random_string_list.append(res)
-    print(random_string_list)
+    # print(random_string_list)
     return random_string_list
 
 
@@ -575,7 +582,7 @@ def get_why_drom_selected_dict(drom_final_dict, todays_wod):
     drom_chosen = []
     exercises_chosen = []
     for key in drom_final_dict.keys():
-        print(key)
+        # print(key)
         for drom_category in droms_dict[key]['categories']:
             for wod in todays_wod:
                 for exercise_cat in exercises[wod]['category']:
@@ -583,14 +590,14 @@ def get_why_drom_selected_dict(drom_final_dict, todays_wod):
                         drom_chosen.append(key)
                         exercises_chosen.append(wod)
 
-    print('DROM CHOSEN: ',drom_chosen)
-    print('EXERCISES CHOSEN:', exercises_chosen)
+    # print('DROM CHOSEN: ',drom_chosen)
+    # print('EXERCISES CHOSEN:', exercises_chosen)
 
     # list = [(k, v) for k, v in dict.items()]
 
 
     combo = tuple(zip(drom_chosen, exercises_chosen))
-    print('COMBO', combo)
+    # print('COMBO', combo)
 
     # print('COMBO', list(zip(drom_chosen, exercises_chosen)))
     return combo
@@ -616,13 +623,13 @@ def add_why_drom_selected_to_drom_final_dict(drom_final_dict, why_drom):
 
                     drom_final_dict[k]['targets'] = bb
     #
-    print('DROMTESTERDICT:', drom_final_dict)
+    # print('DROMTESTERDICT:', drom_final_dict)
 
     result_with_dup_targets = {}
     for k, v in drom_tester_dict.items():
         if v not in result_with_dup_targets.values():
             result_with_dup_targets[k] = v
 
-    print("RESULTSSSOIJFEWOIFJEWOIEWJF", result_with_dup_targets)
+    # print("RESULTSSSOIJFEWOIFJEWOIEWJF", result_with_dup_targets)
 
     return result_with_dup_targets
