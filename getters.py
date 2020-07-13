@@ -307,40 +307,16 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements, select
     return addendum
 
 
+def get_rpe(drom):
+    return droms_dict[drom]['rpe']
+
+
 def get_ordered_drom_list(selected_droms):
-    ordered_drom_list = []
+    selected_droms.sort(key=get_rpe)
 
-    for drom in selected_droms:
-        for k, v in droms_dict.items():
-            if drom == k:
-                if v['rpe'] == 5:
-                    ordered_drom_list.append(drom)
+    print('SELECTED:', selected_droms)
 
-    for drom in selected_droms:
-        for k, v in droms_dict.items():
-            if drom == k:
-                if v['rpe'] == 4:
-                    ordered_drom_list.append(drom)
-
-    for drom in selected_droms:
-        for k, v in droms_dict.items():
-            if drom == k:
-                if v['rpe'] == 3:
-                    ordered_drom_list.append(drom)
-
-    for drom in selected_droms:
-        for k2, v2 in droms_dict.items():
-            if drom == k2:
-                if v2['rpe'] == 2:
-                    ordered_drom_list.insert(0, drom)
-
-    for drom in selected_droms:
-        for k2, v2 in droms_dict.items():
-            if drom == k2:
-                if v2['rpe'] == 1:
-                    ordered_drom_list.insert(0, drom)
-
-    return ordered_drom_list
+    return selected_droms
 
 
 def get_insert_remove_odd_conditionals_droms(selected_droms, selected_metcon):
@@ -353,32 +329,6 @@ def get_insert_remove_odd_conditionals_droms(selected_droms, selected_metcon):
         selected_droms.remove('burpees')
         selected_droms.append('down dog to up dog')
 
-    if all(x in selected_droms for x in ['air squats', 'worlds greatest stretch']) and \
-            selected_droms.index('air squats') < selected_droms.index('worlds greatest stretch'):
-            selected_droms.remove('air squats')
-            selected_droms.insert(selected_droms.index('worlds greatest stretch') + 1, 'air squats')
-
-    if all(x in selected_droms for x in ['air squats', 'inchworms']) and \
-            selected_droms.index('air squats') < selected_droms.index('inchworms'):
-            selected_droms.remove('air squats')
-            selected_droms.insert(selected_droms.index('inchworms') + 1, 'air squats')
-
-    if all(x in selected_droms for x in ['walking lunges', 'worlds greatest stretch']) and \
-            selected_droms.index('walking lunges') < selected_droms.index('worlds greatest stretch'):
-            selected_droms.remove('walking lunges')
-            selected_droms.insert(selected_droms.index('worlds greatest stretch') + 1, 'walking lunges')
-
-    if all(x in selected_droms for x in ['walking lunges', 'inchworms']) and \
-            selected_droms.index('walking lunges') < selected_droms.index('inchworms'):
-            selected_droms.remove('walking lunges')
-            selected_droms.insert(selected_droms.index('inchworms') + 1, 'walking lunges')
-
-    if all(x in selected_droms for x in ['push ups', 'thoracic bridges']) and \
-            selected_droms.index('push ups') < selected_droms.index('thoracic bridges'):
-            selected_droms.remove('push ups')
-            selected_droms.insert(selected_droms.index('thoracic bridges') + 1, 'push ups')
-
-
 
     for selected_drom in selected_droms:
         for k, v in droms_dict.items():
@@ -386,7 +336,6 @@ def get_insert_remove_odd_conditionals_droms(selected_droms, selected_metcon):
                 if 'plyos' in v['categories']:
                     selected_droms.remove(selected_drom)
                     selected_droms.append(selected_drom)
-
 
     # print('selected DROMS after odd conditonasls', selected_droms)
     return selected_droms
@@ -627,25 +576,25 @@ def get_why_drom_selected_dict(drom_final_dict, todays_wod):
 
     # list = [(k, v) for k, v in dict.items()]
 
-
     combo = tuple(zip(drom_chosen, exercises_chosen))
     # print('COMBO', combo)
 
     # print('COMBO', list(zip(drom_chosen, exercises_chosen)))
     return combo
 
+
 def add_why_drom_selected_to_drom_final_dict(drom_final_dict, why_drom):
     """THIS CODE ADDS WHAT THE DROM IS TARGETING but I cant get rid of dupes in the 'targets' output"""
     # breakpoint()
     drom_tester_dict = dict(drom_final_dict)
 
-    for k,v in drom_final_dict.items():
+    for k, v in drom_final_dict.items():
         bb = []
 
         # print(k)
         for x in why_drom:
             # print(x)
-    #         # breakpoint()
+            #         # breakpoint()
             for y in x:
                 if y == k:
                     print('yaaaa')
