@@ -7,12 +7,12 @@ from media import *
 import itertools
 app = Flask(__name__)
 
+# TODO: cant get height right for mobile dropdown
 # TODO: get "warms up theres exercises" to appear in phone sidebar
 # TODO: Create banded section.
 # TODO: Pullups warmups not appearing in output
 # TODO: get all the dropdown HREF things to work correctly in sidebar small screen, then center the items
 # TODO: dont let 0.1 on the logo drop down so early
-# TODO: cant get height right for mobile dropdown
 # TODO: Get screen orientation to lock in portrait mode
 # TODO: 1. Create DB category throughout code, 2. fix bug in index.html that doubles-up input (it lookslike
 #  I can put in airsquat 2x) 3. create 'equipment' thing. 4. have users log in
