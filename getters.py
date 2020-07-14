@@ -596,21 +596,12 @@ def add_why_drom_selected_to_drom_final_dict(drom_final_dict, why_drom):
             # print(x)
             #         # breakpoint()
             for y in x:
-                is_in_list = []
+                warmup = x[1]
+                is_not_in_list = warmup not in bb
 
-                if y == k:
-                    print('yaaaa')
-                    print(x[1])
-                    bb.append(x[1])
+                if y == k and is_not_in_list:
+                    print(warmup)
+                    bb.append(warmup)
                     drom_final_dict[k]['targets'] = bb
-    #
-    # print('DROMTESTERDICT:', drom_final_dict)
 
-    result_with_dup_targets = {}
-    for k, v in drom_tester_dict.items():
-        if v not in result_with_dup_targets.values():
-            result_with_dup_targets[k] = v
-
-    # print("RESULTSSSOIJFEWOIFJEWOIEWJF", result_with_dup_targets)
-
-    return result_with_dup_targets
+    return drom_final_dict
