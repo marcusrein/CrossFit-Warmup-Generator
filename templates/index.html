@@ -252,7 +252,7 @@
           <div class="card">
             <div class="card-header" id="headingOne">
               <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between" type="button" data-toggle="collapse"
                   data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                   {{ k.title() }}
                   <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
@@ -290,7 +290,7 @@
           <div class="card">
             <div class="card-header">
               <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between" type="button" data-toggle="collapse"
                   data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
                   aria-controls="{{ v['dropdowns_rand2'] }}">
                   {{ k.title() }}
@@ -302,8 +302,12 @@
               <div class="card">
                 <div class="card-body" style="max-width: 18rem;">
                   <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-                  <p class="card-subtitle mb-2 text-muted"> Warms up these exercises:</p>
-                  <p class="card-subtitle mb-2 text-muted"> {{ v['targets'] }}</p>
+                  <p class="card-subtitle mb-2 text-muted"> Warms up:</p>
+                  <p class="card-subtitle mb-2 text-muted">
+                  {% for target in v['targets'] %}
+                  <span class="badge badge-pill badge-primary">{{ target.title() }}</span>
+                  {% endfor %}
+                    <p></p>
                   <a href="#" class="card-link">Eventual Vid Link</a>
 
                 </div>
@@ -327,7 +331,7 @@
           <div class="card">
             <div class="card-header" id="headingOne3">
               <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between" type="button" data-toggle="collapse"
                   data-target="#collapseOne3" aria-expanded="false" aria-controls="collapseOne3">
                   {{ k.title() }}
                   <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
@@ -519,7 +523,7 @@
     {% if not metcon_warmup: %}
     <section class="col-xs-0 col-sm-0 col-md-6 col-lg-8 ml-sm-auto d-none d-md-block bg">
 
-      <div class="alert alert-success" role="alert">
+      <div class="alert alert-success" style="margin: 30px" role="alert">
         <h4 class="alert-heading">Welcome to the Warmup Generator!</h4>
         <p>Please categorize your exercises by "Easy" and "Tough".</p>
         <hr>
@@ -562,10 +566,10 @@
                 <h6 class="card-subtitle mb-2 text-muted">DROM Warmup</h6>
                 <p></p>
                 <p class="card-subtitle mb-2 text-muted">{{ v['reps'] }}</p>
-                <p class="card-subtitle mb-2 text-muted"> Warms up these exercises:</p>
+                <p class="card-subtitle mb-2 "> Warms up:</p>
                 <p class="card-subtitle mb-2 text-muted">
                   {% for target in v['targets'] %}
-                  <span class="badge badge-pill badge-primary">{{ target }}</span>
+                  <span class="badge badge-pill badge-primary">{{ target.title() }}</span>
                   {% endfor %}
                 </p>
               </div>

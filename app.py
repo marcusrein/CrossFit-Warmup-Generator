@@ -13,8 +13,9 @@ app = Flask(__name__)
 # TODO: * get all the dropdown HREF things to work correctly in sidebar small screen, then center the items
 # TODO: * dont let 0.1 on the logo drop down so early
 # TODO: * Get screen orientation to lock in portrait mode
+# TODO: * card does not display fully on dropdowns
 
-
+# TODO: add draggable inputs
 # TODO: get "warms up these exercises" to appear in phone sidebar
 # TODO: Create banded section.
 # TODO: Pullups warmups not appearing in output
