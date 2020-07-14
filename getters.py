@@ -596,12 +596,12 @@ def add_why_drom_selected_to_drom_final_dict(drom_final_dict, why_drom):
             # print(x)
             #         # breakpoint()
             for y in x:
+                is_in_list = []
+
                 if y == k:
                     print('yaaaa')
                     print(x[1])
-
                     bb.append(x[1])
-
                     drom_final_dict[k]['targets'] = bb
     #
     # print('DROMTESTERDICT:', drom_final_dict)
