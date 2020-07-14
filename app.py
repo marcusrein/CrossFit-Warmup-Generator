@@ -7,7 +7,7 @@ from media import *
 import itertools
 app = Flask(__name__)
 
-# TODO: make inputs alphabetical
+# TODO: get "warms up theres exercises" to appear in phone sidebar
 # TODO: Create banded section.
 # TODO: Pullups warmups not appearing in output
 # TODO: get all the dropdown HREF things to work correctly in sidebar small screen, then center the items
@@ -19,10 +19,11 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
-    from exercises import exercises
+    from exercises import exercises_dict
     from droms import droms_dict
 
-    exercise_keys = exercises.keys()
+    alphabetical_exercises_dict = OrderedDict(sorted(exercises_dict.items(), key=lambda x: x[0]))
+    exercise_keys = alphabetical_exercises_dict.keys()
 
     metcon_time = 'metcon_time'
     drom_time = 'drom_time'

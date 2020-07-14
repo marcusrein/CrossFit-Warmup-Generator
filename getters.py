@@ -178,8 +178,8 @@ def which_movements_are_barbell_movements(todays_wod):
     barbell_movements_from_todays_wod = []
 
     for movement in todays_wod:
-        for k in exercises.keys():
-            if movement == k and exercises[k]['loaded'] == 'barbell':
+        for k in exercises_dict.keys():
+            if movement == k and exercises_dict[k]['loaded'] == 'barbell':
                 barbell_movements_from_todays_wod.append(movement)
 
     return barbell_movements_from_todays_wod
@@ -190,8 +190,8 @@ def which_movements_are_kb_movements(todays_wod):
     kb_movements_from_todays_wod = []
 
     for movement in todays_wod:
-        for k in exercises.keys():
-            if movement == k and exercises[k]['loaded'] == 'kb':
+        for k in exercises_dict.keys():
+            if movement == k and exercises_dict[k]['loaded'] == 'kb':
                 kb_movements_from_todays_wod.append(movement)
 
     return kb_movements_from_todays_wod
@@ -400,7 +400,7 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
     has_barbell_exercise = check_barbell_exercise(todays_wod)
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
     ##GETTERS##
-    mov_cat = get_cat_from_todays_wod(todays_wod, exercises)
+    mov_cat = get_cat_from_todays_wod(todays_wod, exercises_dict)
     todays_possible_movements = get_possible_movements_from_mov_cat(mov_cat, dictionary)
     tally_organized_dict = get_organized_tally_dict(todays_possible_movements)
     tally_organized_times_list = get_times_of_organized_tally_list(tally_organized_dict, dictionary)
@@ -456,7 +456,7 @@ def get_barbell_warmup_movements(todays_wod):
     #### ERROR NOT CORRECTED YET: ONLY MATCHES IF CATGORIES ARE PERFECTLY MATCHED, NOT IF MULTPLE CATEGORIES PRESENT
 
     for wod in todays_wod:
-        for k, v in exercises.items():
+        for k, v in exercises_dict.items():
             if wod == k:
                 if 'cleans' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup With PVC Pipe')
@@ -502,7 +502,7 @@ def get_kettlebell_warmup(todays_wod):
     selected_kb_warmups = []
 
     for wod in todays_wod:
-        for k, v in exercises.items():
+        for k, v in exercises_dict.items():
             if wod == k:
                 if 'swings' in v['category']:
                     selected_kb_warmups_with_dupes.append('Kettlebell Swings')
@@ -566,7 +566,7 @@ def get_why_drom_selected_dict(drom_final_dict, todays_wod):
         # print(key)
         for drom_category in droms_dict[key]['categories']:
             for wod in todays_wod:
-                for exercise_cat in exercises[wod]['category']:
+                for exercise_cat in exercises_dict[wod]['category']:
                     if drom_category == exercise_cat:
                         drom_chosen.append(key)
                         exercises_chosen.append(wod)

@@ -9,7 +9,7 @@ from collections import OrderedDict
 
 ### CATEGORY talks to DROMS.PY
 
-exercises = {
+exercises_dict = {
     # GYMNASTICS
     'air squat': {
         'category': ['gymnastics lower'],
@@ -412,10 +412,11 @@ exercises = {
 # for i in sorted (droms) :
 #     print ((i, droms[i]), end =" ")
 #
-# alpha = OrderedDict(sorted(droms.items(), key=lambda x: x[0]))
-#
-# for k, v in alpha.items():
-#     print(k, v)
+
+alpha = OrderedDict(sorted(exercises_dict.items(), key=lambda x: x[0]))
+
+for k, v in alpha.items():
+    print(k, v)
 
 # for i, j in droms2.items():
 #     sorted_dict = {i: sorted(j['categories'])}

@@ -24,13 +24,13 @@ def remove_none_from_todays_wod(todays_wod):
 
 def check_kb_exercise(todays_wod):
     for wod in todays_wod:
-        if exercises[wod]['loaded'] == 'kb':
+        if exercises_dict[wod]['loaded'] == 'kb':
             return True
 
 
 def check_barbell_exercise(todays_wod):
     for wod in todays_wod:
-        if exercises[wod]['loaded'] == 'barbell':
+        if exercises_dict[wod]['loaded'] == 'barbell':
             return True
 
 
@@ -44,7 +44,7 @@ def check_tough_gymnastics(todays_wod):
 def check_tough_input_add_time(tough_exercises, all_warmup_times_pre_toggle):
     """Adds appropriate times for tough exercises"""
     for tough_exercise in tough_exercises:
-        xxx = exercises.get(tough_exercise)
+        xxx = exercises_dict.get(tough_exercise)
         loaded_value = xxx.get('loaded')
         if loaded_value == 'kb':
             all_warmup_times_pre_toggle['focused_kb_time'] += 3
