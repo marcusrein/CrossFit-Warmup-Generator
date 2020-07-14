@@ -7,7 +7,8 @@ from media import *
 import itertools
 app = Flask(__name__)
 
-# TODO: Ryan Notes: WGS before squats. Create banded section.
+# TODO: make inputs alphabetical
+# TODO: Create banded section.
 # TODO: Pullups warmups not appearing in output
 # TODO: get all the dropdown HREF things to work correctly in sidebar small screen, then center the items
 # TODO: dont let 0.1 on the logo drop down so early
