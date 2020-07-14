@@ -7,13 +7,9 @@ from media import *
 import itertools
 app = Flask(__name__)
 
-# TODO: * cant get height right for mobile dropdown
-# TODO: * spacing of pill in sidebar during phone orientation
-# TODO: * display warms up these exercises as pills or
-# TODO: * get all the dropdown HREF things to work correctly in sidebar small screen, then center the items
 # TODO: * dont let 0.1 on the logo drop down so early
-# TODO: * Get screen orientation to lock in portrait mode
-# TODO: * card does not display fully on dropdowns
+#  TODO: * Get screen orientation to lock in portrait mode
+#  TODO: *need to create custom css file for bootstrap so I can change the bottom line thing on accordions (see index.css line 70)
 
 # TODO: add draggable inputs
 # TODO: get "warms up these exercises" to appear in phone sidebar
