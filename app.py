@@ -7,6 +7,8 @@ from media import *
 import itertools
 app = Flask(__name__)
 
+# TODO: I changed gif image sizes and now metcon isn't displaying correctly (?)
+
 # TODO: * dont let 0.1 on the logo drop down so early
 #  TODO: * Get screen orientation to lock in portrait mode
 #  TODO: *need to create custom css file for bootstrap so I can change the bottom line thing on accordions (see index.css line 70)
