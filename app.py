@@ -89,33 +89,17 @@ def first_page():
 
         drom_img_list = get_images_for_display(selected_droms, droms_dict)
         drom_reps = get_reps(selected_droms, tough_exercises, droms_dict)
-        # USED FOR ITERATING COLLAPSABLE DROPDOWNS IN INDEX.HTML
-        # list_of_numbers_for_collapsable_dropdowns = get_length_of_final_drom_dict_for_index_dropdowns(drom_reps)
-        # print(list_of_numbers_for_collapsable_dropdowns)
 
-        rand_words_for_accordion00 = get_random_word_for_accordions00(drom_reps)
-        rand_words_for_accordion0 = get_random_word_for_accordions0(drom_reps)
-        rand_words_for_accordion1 = get_random_word_for_accordions1(drom_reps)
-        rand_words_for_accordion2 = get_random_word_for_accordions2(drom_reps)
         for idx, item in enumerate(drom_img_list):
             drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
-                                                    # 'dropdowns_rand00': (rand_words_for_accordion00[idx]),
-                                                    # 'dropdowns_rand0': (rand_words_for_accordion0[idx]),
-                                                    # 'dropdowns_rand1': (rand_words_for_accordion1[idx]),
-                                                    # 'dropdowns_rand2': (rand_words_for_accordion2[idx]),
-                                                    # 'targets':?[idx])
                                                     }
-        why_drom = get_why_drom_selected_dict(drom_final_dict, todays_wod)
-        this = add_why_drom_selected_to_drom_final_dict(drom_final_dict, why_drom)
-        print(this)
-
-
-
+        what_droms_warms_up_list = get_why_drom_selected_dict(drom_final_dict, todays_wod)
+        drom_final_dict = add_why_drom_selected_to_drom_final_dict(drom_final_dict, what_droms_warms_up_list)
 
 
 
         # GYMNASTICS SELECTION
-        tough_gymnastics_movements_from_todays_wod = which_movements_are_tough_gymnastics_movements(todays_wod)
+        tough_gymnastics_movements_from_todays_wod = get_which_movements_are_tough_gymnastics_movements(todays_wod)
         tough_gymnastics_warmups = get_gymnastics_warmup(todays_wod)
 
         gymnastics_final_dict = {}
@@ -125,10 +109,11 @@ def first_page():
                 if tough_gymnastics_movement == k:
                     gymnastics_final_dict[k] = v
 
+
         # KB SELECTION
         kb_warmup = {}
 
-        kb_movements_from_todays_wod = which_movements_are_kb_movements(todays_wod)
+        kb_movements_from_todays_wod = get_which_movements_are_kb_movements(todays_wod)
         kb_warmup_movements_list = get_kettlebell_warmup(todays_wod)
         kb_warmup_img_list = get_images_for_display(kb_warmup_movements_list, kb_warmups_dict)
         kb_warmup_url_list = get_url_for_display(kb_warmup_movements_list, kb_warmups_dict)
@@ -142,7 +127,7 @@ def first_page():
         # BARBELL SELECTION
         barbell_warmup = {}
         
-        barbell_movements_from_todays_wod = which_movements_are_barbell_movements(todays_wod)
+        barbell_movements_from_todays_wod = get_which_movements_are_barbell_movements(todays_wod)
         barbell_warmup_movements_list = get_barbell_warmup_movements(todays_wod)
         barbell_warmup_text_list = get_text_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
         barbell_warmup_img_list = get_images_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
@@ -166,7 +151,7 @@ def first_page():
                                easy_exercises=easy_exercises, tough_exercises=tough_exercises,
                                gymnastics_final_dict=gymnastics_final_dict, drom_final_dict=drom_final_dict,
                                todays_wod=todays_wod, error_message=error_message, background_image=background_image,
-                               this=this)
+                               )
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')

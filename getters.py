@@ -10,18 +10,10 @@ import random
 from collections import defaultdict
 
 
-def convert(s):
-    # initialization of string to ""
-    new = ""
-    # traverse in the string
-    for x in s:
-        new += x
-        # return string
-    return new
-
-
 def get_cat_from_todays_wod(todays_wod, dictionary):
-    """Gets todays wod and finds the categories associated with a supplied dictionary"""
+    """
+    Gets todays_wod and finds the categories associated to todays_wod with a supplied dictionary
+    """
     todays_cat_with_dupes = []
     todays_cat = []
     for w in todays_wod:
@@ -38,6 +30,10 @@ def get_cat_from_todays_wod(todays_wod, dictionary):
 
 
 def get_possible_movements_from_mov_cat(mov_cat, dictionary):
+    """
+    Gets possible movements that align with movement categories (mov_cat).
+    Has duplicates (WHICH IS OKAY because future code removes them)
+    """
     possible_warmups = []
     for cat in mov_cat:
         for k, v in dictionary.items():
@@ -87,6 +83,7 @@ def get_sum_times_of_list(x):
 
 
 def get_all_movement_times(todays_wod, tough_exercises):
+    """ Big list of all the movement times alloted """
     metcon_time = 0
     drom_time = 0
 
@@ -173,7 +170,7 @@ def get_all_movement_times(todays_wod, tough_exercises):
     return all_warmup_times_pre_toggle
 
 
-def which_movements_are_barbell_movements(todays_wod):
+def get_which_movements_are_barbell_movements(todays_wod):
     """Delivers a list of barbell movements only from todays wod"""
     barbell_movements_from_todays_wod = []
 
@@ -185,7 +182,7 @@ def which_movements_are_barbell_movements(todays_wod):
     return barbell_movements_from_todays_wod
 
 
-def which_movements_are_kb_movements(todays_wod):
+def get_which_movements_are_kb_movements(todays_wod):
     """Delivers a list of barbell movements only from todays wod"""
     kb_movements_from_todays_wod = []
 
@@ -197,13 +194,15 @@ def which_movements_are_kb_movements(todays_wod):
     return kb_movements_from_todays_wod
 
 
-def which_movements_are_tough_gymnastics_movements(todays_wod):
-    """Delivers a list of barbell movements only from todays wod"""
+def get_which_movements_are_tough_gymnastics_movements(todays_wod):
+    """Delivers a list of barbell movements only from todays wod
+    THIS IS UGLY MAKE THIS NICER
+    """
     tough_gymnastics_movements_from_todays_wod = []
 
     for x in todays_wod:
         if x == 'pull up' or x == 'pistol' or x == 'pistols' or x == 'handstand pushup' or x == 'handstand walk' \
-                or x == 'kipping pull up' or x == 'ring muscle up' or x == 'bar muscle up':
+                or x == 'kipping pull up' or x == 'ring muscle up' or x == 'bar muscle up' or x == 'butterfly pull up':
             tough_gymnastics_movements_from_todays_wod.append(x.title())
     return tough_gymnastics_movements_from_todays_wod
 
@@ -308,8 +307,10 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements, select
 
 
 def get_rpe(drom):
+    """
+    Used in 'get_ordered_drom_list' func to provide a key to organize droms by their RPE level
+    """
     return droms_dict[drom]['rpe']
-
 
 def get_ordered_drom_list(selected_droms):
     selected_droms.sort(key=get_rpe)
@@ -600,7 +601,7 @@ def add_why_drom_selected_to_drom_final_dict(drom_final_dict, why_drom):
                 is_not_in_list = warmup not in bb
 
                 if y == k and is_not_in_list:
-                    print(warmup)
+                    # print(warmup)
                     bb.append(warmup)
                     drom_final_dict[k]['targets'] = bb
 
