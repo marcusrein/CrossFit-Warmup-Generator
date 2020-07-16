@@ -497,7 +497,7 @@
         {% endif %}
 
 
-        {% if barbell_movements_from_todays_wod: %}
+        {% if barbell_warmup: %}
         <div class="list-group w-100 mt-3 d-none d-md-block">
           <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             <b>Barbell Warmups</b>
@@ -524,7 +524,16 @@
     <section class="col-xs-0 col-sm-0 col-md-6 col-lg-8 ml-sm-auto d-none d-md-block bg">
       <div class="alert alert-success" style="margin: 30px" role="alert">
         <h4 class="alert-heading">Welcome to the Warmup Generator!</h4>
-        <p>Please categorize your exercises by "Easy" and "Tough".</p>
+        <p>Please categorize your exercises in today's workout by "Easy" and "Tough".</p>
+        <p>"Easy" = An exercise you can perform for 10 reps or more.</p>
+        <p>"Tough" = An exercise you could perform for fewer than 10 reps.</p>
+        <hr>
+        <p>FAQ: "So where do 'deadlifts' go?"</p>
+        <p> If you can do 20 deadlifts at the weight programmed in your workout (due to the deadlifts being lighter), you should put deadlifts in the "Easy" category.</p>
+        <p>If you can do just 5 deadlifts at the weight programmed by your workout (due to the deadlifts being heavier), then you should put deadlifts in the "Tough" category</p>
+        <p></p>
+
+
         <hr>
         <p class="mb-0">Designed by Marcus Rein PT, DPT, Jordan Rein, and Ryan DeWitt PT, DPT</p>
       </div>
@@ -631,7 +640,7 @@
 
       <p></p>
 
-      {% if barbell_movements_from_todays_wod: %}
+      {% if barbell_warmup: %}
       <div class="container border-bottom">
         <!--            <H3>Barbell Warmup</H3>-->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
@@ -643,6 +652,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{ k.title() }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Barbell Warmup</h6>
+                <p class="card-subtitle mb-2 text-muted"> {{ v['reps'] }} </p>
                 <p class="card-text"> {{ v['text'] }} </p>
                 <a href="{{ v['url'] }}" class="card-link">Video Link</a>
               </div>

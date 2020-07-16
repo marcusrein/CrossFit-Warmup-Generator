@@ -1,13 +1,8 @@
-from exercises import *
 from droms import *
 from metcons import *
-from checks import *
 from filters import *
-from barbell_warmups import *
-import re
 import string
 import random
-from collections import defaultdict
 
 
 def get_cat_from_todays_wod(todays_wod, dictionary):
@@ -312,6 +307,7 @@ def get_rpe(drom):
     """
     return droms_dict[drom]['rpe']
 
+
 def get_ordered_drom_list(selected_droms):
     selected_droms.sort(key=get_rpe)
 
@@ -329,7 +325,6 @@ def get_insert_remove_odd_conditionals_droms(selected_droms, selected_metcon):
     if 'burpees' in selected_droms and 'burpees' in selected_metcon:
         selected_droms.remove('burpees')
         selected_droms.append('down dog to up dog')
-
 
     for selected_drom in selected_droms:
         for k, v in droms_dict.items():
@@ -349,46 +344,6 @@ def get_length_of_final_drom_dict_for_index_dropdowns(drom_reps):
     for index, item in enumerate(drom_reps):
         numbered_list.append(index)
     return numbered_list
-
-
-def get_random_word_for_accordions00(drom_reps):
-    random_string_list = []
-    N = 7
-    for index, item in enumerate(drom_reps):
-        res = ''.join(random.choices(string.ascii_lowercase, k=N))
-        random_string_list.append(res)
-    # print(random_string_list)
-    return random_string_list
-
-
-def get_random_word_for_accordions0(drom_reps):
-    random_string_list = []
-    N = 7
-    for index, item in enumerate(drom_reps):
-        res = ''.join(random.choices(string.ascii_lowercase, k=N))
-        random_string_list.append(res)
-    # print(random_string_list)
-    return random_string_list
-
-
-def get_random_word_for_accordions1(drom_reps):
-    random_string_list = []
-    N = 7
-    for index, item in enumerate(drom_reps):
-        res = ''.join(random.choices(string.ascii_lowercase, k=N))
-        random_string_list.append(res)
-    # print(random_string_list)
-    return random_string_list
-
-
-def get_random_word_for_accordions2(drom_reps):
-    random_string_list = []
-    N = 7
-    for index, item in enumerate(drom_reps):
-        res = ''.join(random.choices(string.ascii_lowercase, k=N))
-        random_string_list.append(res)
-    # print(random_string_list)
-    return random_string_list
 
 
 def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):
@@ -476,6 +431,9 @@ def get_barbell_warmup_movements(todays_wod):
                     selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Deadlifting')
                 if 'squats' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Squatting')
+                if 'lunges' in v['category']:
+                    selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Lunging')
+
 
     for i in selected_barbell_warmups_with_dupes:
         if i not in selected_barbell_warmups:

@@ -7,8 +7,8 @@ barbell_warmups_dict = {
             'category': ['cleans', 'snatches', 'jerks'],
             'url': 'https://youtu.be/mWffzvDGeg4',
             'img': 'https://i.imgur.com/bT38k9u.gif',
-            'text': '1. Down and up \n 2. Elbows high and outside \n 3.Muscle snatch \n 4. Snatch land \n 5. Snatch drop '
-                    '\n 6. Hang power snatch',
+            'text': '1. Down and up \n 2. Elbows high and outside \n 3.Muscle snatch \n 4. Snatch land \n 5. Snatch '
+                    'drop \n 6. Hang power snatch',
             'reps': ['1 Round', '1 Round', '1 Round'],
         },
     'Barbell Clean Warmup':
@@ -17,7 +17,7 @@ barbell_warmups_dict = {
             'url': 'https://www.youtube.com/watch?v=1_IK2yYA3ig',
             'img': 'https://thumbs.gfycat.com/SarcasticEnergeticHalcyon-max-1mb.gif',
             'text': 'Follow the instructional video',
-            'reps': ['1 Round', '1 Round', '1 Round'],
+            'reps': ['8min - Build to working weight', '8min - Build to working weight', '8min - Build to working weight'],
         },
     'Barbell Jerk Warmup':
         {
@@ -25,15 +25,15 @@ barbell_warmups_dict = {
             'url': 'https://www.youtube.com/watch?v=oaUrbXs5fe0',
             'img': 'https://thumbs.gfycat.com/FlawedDazzlingBengaltiger-small.gif',
             'text': 'Follow the instructional video',
-            'reps': ['1 Round', '1 Round', '1 Round'],
+            'reps': ['8min - Build to working weight', '8min - Build to working weight', '8min - Build to working weight'],
         },
     'Barbell Snatch Warmup':
         {
             'category': ['snatches'],
             'url': 'https://www.youtube.com/watch?v=lN4wmP0n9do',
             'img': 'https://media.tenor.com/images/63673ac0244c6f70e8f8cc3df7231076/tenor.gif',
-            'text': 'Follow the instructional video',
-            'reps': ['1 Round', '1 Round', '1 Round'],
+            'text': 'Follow the instructional video. Take 8min to build to your working weight.',
+            'reps': ['8min - Build to working weight', '8min - Build to working weight', '8min - Build to working weight'],
 
         },
     'Progressive Barbell Loading for Pressing':
@@ -43,7 +43,7 @@ barbell_warmups_dict = {
             'img': 'https://thumbs.gfycat.com/CourteousWellwornHammerkop-max-1mb.gif',
             'text': 'Warm-Up Set #1: 40% of your 1RM x 5 \n Warm-Up Set #2: 50% of your 1RM x 5 \n Warm-Up Set #3: '
                     '60% of your 1RM x 3',
-            'reps': ['1 Round', '1 Round', '1 Round'],
+            'reps': ['8min - Build to working weight', '8min - Build to working weight', '8min - Build to working weight'],
 
         },
     'Progressive Barbell Loading for Squatting':
@@ -53,7 +53,7 @@ barbell_warmups_dict = {
             'img': 'https://i.makeagif.com/media/11-12-2015/F83Osw.gif',
             'text': 'Warm-Up Set #1: 40% of your 1RM x 5 \n Warm-Up Set #2: 50% of your 1RM x 5 \n Warm-Up Set #3: '
                     '60% of your 1RM x 3',
-            'reps': ['1 Round', '1 Round', '1 Round'],
+            'reps': ['8min - Build to working weight', '8min - Build to working weight', '8min - Build to working weight'],
 
 
         },
@@ -64,7 +64,16 @@ barbell_warmups_dict = {
             'img': 'https://media4.giphy.com/media/ydPTjG5XbHVEQ/giphy-downsized.gif',
             'text': 'Warm-Up Set #1: 40% of your 1RM x 5 \n Warm-Up Set #2: 50% of your 1RM x 5 \n Warm-Up Set #3: '
                     '60% of your 1RM x 3',
-            'reps': ['1 Round', '1 Round', '1 Round'],
+            'reps': ['8min - Build to working weight', '8min - Build to working weight', '8min - Build to working weight'],
+
+        },
+    'Progressive Barbell Loading for Lunging':
+        {
+            'category': ['lunges'],
+            'url': 'https://www.youtube.com/watch?v=ci4rsmlOk24',
+            'img': 'https://dailyburn.com/life/wp-content/uploads/2017/10/Barbell-Lunge.gif',
+            'text': 'Focus on technique',
+            'reps': ['8min - Build to working weight', '8min - Build to working weight', '8min - Build to working weight'],
 
         },
 }
