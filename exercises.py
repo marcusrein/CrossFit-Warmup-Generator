@@ -17,19 +17,23 @@ exercises_dict = {
     },
     'burpee': {
         'category': ['gymnastics upper', 'gymnastics lower'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['burpees']
     },
     'push up': {
         'category': ['gymnastics upper'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['push ups']
     },
     'strict pull up': {
         'category': ['gymnastics upper'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['shoulder passthroughs']
     },
     'kipping pull up': {
         'category': ['gymnastics upper'],
-        'loaded': False
+        'loaded': False,
+        'force gymnastics': ['scap pull ups', 'kipping warm up']
     },
     'butterfly pull up': {
         'category': ['gymnastics upper'],
