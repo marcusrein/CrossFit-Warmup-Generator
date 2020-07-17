@@ -97,7 +97,7 @@ def get_all_movement_times(todays_wod, tough_exercises):
             and check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
         barbell_time += 10
         kb_time += 5
         tough_gymnastics_time += 10
@@ -105,51 +105,54 @@ def get_all_movement_times(todays_wod, tough_exercises):
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
         barbell_time += 10
         kb_time += 5
     elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
         barbell_time += 10
         tough_gymnastics_time += 10
     elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
         barbell_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
         kb_time += 5
         tough_gymnastics_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
         kb_time += 5
     elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
         tough_gymnastics_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
 
-    if len(tough_exercises) == 1:
+    if len(todays_wod) == 2:
         drom_time += 2
 
-    if len(tough_exercises) > 1:
+    if len(todays_wod) == 3:
+        drom_time += 3
+
+    if len(todays_wod) > 3:
         drom_time += 4
 
     all_warmup_time = (
@@ -212,22 +215,22 @@ def get_metcon_reps(selected_metcon):
     return final
 
 
-def get_reps(selected_movements, tough_exercises, dictionary):
+def get_reps(selected_movements, todays_wod, dictionary):
     reps_big_list = []
     reps_chosen = []
 
     for movement in selected_movements:
         reps_big_list.append(dictionary.get(movement)['reps'])
 
-    if len(tough_exercises) == 0:
+    if len(todays_wod) >= 2:
         for x in reps_big_list:
             y = x[0]
             reps_chosen.append(y)
-    elif len(tough_exercises) == 1:
+    elif len(todays_wod) == 3:
         for x in reps_big_list:
             y = x[1]
             reps_chosen.append(y)
-    elif len(tough_exercises) >= 2:
+    elif len(todays_wod) > 3:
         for x in reps_big_list:
             y = x[2]
             reps_chosen.append(y)
@@ -239,7 +242,7 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements, select
     to addendum (which will be added to selected movements for DROMS"""
     addendum = []
     # breakpoint()
-
+    print('BEFORE ADDENDUMS:', selected_movements)
     if 'push up' in todays_wod and 'push ups' not in selected_movements:
         addendum.append('push ups')
         # print('zxcv')
@@ -262,20 +265,22 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements, select
 
     if any('press' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
         addendum.append('shoulder passthroughs')
-        addendum.append('thoracic bridges')
         # print('foooo')
     if any('jerk' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
         addendum.append('shoulder passthroughs')
-        addendum.append('thoracic bridges')
         # print('fiiii')
     if any('snatch' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
         addendum.append('shoulder passthroughs')
-        addendum.append('thoracic bridges')
         # print('moo')
-    if any('overhead' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
+    if any('overhead squat' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
         addendum.append('shoulder passthroughs')
+        # print('poooop')
+    if any('overhead squat' in wod for wod in todays_wod) and 'thoracic bridges' not in selected_movements:
         addendum.append('thoracic bridges')
-        print('poooop')
+    if any('overhead squat' in wod for wod in todays_wod) and 'core rolling' not in selected_movements:
+        addendum.append('core rolling')
+    if any('overhead squat' in wod for wod in todays_wod) and 'inchworms' not in selected_movements:
+        addendum.append('inchworms')
 
     if any('squat' in wod for wod in todays_wod) and 'banded side steps' not in selected_movements:
         addendum.append('banded side steps')
@@ -297,8 +302,68 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements, select
             not in selected_movements:
         addendum.append('thoracic bridges')
         # print('goo')
-
+    print(addendum)
     return addendum
+
+
+def get_tally_number_for_addendum(drom, droms_compiled):
+    return droms_compiled['TALLY ORGANIZED DICT'][drom][1]
+
+
+def add_addendum_to_selected_droms(addendum_droms, selected_droms, droms_compiled):
+
+    """ if item is not in selected droms and is in addendum droms, remove items with lower tally first! Then add addendums in their place"""
+
+    # imported_dict_tally_of_droms = droms_compiled.get(droms)
+
+
+    # print('TALLY ORG DICT:', imported_dict_tally_of_droms)
+
+
+    if addendum_droms:
+        try:
+            """get list of items to remove from selected_droms"""
+            items_to_be_removed = list(set(selected_droms) - set(addendum_droms))
+            # for possible_removal in items_to_be_removed:
+                # items_to_be_removed.sort(key=get_tally_number_for_addendum(drom, droms_compiled))
+            breakpoint()
+            y = sorted(items_to_be_removed, key=lambda x: droms_compiled['TALLY ORGANIZED DICT'][1])
+            print(y)
+            # print('ITEMS TO BE REMOVED:', items_to_be_removed)
+            # new_dict = {}
+            # for k,v in imported_dict_tally_of_droms.items():
+            #     for thing in items_to_be_removed:
+            #         if thing == k:
+            #             new_dict = [thing][v]
+            # print('NEWDICT: ',new_dict)
+
+
+
+
+
+
+            # print(addendum_droms)
+            # print(selected_droms)
+            for item in addendum_droms:
+                if item not in selected_droms:
+                    selected_droms.remove
+        except IndexError:
+            selected_droms = addendum_droms
+
+
+
+
+    #
+    # if addendum_droms:
+    #     try:
+    #         for i in range(len(addendum_droms)):
+    #             selected_droms.pop()
+    #         for item in addendum_droms:
+    #             selected_droms.insert(0, item)
+    #     except IndexError:
+    #         selected_droms = addendum_droms
+    # #
+    return print(items_to_be_removed)
 
 
 def get_rpe(drom):
@@ -310,9 +375,6 @@ def get_rpe(drom):
 
 def get_ordered_drom_list(selected_droms):
     selected_droms.sort(key=get_rpe)
-
-    print('SELECTED:', selected_droms)
-
     return selected_droms
 
 
@@ -433,7 +495,6 @@ def get_barbell_warmup_movements(todays_wod):
                     selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Squatting')
                 if 'lunges' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Lunging')
-
 
     for i in selected_barbell_warmups_with_dupes:
         if i not in selected_barbell_warmups:

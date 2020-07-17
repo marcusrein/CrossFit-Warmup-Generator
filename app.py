@@ -6,6 +6,8 @@ from media import *
 
 app = Flask(__name__)
 
+# TODO: line 313 in getters.py. Cant figure out this code!
+
 # TODO: * I changed gif image sizes and now metcon isn't displaying correctly (went into index.css)
 # TODO: * dont let 0.1 on the logo drop down so early
 #  TODO: * Get screen orientation to lock in portrait mode
@@ -31,7 +33,7 @@ def first_page():
 
     background_image = media_dict['barbell']['img']
 
-    print(background_image)
+    # print(background_image)
 
     if request.method == 'POST':
         # INPUT
@@ -52,7 +54,7 @@ def first_page():
         metcons_compiled = get_movements_compiled(
             todays_wod, tough_exercises, metcons, metcon_time)
         selected_metcon = metcons_compiled.get('SELECTED MOVEMENTS: ')
-        metcon_reps = get_reps(selected_metcon, tough_exercises, metcons)
+        metcon_reps = get_reps(selected_metcon, todays_wod, metcons)
         metcon_images = get_images_for_display(selected_metcon, metcons)
         for idx, item in enumerate(selected_metcon):
             metcon_warmup[selected_metcon[idx]] = {'img': (metcon_images[idx]),
@@ -65,14 +67,11 @@ def first_page():
         # print('selectedDROMS: ', selected_droms)
         addendum_droms = get_selected_movements_addendum_droms(todays_wod, selected_droms, selected_metcon)
         # print('addendumDROMS: ', addendum_droms)
-        if addendum_droms:
-            try:
-                for i in range(len(addendum_droms)):
-                    selected_droms.pop()
-                for item in addendum_droms:
-                    selected_droms.insert(0, item)
-            except IndexError:
-                selected_droms = addendum_droms
+
+
+        selected_droms_after_addendums = add_addendum_to_selected_droms(addendum_droms, selected_droms, droms_compiled)
+
+
         # print('selected_DROMS after addendums added: ',selected_droms)
         selected_droms_after_ordered_list = get_ordered_drom_list(selected_droms)
         # print('selected drom after addendums and orderings:', selected_droms_after_ordered_list)
@@ -88,7 +87,7 @@ def first_page():
         drom_final_dict = {}
 
         drom_img_list = get_images_for_display(selected_droms, droms_dict)
-        drom_reps = get_reps(selected_droms, tough_exercises, droms_dict)
+        drom_reps = get_reps(selected_droms, todays_wod, droms_dict)
 
         for idx, item in enumerate(drom_img_list):
             drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
@@ -117,7 +116,7 @@ def first_page():
         kb_warmup_movements_list = get_kettlebell_warmup(todays_wod)
         kb_warmup_img_list = get_images_for_display(kb_warmup_movements_list, kb_warmups_dict)
         kb_warmup_url_list = get_url_for_display(kb_warmup_movements_list, kb_warmups_dict)
-        kb_warmup_reps_list = get_reps(kb_warmup_movements_list, tough_exercises, kb_warmups_dict)
+        kb_warmup_reps_list = get_reps(kb_warmup_movements_list, todays_wod, kb_warmups_dict)
         for idx, item in enumerate(kb_warmup_movements_list):
             kb_warmup[kb_warmup_movements_list[idx]] = {'img': (kb_warmup_img_list[idx]),
                                                         'url': (kb_warmup_url_list[idx]),
@@ -132,7 +131,7 @@ def first_page():
         barbell_warmup_text_list = get_text_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
         barbell_warmup_img_list = get_images_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
         barbell_warmup_url_list = get_url_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
-        barbell_warmup_reps_list = get_reps(barbell_warmup_movements_list, tough_exercises, barbell_warmups_dict)
+        barbell_warmup_reps_list = get_reps(barbell_warmup_movements_list, todays_wod, barbell_warmups_dict)
         for idx, item in enumerate(barbell_warmup_movements_list):
             barbell_warmup[barbell_warmup_movements_list[idx]] = {'img': (barbell_warmup_img_list[idx]),
                                                                   'url': (barbell_warmup_url_list[idx]),

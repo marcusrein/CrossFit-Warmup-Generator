@@ -64,7 +64,7 @@ droms_dict = {
     'core rolling': {
         'categories': ['cleans', 'core', 'deadlifts', 'gymnastics upper', 'jerks', 'squats'],
         'time': 2,
-        'reps': ['5 reps', '10 reps', '15 reps'],
+        'reps': ['10 reps', '15 reps', '20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://i.imgur.com/dcwuwLs.gif',
         'rpe': 2,
