@@ -7,11 +7,9 @@ from media import *
 app = Flask(__name__)
 
 #JJ HELP TODOS
-# TODO: * I changed gif image sizes and now metcon isn't displaying correctly (went into index.css)
 # TODO: * dont let 0.1 on the logo drop down so early
 #  TODO: * Get screen orientation to lock in portrait mode
 #  TODO: *need to create custom css file for bootstrap so I can change the bottom line thing on accordions (see index.css line 70)
-# TODO: * Have JJ walk me through how he did the accordion thing.
 
 #MDR TODOS
 # TODO: need to differentiate olympic lift warmup and strength/squat warmup. If olympic lift is in 'easy' warm up one way, if olympic lift is 'tough' warm up another. If strength movement is combined with oly movement in a WOD...?
@@ -67,7 +65,7 @@ def first_page():
         droms_compiled = get_movements_compiled(
             todays_wod, tough_exercises, droms_dict, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
-        breakpoint()
+        # breakpoint()
         print('INITIALLY SELECTED DROMS = ', selected_droms)
         addendum_droms = get_selected_movements_addendum_droms(todays_wod, selected_droms, selected_metcon)
         print('INITIALLY SELECTED addendumDROMS: ', addendum_droms)
@@ -81,7 +79,7 @@ def first_page():
                     selected_droms.insert(0, item)
             except IndexError:
                 selected_droms = addendum_droms
-        breakpoint()
+        # breakpoint()
         print('SELECTED DROMS AFTER ADDENDUM POPPING (this has the issue): ' , selected_droms)
         # print('selected_DROMS after addendums added: ',selected_droms)
         selected_droms_after_addendums_and_odd_conditionals = get_insert_remove_odd_conditionals_droms(

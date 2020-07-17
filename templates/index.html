@@ -405,13 +405,13 @@
             <div class="card-header" id="headingOne5">
               <h2 class="mb-0">
                 <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                  data-target="#collapseOne5" aria-expanded="false" aria-controls="collapseOne5">
+                  data-target="#{{ k.replace(' ', '') }}" aria-expanded="false" aria-controls="collapseOne5">
                   {{ k.title() }}
                   <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
                 </button>
               </h2>
             </div>
-            <div id="collapseOne5" class="collapse" aria-labelledby="headingOne5" data-parent="#accordionExample">
+            <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="headingOne5">
               <div class="card-body card-deck">
                 <div class="card" style="max-width: 18rem;">
                   <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />

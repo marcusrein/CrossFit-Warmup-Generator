@@ -3,7 +3,13 @@
   height: 15vw;
   object-fit: cover;
 }
+.sidebar .card-img-top{
+  height: 80%
+}
 
+.sidebar .accordion>.card>.card-header {
+  margin-bottom: 0px
+}
 .sidebar {
   position: fixed;
   top: 0;
@@ -60,12 +66,7 @@
   overflow-y: scroll;
   max-height:400px;
 }
-.card-img-top {
-    width: 100%;
-    height: 80%;
-    object-fit: cover;
-    padding-bottom: 10px
-}
+
 
 
 /*  THIS IS THE THING THAT IS MESSING UP THE BOTTOM LINE ( see TODO list)*/
