@@ -224,7 +224,7 @@ exercises_dict = {
         'loaded': 'barbell'
     },
     'overhead squat': {
-        'category': ['squats'],
+        'category': ['squats', 'overhead squats'],
         'loaded': 'barbell'
     },
     'split squat': {

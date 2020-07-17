@@ -11,6 +11,9 @@ app = Flask(__name__)
 #  TODO: * Get screen orientation to lock in portrait mode
 #  TODO: *need to create custom css file for bootstrap so I can change the bottom line thing on accordions (see index.css line 70)
 
+# TODO: need to differentiate olympic lift warmup and strength/squat warmup. If olympic lift is in 'easy' warm up one way, if olympic lift is 'tough' warm up another. If strength movement is combined with oly movement in a WOD...?
+
+#TODO: need an overhead squat category. see barbellwarmups.py 'overhead squat warmup'
 # TODO: add draggable inputs
 # TODO: get "warms up these exercises" to appear in phone sidebar
 # TODO: Create banded section.

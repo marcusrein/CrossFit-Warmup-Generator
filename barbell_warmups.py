@@ -19,6 +19,14 @@ barbell_warmups_dict = {
             'text': 'Follow the instructional video',
             'reps': ['8min - Build to working weight', '8min - Build to working weight', '8min - Build to working weight'],
         },
+    'Barbell Overhead Warmup':
+        {
+            'category': ['snatches', 'jerks', 'overhead squats'],
+            'url': 'https://www.youtube.com/watch?v=1_IK2yYA3ig',
+            'img': 'https://media2.giphy.com/media/ZBn6RZxzQp5Rrov88u/giphy.gif',
+            'text': '5-10 BB Front Squats, 5-10 BB Strict Press, 5-10 BB Back Squats, 5-10 BB Overhead Squats',
+            'reps': ['8min - Build to working weight', '8min - Build to working weight', '8min - Build to working weight'],
+        },
     'Barbell Jerk Warmup':
         {
             'category': ['jerks'],
@@ -36,7 +44,7 @@ barbell_warmups_dict = {
             'reps': ['8min - Build to working weight', '8min - Build to working weight', '8min - Build to working weight'],
 
         },
-    'Progressive Barbell Loading for Pressing':
+    'Barbell Loading for Pressing':
         {
             'category': ['presses'],
             'url': 'https://www.youtube.com/watch?v=uf2s3KFQWfI',
@@ -46,7 +54,7 @@ barbell_warmups_dict = {
             'reps': ['8min - Build to working weight', '8min - Build to working weight', '8min - Build to working weight'],
 
         },
-    'Progressive Barbell Loading for Squatting':
+    'Barbell Loading for Squatting':
         {
             'category': ['squats'],
             'url': 'https://youtu.be/pCEpcIo-O4I',
@@ -57,7 +65,7 @@ barbell_warmups_dict = {
 
 
         },
-    'Progressive Barbell Loading for Deadlifting':
+    'Barbell Loading for Deadlifting':
         {
             'category': ['deadlifts'],
             'url': 'https://www.youtube.com/watch?v=Qpr5i4DTpk0',
@@ -67,7 +75,7 @@ barbell_warmups_dict = {
             'reps': ['8min - Build to working weight', '8min - Build to working weight', '8min - Build to working weight'],
 
         },
-    'Progressive Barbell Loading for Lunging':
+    'Barbell Loading for Lunging':
         {
             'category': ['lunges'],
             'url': 'https://www.youtube.com/watch?v=ci4rsmlOk24',

@@ -97,7 +97,7 @@ def get_all_movement_times(todays_wod, tough_exercises):
             and check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
         barbell_time += 10
         kb_time += 5
         tough_gymnastics_time += 10
@@ -105,51 +105,54 @@ def get_all_movement_times(todays_wod, tough_exercises):
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
         barbell_time += 10
         kb_time += 5
     elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
         barbell_time += 10
         tough_gymnastics_time += 10
     elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
         barbell_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
         kb_time += 5
         tough_gymnastics_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
         kb_time += 5
     elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
         tough_gymnastics_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 10
+        drom_time += 12
 
-    if len(tough_exercises) == 1:
+    if len(todays_wod) == 2:
         drom_time += 2
 
-    if len(tough_exercises) > 1:
+    if len(todays_wod) == 3:
+        drom_time += 3
+
+    if len(todays_wod) > 3:
         drom_time += 4
 
     all_warmup_time = (
@@ -262,20 +265,21 @@ def get_selected_movements_addendum_droms(todays_wod, selected_movements, select
 
     if any('press' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
         addendum.append('shoulder passthroughs')
-        addendum.append('thoracic bridges')
         # print('foooo')
     if any('jerk' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
         addendum.append('shoulder passthroughs')
-        addendum.append('thoracic bridges')
         # print('fiiii')
     if any('snatch' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
         addendum.append('shoulder passthroughs')
-        addendum.append('thoracic bridges')
         # print('moo')
-    if any('overhead' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
+
+    if any('overhead squat' in wod for wod in todays_wod) and 'shoulder passthroughs' not in selected_movements:
         addendum.append('shoulder passthroughs')
-        addendum.append('thoracic bridges')
-        print('poooop')
+        # print('poooop')
+    if any('overhead squat' in wod for wod in todays_wod) and 'core rolling' not in selected_movements:
+        addendum.append('core rolling')
+    if any('overhead squat' in wod for wod in todays_wod) and 'inchworms' not in selected_movements:
+        addendum.append('inchworms')
 
     if any('squat' in wod for wod in todays_wod) and 'banded side steps' not in selected_movements:
         addendum.append('banded side steps')
@@ -311,7 +315,7 @@ def get_rpe(drom):
 def get_ordered_drom_list(selected_droms):
     selected_droms.sort(key=get_rpe)
 
-    print('SELECTED:', selected_droms)
+    # print('SELECTED:', selected_droms)
 
     return selected_droms
 
@@ -419,38 +423,61 @@ def get_barbell_warmup_movements(todays_wod):
                     selected_barbell_warmups_with_dupes.append('Barbell Clean Warmup')
                 if 'jerks' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup With PVC Pipe')
+                    selected_barbell_warmups_with_dupes.append('Barbell Overhead Warmup')
                     selected_barbell_warmups_with_dupes.append('Barbell Jerk Warmup')
                 if 'snatches' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup With PVC Pipe')
+                    selected_barbell_warmups_with_dupes.append('Barbell Overhead Warmup')
                     selected_barbell_warmups_with_dupes.append('Barbell Snatch Warmup')
                 if 'presses' in v['category']:
-                    selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Pressing')
+                    selected_barbell_warmups_with_dupes.append('Barbell Overhead Warmup')
+                    selected_barbell_warmups_with_dupes.append('Barbell Loading for Pressing')
                 if 'overhead presses' in v['category']:
-                    selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Pressing')
+                    selected_barbell_warmups_with_dupes.append('Barbell Overhead Warmup')
+                    selected_barbell_warmups_with_dupes.append('Barbell Loading for Pressing')
+                if 'overhead squats' in v['category']:
+                    selected_barbell_warmups_with_dupes.append('Barbell Overhead Warmup')
                 if 'deadlifts' in v['category']:
-                    selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Deadlifting')
+                    selected_barbell_warmups_with_dupes.append('Barbell Loading for Deadlifting')
                 if 'squats' in v['category']:
-                    selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Squatting')
+                    selected_barbell_warmups_with_dupes.append('Barbell Loading for Squatting')
                 if 'lunges' in v['category']:
-                    selected_barbell_warmups_with_dupes.append('Progressive Barbell Loading for Lunging')
+                    selected_barbell_warmups_with_dupes.append('Barbell Loading for Lunging')
 
-
+        ## REMOVES DUPLICATES
     for i in selected_barbell_warmups_with_dupes:
         if i not in selected_barbell_warmups:
             selected_barbell_warmups.append(i)
 
+
+        ## ORGANIZES THE OUTPUT IN ORDER FROM LAST TO FIRST)
+
+    print('111:',selected_barbell_warmups)
+
+
     if 'Basic Burgener Warmup With PVC Pipe' in selected_barbell_warmups:
         selected_barbell_warmups.remove('Basic Burgener Warmup With PVC Pipe')
         selected_barbell_warmups.insert(0, 'Basic Burgener Warmup With PVC Pipe')
-    if 'Barbell Jerk Warmup' in selected_barbell_warmups:
-        selected_barbell_warmups.remove('Barbell Jerk Warmup')
-        selected_barbell_warmups.insert(1, 'Barbell Jerk Warmup')
-    if 'Barbell Snatch Warmup' in selected_barbell_warmups:
-        selected_barbell_warmups.remove('Barbell Snatch Warmup')
-        selected_barbell_warmups.insert(1, 'Barbell Snatch Warmup')
+    if 'Barbell Overhead Warmup' in selected_barbell_warmups:
+        selected_barbell_warmups.remove('Barbell Overhead Warmup')
+        selected_barbell_warmups.append('Barbell Overhead Warmup')
+    if 'Barbell Loading for Squatting'in selected_barbell_warmups:
+        selected_barbell_warmups.remove('Barbell Loading for Squatting')
+        selected_barbell_warmups.append('Barbell Loading for Squatting')
+
     if 'Barbell Clean Warmup' in selected_barbell_warmups:
         selected_barbell_warmups.remove('Barbell Clean Warmup')
-        selected_barbell_warmups.insert(1, 'Barbell Clean Warmup')
+        selected_barbell_warmups.append('Barbell Clean Warmup')
+    if 'Barbell Jerk Warmup' in selected_barbell_warmups:
+        selected_barbell_warmups.remove('Barbell Jerk Warmup')
+        selected_barbell_warmups.append('Barbell Jerk Warmup')
+    if 'Barbell Snatch Warmup' in selected_barbell_warmups:
+        selected_barbell_warmups.remove('Barbell Snatch Warmup')
+        selected_barbell_warmups.append('Barbell Snatch Warmup')
+
+
+    print('222', selected_barbell_warmups)
+
     return selected_barbell_warmups
 
 
