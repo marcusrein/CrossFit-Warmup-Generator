@@ -6,18 +6,20 @@ from media import *
 
 app = Flask(__name__)
 
+#JJ HELP TODOS
 # TODO: * I changed gif image sizes and now metcon isn't displaying correctly (went into index.css)
 # TODO: * dont let 0.1 on the logo drop down so early
 #  TODO: * Get screen orientation to lock in portrait mode
 #  TODO: *need to create custom css file for bootstrap so I can change the bottom line thing on accordions (see index.css line 70)
+# TODO: * Have JJ walk me through how he did the accordion thing.
 
+#MDR TODOS
 # TODO: need to differentiate olympic lift warmup and strength/squat warmup. If olympic lift is in 'easy' warm up one way, if olympic lift is 'tough' warm up another. If strength movement is combined with oly movement in a WOD...?
-
 #TODO: need an overhead squat category. see barbellwarmups.py 'overhead squat warmup'
+
+# LONG TERM TODOS:
 # TODO: add draggable inputs
-# TODO: get "warms up these exercises" to appear in phone sidebar
 # TODO: Create banded section.
-# TODO: Pullups warmups not appearing in output
 # TODO: 1. Create DB category throughout code, 2. fix bug in index.html that doubles-up input (it lookslike
 #  I can put in airsquat 2x) 3. create 'equipment' thing. 4. have users log in
 
@@ -65,9 +67,12 @@ def first_page():
         droms_compiled = get_movements_compiled(
             todays_wod, tough_exercises, droms_dict, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
-        # print('selectedDROMS: ', selected_droms)
+        breakpoint()
+        print('INITIALLY SELECTED DROMS = ', selected_droms)
         addendum_droms = get_selected_movements_addendum_droms(todays_wod, selected_droms, selected_metcon)
-        # print('addendumDROMS: ', addendum_droms)
+        print('INITIALLY SELECTED addendumDROMS: ', addendum_droms)
+
+        ## THIS CODE INCORRECTLY REMOVES WHATEVER IS AT THE END OF THE LIST.
         if addendum_droms:
             try:
                 for i in range(len(addendum_droms)):
@@ -76,14 +81,20 @@ def first_page():
                     selected_droms.insert(0, item)
             except IndexError:
                 selected_droms = addendum_droms
+        breakpoint()
+        print('SELECTED DROMS AFTER ADDENDUM POPPING (this has the issue): ' , selected_droms)
         # print('selected_DROMS after addendums added: ',selected_droms)
-        selected_droms_after_ordered_list = get_ordered_drom_list(selected_droms)
-        # print('selected drom after addendums and orderings:', selected_droms_after_ordered_list)
         selected_droms_after_addendums_and_odd_conditionals = get_insert_remove_odd_conditionals_droms(
-            selected_droms_after_ordered_list, selected_metcon)
+            selected_droms, selected_metcon)
+
+        print('SELECTED ROMS AFTER ADDENDUMS AND ODD CONDITIONALS (no issue): ', selected_droms_after_addendums_and_odd_conditionals)
+
+        selected_droms_ordered_list = get_ordered_drom_list(selected_droms_after_addendums_and_odd_conditionals)
+        print('SELECTED DROMS AFTER ORDERING:', selected_droms_ordered_list)
+
         # print('selectedDROMS after addendums, orderings, and odd condiontlas',
         # selected_droms_after_addendums_and_odd_conditionals)
-        selected_droms = selected_droms_after_addendums_and_odd_conditionals
+        selected_droms = selected_droms_ordered_list
         # print(selected_droms)
 
 

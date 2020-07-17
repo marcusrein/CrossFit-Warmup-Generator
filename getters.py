@@ -322,20 +322,10 @@ def get_ordered_drom_list(selected_droms):
 
 def get_insert_remove_odd_conditionals_droms(selected_droms, selected_metcon):
     """After appending ^^, finds specific odd appendings"""
-    if 'banded side steps' in selected_droms:
-        selected_droms.remove('banded side steps')
-        selected_droms.insert(0, 'banded side steps')
 
     if 'burpees' in selected_droms and 'burpees' in selected_metcon:
         selected_droms.remove('burpees')
         selected_droms.append('down dog to up dog')
-
-    for selected_drom in selected_droms:
-        for k, v in droms_dict.items():
-            if selected_drom == k:
-                if 'plyos' in v['categories']:
-                    selected_droms.remove(selected_drom)
-                    selected_droms.append(selected_drom)
 
     # print('selected DROMS after odd conditonasls', selected_droms)
     return selected_droms
@@ -452,7 +442,7 @@ def get_barbell_warmup_movements(todays_wod):
 
         ## ORGANIZES THE OUTPUT IN ORDER FROM LAST TO FIRST)
 
-    print('111:',selected_barbell_warmups)
+    # print('111:',selected_barbell_warmups)
 
 
     if 'Basic Burgener Warmup With PVC Pipe' in selected_barbell_warmups:
@@ -476,7 +466,7 @@ def get_barbell_warmup_movements(todays_wod):
         selected_barbell_warmups.append('Barbell Snatch Warmup')
 
 
-    print('222', selected_barbell_warmups)
+    # print('222', selected_barbell_warmups)
 
     return selected_barbell_warmups
 
