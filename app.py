@@ -35,10 +35,6 @@ def first_page():
     metcon_time = 'metcon_time'
     drom_time = 'drom_time'
 
-    background_image = media_dict['barbell']['img']
-
-    print(background_image)
-
     if request.method == 'POST':
         # INPUT
         easy_exercises = request.form.getlist('easy_exercises_form')
@@ -64,30 +60,9 @@ def first_page():
             metcon_warmup[selected_metcon[idx]] = {'img': (metcon_images[idx]),
                                                    'reps': (metcon_reps[idx])}
 
-        # DROM SELECTION AND IMAGE SELECTION
+        # DROM SELECTION
 
-        forced_droms = get_force_from_todays_wod(todays_wod, exercises_dict)
-        droms_compiled = get_movements_compiled(
-            todays_wod, tough_exercises, droms_dict, drom_time)
-        selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
-        drom_warmup_combo = get_combined_drom_warmup(forced_droms, selected_droms)
-
-        tally_drom_warmup_dict = get_organized_tally_dict(drom_warmup_combo)
-        tally_drom_warmup_times_list = get_times_of_organized_tally_list(tally_drom_warmup_dict, droms_dict)
-        tally_drom_warmup_organized_times_sum = get_sum_times_of_list(tally_drom_warmup_times_list)
-        drom_warmup_times_pre_toggle = get_all_movement_times(todays_wod, tough_exercises)
-        drom_warmup_prescribed_time = drom_warmup_times_pre_toggle[str(drom_time)]
-        selected_movements = filter_pop_and_select(tally_drom_warmup_dict, tally_drom_warmup_times_list,
-                                                   tally_drom_warmup_organized_times_sum, drom_warmup_prescribed_time)
-        print('CHEESEBURGER", ', selected_movements)
-
-        # selected_droms_after_addendums_and_odd_conditionals = get_insert_remove_odd_conditionals_droms(
-        #     selected_droms, selected_metcon)
-
-        selected_droms_ordered_list = get_ordered_drom_list(selected_droms)
-
-        drom_warmup = selected_droms_ordered_list
-
+        drom_warmup = get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon)
 
         ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
         drom_final_dict = {}
@@ -143,8 +118,8 @@ def first_page():
                                                                   'reps': (barbell_warmup_reps_list[idx])
                                                                   }
 
-        return render_template('index.html', droms_compiled=droms_compiled, metcon_warmup=metcon_warmup,
-                               exercise_keys=exercise_keys, selected_droms=selected_droms,
+        return render_template('index.html', drom_warmup=drom_warmup, metcon_warmup=metcon_warmup,
+                               exercise_keys=exercise_keys,
                                barbell_warmup=barbell_warmup,
                                barbell_movements_from_todays_wod=
                                barbell_movements_from_todays_wod,
@@ -153,12 +128,12 @@ def first_page():
                                tough_gymnastics_movements_from_todays_wod,
                                easy_exercises=easy_exercises, tough_exercises=tough_exercises,
                                gymnastics_final_dict=gymnastics_final_dict, drom_final_dict=drom_final_dict,
-                               todays_wod=todays_wod, error_message=error_message, background_image=background_image,
+                               todays_wod=todays_wod, error_message=error_message,
                                )
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
-        return render_template('index.html', exercise_keys=exercise_keys, background_image=background_image)
+        return render_template('index.html', exercise_keys=exercise_keys)
 
 
 if __name__ == '__main__':

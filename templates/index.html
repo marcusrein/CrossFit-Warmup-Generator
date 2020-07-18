@@ -59,7 +59,7 @@
           Warmup Generator
       </a>
       <span class="badge badge-warning badge-pill inline-block text-xs blocks"
-        style="font-size: 13px; margin-top: -7px;">Ver 0.1</span>
+        style="font-size: 13px; margin-top: -7px;">Ver 0.2</span>
 
       </h1>
 
@@ -573,11 +573,11 @@
                 <h5 class="card-title">{{ k.title() }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">DROM Warmup</h6>
                 <p></p>
-                <p class="card-subtitle mb-2 text-muted">{{ v['reps'] }}</p>
+                <p class="badge badge-pill badge-primary">{{ v['reps'] }}</p>
                 <p class="card-subtitle mb-2 "> Warms up:</p>
                 <p class="card-subtitle mb-2 text-muted">
                   {% for target in v['targets'] %}
-                  <span class="badge badge-pill badge-primary">{{ target.title() }}</span>
+                  <span class="badge badge-pill badge-secondary">{{ target.title() }}</span>
                   {% endfor %}
                 </p>
               </div>
@@ -668,15 +668,6 @@
 
       <p></p>
       <div class="container">
-
-
-        {{ droms_compiled }}
-        <p></p>
-        <p></p>
-        {{ easy_exercises }}
-        <p></p>
-        <p></p>
-        {{ tough_exercises }}
 
       </div>
 
