@@ -11,7 +11,7 @@
   margin-bottom: 0px
 }
 .sidebar {
-  position: fixed;
+  position: sticky;
   top: 0;
   bottom: 0;
   left: 0;
@@ -24,6 +24,9 @@
   flex-flow: column;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
   min-height: 100vh;
+  border-top-style: solid;
+  border-width: 1px;
+  border-color: grey;
 }
 
 @media only screen and (max-width: 600px) {
@@ -33,7 +36,6 @@
 }
 
 .content {
-
   /* Content fills the rest of the container*/
   flex: 1 0 auto;
   display: flex;
@@ -68,7 +70,9 @@
 }
 
 
-
+.navbar {
+  padding: 0rem 1rem;
+}
 
 /*  THIS IS THE THING THAT IS MESSING UP THE BOTTOM LINE ( see TODO list)*/
 /* .accordion .card:first-of-type { */
