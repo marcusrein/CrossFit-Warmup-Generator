@@ -45,8 +45,21 @@ def get_force_from_todays_wod(todays_wod, exercises_dict):
                 except KeyError:
                     pass
 
-    return {'forced droms:': forced_droms, 'forced gymnastics': forced_gymnastics, 'forced kb' : forced_kb, 'forced barbell' :
+    return {'forced droms': forced_droms, 'forced gymnastics': forced_gymnastics, 'forced kb' : forced_kb, 'forced barbell' :
         forced_barbell}
+
+
+def get_combined_drom_warmup(forced_droms, selected_droms):
+    drom_warmup = []
+    for item in forced_droms['forced droms']:
+        drom_warmup.append(item)
+    for ab12 in selected_droms:
+        warmup = ab12
+        not_in_list = warmup not in drom_warmup
+        if not_in_list:
+            drom_warmup.append(ab12)
+
+    return drom_warmup
 
 
 def get_cat_from_todays_wod(todays_wod, dictionary):
@@ -85,7 +98,7 @@ def get_possible_movements_from_mov_cat(mov_cat, dictionary):
 def get_organized_tally_dict(possible_movements):
     """
     :param possible_movements: inputs todays possible DROMs, tallys them, sorts them, partially randomizes them if their
-    values are equal, then sorts them againnn.
+    values are equal, then sorts them again.
     :return: organized (partially random if equal) dictionary of todays possible DROMS
     """
     tally_of_movements = {}

@@ -65,53 +65,41 @@ def first_page():
                                                    'reps': (metcon_reps[idx])}
 
         # DROM SELECTION AND IMAGE SELECTION
+
+        forced_droms = get_force_from_todays_wod(todays_wod, exercises_dict)
         droms_compiled = get_movements_compiled(
             todays_wod, tough_exercises, droms_dict, drom_time)
         selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
-        # breakpoint()
-        print('INITIALLY SELECTED DROMS = ', selected_droms)
-        addendum_droms = get_selected_movements_addendum_droms(todays_wod, selected_droms, selected_metcon)
-        print('INITIALLY SELECTED addendumDROMS: ', addendum_droms)
+        drom_warmup_combo = get_combined_drom_warmup(forced_droms, selected_droms)
 
-        ## THIS CODE INCORRECTLY REMOVES WHATEVER IS AT THE END OF THE LIST.
-        if addendum_droms:
-            try:
-                for i in range(len(addendum_droms)):
-                    selected_droms.pop()
-                for item in addendum_droms:
-                    selected_droms.insert(0, item)
-            except IndexError:
-                selected_droms = addendum_droms
-        # breakpoint()
-        print('SELECTED DROMS AFTER ADDENDUM POPPING (this has the issue): ' , selected_droms)
-        # print('selected_DROMS after addendums added: ',selected_droms)
-        selected_droms_after_addendums_and_odd_conditionals = get_insert_remove_odd_conditionals_droms(
-            selected_droms, selected_metcon)
+        tally_drom_warmup_dict = get_organized_tally_dict(drom_warmup_combo)
+        tally_drom_warmup_times_list = get_times_of_organized_tally_list(tally_drom_warmup_dict, droms_dict)
+        tally_drom_warmup_organized_times_sum = get_sum_times_of_list(tally_drom_warmup_times_list)
+        drom_warmup_times_pre_toggle = get_all_movement_times(todays_wod, tough_exercises)
+        drom_warmup_prescribed_time = drom_warmup_times_pre_toggle[str(drom_time)]
+        selected_movements = filter_pop_and_select(tally_drom_warmup_dict, tally_drom_warmup_times_list,
+                                                   tally_drom_warmup_organized_times_sum, drom_warmup_prescribed_time)
+        print('CHEESEBURGER", ', selected_movements)
 
-        print('SELECTED ROMS AFTER ADDENDUMS AND ODD CONDITIONALS (no issue): ', selected_droms_after_addendums_and_odd_conditionals)
+        # selected_droms_after_addendums_and_odd_conditionals = get_insert_remove_odd_conditionals_droms(
+        #     selected_droms, selected_metcon)
 
-        selected_droms_ordered_list = get_ordered_drom_list(selected_droms_after_addendums_and_odd_conditionals)
-        print('SELECTED DROMS AFTER ORDERING:', selected_droms_ordered_list)
+        selected_droms_ordered_list = get_ordered_drom_list(selected_droms)
 
-        # print('selectedDROMS after addendums, orderings, and odd condiontlas',
-        # selected_droms_after_addendums_and_odd_conditionals)
-        selected_droms = selected_droms_ordered_list
-        # print(selected_droms)
+        drom_warmup = selected_droms_ordered_list
 
 
         ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
         drom_final_dict = {}
 
-        drom_img_list = get_images_for_display(selected_droms, droms_dict)
-        drom_reps = get_reps(selected_droms, tough_exercises, droms_dict)
+        drom_img_list = get_images_for_display(drom_warmup, droms_dict)
+        drom_reps = get_reps(drom_warmup, tough_exercises, droms_dict)
 
         for idx, item in enumerate(drom_img_list):
-            drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
+            drom_final_dict[drom_warmup[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
                                                     }
         what_droms_warms_up_list = get_why_drom_selected_dict(drom_final_dict, todays_wod)
         drom_final_dict = add_why_drom_selected_to_drom_final_dict(drom_final_dict, what_droms_warms_up_list)
-
-
 
         # GYMNASTICS SELECTION
         tough_gymnastics_movements_from_todays_wod = get_which_movements_are_tough_gymnastics_movements(todays_wod)
