@@ -60,7 +60,6 @@ droms_dict = {
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif',
         'rpe': 4,
-        'force': True
     },
     'core rolling': {
         'categories': ['cleans', 'core', 'deadlifts', 'gymnastics upper', 'jerks', 'squats'],
