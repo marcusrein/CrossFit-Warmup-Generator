@@ -17,7 +17,6 @@ def get_force_from_todays_wod(todays_wod, exercises_dict):
     forced_kb = []
     forced_barbell = []
 
-
     for item in todays_wod:
         for k, v in exercises_dict.items():
             if item == k:
@@ -46,7 +45,8 @@ def get_force_from_todays_wod(todays_wod, exercises_dict):
                 except KeyError:
                     pass
 
-    return forced_droms, forced_gymnastics, forced_kb, forced_barbell
+    return {'forced droms:': forced_droms, 'forced gymnastics': forced_gymnastics, 'forced kb' : forced_kb, 'forced barbell' :
+        forced_barbell}
 
 
 def get_cat_from_todays_wod(todays_wod, dictionary):
