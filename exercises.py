@@ -237,7 +237,7 @@ exercises_dict = {
     'front squat': {
         'category': ['squats'],
         'loaded': 'barbell',
-        'force drom': ['air squats'],
+        'force drom': ['air squats', 'dead bugs'],
     },
     'back squat': {
         'category': ['squats'],
@@ -257,12 +257,12 @@ exercises_dict = {
     'front box squat': {
         'category': ['squats'],
         'loaded': 'barbell',
-        'force drom': ['air squats'],
+        'force drom': ['air squats', 'dead bugs'],
     },
     'front pause squat': {
         'category': ['squats'],
         'loaded': 'barbell',
-        'force drom': ['air squats'],
+        'force drom': ['air squats', 'dead bugs'],
     },
     'high bar back squat': {
         'category': ['squats'],
@@ -277,7 +277,7 @@ exercises_dict = {
     'overhead squat': {
         'category': ['squats', 'overhead squats'],
         'loaded': 'barbell',
-        'force drom': ['air squats'],
+        'force drom': ['air squats', 'core rolling', 'inchworms'],
     },
     'split squat': {
         'category': ['squats'],
@@ -294,7 +294,9 @@ exercises_dict = {
 
     'clean': {
         'category': ['cleans'],
-        'loaded': 'barbell'
+        'loaded': 'barbell',
+        'force drom': ['air squats', 'dead bugs'],
+
     },
     'power clean': {
         'category': ['cleans'],
