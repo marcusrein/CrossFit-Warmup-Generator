@@ -33,15 +33,20 @@ exercises_dict = {
     'kipping pull up': {
         'category': ['gymnastics upper'],
         'loaded': False,
+        'force drom': ['shoulder passthroughs'],
         'force gymnastics': ['scap pull ups', 'kipping warm up']
     },
     'butterfly pull up': {
         'category': ['gymnastics upper'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['shoulder passthroughs'],
+
     },
     'chin up': {
         'category': ['gymnastics upper'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['shoulder passthroughs'],
+
     },
     'sit up': {
         'category': ['gymnastics upper'],
@@ -49,39 +54,55 @@ exercises_dict = {
     },
     'hollow rock': {
         'category': ['gymnastics upper', 'core'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['core rolling'],
     },
     'mountain climber': {
         'category': ['core'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['down dog to up dog'],
     },
     'handstand': {
         'category': ['gymnastics upper'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['shoulder passthroughs', 'inchworms', 'thoracic bridges'],
+
     },
     'handstand pushup': {
         'category': ['gymnastics upper'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['shoulder passthroughs', 'inchworms', 'thoracic bridges'],
+
     },
     'handstand hold': {
         'category': ['gymnastics upper'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['shoulder passthroughs', 'inchworms', 'thoracic bridges'],
+
     },
     'box pike pushup': {
         'category': ['gymnastics upper'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['shoulder passthroughs', 'inchworms', 'thoracic bridges'],
+
     },
     'ring dip': {
         'category': ['gymnastics upper'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['shoulder passthroughs', 'inchworms', 'thoracic bridges'],
+
     },
     'ring muscle up': {
         'category': ['gymnastics upper'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['shoulder passthroughs', 'inchworms', 'bear crawls'],
+
     },
     'bar muscle up': {
         'category': ['gymnastics upper'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['shoulder passthroughs', 'inchworms', 'thoracic bridges'],
+
     },
     'ring row': {
         'category': ['gymnastics upper'],
@@ -100,7 +121,9 @@ exercises_dict = {
     },
     'kettlebell snatch': {
         'category': ['kettlebells'],
-        'loaded': 'kb'
+        'loaded': 'kb',
+        'force drom': ['shoulder passthroughs', 'thoracic bridges'],
+
     },
     'kettlebell clean': {
         'category': ['kettlebells'],
@@ -108,11 +131,13 @@ exercises_dict = {
     },
     'kettlebell jerk': {
         'category': ['kettlebells'],
-        'loaded': 'kb'
+        'loaded': 'kb',
+        'force drom': ['shoulder passthroughs', 'thoracic bridges'],
     },
     'kettlebell press': {
         'category': ['kettlebells'],
-        'loaded': 'kb'
+        'loaded': 'kb',
+        'force drom': ['shoulder passthroughs', 'thoracic bridges'],
     },
     'kettlebell romanian deadlift': {
         'category': ['kettlebells'],
@@ -124,22 +149,26 @@ exercises_dict = {
     },
     'turkish get up': {
         'category': ['kettlebells'],
-        'loaded': 'kb'
+        'loaded': 'kb',
+        'force drom': ['shoulder passthroughs', 'thoracic bridges', 'core rolling'],
     },
 
     # DUMBBELLS
 
     'dumbbell swing': {
         'category': ['dumbbells'],
-        'loaded': 'kb'
+        'loaded': 'kb',
+        'force drom': ['shoulder passthroughs', 'thoracic bridges'],
     },
     'dumbbell front squat': {
         'category': ['dumbbells'],
-        'loaded': 'kb'
+        'loaded': 'kb',
+        'force drom': ['shoulder passthroughs', 'thoracic bridges'],
     },
     'dumbbell snatch': {
         'category': ['dumbbells'],
-        'loaded': 'kb'
+        'loaded': 'kb',
+        'force drom': ['shoulder passthroughs', 'thoracic bridges'],
     },
     'dumbbell clean': {
         'category': ['dumbbells'],
@@ -147,96 +176,118 @@ exercises_dict = {
     },
     'dumbbell jerk': {
         'category': ['dumbbells'],
-        'loaded': 'kb'
+        'loaded': 'kb',
+        'force drom': ['shoulder passthroughs', 'thoracic bridges'],
     },
     'dumbbell press': {
         'category': ['dumbbells'],
-        'loaded': 'kb'
+        'loaded': 'kb',
+        'force drom': ['shoulder passthroughs', 'inchworms', 'thoracic bridges'],
     },
     'dumbbell romanian deadlift': {
         'category': ['dumbbells'],
-        'loaded': 'kb'
+        'loaded': 'kb',
     },
     'dumbbell single leg romanian deadlift': {
         'category': ['dumbbells'],
-        'loaded': 'kb'
+        'loaded': 'kb',
     },
     'dumbbell turkish get up': {
         'category': ['dumbbells'],
-        'loaded': 'kb'
-    },
+        'loaded': 'kb',
+        'force drom': ['shoulder passthroughs', 'thoracic bridges', 'core rolling'],
+},
 
     # LUNGES
 
     'lunge': {
         'category': ['lunges'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['walking lunges']
     },
     'jumping lunge': {
         'category': ['lunges'],
-        'loaded': False
+        'loaded': False,
+        'force drom': ['walking lunges'],
     },
     'kettlebell lunge': {
         'category': ['lunges'],
-        'loaded': 'kb'
+        'loaded': 'kb',
+        'force drom': ['walking lunges'],
     },
     'dumbbell lunge': {
         'category': ['lunges'],
-        'loaded': 'db'
+        'loaded': 'db',
+        'force drom': ['walking lunges'],
     },
     'barbell lunge': {
         'category': ['lunges'],
-        'loaded': 'barbell'
+        'loaded': 'barbell',
+        'force drom': ['walking lunges'],
     },
 
     # SQUATS
 
     'squat': {
         'category': ['squats'],
-        'loaded': 'barbell'
-    },
+        'loaded': 'barbell',
+        'force drom': ['air squats'],
+
+},
     'front squat': {
         'category': ['squats'],
-        'loaded': 'barbell'
+        'loaded': 'barbell',
+        'force drom': ['air squats'],
     },
     'back squat': {
         'category': ['squats'],
-        'loaded': 'barbell'
+        'loaded': 'barbell',
+        'force drom': ['air squats'],
     },
     'box squat': {
         'category': ['squats'],
-        'loaded': 'barbell'
+        'loaded': 'barbell',
+        'force drom': ['air squats'],
     },
     'back pause squat': {
         'category': ['squats'],
-        'loaded': 'barbell'
+        'loaded': 'barbell',
+        'force drom': ['air squats'],
     },
     'front box squat': {
         'category': ['squats'],
-        'loaded': 'barbell'
+        'loaded': 'barbell',
+        'force drom': ['air squats'],
     },
     'front pause squat': {
         'category': ['squats'],
-        'loaded': 'barbell'
+        'loaded': 'barbell',
+        'force drom': ['air squats'],
     },
     'high bar back squat': {
         'category': ['squats'],
-        'loaded': 'barbell'
+        'loaded': 'barbell',
+        'force drom': ['air squats'],
     },
     'low bar back squat': {
         'category': ['squats'],
-        'loaded': 'barbell'
+        'loaded': 'barbell',
+        'force drom': ['air squats'],
     },
     'overhead squat': {
         'category': ['squats', 'overhead squats'],
-        'loaded': 'barbell'
+        'loaded': 'barbell',
+        'force drom': ['air squats'],
     },
     'split squat': {
         'category': ['squats'],
-        'loaded': 'barbell'
+        'loaded': 'barbell',
+        'force drom': ['air squats'],
     },
     'zurcher squat': {
-        'category': ['squats']
+        'category': ['squats'],
+        'loaded': 'barbell',
+        'force drom': ['air squats'],
     },
 
     # CLEANS
