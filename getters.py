@@ -5,6 +5,63 @@ import string
 import random
 
 
+def get_force_from_todays_wod(todays_wod, exercises_dict):
+    """
+    :param todays_wod:
+    :param exercises_dict:
+    :return: list of forced movements that MUST be in the warmups
+    """
+
+    forced_droms = []
+    forced_gymnastics = []
+    forced_kb = []
+    forced_barbell = []
+
+    for item in todays_wod:
+        for k, v in exercises_dict.items():
+            if item == k:
+                try:
+                    if v['force drom']:
+                        for thang in v['force drom']:
+                            forced_droms.append(thang)
+                except KeyError:
+                    pass
+                try:
+                    if v['force gymnastics']:
+                        for thing in v['force gymnastics']:
+                            forced_gymnastics.append(thing)
+                except KeyError:
+                    pass
+                try:
+                    if v['force kb']:
+                        for abc in v['force kb']:
+                            forced_kb.append(abc)
+                except KeyError:
+                    pass
+                try:
+                    if v['force barbell']:
+                        for foo in v['force barbell']:
+                            forced_barbell.append(foo)
+                except KeyError:
+                    pass
+
+    return {'forced droms': forced_droms, 'forced gymnastics': forced_gymnastics, 'forced kb' : forced_kb, 'forced barbell' :
+        forced_barbell}
+
+
+def get_combined_drom_warmup(forced_droms, selected_droms):
+    drom_warmup = []
+    for item in forced_droms['forced droms']:
+        drom_warmup.append(item)
+    for ab12 in selected_droms:
+        warmup = ab12
+        not_in_list = warmup not in drom_warmup
+        if not_in_list:
+            drom_warmup.append(ab12)
+
+    return drom_warmup
+
+
 def get_cat_from_todays_wod(todays_wod, dictionary):
     """
     Gets todays_wod and finds the categories associated to todays_wod with a supplied dictionary
@@ -41,7 +98,7 @@ def get_possible_movements_from_mov_cat(mov_cat, dictionary):
 def get_organized_tally_dict(possible_movements):
     """
     :param possible_movements: inputs todays possible DROMs, tallys them, sorts them, partially randomizes them if their
-    values are equal, then sorts them againnn.
+    values are equal, then sorts them again.
     :return: organized (partially random if equal) dictionary of todays possible DROMS
     """
     tally_of_movements = {}
@@ -350,6 +407,7 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
     has_barbell_exercise = check_barbell_exercise(todays_wod)
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
     ##GETTERS##
+    force_list = get_force_from_todays_wod(todays_wod, exercises_dict)
     mov_cat = get_cat_from_todays_wod(todays_wod, exercises_dict)
     todays_possible_movements = get_possible_movements_from_mov_cat(mov_cat, dictionary)
     tally_organized_dict = get_organized_tally_dict(todays_possible_movements)
@@ -361,7 +419,7 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
     selected_movements = filter_pop_and_select(tally_organized_dict, tally_organized_times_list,
                                                tally_organized_times_sum, prescribed_time)
 
-    return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod,
+    return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod, 'FORCE LIST: ': force_list,
             'has kb exercise': has_kb_exercise,
             'has barbell exercise': has_barbell_exercise,
             'has_tough_gymnastics': has_tough_gymnastics, 'tough_exercises': tough_exercises,
@@ -373,6 +431,29 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
             'prescribed time': prescribed_time, 'SELECTED MOVEMENTS: ': selected_movements
             }
 
+def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon):
+    forced_droms = get_force_from_todays_wod(todays_wod, exercises_dict)
+    droms_compiled = get_movements_compiled(
+        todays_wod, tough_exercises, droms_dict, drom_time)
+    initially_selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
+
+    # (combines pop select droms with forced droms)
+    drom_warmup_combo = get_combined_drom_warmup(forced_droms, initially_selected_droms)
+
+    tally_drom_warmup_dict = get_organized_tally_dict(drom_warmup_combo)
+    tally_drom_warmup_times_list = get_times_of_organized_tally_list(tally_drom_warmup_dict, droms_dict)
+    tally_drom_warmup_organized_times_sum = get_sum_times_of_list(tally_drom_warmup_times_list)
+    drom_warmup_times_pre_toggle = get_all_movement_times(todays_wod, tough_exercises)
+    drom_warmup_prescribed_time = drom_warmup_times_pre_toggle[str(drom_time)]
+    selected_movements = filter_pop_and_select(tally_drom_warmup_dict, tally_drom_warmup_times_list,
+                                               tally_drom_warmup_organized_times_sum, drom_warmup_prescribed_time)
+    selected_droms_after_odd_conditionals = get_insert_remove_odd_conditionals_droms(
+        selected_movements, selected_metcon)
+
+    selected_droms_ordered_list = get_ordered_drom_list(selected_droms_after_odd_conditionals)
+    drom_warmup = selected_droms_ordered_list
+
+    return drom_warmup
 
 def get_images_for_display(selected_movements, dictionary):
     img_list = []
@@ -439,11 +520,9 @@ def get_barbell_warmup_movements(todays_wod):
         if i not in selected_barbell_warmups:
             selected_barbell_warmups.append(i)
 
-
         ## ORGANIZES THE OUTPUT IN ORDER FROM LAST TO FIRST)
 
     # print('111:',selected_barbell_warmups)
-
 
     if 'Basic Burgener Warmup With PVC Pipe' in selected_barbell_warmups:
         selected_barbell_warmups.remove('Basic Burgener Warmup With PVC Pipe')
@@ -451,7 +530,7 @@ def get_barbell_warmup_movements(todays_wod):
     if 'Barbell Overhead Warmup' in selected_barbell_warmups:
         selected_barbell_warmups.remove('Barbell Overhead Warmup')
         selected_barbell_warmups.append('Barbell Overhead Warmup')
-    if 'Barbell Loading for Squatting'in selected_barbell_warmups:
+    if 'Barbell Loading for Squatting' in selected_barbell_warmups:
         selected_barbell_warmups.remove('Barbell Loading for Squatting')
         selected_barbell_warmups.append('Barbell Loading for Squatting')
 
@@ -464,7 +543,6 @@ def get_barbell_warmup_movements(todays_wod):
     if 'Barbell Snatch Warmup' in selected_barbell_warmups:
         selected_barbell_warmups.remove('Barbell Snatch Warmup')
         selected_barbell_warmups.append('Barbell Snatch Warmup')
-
 
     # print('222', selected_barbell_warmups)
 

@@ -35,10 +35,6 @@ def first_page():
     metcon_time = 'metcon_time'
     drom_time = 'drom_time'
 
-    background_image = media_dict['barbell']['img']
-
-    print(background_image)
-
     if request.method == 'POST':
         # INPUT
         easy_exercises = request.form.getlist('easy_exercises_form')
@@ -64,54 +60,21 @@ def first_page():
             metcon_warmup[selected_metcon[idx]] = {'img': (metcon_images[idx]),
                                                    'reps': (metcon_reps[idx])}
 
-        # DROM SELECTION AND IMAGE SELECTION
-        droms_compiled = get_movements_compiled(
-            todays_wod, tough_exercises, droms_dict, drom_time)
-        selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
-        # breakpoint()
-        print('INITIALLY SELECTED DROMS = ', selected_droms)
-        addendum_droms = get_selected_movements_addendum_droms(todays_wod, selected_droms, selected_metcon)
-        print('INITIALLY SELECTED addendumDROMS: ', addendum_droms)
+        # DROM SELECTION
 
-        ## THIS CODE INCORRECTLY REMOVES WHATEVER IS AT THE END OF THE LIST.
-        if addendum_droms:
-            try:
-                for i in range(len(addendum_droms)):
-                    selected_droms.pop()
-                for item in addendum_droms:
-                    selected_droms.insert(0, item)
-            except IndexError:
-                selected_droms = addendum_droms
-        # breakpoint()
-        print('SELECTED DROMS AFTER ADDENDUM POPPING (this has the issue): ' , selected_droms)
-        # print('selected_DROMS after addendums added: ',selected_droms)
-        selected_droms_after_addendums_and_odd_conditionals = get_insert_remove_odd_conditionals_droms(
-            selected_droms, selected_metcon)
-
-        print('SELECTED ROMS AFTER ADDENDUMS AND ODD CONDITIONALS (no issue): ', selected_droms_after_addendums_and_odd_conditionals)
-
-        selected_droms_ordered_list = get_ordered_drom_list(selected_droms_after_addendums_and_odd_conditionals)
-        print('SELECTED DROMS AFTER ORDERING:', selected_droms_ordered_list)
-
-        # print('selectedDROMS after addendums, orderings, and odd condiontlas',
-        # selected_droms_after_addendums_and_odd_conditionals)
-        selected_droms = selected_droms_ordered_list
-        # print(selected_droms)
-
+        drom_warmup = get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon)
 
         ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
         drom_final_dict = {}
 
-        drom_img_list = get_images_for_display(selected_droms, droms_dict)
-        drom_reps = get_reps(selected_droms, tough_exercises, droms_dict)
+        drom_img_list = get_images_for_display(drom_warmup, droms_dict)
+        drom_reps = get_reps(drom_warmup, tough_exercises, droms_dict)
 
         for idx, item in enumerate(drom_img_list):
-            drom_final_dict[selected_droms[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
+            drom_final_dict[drom_warmup[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
                                                     }
         what_droms_warms_up_list = get_why_drom_selected_dict(drom_final_dict, todays_wod)
         drom_final_dict = add_why_drom_selected_to_drom_final_dict(drom_final_dict, what_droms_warms_up_list)
-
-
 
         # GYMNASTICS SELECTION
         tough_gymnastics_movements_from_todays_wod = get_which_movements_are_tough_gymnastics_movements(todays_wod)
@@ -155,8 +118,8 @@ def first_page():
                                                                   'reps': (barbell_warmup_reps_list[idx])
                                                                   }
 
-        return render_template('index.html', droms_compiled=droms_compiled, metcon_warmup=metcon_warmup,
-                               exercise_keys=exercise_keys, selected_droms=selected_droms,
+        return render_template('index.html', drom_warmup=drom_warmup, metcon_warmup=metcon_warmup,
+                               exercise_keys=exercise_keys,
                                barbell_warmup=barbell_warmup,
                                barbell_movements_from_todays_wod=
                                barbell_movements_from_todays_wod,
@@ -165,12 +128,12 @@ def first_page():
                                tough_gymnastics_movements_from_todays_wod,
                                easy_exercises=easy_exercises, tough_exercises=tough_exercises,
                                gymnastics_final_dict=gymnastics_final_dict, drom_final_dict=drom_final_dict,
-                               todays_wod=todays_wod, error_message=error_message, background_image=background_image,
+                               todays_wod=todays_wod, error_message=error_message,
                                )
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
-        return render_template('index.html', exercise_keys=exercise_keys, background_image=background_image)
+        return render_template('index.html', exercise_keys=exercise_keys)
 
 
 if __name__ == '__main__':
