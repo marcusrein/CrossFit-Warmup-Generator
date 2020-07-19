@@ -14,7 +14,7 @@ droms_dict = {
     'air squats': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'snatches'],
         'time': 1,
-        'reps': ['10 reps', '20 reps', '30 reps'],
+        'reps': ['10-20 reps', '20 reps', '20-30 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://thumbs.gfycat.com/ParchedSpitefulDeviltasmanian-size_restricted.gif',
         'rpe': 5,
@@ -48,7 +48,7 @@ droms_dict = {
     'broad jumps': {
         'categories': ['cleans', 'jerks', 'kettlebells', 'plyos', 'snatches'],
         'time': 1,
-        'reps': ['5 reps', '10 reps', '15 reps'],
+        'reps': ['5-10 reps', '10-15 reps', '15-20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif',
         'rpe': 6,
@@ -72,7 +72,7 @@ droms_dict = {
     'cossack lunges': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'kettlebells', 'lunges', 'squats'],
         'time': 2,
-        'reps': ['10 reps', '20 reps', '30 reps'],
+        'reps': ['10-20 reps', '15-25 reps', '25-30 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://tinyurl.com/yajsco2y',
         'rpe': 5,
@@ -88,7 +88,7 @@ droms_dict = {
     'down dog to up dog': {
         'categories': ['gymnastics lower', 'gymnastics upper', 'saggital presses', ''],
         'time': 1,
-        'reps': ['5 reps', '10 reps', '10 reps performed slowly'],
+        'reps': ['5-10 reps', '10-15 reps', '15-20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media1.popsugar-assets.com/files/thumbor/t2JA-yhWz775S2EFLvtdtaz2Fd8/fit-in/1024x1024/filters'
                ':format_auto-!!-:strip_icc-!!-/2013/12/16/734/n/1922729/b15fc22c292d8369_Tuck-Toe-Up-Dog.gif',
@@ -106,7 +106,7 @@ droms_dict = {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'gymnastics upper', 'kettlebells',
                        'overhead presses', 'saggital presses', 'squats'],
         'time': 2,
-        'reps': ['3 reps', '5 reps', '10 reps'],
+        'reps': ['3-5 reps', '5 reps', '5-7 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media1.giphy.com/media/UTXzXAwUHGx8MDEtPS/giphy-downsized.gif',
         'rpe': 3,
@@ -130,7 +130,7 @@ droms_dict = {
     'shoulder passthroughs': {
         'categories': ['gymnastics upper', 'jerks', 'overhead presses', 'rows', 'saggital presses', 'snatches'],
         'time': 1,
-        'reps': ['20 reps', '25 reps', '30 reps'],
+        'reps': ['15-20 reps', '20-25 reps', '30 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://www.goldsgym.com/wp-content/uploads/sites/1/2019/10/PVC_min.gif',
         'rpe': 1,
@@ -139,7 +139,7 @@ droms_dict = {
     'spidermans': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'snatches', 'squats'],
         'time': 2,
-        'reps': ['1 min', '1 min performed slowly', '1 min performed slowly'],
+        'reps': ['30s', '45s', '1 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media1.tenor.com/images/1d67a12af3ce871fd0601723bf86f5c2/tenor.gif?itemid=10818779',
         'rpe': 3,
@@ -147,7 +147,7 @@ droms_dict = {
     'supermans': {
         'categories': ['core', 'deadlifts'],
         'time': 1,
-        'reps': ['10 reps', '15 reps', '20 reps'],
+        'reps': ['10-15 reps', '15-20 reps', '20-25 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif',
         'rpe': 2,
@@ -171,7 +171,7 @@ droms_dict = {
     'walking back kicks': {
         'categories': ['cleans', 'deadlifts', 'jerks', 'kettlebells', 'lunges', 'snatches', 'squats'],
         'time': 1,
-        'reps': ['10 reps', '15 reps', '20 reps'],
+        'reps': ['10-20 reps', '15-25 reps', '20-30 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media.tenor.com/images/c50ca435dffdb837914e7cb32c1e7edf/tenor.gif',
         'rpe': 4,
@@ -179,7 +179,7 @@ droms_dict = {
     'walking forward kicks': {
         'categories': ['cleans', 'deadlifts', 'jerks', 'kettlebells', 'lunges', 'snatches', 'squats'],
         'time': 1,
-        'reps': ['10 reps', '15 reps', '20 reps'],
+        'reps': ['10-20 reps', '15-25 reps', '20-30 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://i0.wp.com/thumbs.gfycat.com/MarvelousRespectfulLeech-size_restricted.gif?w=1155&h=840',
         'rpe': 4,
@@ -187,7 +187,7 @@ droms_dict = {
     'walking lunges': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'kettlebells', 'lunges', 'squats'],
         'time': 1,
-        'reps': ['10 reps', '20 reps', '25 reps'],
+        'reps': ['10-15 reps', '15-20 reps', '20-30 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://tinyurl.com/y8a86uhh',
         'rpe': 5,
@@ -195,7 +195,7 @@ droms_dict = {
     'worlds greatest stretch': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'gymnastics upper', 'lunges', 'snatches', 'squats'],
         'time': 3,
-        'reps': ['3 on each side', '4 on each side performed slowly', '5 on each side performed slowly'],
+        'reps': ['3 each side', '4 each side', '5 each side'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://misterbackpain.com/wp-content/uploads/2020/01/worlds-greatest-stretch.gif',
         'rpe': 3,
@@ -203,7 +203,7 @@ droms_dict = {
     'banded hip activation series (see video)': {
         'categories': ['cleans', 'deadlifts', 'lunges', 'snatches', 'squats'],
         'time': 1,
-        'reps': ['10 reps each', '10 reps each performed slowly', '10 reps each performed slowly'],
+        'reps': ['10 reps each', '15 reps each', '20 reps each'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://thumbs.gfycat.com/DemandingDigitalGuanaco-mobile.mp4',
         'rpe': 1,
@@ -212,7 +212,7 @@ droms_dict = {
     'bootstrappers': {
         'categories': ['cleans', 'deadlifts', 'lunges', 'snatches', 'squats'],
         'time': 1,
-        'reps': ['10 reps', '15 reps', '15 reps performed slowly'],
+        'reps': ['10 reps', '15 reps', '15 reps'],
         'url': 'https://www.youtube.com/watch?v=qxrQkR8H0Pg',
         'img': 'https://misterbackpain.com/wp-content/uploads/2020/01/worlds-greatest-stretch.gif',
         'rpe': 3,
@@ -220,7 +220,7 @@ droms_dict = {
     'pvc front rack stretch': {
         'categories': ['cleans', 'deadlifts', 'snatches', 'jerks', 'squats'],
         'time': 2,
-        'reps': ['30s hold each side', '30s hold each side', '45s hold each side'],
+        'reps': ['30s hold', '45s hold', '45s hold'],
         'url': 'https://www.youtube.com/watch?v=iXgLGsyuUhY',
         'img': 'https://media0.giphy.com/media/fH3M6a0ssy9HxUtYVN/giphy.gif?cid=ecf05e478576e27904475e55b821e01d332928b340a77354&rid=giphy.gif',
         'rpe': 1,

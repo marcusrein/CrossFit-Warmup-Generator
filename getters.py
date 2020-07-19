@@ -154,7 +154,7 @@ def get_all_movement_times(todays_wod, tough_exercises):
             and check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 12
+        drom_time += 10
         barbell_time += 10
         kb_time += 5
         tough_gymnastics_time += 10
@@ -162,40 +162,40 @@ def get_all_movement_times(todays_wod, tough_exercises):
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 12
+        drom_time += 10
         barbell_time += 10
         kb_time += 5
     elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 12
+        drom_time += 10
         barbell_time += 10
         tough_gymnastics_time += 10
     elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 12
+        drom_time += 10
         barbell_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 12
+        drom_time += 10
         kb_time += 5
         tough_gymnastics_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 12
+        drom_time += 10
         kb_time += 5
     elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 12
+        drom_time += 10
         tough_gymnastics_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
