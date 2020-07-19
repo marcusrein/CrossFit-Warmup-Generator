@@ -3,6 +3,11 @@
   height: 15vw;
   object-fit: cover;
 }
+
+.card-deck .card {
+margin-top: 15px
+}
+
 .sidebar .card-img-top{
   height: 80%
 }
@@ -24,9 +29,6 @@
   flex-flow: column;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
   min-height: 100vh;
-  border-top-style: solid;
-  border-width: 1px;
-  border-color: grey;
 }
 
 @media only screen and (max-width: 600px) {
@@ -72,6 +74,9 @@
 
 .navbar {
   padding: 0rem 1rem;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: grey;
 }
 
 /*  THIS IS THE THING THAT IS MESSING UP THE BOTTOM LINE ( see TODO list)*/
