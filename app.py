@@ -27,15 +27,13 @@ def logout():
 
     return redirect(url_for('/'))
 
-#TODO testing this code to go into master
-
 #JJ HELP TODOS
 # TODO: * dont let 0.1 on the logo drop down so early
 #  TODO: * Get screen orientation to lock in portrait mode
 #  TODO: *need to create custom css file for bootstrap so I can change the bottom line thing on accordions (see index.css line 70)
 
 #MDR TODOS
-# TODO: MAKE "FORCE" category in exercises dict! That will solve so much!
+# TODO: If forced core exercise, only allow one core exercise in output (line 62 getters.py)
 # TODO: need to differentiate olympic lift warmup and strength/squat warmup. If olympic lift is in 'easy' warm up one way, if olympic lift is 'tough' warm up another. If strength movement is combined with oly movement in a WOD...?
 #TODO: need an overhead squat category. see barbellwarmups.py 'overhead squat warmup'
 

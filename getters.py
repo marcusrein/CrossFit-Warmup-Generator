@@ -49,15 +49,48 @@ def get_force_from_todays_wod(todays_wod, exercises_dict):
         forced_barbell}
 
 
-def get_combined_drom_warmup(forced_droms, selected_droms):
+def get_combined_drom_warmup(forced_droms, initially_selected_droms):
     drom_warmup = []
     for item in forced_droms['forced droms']:
         drom_warmup.append(item)
-    for ab12 in selected_droms:
+    for ab12 in initially_selected_droms:
         warmup = ab12
         not_in_list = warmup not in drom_warmup
         if not_in_list:
             drom_warmup.append(ab12)
+
+    # TRYING TO GET ONE FORCED CORE EXERCISE INTO DROM WARMUP AND NOT OTHER CORE EXERCISES
+    # print('DROM WARMUP BEFORE CORECORE:', drom_warmup)
+    # # if theres a core exercise in the forced droms, no other core exercise can go into drom warmup
+    # for core_core in forced_droms:
+    #     for drom in droms_dict:
+    #         if core_core == drom:
+    #             print('sure')
+    #             if droms_dict[core_core]['rpe'] == 2:
+    #                 print('YARRRP')
+    #                 for no_core in initially_selected_droms:
+    #                     for drommies in droms_dict:
+    #                         if no_core == drommies and droms_dict[no_core]['rpe'] == 2:
+    #                             drom_warmup.remove(no_core)
+    # print('DROM WARMUP AFTER CORECORE:', drom_warmup)
+
+
+
+    # # if there are >1 core warmup in core warmup, append to list
+    # core_list = []
+    # for core_warmup in drom_warmup:
+    #     for drom in droms_dict:
+    #         if drom == core_warmup and droms_dict[drom]['rpe'] == 2:
+    #             core_list.append(core_warmup)
+    #
+    # if len(core_list) > 1:
+    #     for core_exercise in drom_warmup:
+    #         for drom in droms_dict:
+    #             if droms_dict[core_exercise]['rpe'] == 2:
+    #
+    #
+
+
 
     return drom_warmup
 
@@ -371,9 +404,6 @@ def get_rpe(drom):
 
 def get_ordered_drom_list(selected_droms):
     selected_droms.sort(key=get_rpe)
-
-    # print('SELECTED:', selected_droms)
-
     return selected_droms
 
 
