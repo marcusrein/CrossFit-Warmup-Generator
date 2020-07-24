@@ -71,6 +71,7 @@ def first_page():
         warmup_duration_short = request.form.getlist('option1')
         warmup_duration_long = request.form.getlist('option3')
 
+
         # TODAYSWOD
 
         todays_wod = easy_exercises + tough_exercises
@@ -149,10 +150,7 @@ def first_page():
                                                                   }
         est_time_for_display = get_est_times_for_display(metcon_warmup, drom_warmup[0], gymnastics_final_dict, kb_warmup, barbell_warmup)
 
-        if warmup_duration_short:
-            est_time_for_display -= 5
-        if warmup_duration_long:
-            est_time_for_display += 5
+
 
         est_time_for_display_plus5 = est_time_for_display + 5
         return render_template('index.html', drom_warmup=drom_warmup, metcon_warmup=metcon_warmup,
