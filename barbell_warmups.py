@@ -2,7 +2,7 @@
 ## SEE 'DEF GET_REPS' in getters.py
 
 barbell_warmups_dict = {
-    'Basic Burgener Warmup With PVC Pipe' :
+    'Basic Burgener Warmup' :
         {
             'category': ['cleans', 'snatches', 'jerks'],
             'url': 'https://youtu.be/mWffzvDGeg4',

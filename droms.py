@@ -30,17 +30,17 @@ droms_dict = {
     'banded side steps': {
         'categories': ['cleans', 'deadlifts', 'jerks', 'lunges', 'snatches', 'squats', 'kettlebells'],
         'time': 2,
-        'reps': ['20 reps each way', '30 reps each way', '40 reps each way'],
+        'reps': ['20 reps', '30 reps', '40 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media4.s-nbcnews.com/j/newscms/2019_05/2738466/better_standing_lateral_band_walk_4a7c397f4668e1be769cc7b6bddc339f.fit-560w.gif ',
         'rpe': 1,
         'equipment': 'one band'
     },
     'bear crawls': {
-        'categories': ['cleans', 'core', 'deadlifts', 'gymanstics upper', 'gymnastics lower', 'kettlebells',
+        'categories': ['cleans', 'core', 'deadlifts', 'gymnastics upper', 'gymnastics lower', 'kettlebells',
                        'saggital presses', 'snatches', 'squats'],
         'time': 1,
-        'reps': ['30s', '1 min', '1 min performed slowly'],
+        'reps': ['30s', '45s', '1 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://tinyurl.com/yasf6uep',
         'rpe': 3,
@@ -86,7 +86,7 @@ droms_dict = {
         'rpe': 2,
     },
     'down dog to up dog': {
-        'categories': ['gymnastics lower', 'gymnastics upper', 'saggital presses', ''],
+        'categories': ['gymnastics lower', 'gymnastics upper', 'saggital presses'],
         'time': 1,
         'reps': ['5-10 reps', '10-15 reps', '15-20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
@@ -97,7 +97,7 @@ droms_dict = {
     'frog walk': {
         'categories': ['cleans', 'snatches', 'squats'],
         'time': 1,
-        'reps': ['30s', '1 min', '1.5min'],
+        'reps': ['30s', '45s', '1min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://i.pinimg.com/originals/ca/f1/29/caf12983c2cfa59546814d3051f423df.gif',
         'rpe': 5,
@@ -155,7 +155,7 @@ droms_dict = {
     'thoracic bridges': {
         'categories': ['cleans', 'gymnastics upper', 'kettlebells', 'overhead presses', 'saggital presses', 'snatches'],
         'time': 2,
-        'reps': ['3 on each arm', '4 on each arm', '5 on each arm'],
+        'reps': ['3 each arm', '4 each arm', '5 each arm'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://jensinkler.com/wp-content/uploads/2019/06/Bodyweight-Thoracic-Bridge-With-Reach.gif',
         'rpe': 3,
@@ -200,7 +200,7 @@ droms_dict = {
         'img': 'https://misterbackpain.com/wp-content/uploads/2020/01/worlds-greatest-stretch.gif',
         'rpe': 3,
     },
-    'banded hip activation series (see video)': {
+    'banded hip activation series': {
         'categories': ['cleans', 'deadlifts', 'lunges', 'snatches', 'squats'],
         'time': 1,
         'reps': ['10 reps each', '15 reps each', '20 reps each'],

@@ -28,14 +28,19 @@ def logout():
     return redirect(url_for('/'))
 
 #JJ HELP TODOS
+# TODO: get spacing on pills/warmups in accordions barbell warmups to space correctly
+# TODO: better dropdowns/navbar ideas
 # TODO: * dont let 0.1 on the logo drop down so early
 #  TODO: * Get screen orientation to lock in portrait mode
-#  TODO: *need to create custom css file for bootstrap so I can change the bottom line thing on accordions (see index.css line 70)
+# TODO: login with user database
 
 #MDR TODOS
-# TODO: If forced core exercise, only allow one core exercise in output (line 62 getters.py)
+# TODO: Add total estimated warmup time
+# TODO: Give options for longer or shorter warmup time
 # TODO: need to differentiate olympic lift warmup and strength/squat warmup. If olympic lift is in 'easy' warm up one way, if olympic lift is 'tough' warm up another. If strength movement is combined with oly movement in a WOD...?
 #TODO: need an overhead squat category. see barbellwarmups.py 'overhead squat warmup'
+# TODO: If forced core exercise, only allow one core exercise in output (line 62 getters.py)
+
 
 # LONG TERM TODOS:
 # TODO: add draggable inputs
@@ -86,11 +91,11 @@ def first_page():
         ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
         drom_final_dict = {}
 
-        drom_img_list = get_images_for_display(drom_warmup, droms_dict)
-        drom_reps = get_reps(drom_warmup, tough_exercises, droms_dict)
+        drom_img_list = get_images_for_display(drom_warmup[0], droms_dict)
+        drom_reps = get_reps(drom_warmup[0], tough_exercises, droms_dict)
 
         for idx, item in enumerate(drom_img_list):
-            drom_final_dict[drom_warmup[idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
+            drom_final_dict[drom_warmup[0][idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
                                                     }
         what_droms_warms_up_list = get_why_drom_selected_dict(drom_final_dict, todays_wod)
         drom_final_dict = add_why_drom_selected_to_drom_final_dict(drom_final_dict, what_droms_warms_up_list)

@@ -60,12 +60,12 @@ def get_combined_drom_warmup(forced_droms, initially_selected_droms):
             drom_warmup.append(ab12)
 
     # TRYING TO GET ONE FORCED CORE EXERCISE INTO DROM WARMUP AND NOT OTHER CORE EXERCISES
-    # print('DROM WARMUP BEFORE CORECORE:', drom_warmup)
-    # # if theres a core exercise in the forced droms, no other core exercise can go into drom warmup
-    # for core_core in forced_droms:
-    #     for drom in droms_dict:
-    #         if core_core == drom:
-    #             print('sure')
+    print('DROM WARMUP BEFORE CORECORE:', drom_warmup)
+    # if theres a core exercise in the forced droms, no other core exercise can go into drom warmup
+    for core_core in forced_droms:
+        for drom in droms_dict:
+            if core_core == drom:
+                print('sure')
     #             if droms_dict[core_core]['rpe'] == 2:
     #                 print('YARRRP')
     #                 for no_core in initially_selected_droms:
@@ -483,7 +483,7 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon):
     selected_droms_ordered_list = get_ordered_drom_list(selected_droms_after_odd_conditionals)
     drom_warmup = selected_droms_ordered_list
 
-    return drom_warmup
+    return [drom_warmup, drom_warmup_prescribed_time]
 
 def get_images_for_display(selected_movements, dictionary):
     img_list = []
@@ -520,14 +520,14 @@ def get_barbell_warmup_movements(todays_wod):
         for k, v in exercises_dict.items():
             if wod == k:
                 if 'cleans' in v['category']:
-                    selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup With PVC Pipe')
+                    selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup')
                     selected_barbell_warmups_with_dupes.append('Barbell Clean Warmup')
                 if 'jerks' in v['category']:
-                    selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup With PVC Pipe')
+                    selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup')
                     selected_barbell_warmups_with_dupes.append('Barbell Overhead Warmup')
                     selected_barbell_warmups_with_dupes.append('Barbell Jerk Warmup')
                 if 'snatches' in v['category']:
-                    selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup With PVC Pipe')
+                    selected_barbell_warmups_with_dupes.append('Basic Burgener Warmup')
                     selected_barbell_warmups_with_dupes.append('Barbell Overhead Warmup')
                     selected_barbell_warmups_with_dupes.append('Barbell Snatch Warmup')
                 if 'presses' in v['category']:
@@ -554,9 +554,9 @@ def get_barbell_warmup_movements(todays_wod):
 
     # print('111:',selected_barbell_warmups)
 
-    if 'Basic Burgener Warmup With PVC Pipe' in selected_barbell_warmups:
-        selected_barbell_warmups.remove('Basic Burgener Warmup With PVC Pipe')
-        selected_barbell_warmups.insert(0, 'Basic Burgener Warmup With PVC Pipe')
+    if 'Basic Burgener Warmup' in selected_barbell_warmups:
+        selected_barbell_warmups.remove('Basic Burgener Warmup')
+        selected_barbell_warmups.insert(0, 'Basic Burgener Warmup')
     if 'Barbell Overhead Warmup' in selected_barbell_warmups:
         selected_barbell_warmups.remove('Barbell Overhead Warmup')
         selected_barbell_warmups.append('Barbell Overhead Warmup')
