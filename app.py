@@ -37,8 +37,6 @@ def logout():
 # TODO: have "enter your exercises" dropdown on small screens start expanded
 
 #MDR TODOS
-# TODO: Add total estimated warmup time
-# TODO: Give options for longer or shorter warmup time
 # TODO: need to differentiate olympic lift warmup and strength/squat warmup. If olympic lift is in 'easy' warm up one way, if olympic lift is 'tough' warm up another. If strength movement is combined with oly movement in a WOD...?
 #TODO: need an overhead squat category. see barbellwarmups.py 'overhead squat warmup'
 # TODO: If forced core exercise, only allow one core exercise in output (line 62 getters.py)
@@ -61,15 +59,18 @@ def first_page():
     metcon_time = 'metcon_time'
     drom_time = 'drom_time'
 
+    warmup_duration_selection = ''
+
     if request.method == 'POST':
         # INPUT
         easy_exercises = request.form.getlist('easy_exercises_form')
         easy_exercises = [easy_exercise.lower() for easy_exercise in easy_exercises]
         tough_exercises = request.form.getlist('tough_exercises_form')
         tough_exercises = [tough_exercise.lower() for tough_exercise in tough_exercises]
-
-        warmup_duration_short = request.form.getlist('option1')
-        warmup_duration_long = request.form.getlist('option3')
+        # breakpoint()
+        warmup_duration_selection = request.form['option']
+        warmup_duration_short = 'on' if warmup_duration_selection == 'short' else False
+        warmup_duration_long = 'on' if warmup_duration_selection == 'long' else False
 
 
         # TODAYSWOD
@@ -164,13 +165,13 @@ def first_page():
                                easy_exercises=easy_exercises, tough_exercises=tough_exercises,
                                gymnastics_final_dict=gymnastics_final_dict, drom_final_dict=drom_final_dict,
                                todays_wod=todays_wod, est_time_for_display=est_time_for_display,
-                               est_time_for_display_plus5 = est_time_for_display_plus5,
-                               error_message=error_message,
+                               est_time_for_display_plus5=est_time_for_display_plus5,
+                               error_message=error_message, warmup_duration_selection=warmup_duration_selection
                                )
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
-        return render_template('index.html', exercise_keys=exercise_keys)
+        return render_template('index.html', exercise_keys=exercise_keys, warmup_duration_selection=warmup_duration_selection)
 
 
 if __name__ == '__main__':

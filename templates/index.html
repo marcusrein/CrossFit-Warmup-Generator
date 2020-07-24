@@ -7,7 +7,7 @@
              style="overflow-y: scroll;">
         <button class="fun d-md-none" data-toggle="collapse" data-target="#small-screen">Enter Your Exercises
         </button>
-        <div id="small-screen" class="collapse d-md-none">
+        <div id="small-screen" class="collapse show d-md-none">
             <div class="container-fluid padding">
                 <div class="row text-center">
                     <div class="col">
@@ -84,16 +84,16 @@
                                     </p3>
                                 </div>
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary active">
-                                        <input type="radio" name="option1" id="option1" autocomplete="off">
+                                    <label class="btn btn-secondary {{ "active" if warmup_duration_selection == "short" }}">
+                                        <input type="radio" name="option" value="short" autocomplete="off" {{ "checked" if warmup_duration_selection == "short" }}>
                                         Short
                                     </label>
-                                    <label class="btn btn-secondary">
-                                        <input type="radio" name="option2" id="option2" autocomplete="off" checked>
+                                    <label class="btn btn-secondary {{ "active" if warmup_duration_selection == "normal" }}">
+                                        <input type="radio" name="option" value="normal" autocomplete="off" {{ "checked" if warmup_duration_selection == "normal" }}>
                                         Normal
                                     </label>
-                                    <label class="btn btn-secondary">
-                                        <input type="radio" name="option3" id="option3" autocomplete="off"> Long
+                                    <label class="btn btn-secondary {{ "active" if warmup_duration_selection == "long" }}">
+                                        <input type="radio" name="option" value="long" autocomplete="off" {{ "checked" if warmup_duration_selection == "long" }}> Long
                                     </label>
                                 </div>
                                 <button type="submit" type="button" class="btn btn-primary btn-block mt-4"
@@ -190,17 +190,18 @@
                         </p3>
                     </div>
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary active">
-                            <input type="radio" name="option1" id="option1" autocomplete="off">
-                            Short
-                        </label>
-                        <label class="btn btn-secondary">
-                            <input type="radio" name="option2" id="option2" autocomplete="off" checked> Normal
-                        </label>
-                        <label class="btn btn-secondary">
-                            <input type="radio" name="option3" id="option3" autocomplete="off"> Long
-                        </label>
-                    </div>
+                                    <label class="btn btn-secondary {{ "active" if warmup_duration_selection == "short" }}">
+                                        <input type="radio" name="option" value="short" autocomplete="off" {{ "checked" if warmup_duration_selection == "short" }}>
+                                        Short
+                                    </label>
+                                    <label class="btn btn-secondary {{ "active" if warmup_duration_selection == "normal" }}">
+                                        <input type="radio" name="option" value="normal" autocomplete="off" {{ "checked" if warmup_duration_selection == "normal" }}>
+                                        Normal
+                                    </label>
+                                    <label class="btn btn-secondary {{ "active" if warmup_duration_selection == "long" }}">
+                                        <input type="radio" name="option" value="long" autocomplete="off" {{ "checked" if warmup_duration_selection == "long" }}> Long
+                                    </label>
+                                </div>
                     <button type="submit" type="button" class="btn btn-primary btn-block mt-4" value="submit">Get
                         Warmups
                     </button>
