@@ -689,3 +689,35 @@ def add_why_drom_selected_to_drom_final_dict(drom_final_dict, why_drom):
                     drom_final_dict[k]['targets'] = bb
 
     return drom_final_dict
+
+
+def get_est_times_for_display(metcon_warmup, drom_warmup, gymnastics_warmups, kb_warmups, barbell_warmups):
+    total_estimated_time = 0
+
+    if metcon_warmup:
+        total_estimated_time += 1
+    if len(drom_warmup) <= 7:
+        total_estimated_time += 9
+    if 7 < len(drom_warmup) <= 10:
+        total_estimated_time += 11
+    if 11 < len(drom_warmup):
+        total_estimated_time += 13
+    if gymnastics_warmups:
+        total_estimated_time += 4
+    if kb_warmups:
+        total_estimated_time += 4
+    if barbell_warmups:
+        if len(barbell_warmups) == 1:
+            total_estimated_time += 5
+        if len(barbell_warmups) == 2:
+            total_estimated_time += 7
+        if len(barbell_warmups) == 3:
+            total_estimated_time += 10
+        if len(barbell_warmups) > 3:
+            total_estimated_time += 12
+
+    return total_estimated_time
+
+
+
+

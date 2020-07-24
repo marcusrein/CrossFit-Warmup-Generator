@@ -87,6 +87,8 @@ def first_page():
         # DROM SELECTION
 
         drom_warmup = get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon)
+        final_drom_time = drom_warmup[1]
+
 
         ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
         drom_final_dict = {}
@@ -141,7 +143,8 @@ def first_page():
                                                                   'text': (barbell_warmup_text_list[idx]),
                                                                   'reps': (barbell_warmup_reps_list[idx])
                                                                   }
-
+        est_time_for_display = get_est_times_for_display(metcon_warmup, drom_warmup[0], gymnastics_final_dict, kb_warmup, barbell_warmup)
+        est_time_for_display_plus5 = est_time_for_display + 5
         return render_template('index.html', drom_warmup=drom_warmup, metcon_warmup=metcon_warmup,
                                exercise_keys=exercise_keys,
                                barbell_warmup=barbell_warmup,
@@ -152,7 +155,9 @@ def first_page():
                                tough_gymnastics_movements_from_todays_wod,
                                easy_exercises=easy_exercises, tough_exercises=tough_exercises,
                                gymnastics_final_dict=gymnastics_final_dict, drom_final_dict=drom_final_dict,
-                               todays_wod=todays_wod, error_message=error_message,
+                               todays_wod=todays_wod, est_time_for_display=est_time_for_display,
+                               est_time_for_display_plus5 = est_time_for_display_plus5,
+                               error_message=error_message,
                                )
 
     else:
