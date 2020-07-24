@@ -78,6 +78,24 @@
                                     <h6 class="card-subtitle mb-2 text-muted"> {{ error_message }} </h6>
                                     {% endif %}
                                 </div>
+                                <div>
+                                    <p3>
+                                        Warmup Duration
+                                    </p3>
+                                </div>
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-secondary active">
+                                        <input type="radio" name="option1" id="option1" autocomplete="off">
+                                        Short
+                                    </label>
+                                    <label class="btn btn-secondary">
+                                        <input type="radio" name="option2" id="option2" autocomplete="off" checked>
+                                        Normal
+                                    </label>
+                                    <label class="btn btn-secondary">
+                                        <input type="radio" name="option3" id="option3" autocomplete="off"> Long
+                                    </label>
+                                </div>
                                 <button type="submit" type="button" class="btn btn-primary btn-block mt-4"
                                         value="submit">Get Warmups
                                 </button>
@@ -166,6 +184,23 @@
                         <h6 class="card-subtitle mb-2 text-muted"> {{ error_message }} </h6>
                         {% endif %}
                     </div>
+                    <div>
+                        <p3>
+                            Warmup Duration
+                        </p3>
+                    </div>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="option1" id="option1" autocomplete="off">
+                            Short
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="option2" id="option2" autocomplete="off" checked> Normal
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="option3" id="option3" autocomplete="off"> Long
+                        </label>
+                    </div>
                     <button type="submit" type="button" class="btn btn-primary btn-block mt-4" value="submit">Get
                         Warmups
                     </button>
@@ -187,7 +222,9 @@
             <p></p>
             <a href="#estimated_times"
                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
-                <p3>Your Estimated Warmup Time is between {{ est_time_for_display}} and {{ est_time_for_display_plus5 }} minutes</p3>
+                <p3>Your Estimated Warmup Time is between {{ est_time_for_display}} and {{ est_time_for_display_plus5 }}
+                    minutes
+                </p3>
             </a>
         </div>
         <div class="overflow-auto w-100 mt-4 container">
@@ -389,9 +426,12 @@
             <div class="list-group w-100 d-none d-md-block">
                 <a href="#est_time"
                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                <p3>Your Estimated Warmup Time is between {{ est_time_for_display}} and {{ est_time_for_display_plus5 }} minutes</p3>
+                    <p3>Your Estimated Warmup Time is between {{ est_time_for_display}} and {{
+                        est_time_for_display_plus5 }} minutes
+                    </p3>
                 </a>
             </div>
+
             <p></p>
 
             <div class="list-group w-100 d-none d-md-block">
@@ -507,7 +547,7 @@
     {% if metcon_warmup: %}
     <section class="col-xs-0 col-sm-0 col-md-6 col-lg-8 ml-sm-auto d-none d-md-block">
         <div class="container border-bottom" id="metcon_warmup">
-                        <H4>MetCon Warmup</H4>
+            <H4>MetCon Warmup</H4>
             {% for k,v in metcon_warmup.items() %}
             <div class="card-deck">
                 <div class="card" style="max-width: 18rem;">
@@ -525,7 +565,7 @@
         </div>
         <div class="container border-bottom">
             <p></p>
-                        <H4>Dynamic Range of Motion Warmups</H4>
+            <H4>Dynamic Range of Motion Warmups</H4>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 {% for k,v in drom_final_dict.items() %}
                 <div class="col mb-4">
@@ -555,7 +595,7 @@
         <a id="gymnastics"></a>
         <p></p>
         <div class="container border-bottom">
-                        <H4>Gymnastics Warmups</H4>
+            <H4>Gymnastics Warmups</H4>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 {% for k,v in gymnastics_final_dict.items() %}
                 <div class="col mb-4">
@@ -578,7 +618,7 @@
         <p></p>
         {% if kb_warmup: %}
         <div class="container border-bottom">
-                        <H4>Kettlebell Warmups</H4>
+            <H4>Kettlebell Warmups</H4>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 {% for k,v in kb_warmup.items() %}
                 <div class="col mb-4">
@@ -601,7 +641,7 @@
 
         {% if barbell_warmup: %}
         <div class="container border-bottom">
-                        <H4>Barbell Warmups</H4>
+            <H4>Barbell Warmups</H4>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 {% for k,v in barbell_warmup.items() %}
                 <div class="col mb-4">
@@ -657,6 +697,8 @@
       closeOnSelect: false,
       allowDeselectOption: true
     })
+
+
 
 
 

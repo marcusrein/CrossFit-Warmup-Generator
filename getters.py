@@ -461,7 +461,7 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
             'prescribed time': prescribed_time, 'SELECTED MOVEMENTS: ': selected_movements
             }
 
-def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon):
+def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short, warmup_duration_long):
     forced_droms = get_force_from_todays_wod(todays_wod, exercises_dict)
     droms_compiled = get_movements_compiled(
         todays_wod, tough_exercises, droms_dict, drom_time)
@@ -475,6 +475,12 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon):
     tally_drom_warmup_organized_times_sum = get_sum_times_of_list(tally_drom_warmup_times_list)
     drom_warmup_times_pre_toggle = get_all_movement_times(todays_wod, tough_exercises)
     drom_warmup_prescribed_time = drom_warmup_times_pre_toggle[str(drom_time)]
+    if warmup_duration_short:
+        drom_warmup_prescribed_time -= 5
+        print('oooooya')
+    if warmup_duration_long:
+        drom_warmup_prescribed_time += 5
+        print('naynya')
     selected_movements = filter_pop_and_select(tally_drom_warmup_dict, tally_drom_warmup_times_list,
                                                tally_drom_warmup_organized_times_sum, drom_warmup_prescribed_time)
     selected_droms_after_odd_conditionals = get_insert_remove_odd_conditionals_droms(

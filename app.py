@@ -34,6 +34,7 @@ def logout():
 # TODO: * dont let 0.1 on the logo drop down so early
 #  TODO: * Get screen orientation to lock in portrait mode
 # TODO: login with user database
+# TODO: have "enter your exercises" dropdown on small screens start expanded
 
 #MDR TODOS
 # TODO: Add total estimated warmup time
@@ -67,6 +68,9 @@ def first_page():
         tough_exercises = request.form.getlist('tough_exercises_form')
         tough_exercises = [tough_exercise.lower() for tough_exercise in tough_exercises]
 
+        warmup_duration_short = request.form.getlist('option1')
+        warmup_duration_long = request.form.getlist('option3')
+
         # TODAYSWOD
 
         todays_wod = easy_exercises + tough_exercises
@@ -87,8 +91,7 @@ def first_page():
 
         # DROM SELECTION
 
-        drom_warmup = get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon)
-        final_drom_time = drom_warmup[1]
+        drom_warmup = get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short, warmup_duration_long)
 
 
         ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
@@ -145,6 +148,12 @@ def first_page():
                                                                   'reps': (barbell_warmup_reps_list[idx])
                                                                   }
         est_time_for_display = get_est_times_for_display(metcon_warmup, drom_warmup[0], gymnastics_final_dict, kb_warmup, barbell_warmup)
+
+        if warmup_duration_short:
+            est_time_for_display -= 5
+        if warmup_duration_long:
+            est_time_for_display += 5
+
         est_time_for_display_plus5 = est_time_for_display + 5
         return render_template('index.html', drom_warmup=drom_warmup, metcon_warmup=metcon_warmup,
                                exercise_keys=exercise_keys,
