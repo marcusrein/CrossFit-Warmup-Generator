@@ -29,7 +29,6 @@ def logout():
 
 #JJ HELP TODOS
 # TODO Padding on L of R big screen column does not respond
-# TODO: get spacing on pills/warmups in accordions barbell warmups to space correctly
 # TODO: better dropdowns/navbar ideas
 # TODO: * dont let 0.1 on the logo drop down so early
 #  TODO: * Get screen orientation to lock in portrait mode
