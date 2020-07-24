@@ -476,7 +476,7 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, 
     drom_warmup_times_pre_toggle = get_all_movement_times(todays_wod, tough_exercises)
     drom_warmup_prescribed_time = drom_warmup_times_pre_toggle[str(drom_time)]
     if warmup_duration_short:
-        drom_warmup_prescribed_time -= 5
+        drom_warmup_prescribed_time -= 3
         print('oooooya')
     if warmup_duration_long:
         drom_warmup_prescribed_time += 5
@@ -702,12 +702,22 @@ def get_est_times_for_display(metcon_warmup, drom_warmup, gymnastics_warmups, kb
 
     if metcon_warmup:
         total_estimated_time += 1
-    if len(drom_warmup) <= 7:
+    if len(drom_warmup) <= 3:
+        total_estimated_time += 5
+    if len(drom_warmup) == 4:
+        total_estimated_time += 6
+    if len(drom_warmup) == 5:
+        total_estimated_time += 6
+    if len(drom_warmup) == 6:
         total_estimated_time += 7
-    if 7 < len(drom_warmup) <= 10:
+    if len(drom_warmup) == 7:
+        total_estimated_time += 7
+    if len(drom_warmup) == 8:
         total_estimated_time += 9
-    if 11 < len(drom_warmup):
-        total_estimated_time += 11
+    if len(drom_warmup) == 9:
+        total_estimated_time += 12
+    if len(drom_warmup) >9:
+        total_estimated_time += 13
     if gymnastics_warmups:
         total_estimated_time += 4
     if kb_warmups:
