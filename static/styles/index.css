@@ -79,8 +79,13 @@ margin-top: 15px
   border-color: grey;
 }
 
-/*  THIS IS THE THING THAT IS MESSING UP THE BOTTOM LINE ( see TODO list)*/
-/* .accordion .card:first-of-type { */
-/*   border-bottom: 0 */
-/* } */
+.mt-4, my-4 {
+margin-top: 0.5rem !important
+}
 
+/* does not respond */
+/* @media (min-width: 576px) */
+/* .ml-sm-auto, .mx-sm-auto { */
+/*     margin-left: auto!important; */
+/*     padding-left: 50px; */
+/* } */

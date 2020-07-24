@@ -697,11 +697,11 @@ def get_est_times_for_display(metcon_warmup, drom_warmup, gymnastics_warmups, kb
     if metcon_warmup:
         total_estimated_time += 1
     if len(drom_warmup) <= 7:
-        total_estimated_time += 9
+        total_estimated_time += 7
     if 7 < len(drom_warmup) <= 10:
-        total_estimated_time += 11
+        total_estimated_time += 9
     if 11 < len(drom_warmup):
-        total_estimated_time += 13
+        total_estimated_time += 11
     if gymnastics_warmups:
         total_estimated_time += 4
     if kb_warmups:
