@@ -29,7 +29,7 @@ droms_dict = {
     # },
     'banded side steps': {
         'categories': ['cleans', 'deadlifts', 'jerks', 'lunges', 'snatches', 'squats', 'kettlebells'],
-        'time': 2,
+        'time': 1,
         'reps': ['20 reps', '30 reps', '40 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media4.s-nbcnews.com/j/newscms/2019_05/2738466/better_standing_lateral_band_walk_4a7c397f4668e1be769cc7b6bddc339f.fit-560w.gif ',
@@ -63,7 +63,7 @@ droms_dict = {
     },
     'core rolling': {
         'categories': ['cleans', 'core', 'deadlifts', 'gymnastics upper', 'jerks', 'squats'],
-        'time': 2,
+        'time': 1,
         'reps': ['5 reps', '10 reps', '15 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://i.imgur.com/dcwuwLs.gif',
@@ -71,7 +71,7 @@ droms_dict = {
     },
     'cossack lunges': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'kettlebells', 'lunges', 'squats'],
-        'time': 2,
+        'time': 1,
         'reps': ['10-20 reps', '15-25 reps', '25-30 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://tinyurl.com/yajsco2y',
@@ -105,7 +105,7 @@ droms_dict = {
     'inchworms': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'gymnastics upper', 'kettlebells',
                        'overhead presses', 'saggital presses', 'squats'],
-        'time': 2,
+        'time': 1,
         'reps': ['3-5 reps', '5 reps', '5-7 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media1.giphy.com/media/UTXzXAwUHGx8MDEtPS/giphy-downsized.gif',
@@ -138,7 +138,7 @@ droms_dict = {
     },
     'spidermans': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'snatches', 'squats'],
-        'time': 2,
+        'time': 1,
         'reps': ['30s', '45s', '1 min'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media1.tenor.com/images/1d67a12af3ce871fd0601723bf86f5c2/tenor.gif?itemid=10818779',
@@ -154,7 +154,7 @@ droms_dict = {
     },
     'thoracic bridges': {
         'categories': ['cleans', 'gymnastics upper', 'kettlebells', 'overhead presses', 'saggital presses', 'snatches'],
-        'time': 2,
+        'time': 1,
         'reps': ['3 each arm', '4 each arm', '5 each arm'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://jensinkler.com/wp-content/uploads/2019/06/Bodyweight-Thoracic-Bridge-With-Reach.gif',
@@ -194,7 +194,7 @@ droms_dict = {
     },
     'worlds greatest stretch': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'gymnastics upper', 'lunges', 'snatches', 'squats'],
-        'time': 3,
+        'time': 1,
         'reps': ['3 each side', '4 each side', '5 each side'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://misterbackpain.com/wp-content/uploads/2020/01/worlds-greatest-stretch.gif',
@@ -219,7 +219,7 @@ droms_dict = {
     },
     'pvc front rack stretch': {
         'categories': ['cleans', 'deadlifts', 'snatches', 'jerks', 'squats'],
-        'time': 2,
+        'time': 1,
         'reps': ['30s hold', '45s hold', '45s hold'],
         'url': 'https://www.youtube.com/watch?v=iXgLGsyuUhY',
         'img': 'https://media0.giphy.com/media/fH3M6a0ssy9HxUtYVN/giphy.gif?cid=ecf05e478576e27904475e55b821e01d332928b340a77354&rid=giphy.gif',
