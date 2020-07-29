@@ -36,6 +36,8 @@ def logout():
 # TODO: have "enter your exercises" dropdown on small screens start expanded
 
 #MDR TODOS
+# TODO: ONLY ONE CORE WARMUP IN DROMS
+# TODO: Default selected length is "normal". Fix the way its carrying over after submit.
 # TODO: need to differentiate olympic lift warmup and strength/squat warmup. If olympic lift is in 'easy' warm up one way, if olympic lift is 'tough' warm up another. If strength movement is combined with oly movement in a WOD...?
 #TODO: need an overhead squat category. see barbellwarmups.py 'overhead squat warmup'
 # TODO: If forced core exercise, only allow one core exercise in output (line 62 getters.py)
@@ -150,7 +152,7 @@ def first_page():
                                                                   }
         est_time_for_display = get_est_times_for_display(metcon_warmup, drom_warmup[0], gymnastics_final_dict, kb_warmup, barbell_warmup)
         est_time_for_display_plus5 = est_time_for_display + 5
-        
+
         return render_template('index.html', drom_warmup=drom_warmup, metcon_warmup=metcon_warmup,
                                exercise_keys=exercise_keys,
                                barbell_warmup=barbell_warmup,
