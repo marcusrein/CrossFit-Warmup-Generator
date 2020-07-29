@@ -45,36 +45,27 @@ def get_force_from_todays_wod(todays_wod, exercises_dict):
                 except KeyError:
                     pass
 
-    return {'forced droms': forced_droms, 'forced gymnastics': forced_gymnastics, 'forced kb' : forced_kb, 'forced barbell' :
-        forced_barbell}
+    return {'forced droms': forced_droms, 'forced gymnastics': forced_gymnastics, 'forced kb': forced_kb,
+            'forced barbell':
+                forced_barbell}
 
 
-def get_combined_drom_warmup(forced_droms, initially_selected_droms):
-    drom_warmup = []
-    for item in forced_droms['forced droms']:
-        drom_warmup.append(item)
-    for ab12 in initially_selected_droms:
-        warmup = ab12
-        not_in_list = warmup not in drom_warmup
-        if not_in_list:
-            drom_warmup.append(ab12)
-
+def check_core_in_forced_droms_and_initially_selected_droms(forced_droms, initially_selected_droms):
     # TRYING TO GET ONE FORCED CORE EXERCISE INTO DROM WARMUP AND NOT OTHER CORE EXERCISES
     print('DROM WARMUP BEFORE CORECORE:', drom_warmup)
-    # if theres a core exercise in the forced droms, no other core exercise can go into drom warmup
-    for core_core in forced_droms:
+    # if theres >1 core exercise in drom_warmup, randomly remove all except 1. rep
+
+    for core_core in drom_warmup:
         for drom in droms_dict:
             if core_core == drom:
                 print('sure')
-    #             if droms_dict[core_core]['rpe'] == 2:
+                if droms_dict[core_core]['rpe'] == 2:
     #                 print('YARRRP')
     #                 for no_core in initially_selected_droms:
     #                     for drommies in droms_dict:
     #                         if no_core == drommies and droms_dict[no_core]['rpe'] == 2:
     #                             drom_warmup.remove(no_core)
     # print('DROM WARMUP AFTER CORECORE:', drom_warmup)
-
-
 
     # # if there are >1 core warmup in core warmup, append to list
     # core_list = []
@@ -91,6 +82,15 @@ def get_combined_drom_warmup(forced_droms, initially_selected_droms):
     #
 
 
+def get_combined_drom_warmup(forced_droms, initially_selected_droms):
+    drom_warmup = []
+    for item in forced_droms['forced droms']:
+        drom_warmup.append(item)
+    for ab12 in initially_selected_droms:
+        warmup = ab12
+        not_in_list = warmup not in drom_warmup
+        if not_in_list:
+            drom_warmup.append(ab12)
 
     return drom_warmup
 
@@ -455,7 +455,9 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
             'prescribed time': prescribed_time, 'SELECTED MOVEMENTS: ': selected_movements
             }
 
-def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short, warmup_duration_long):
+
+def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short,
+                       warmup_duration_long):
     forced_droms = get_force_from_todays_wod(todays_wod, exercises_dict)
     droms_compiled = get_movements_compiled(
         todays_wod, tough_exercises, droms_dict, drom_time)
@@ -484,6 +486,7 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, 
     drom_warmup = selected_droms_ordered_list
 
     return [drom_warmup, drom_warmup_prescribed_time]
+
 
 def get_images_for_display(selected_movements, dictionary):
     img_list = []
@@ -710,7 +713,7 @@ def get_est_times_for_display(metcon_warmup, drom_warmup, gymnastics_warmups, kb
         total_estimated_time += 9
     if len(drom_warmup) == 9:
         total_estimated_time += 12
-    if len(drom_warmup) >9:
+    if len(drom_warmup) > 9:
         total_estimated_time += 13
     if gymnastics_warmups:
         total_estimated_time += 4
@@ -726,7 +729,3 @@ def get_est_times_for_display(metcon_warmup, drom_warmup, gymnastics_warmups, kb
         if len(barbell_warmups) > 3:
             total_estimated_time += 14
     return total_estimated_time
-
-
-
-
