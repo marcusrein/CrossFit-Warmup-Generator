@@ -14,7 +14,7 @@ droms_dict = {
     'air squats': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'snatches'],
         'time': 1,
-        'reps': ['10-20 reps', '20 reps', '20-30 reps'],
+        'reps': ['10-20 reps', '15-20 reps', '20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://thumbs.gfycat.com/ParchedSpitefulDeviltasmanian-size_restricted.gif',
         'rpe': 5,
@@ -40,7 +40,7 @@ droms_dict = {
         'categories': ['cleans', 'core', 'deadlifts', 'gymnastics upper', 'gymnastics lower', 'kettlebells',
                        'saggital presses', 'snatches', 'squats'],
         'time': 1,
-        'reps': ['30s', '45s', '1 min'],
+        'reps': ['30s', '45s', '45s'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://tinyurl.com/yasf6uep',
         'rpe': 3,
@@ -56,7 +56,7 @@ droms_dict = {
     'burpees': {
         'categories': ['gymnastics lower', 'gymnastics upper', 'saggital presses'],
         'time': 1,
-        'reps': ['5 reps', '10 reps', '15 reps'],
+        'reps': ['5 reps', '5-10 reps', '10 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif',
         'rpe': 4,
@@ -64,7 +64,7 @@ droms_dict = {
     'core rolling': {
         'categories': ['cleans', 'core', 'deadlifts', 'gymnastics upper', 'jerks', 'squats'],
         'time': 1,
-        'reps': ['5 reps', '10 reps', '15 reps'],
+        'reps': ['5 reps', '5-10 reps', '10 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://i.imgur.com/dcwuwLs.gif',
         'rpe': 2,
@@ -72,7 +72,7 @@ droms_dict = {
     'cossack lunges': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'kettlebells', 'lunges', 'squats'],
         'time': 1,
-        'reps': ['10-20 reps', '15-25 reps', '25-30 reps'],
+        'reps': ['15 reps', '15-20 reps', '20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://tinyurl.com/yajsco2y',
         'rpe': 5,
@@ -80,7 +80,7 @@ droms_dict = {
     'dead bugs': {
         'categories': ['cleans', 'core', 'deadlifts', 'gymnastics upper', 'jerks', 'squats'],
         'time': 1,
-        'reps': ['15 reps', '20 reps', '25 reps'],
+        'reps': ['15 reps', '15-20 reps', '20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://thumbs.gfycat.com/DecentSarcasticAmethystsunbird-size_restricted.gif',
         'rpe': 2,
@@ -88,7 +88,7 @@ droms_dict = {
     'down dog to up dog': {
         'categories': ['gymnastics lower', 'gymnastics upper', 'saggital presses'],
         'time': 1,
-        'reps': ['5-10 reps', '10-15 reps', '15-20 reps'],
+        'reps': ['5 reps', '5-10 reps', '10 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media1.popsugar-assets.com/files/thumbor/t2JA-yhWz775S2EFLvtdtaz2Fd8/fit-in/1024x1024/filters'
                ':format_auto-!!-:strip_icc-!!-/2013/12/16/734/n/1922729/b15fc22c292d8369_Tuck-Toe-Up-Dog.gif',
@@ -97,7 +97,7 @@ droms_dict = {
     'frog walk': {
         'categories': ['cleans', 'snatches', 'squats'],
         'time': 1,
-        'reps': ['30s', '45s', '1min'],
+        'reps': ['30s', '45s', '45s'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://i.pinimg.com/originals/ca/f1/29/caf12983c2cfa59546814d3051f423df.gif',
         'rpe': 5,
@@ -106,7 +106,7 @@ droms_dict = {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'gymnastics upper', 'kettlebells',
                        'overhead presses', 'saggital presses', 'squats'],
         'time': 1,
-        'reps': ['3-5 reps', '5 reps', '5-7 reps'],
+        'reps': ['3 reps', '3-5 reps', '5 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media1.giphy.com/media/UTXzXAwUHGx8MDEtPS/giphy-downsized.gif',
         'rpe': 3,
@@ -114,23 +114,23 @@ droms_dict = {
     'push ups': {
         'categories': ['gymnastics upper', 'jerks', 'saggital presses', 'snatches'],
         'time': 1,
-        'reps': ['10 reps', '15 reps', '20 reps'],
+        'reps': ['10 reps', '10-15 reps', '15 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://thumbs.gfycat.com/GlossySkinnyDuckbillcat-small.gif',
         'rpe': 6,
     },
-    'seal walk': {
-        'categories': ['gymnastics upper', 'jerks', 'saggital presses'],
-        'time': 1,
-        'reps': ['30s', '1 min', '1 min'],
-        'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        'img': 'https://media.giphy.com/media/8Ag4AORS8xPYHdeU6f/giphy.gif',
-        'rpe': 3,
-    },
+    # 'seal walk': {
+    #     'categories': ['gymnastics upper', 'jerks', 'saggital presses'],
+    #     'time': 1,
+    #     'reps': ['30s', '1 min', '1 min'],
+    #     'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
+    #     'img': 'https://media.giphy.com/media/8Ag4AORS8xPYHdeU6f/giphy.gif',
+    #     'rpe': 3,
+    # },
     'shoulder passthroughs': {
         'categories': ['gymnastics upper', 'jerks', 'overhead presses', 'rows', 'saggital presses', 'snatches'],
         'time': 1,
-        'reps': ['15-20 reps', '20-25 reps', '30 reps'],
+        'reps': ['10 reps', '10-20 reps', '20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://www.goldsgym.com/wp-content/uploads/sites/1/2019/10/PVC_min.gif',
         'rpe': 1,
@@ -139,7 +139,7 @@ droms_dict = {
     'spidermans': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'snatches', 'squats'],
         'time': 1,
-        'reps': ['30s', '45s', '1 min'],
+        'reps': ['30s', '45s', '45s'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media1.tenor.com/images/1d67a12af3ce871fd0601723bf86f5c2/tenor.gif?itemid=10818779',
         'rpe': 3,
@@ -193,7 +193,7 @@ droms_dict = {
         'rpe': 5,
     },
     'worlds greatest stretch': {
-        'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'gymnastics upper', 'lunges', 'snatches', 'squats'],
+        'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'gymnastics upper', 'lunges', 'snatches', 'squats', 'plyos'],
         'time': 1,
         'reps': ['3 each side', '4 each side', '5 each side'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',

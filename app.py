@@ -149,10 +149,8 @@ def first_page():
                                                                   'reps': (barbell_warmup_reps_list[idx])
                                                                   }
         est_time_for_display = get_est_times_for_display(metcon_warmup, drom_warmup[0], gymnastics_final_dict, kb_warmup, barbell_warmup)
-
-
-
         est_time_for_display_plus5 = est_time_for_display + 5
+        
         return render_template('index.html', drom_warmup=drom_warmup, metcon_warmup=metcon_warmup,
                                exercise_keys=exercise_keys,
                                barbell_warmup=barbell_warmup,

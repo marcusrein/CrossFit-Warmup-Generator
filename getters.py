@@ -187,7 +187,7 @@ def get_all_movement_times(todays_wod, tough_exercises):
             and check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 11
+        drom_time += 5
         barbell_time += 10
         kb_time += 5
         tough_gymnastics_time += 10
@@ -195,21 +195,21 @@ def get_all_movement_times(todays_wod, tough_exercises):
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 11
+        drom_time += 5
         barbell_time += 10
         kb_time += 5
     elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 11
+        drom_time += 5
         barbell_time += 10
         tough_gymnastics_time += 10
     elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 11
+        drom_time += 5
         barbell_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
@@ -222,13 +222,13 @@ def get_all_movement_times(todays_wod, tough_exercises):
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 11
+        drom_time += 5
         kb_time += 5
     elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 11
+        drom_time += 5
         tough_gymnastics_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
@@ -236,14 +236,8 @@ def get_all_movement_times(todays_wod, tough_exercises):
         metcon_time += 2
         drom_time += 8
 
-    if len(todays_wod) == 2:
-        drom_time += 2
-
-    if len(todays_wod) == 3:
-        drom_time += 3
-
     if len(todays_wod) > 3:
-        drom_time += 4
+        drom_time += 1
 
     all_warmup_time = (
             metcon_time + drom_time + gymnastics_time + barbell_time + kb_time + focused_gymnastics_time + focused_barbell_time + focused_kb_time)
@@ -476,10 +470,10 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, 
     drom_warmup_times_pre_toggle = get_all_movement_times(todays_wod, tough_exercises)
     drom_warmup_prescribed_time = drom_warmup_times_pre_toggle[str(drom_time)]
     if warmup_duration_short:
-        drom_warmup_prescribed_time -= 5
+        drom_warmup_prescribed_time -= 2
         print('oooooya')
     if warmup_duration_long:
-        drom_warmup_prescribed_time += 5
+        drom_warmup_prescribed_time += 2
         print('naynya')
     selected_movements = filter_pop_and_select(tally_drom_warmup_dict, tally_drom_warmup_times_list,
                                                tally_drom_warmup_organized_times_sum, drom_warmup_prescribed_time)
