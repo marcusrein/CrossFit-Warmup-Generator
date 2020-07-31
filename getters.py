@@ -49,17 +49,17 @@ def get_force_from_todays_wod(todays_wod, exercises_dict):
             'forced barbell':
                 forced_barbell}
 
-
-def check_core_in_forced_droms_and_initially_selected_droms(forced_droms, initially_selected_droms):
-    # TRYING TO GET ONE FORCED CORE EXERCISE INTO DROM WARMUP AND NOT OTHER CORE EXERCISES
-    print('DROM WARMUP BEFORE CORECORE:', drom_warmup)
-    # if theres >1 core exercise in drom_warmup, randomly remove all except 1. rep
-
-    for core_core in drom_warmup:
-        for drom in droms_dict:
-            if core_core == drom:
-                print('sure')
-                if droms_dict[core_core]['rpe'] == 2:
+#
+# def check_core_in_forced_droms_and_initially_selected_droms(forced_droms, initially_selected_droms):
+#     # TRYING TO GET ONE FORCED CORE EXERCISE INTO DROM WARMUP AND NOT OTHER CORE EXERCISES
+#     print('DROM WARMUP BEFORE CORECORE:', drom_warmup)
+#     # if theres >1 core exercise in drom_warmup, randomly remove all except 1. rep
+#
+#     for core_core in drom_warmup:
+#         for drom in droms_dict:
+#             if core_core == drom:
+#                 print('sure')
+#                 if droms_dict[core_core]['rpe'] == 2:
     #                 print('YARRRP')
     #                 for no_core in initially_selected_droms:
     #                     for drommies in droms_dict:
@@ -473,10 +473,10 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, 
     drom_warmup_prescribed_time = drom_warmup_times_pre_toggle[str(drom_time)]
     if warmup_duration_short:
         drom_warmup_prescribed_time -= 2
-        print('oooooya')
+        # print('oooooya')
     if warmup_duration_long:
         drom_warmup_prescribed_time += 2
-        print('naynya')
+        # print('naynya')
     selected_movements = filter_pop_and_select(tally_drom_warmup_dict, tally_drom_warmup_times_list,
                                                tally_drom_warmup_organized_times_sum, drom_warmup_prescribed_time)
     selected_droms_after_odd_conditionals = get_insert_remove_odd_conditionals_droms(
