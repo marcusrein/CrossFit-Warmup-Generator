@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 app.secret_key = 'crossfit'
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
@@ -20,6 +21,7 @@ def login():
             return redirect(url_for('first_page'))
     return render_template('login.html', error=error)
 
+
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
@@ -27,19 +29,19 @@ def logout():
 
     return redirect(url_for('/'))
 
-#JJ HELP TODOS
+
+# JJ HELP TODOS
+# TODO: expanding to XL messes with formatting
 # TODO Padding on L of R big screen column does not respond
 # TODO: better dropdowns/navbar ideas
-# TODO: * dont let 0.1 on the logo drop down so early
 #  TODO: * Get screen orientation to lock in portrait mode
 # TODO: login with user database
-# TODO: have "enter your exercises" dropdown on small screens start expanded
 
-#MDR TODOS
+# MDR TODOS
 # TODO: ONLY ONE CORE WARMUP IN DROMS
 # TODO: Default selected length is "normal". Fix the way its carrying over after submit.
 # TODO: need to differentiate olympic lift warmup and strength/squat warmup. If olympic lift is in 'easy' warm up one way, if olympic lift is 'tough' warm up another. If strength movement is combined with oly movement in a WOD...?
-#TODO: need an overhead squat category. see barbellwarmups.py 'overhead squat warmup'
+# TODO: need an overhead squat category. see barbellwarmups.py 'overhead squat warmup'
 # TODO: If forced core exercise, only allow one core exercise in output (line 62 getters.py)
 
 
@@ -73,7 +75,6 @@ def first_page():
         warmup_duration_short = 'on' if warmup_duration_selection == 'short' else False
         warmup_duration_long = 'on' if warmup_duration_selection == 'long' else False
 
-
         # TODAYSWOD
 
         todays_wod = easy_exercises + tough_exercises
@@ -93,11 +94,10 @@ def first_page():
                                                    'reps': (metcon_reps[idx])}
 
         # DROM SELECTION
+        drom_warmup = get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short,
+                                         warmup_duration_long)
 
-        drom_warmup = get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short, warmup_duration_long)
-
-
-        ###### KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #####
+        # KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #
         drom_final_dict = {}
 
         drom_img_list = get_images_for_display(drom_warmup[0], droms_dict)
@@ -120,7 +120,6 @@ def first_page():
                 if tough_gymnastics_movement == k:
                     gymnastics_final_dict[k] = v
 
-
         # KB SELECTION
         kb_warmup = {}
 
@@ -137,7 +136,7 @@ def first_page():
 
         # BARBELL SELECTION
         barbell_warmup = {}
-        
+
         barbell_movements_from_todays_wod = get_which_movements_are_barbell_movements(todays_wod)
         barbell_warmup_movements_list = get_barbell_warmup_movements(todays_wod)
         barbell_warmup_text_list = get_text_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
@@ -150,7 +149,8 @@ def first_page():
                                                                   'text': (barbell_warmup_text_list[idx]),
                                                                   'reps': (barbell_warmup_reps_list[idx])
                                                                   }
-        est_time_for_display = get_est_times_for_display(metcon_warmup, drom_warmup[0], gymnastics_final_dict, kb_warmup, barbell_warmup)
+        est_time_for_display = get_est_times_for_display(metcon_warmup, drom_warmup[0], gymnastics_final_dict,
+                                                         kb_warmup, barbell_warmup)
         est_time_for_display_plus5 = est_time_for_display + 5
 
         return render_template('index.html', drom_warmup=drom_warmup, metcon_warmup=metcon_warmup,
@@ -170,7 +170,8 @@ def first_page():
 
     else:
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
-        return render_template('index.html', exercise_keys=exercise_keys, warmup_duration_selection=warmup_duration_selection)
+        return render_template('index.html', exercise_keys=exercise_keys,
+                               warmup_duration_selection=warmup_duration_selection)
 
 
 if __name__ == '__main__':

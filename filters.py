@@ -15,11 +15,13 @@ def filter_pop_and_select(dictionary, organized_times_list, tally_organized_time
     """
     x = tally_organized_times_sum
 
+    popped_items = []
+
     pop_dict = dictionary.copy()
     pop_organized_time_list = organized_times_list.copy()
 
     while x > prescribed_time:
-        pop_dict.popitem()
+        popped_items.append(pop_dict.popitem())
         pop_organized_time_list.pop()
         x = sum(pop_organized_time_list)
     return list(pop_dict.keys())

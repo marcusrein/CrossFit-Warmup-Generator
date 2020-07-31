@@ -1,5 +1,8 @@
 from exercises import *
 from checks import *
+from droms import *
+
+import random
 
 
 # All of these should return True or False
@@ -55,3 +58,41 @@ def check_tough_input_add_time(tough_exercises, all_warmup_times_pre_toggle):
 
     all_warmup_times_post_toggle = all_warmup_times_pre_toggle
     return all_warmup_times_post_toggle
+
+
+def check_core_in_lists(initially_selected_droms, forced_droms):
+    """ If core in forced DROMS, choose 1. Superceded initially selected DROMS. Returns one core movement and the diff
+    between the what was selected and the result so that number can be put back in from the popped info"""
+    result = []
+    initially_selected_core = []
+
+    for core_warmup in initially_selected_droms:
+        for drom in droms_dict:
+            if core_warmup == drom:
+                if droms_dict[drom]['rpe'] == 2:
+                    initially_selected_core.append(core_warmup)
+
+    forced_core = []
+
+    for k, v in forced_droms.items():
+        for drom in droms_dict:
+            for value in v:
+                if value == drom:
+                    if droms_dict[value]['rpe'] == 2:
+                        forced_core.append(value)
+
+    if forced_core:
+        result = random.choice(forced_core)
+    elif initially_selected_core:
+        if forced_core:
+            result = random.choice(forced_core)
+    elif initially_selected_core:
+        result = random.choice(initially_selected_core)
+
+    x = len(forced_core) + len(initially_selected_core)
+    y = 1
+
+    diff = x-y
+    breakpoint()
+
+    return [result, diff]

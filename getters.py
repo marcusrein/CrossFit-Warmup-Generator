@@ -49,37 +49,6 @@ def get_force_from_todays_wod(todays_wod, exercises_dict):
             'forced barbell':
                 forced_barbell}
 
-#
-# def check_core_in_forced_droms_and_initially_selected_droms(forced_droms, initially_selected_droms):
-#     # TRYING TO GET ONE FORCED CORE EXERCISE INTO DROM WARMUP AND NOT OTHER CORE EXERCISES
-#     print('DROM WARMUP BEFORE CORECORE:', drom_warmup)
-#     # if theres >1 core exercise in drom_warmup, randomly remove all except 1. rep
-#
-#     for core_core in drom_warmup:
-#         for drom in droms_dict:
-#             if core_core == drom:
-#                 print('sure')
-#                 if droms_dict[core_core]['rpe'] == 2:
-    #                 print('YARRRP')
-    #                 for no_core in initially_selected_droms:
-    #                     for drommies in droms_dict:
-    #                         if no_core == drommies and droms_dict[no_core]['rpe'] == 2:
-    #                             drom_warmup.remove(no_core)
-    # print('DROM WARMUP AFTER CORECORE:', drom_warmup)
-
-    # # if there are >1 core warmup in core warmup, append to list
-    # core_list = []
-    # for core_warmup in drom_warmup:
-    #     for drom in droms_dict:
-    #         if drom == core_warmup and droms_dict[drom]['rpe'] == 2:
-    #             core_list.append(core_warmup)
-    #
-    # if len(core_list) > 1:
-    #     for core_exercise in drom_warmup:
-    #         for drom in droms_dict:
-    #             if droms_dict[core_exercise]['rpe'] == 2:
-    #
-    #
 
 
 def get_combined_drom_warmup(forced_droms, initially_selected_droms):
@@ -462,6 +431,10 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, 
     droms_compiled = get_movements_compiled(
         todays_wod, tough_exercises, droms_dict, drom_time)
     initially_selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
+    # figure out if core in either forced or initally seellcted
+
+    core_warmup = check_core_in_lists(initially_selected_droms, forced_droms)
+    print('CORE', core_warmup)
 
     # (combines pop select droms with forced droms)
     drom_warmup_combo = get_combined_drom_warmup(forced_droms, initially_selected_droms)
