@@ -24,4 +24,7 @@ def filter_pop_and_select(dictionary, organized_times_list, tally_organized_time
         popped_items.append(pop_dict.popitem())
         pop_organized_time_list.pop()
         x = sum(pop_organized_time_list)
-    return list(pop_dict.keys())
+
+    print('pooper',popped_items)
+
+    return list(pop_dict.keys()), popped_items

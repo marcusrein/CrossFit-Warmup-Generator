@@ -390,6 +390,7 @@ def get_length_of_final_drom_dict_for_index_dropdowns(drom_reps):
     return numbered_list
 
 
+
 def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):
     """This is a function that compiles DROMS for viewing."""
     ##CLEANER##
@@ -410,7 +411,7 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
     prescribed_time = all_warmup_times_pre_toggle[str(movement_time)]
     all_warmup_times_plus_toggles = check_tough_input_add_time(tough_exercises, all_warmup_times_pre_toggle)
     selected_movements = filter_pop_and_select(tally_organized_dict, tally_organized_times_list,
-                                               tally_organized_times_sum, prescribed_time)
+                                               tally_organized_times_sum, prescribed_time)[0]
 
     return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod, 'FORCE LIST: ': force_list,
             'has kb exercise': has_kb_exercise,
@@ -424,7 +425,6 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
             'prescribed time': prescribed_time, 'SELECTED MOVEMENTS: ': selected_movements
             }
 
-
 def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short,
                        warmup_duration_long):
     forced_droms = get_force_from_todays_wod(todays_wod, exercises_dict)
@@ -433,8 +433,9 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, 
     initially_selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
     # figure out if core in either forced or initally seellcted
 
-    core_warmup = check_core_in_lists(initially_selected_droms, forced_droms)
+    core_warmup = check_core_in_lists(initially_selected_droms, forced_droms)[0]
     print('CORE', core_warmup)
+    core_diff = check_core_in_lists(initially_selected_droms, forced_droms)[1]
 
     # (combines pop select droms with forced droms)
     drom_warmup_combo = get_combined_drom_warmup(forced_droms, initially_selected_droms)
@@ -446,12 +447,17 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, 
     drom_warmup_prescribed_time = drom_warmup_times_pre_toggle[str(drom_time)]
     if warmup_duration_short:
         drom_warmup_prescribed_time -= 2
-        # print('oooooya')
     if warmup_duration_long:
         drom_warmup_prescribed_time += 2
-        # print('naynya')
     selected_movements = filter_pop_and_select(tally_drom_warmup_dict, tally_drom_warmup_times_list,
-                                               tally_drom_warmup_organized_times_sum, drom_warmup_prescribed_time)
+                                               tally_drom_warmup_organized_times_sum, drom_warmup_prescribed_time)[0]
+    popped_items = filter_pop_and_select(tally_drom_warmup_dict, tally_drom_warmup_times_list,
+                                               tally_drom_warmup_organized_times_sum, drom_warmup_prescribed_time)[1]
+    # ADDING BACK IN DROMS THAT WERE REMOVED DUE TO CORE POPPAGE
+    if core_diff > 0:
+        for i in range(core_diff):
+            selected_movements.append(popped_items[i-1][0])
+
     selected_droms_after_odd_conditionals = get_insert_remove_odd_conditionals_droms(
         selected_movements, selected_metcon)
 

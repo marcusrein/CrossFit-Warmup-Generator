@@ -91,8 +91,6 @@ def check_core_in_lists(initially_selected_droms, forced_droms):
 
     x = len(forced_core) + len(initially_selected_core)
     y = 1
+    diff_for_pop = x-y
 
-    diff = x-y
-    breakpoint()
-
-    return [result, diff]
+    return result, diff_for_pop
