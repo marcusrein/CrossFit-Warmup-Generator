@@ -97,6 +97,26 @@ def get_possible_movements_from_mov_cat(mov_cat, dictionary):
     return possible_warmups
 
 
+def modify_tally(mov_cat, possible_movements):
+    
+    returned_list = []
+    
+    for cat in mov_cat:
+        if cat == 'squats':
+            x = 'air squats'
+            y = 'worlds greatest stretch'
+            for i in range(50):
+                returned_list.append(x)
+            for i in range(40):
+                returned_list.append(y)
+
+    for forced_movement in returned_list:
+        possible_movements.append(forced_movement)
+
+    return possible_movements
+
+
+
 def get_organized_tally_dict(possible_movements):
     """
     :param possible_movements: inputs todays possible DROMs, tallys them, sorts them, partially randomizes them if their
@@ -390,7 +410,6 @@ def get_length_of_final_drom_dict_for_index_dropdowns(drom_reps):
     return numbered_list
 
 
-
 def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_time):
     """This is a function that compiles DROMS for viewing."""
     ##CLEANER##
@@ -425,10 +444,45 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
             'prescribed time': prescribed_time, 'SELECTED MOVEMENTS: ': selected_movements
             }
 
+def get_initial_drom_compiled(todays_wod, tough_exercises, dictionary, movement_time):
+    """This is a function that compiles DROMS for viewing."""
+    ##CLEANER##
+    todays_wod = remove_none_from_todays_wod(todays_wod)
+
+    ##CHECKS##
+    has_kb_exercise = check_kb_exercise(todays_wod)
+    has_barbell_exercise = check_barbell_exercise(todays_wod)
+    has_tough_gymnastics = check_tough_gymnastics(todays_wod)
+    ##GETTERS##
+    force_list = get_force_from_todays_wod(todays_wod, exercises_dict)
+    mov_cat = get_cat_from_todays_wod(todays_wod, exercises_dict)
+    todays_possible_movements = get_possible_movements_from_mov_cat(mov_cat, dictionary)
+    todays_possible_movements_modified = modify_tally(mov_cat, todays_possible_movements)
+    tally_organized_dict = get_organized_tally_dict(todays_possible_movements_modified)
+    tally_organized_times_list = get_times_of_organized_tally_list(tally_organized_dict, dictionary)
+    tally_organized_times_sum = get_sum_times_of_list(tally_organized_times_list)
+    all_warmup_times_pre_toggle = get_all_movement_times(todays_wod, tough_exercises)
+    prescribed_time = all_warmup_times_pre_toggle[str(movement_time)]
+    all_warmup_times_plus_toggles = check_tough_input_add_time(tough_exercises, all_warmup_times_pre_toggle)
+    selected_movements = filter_pop_and_select(tally_organized_dict, tally_organized_times_list,
+                                               tally_organized_times_sum, prescribed_time)[0]
+
+    return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod, 'FORCE LIST: ': force_list,
+            'has kb exercise': has_kb_exercise,
+            'has barbell exercise': has_barbell_exercise,
+            'has_tough_gymnastics': has_tough_gymnastics, 'tough_exercises': tough_exercises,
+            'ALL WARMUP TIMES PLUS TOGGLES ': all_warmup_times_plus_toggles,
+            'CALCULATIONS: ''mov_cat': mov_cat,
+            'todays possible movements': todays_possible_movements, 'TALLY ORGANIZED DICT': tally_organized_dict,
+            'tally organized times list': tally_organized_times_list,
+            'tally organized times sum': tally_organized_times_sum,
+            'prescribed time': prescribed_time, 'SELECTED MOVEMENTS: ': selected_movements
+            }
+
 def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short,
                        warmup_duration_long):
     forced_droms = get_force_from_todays_wod(todays_wod, exercises_dict)
-    droms_compiled = get_movements_compiled(
+    droms_compiled = get_initial_drom_compiled(
         todays_wod, tough_exercises, droms_dict, drom_time)
     initially_selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
     # figure out if core in either forced or initally seellcted
@@ -439,7 +493,6 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, 
 
     # (combines pop select droms with forced droms)
     drom_warmup_combo = get_combined_drom_warmup(forced_droms, initially_selected_droms)
-
     tally_drom_warmup_dict = get_organized_tally_dict(drom_warmup_combo)
     tally_drom_warmup_times_list = get_times_of_organized_tally_list(tally_drom_warmup_dict, droms_dict)
     tally_drom_warmup_organized_times_sum = get_sum_times_of_list(tally_drom_warmup_times_list)
