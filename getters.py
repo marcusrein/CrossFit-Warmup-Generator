@@ -97,6 +97,36 @@ def get_possible_movements_from_mov_cat(mov_cat, dictionary):
     return possible_warmups
 
 
+def Merge(dict1, dict2, dict3):
+    res = {**dict1, **dict2, **dict3}
+    return res
+
+
+def remove_double_core_band_pvc (tally_organized_dict):
+    core = {}
+    band_and_pvc = {}
+    other = {}
+
+    for k, v  in tally_organized_dict.items():
+        if droms_dict[k]['rpe'] == 1:
+            band_and_pvc[k] = v
+        elif droms_dict[k]['rpe'] == 2:
+            core[k] = v
+        else:
+            other[k] = v
+
+    while len(core) > 1:
+        core.popitem()
+
+    while len(band_and_pvc) > 1:
+        band_and_pvc.popitem()
+
+    returned_list = Merge(core, band_and_pvc, other)
+    ordered_tally = {k: v for k, v in sorted(returned_list.items(), key=lambda item: item[1], reverse=True)}
+
+    return ordered_tally
+
+
 def modify_tally(mov_cat, possible_movements):
     
     returned_list = []
@@ -104,16 +134,20 @@ def modify_tally(mov_cat, possible_movements):
     for cat in mov_cat:
         if cat == 'squats':
             x = 'air squats'
-            y = 'worlds greatest stretch'
+            y = ['worlds greatest stretch', 'inchworms']
+            z = ['banded side steps', 'banded hip activation series']
             for i in range(50):
                 returned_list.append(x)
             for i in range(40):
-                returned_list.append(y)
+                returned_list.append(random.choice(y))
+            for i in range(30):
+                returned_list.append(random.choice(z))
 
     for forced_movement in returned_list:
         possible_movements.append(forced_movement)
 
     return possible_movements
+
 
 
 
@@ -458,8 +492,11 @@ def get_initial_drom_compiled(todays_wod, tough_exercises, dictionary, movement_
     mov_cat = get_cat_from_todays_wod(todays_wod, exercises_dict)
     todays_possible_movements = get_possible_movements_from_mov_cat(mov_cat, dictionary)
     todays_possible_movements_modified = modify_tally(mov_cat, todays_possible_movements)
+
     tally_organized_dict = get_organized_tally_dict(todays_possible_movements_modified)
-    tally_organized_times_list = get_times_of_organized_tally_list(tally_organized_dict, dictionary)
+    # breakpoint()
+    cleaned_core_pvc_dict = remove_double_core_band_pvc(tally_organized_dict)
+    tally_organized_times_list = get_times_of_organized_tally_list(cleaned_core_pvc_dict, dictionary)
     tally_organized_times_sum = get_sum_times_of_list(tally_organized_times_list)
     all_warmup_times_pre_toggle = get_all_movement_times(todays_wod, tough_exercises)
     prescribed_time = all_warmup_times_pre_toggle[str(movement_time)]
@@ -485,13 +522,7 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, 
     droms_compiled = get_initial_drom_compiled(
         todays_wod, tough_exercises, droms_dict, drom_time)
     initially_selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
-    # figure out if core in either forced or initally seellcted
 
-    # core_warmup = check_core_in_lists(initially_selected_droms, forced_droms)[0]
-    # print('CORE', core_warmup)
-    # core_diff = check_core_in_lists(initially_selected_droms, forced_droms)[1]
-
-    # (combines pop select droms with forced droms)
     drom_warmup_combo = get_combined_drom_warmup(forced_droms, initially_selected_droms)
     tally_drom_warmup_dict = get_organized_tally_dict(drom_warmup_combo)
     tally_drom_warmup_times_list = get_times_of_organized_tally_list(tally_drom_warmup_dict, droms_dict)
