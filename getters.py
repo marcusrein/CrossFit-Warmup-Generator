@@ -50,7 +50,6 @@ def get_force_from_todays_wod(todays_wod, exercises_dict):
                 forced_barbell}
 
 
-
 def get_combined_drom_warmup(forced_droms, initially_selected_droms):
     drom_warmup = []
     for item in forced_droms['forced droms']:
@@ -102,12 +101,12 @@ def Merge(dict1, dict2, dict3):
     return res
 
 
-def remove_double_core_band_pvc (tally_organized_dict):
+def remove_double_core_band_pvc(tally_organized_dict):
     core = {}
     band_and_pvc = {}
     other = {}
 
-    for k, v  in tally_organized_dict.items():
+    for k, v in tally_organized_dict.items():
         if droms_dict[k]['rpe'] == 1:
             band_and_pvc[k] = v
         elif droms_dict[k]['rpe'] == 2:
@@ -128,9 +127,8 @@ def remove_double_core_band_pvc (tally_organized_dict):
 
 
 def modify_tally(mov_cat, possible_movements):
-    
     returned_list = []
-    
+
     for cat in mov_cat:
         if cat == 'squats':
             x = 'air squats'
@@ -147,8 +145,6 @@ def modify_tally(mov_cat, possible_movements):
         possible_movements.append(forced_movement)
 
     return possible_movements
-
-
 
 
 def get_organized_tally_dict(possible_movements):
@@ -478,6 +474,7 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
             'prescribed time': prescribed_time, 'SELECTED MOVEMENTS: ': selected_movements
             }
 
+
 def get_initial_drom_compiled(todays_wod, tough_exercises, dictionary, movement_time):
     """This is a function that compiles DROMS for viewing."""
     ##CLEANER##
@@ -494,16 +491,14 @@ def get_initial_drom_compiled(todays_wod, tough_exercises, dictionary, movement_
     todays_possible_movements_modified = modify_tally(mov_cat, todays_possible_movements)
 
     tally_organized_dict = get_organized_tally_dict(todays_possible_movements_modified)
-    # breakpoint()
     cleaned_core_pvc_dict = remove_double_core_band_pvc(tally_organized_dict)
     tally_organized_times_list = get_times_of_organized_tally_list(cleaned_core_pvc_dict, dictionary)
     tally_organized_times_sum = get_sum_times_of_list(tally_organized_times_list)
     all_warmup_times_pre_toggle = get_all_movement_times(todays_wod, tough_exercises)
     prescribed_time = all_warmup_times_pre_toggle[str(movement_time)]
     all_warmup_times_plus_toggles = check_tough_input_add_time(tough_exercises, all_warmup_times_pre_toggle)
-    selected_movements = filter_pop_and_select(tally_organized_dict, tally_organized_times_list,
+    selected_movements = filter_pop_and_select(cleaned_core_pvc_dict, tally_organized_times_list,
                                                tally_organized_times_sum, prescribed_time)[0]
-
     return {'TODAYS WOD AND CHECKS: ''todays wod': todays_wod, 'FORCE LIST: ': force_list,
             'has kb exercise': has_kb_exercise,
             'has barbell exercise': has_barbell_exercise,
@@ -516,13 +511,14 @@ def get_initial_drom_compiled(todays_wod, tough_exercises, dictionary, movement_
             'prescribed time': prescribed_time, 'SELECTED MOVEMENTS: ': selected_movements
             }
 
+
 def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short,
                        warmup_duration_long):
     forced_droms = get_force_from_todays_wod(todays_wod, exercises_dict)
     droms_compiled = get_initial_drom_compiled(
         todays_wod, tough_exercises, droms_dict, drom_time)
     initially_selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
-
+    breakpoint()
     drom_warmup_combo = get_combined_drom_warmup(forced_droms, initially_selected_droms)
     tally_drom_warmup_dict = get_organized_tally_dict(drom_warmup_combo)
     tally_drom_warmup_times_list = get_times_of_organized_tally_list(tally_drom_warmup_dict, droms_dict)
@@ -536,7 +532,7 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, 
     selected_movements = filter_pop_and_select(tally_drom_warmup_dict, tally_drom_warmup_times_list,
                                                tally_drom_warmup_organized_times_sum, drom_warmup_prescribed_time)[0]
     popped_items = filter_pop_and_select(tally_drom_warmup_dict, tally_drom_warmup_times_list,
-                                               tally_drom_warmup_organized_times_sum, drom_warmup_prescribed_time)[1]
+                                         tally_drom_warmup_organized_times_sum, drom_warmup_prescribed_time)[1]
     # ADDING BACK IN DROMS THAT WERE REMOVED DUE TO CORE POPPAGE
     # if core_diff > 0:
     #     for i in range(core_diff):
