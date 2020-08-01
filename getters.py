@@ -433,9 +433,9 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, 
     initially_selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
     # figure out if core in either forced or initally seellcted
 
-    core_warmup = check_core_in_lists(initially_selected_droms, forced_droms)[0]
-    print('CORE', core_warmup)
-    core_diff = check_core_in_lists(initially_selected_droms, forced_droms)[1]
+    # core_warmup = check_core_in_lists(initially_selected_droms, forced_droms)[0]
+    # print('CORE', core_warmup)
+    # core_diff = check_core_in_lists(initially_selected_droms, forced_droms)[1]
 
     # (combines pop select droms with forced droms)
     drom_warmup_combo = get_combined_drom_warmup(forced_droms, initially_selected_droms)
@@ -454,9 +454,9 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, 
     popped_items = filter_pop_and_select(tally_drom_warmup_dict, tally_drom_warmup_times_list,
                                                tally_drom_warmup_organized_times_sum, drom_warmup_prescribed_time)[1]
     # ADDING BACK IN DROMS THAT WERE REMOVED DUE TO CORE POPPAGE
-    if core_diff > 0:
-        for i in range(core_diff):
-            selected_movements.append(popped_items[i-1][0])
+    # if core_diff > 0:
+    #     for i in range(core_diff):
+    #         selected_movements.append(popped_items[i-1][0])
 
     selected_droms_after_odd_conditionals = get_insert_remove_odd_conditionals_droms(
         selected_movements, selected_metcon)

@@ -96,7 +96,7 @@ def first_page():
         # DROM SELECTION
         drom_warmup = get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short,
                                          warmup_duration_long)
-
+        print_for_debug = get_movements_compiled(todays_wod, tough_exercises, droms_dict, drom_time)
         # KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #
         drom_final_dict = {}
 
@@ -165,7 +165,8 @@ def first_page():
                                gymnastics_final_dict=gymnastics_final_dict, drom_final_dict=drom_final_dict,
                                todays_wod=todays_wod, est_time_for_display=est_time_for_display,
                                est_time_for_display_plus5=est_time_for_display_plus5,
-                               error_message=error_message, warmup_duration_selection=warmup_duration_selection
+                               error_message=error_message, warmup_duration_selection=warmup_duration_selection,
+                               print_for_debug=print_for_debug
                                )
 
     else:
