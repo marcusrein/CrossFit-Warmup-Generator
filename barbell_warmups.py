@@ -15,7 +15,7 @@ barbell_warmups_dict = {
             'category': ['cleans'],
             'url': 'https://www.youtube.com/watch?v=_3WeR9NdflI',
             'img': 'https://thumbs.gfycat.com/SarcasticEnergeticHalcyon-max-1mb.gif',
-            'text': 'Add weight each set. Get to your working weight.',
+            'text': 'Add weight each set. Progress to your working weight.',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
         },
     'Barbell Overhead Warmup':
@@ -23,7 +23,7 @@ barbell_warmups_dict = {
             'category': ['snatches', 'jerks', 'overhead squats'],
             'url': 'https://www.youtube.com/watch?v=1_IK2yYA3ig',
             'img': 'https://media2.giphy.com/media/ZBn6RZxzQp5Rrov88u/giphy.gif',
-            'text': 'Add weight each set. Get to your working weight.',
+            'text': 'Add weight each set. Progress to your working weight.',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
         },
     'Barbell Jerk Warmup':
@@ -31,7 +31,7 @@ barbell_warmups_dict = {
             'category': ['jerks'],
             'url': 'https://www.youtube.com/watch?v=oaUrbXs5fe0',
             'img': 'https://thumbs.gfycat.com/FlawedDazzlingBengaltiger-small.gif',
-            'text': 'Add weight each set. Get to your working weight.',
+            'text': 'Add weight each set. Progress to your working weight.',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
         },
     'Barbell Snatch Warmup':
@@ -39,44 +39,44 @@ barbell_warmups_dict = {
             'category': ['snatches'],
             'url': 'https://www.youtube.com/watch?v=lN4wmP0n9do',
             'img': 'https://media.tenor.com/images/63673ac0244c6f70e8f8cc3df7231076/tenor.gif',
-            'text': 'Add weight each set. Get to your working weight.',
+            'text': 'Add weight each set. Progress to your working weight.',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
 
         },
-    'Barbell Loading for Pressing':
+    'Barbell Press Warmup':
         {
             'category': ['presses'],
             'url': 'https://www.youtube.com/watch?v=uf2s3KFQWfI',
             'img': 'https://thumbs.gfycat.com/CourteousWellwornHammerkop-max-1mb.gif',
-            'text': 'Add weight each set. Get to your working weight.',
+            'text': 'Add weight each set. Progress to your working weight.',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
 
         },
-    'Barbell Loading for Squatting':
+    'Barbell Squat Warmup':
         {
             'category': ['squats'],
             'url': 'https://youtu.be/pCEpcIo-O4I',
             'img': 'https://i.makeagif.com/media/11-12-2015/F83Osw.gif',
-            'text': 'Add weight each set. Get to your working weight.',
+            'text': 'Add weight each set. Progress to your working weight.',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
 
 
         },
-    'Barbell Loading for Deadlifting':
+    'Barbell Deadlift Warmup':
         {
             'category': ['deadlifts'],
             'url': 'https://www.youtube.com/watch?v=Qpr5i4DTpk0',
             'img': 'https://media4.giphy.com/media/ydPTjG5XbHVEQ/giphy-downsized.gif',
-            'text': 'Add weight each set. Get to your working weight.',
+            'text': 'Add weight each set. Progress to your working weight.',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
 
         },
-    'Barbell Loading for Lunging':
+    'Barbell Lunge Warmup':
         {
             'category': ['lunges'],
             'url': 'https://www.youtube.com/watch?v=ci4rsmlOk24',
             'img': 'https://dailyburn.com/life/wp-content/uploads/2017/10/Barbell-Lunge.gif',
-            'text': 'Add weight each set. Get to your working weight.',
+            'text': 'Add weight each set. Progress to your working weight.',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
 
         },

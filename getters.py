@@ -647,18 +647,18 @@ def get_barbell_warmup_movements(todays_wod):
                     selected_barbell_warmups_with_dupes.append('Barbell Snatch Warmup')
                 if 'presses' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Barbell Overhead Warmup')
-                    selected_barbell_warmups_with_dupes.append('Barbell Loading for Pressing')
+                    selected_barbell_warmups_with_dupes.append('Barbell Press Warmup')
                 if 'overhead presses' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Barbell Overhead Warmup')
-                    selected_barbell_warmups_with_dupes.append('Barbell Loading for Pressing')
+                    selected_barbell_warmups_with_dupes.append('Barbell Press Warmup')
                 if 'overhead squats' in v['category']:
                     selected_barbell_warmups_with_dupes.append('Barbell Overhead Warmup')
                 if 'deadlifts' in v['category']:
-                    selected_barbell_warmups_with_dupes.append('Barbell Loading for Deadlifting')
+                    selected_barbell_warmups_with_dupes.append('Barbell Deadlift Warmup')
                 if 'squats' in v['category']:
-                    selected_barbell_warmups_with_dupes.append('Barbell Loading for Squatting')
+                    selected_barbell_warmups_with_dupes.append('Barbell Squat Warmup')
                 if 'lunges' in v['category']:
-                    selected_barbell_warmups_with_dupes.append('Barbell Loading for Lunging')
+                    selected_barbell_warmups_with_dupes.append('Barbell Lunge Warmup')
 
         ## REMOVES DUPLICATES
     for i in selected_barbell_warmups_with_dupes:
@@ -675,9 +675,9 @@ def get_barbell_warmup_movements(todays_wod):
     if 'Barbell Overhead Warmup' in selected_barbell_warmups:
         selected_barbell_warmups.remove('Barbell Overhead Warmup')
         selected_barbell_warmups.append('Barbell Overhead Warmup')
-    if 'Barbell Loading for Squatting' in selected_barbell_warmups:
-        selected_barbell_warmups.remove('Barbell Loading for Squatting')
-        selected_barbell_warmups.append('Barbell Loading for Squatting')
+    if 'Barbell Squat Warmup' in selected_barbell_warmups:
+        selected_barbell_warmups.remove('Barbell Squat Warmup')
+        selected_barbell_warmups.append('Barbell Squat Warmup')
 
     if 'Barbell Clean Warmup' in selected_barbell_warmups:
         selected_barbell_warmups.remove('Barbell Clean Warmup')

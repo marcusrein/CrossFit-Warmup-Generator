@@ -99,11 +99,15 @@ def first_page():
         print_for_debug = get_movements_compiled(todays_wod, tough_exercises, droms_dict, drom_time)
         # KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #
         drom_final_dict = {}
+
         drom_img_list = get_images_for_display(drom_warmup[0], droms_dict)
         drom_reps = get_reps(drom_warmup[0], tough_exercises, droms_dict)
+        drom_url = get_url_for_display(drom_warmup[0], droms_dict)
 
         for idx, item in enumerate(drom_img_list):
-            drom_final_dict[drom_warmup[0][idx]] = {'img': (drom_img_list[idx]), 'reps': (drom_reps[idx]),
+            drom_final_dict[drom_warmup[0][idx]] = {'img': (drom_img_list[idx]),
+                                                    'reps': (drom_reps[idx]),
+                                                    'url': (drom_url[idx]),
                                                     }
         what_droms_warms_up_list = get_why_drom_selected_dict(drom_final_dict, todays_wod)
         drom_final_dict = add_why_drom_selected_to_drom_final_dict(drom_final_dict, what_droms_warms_up_list)
@@ -154,6 +158,7 @@ def first_page():
         est_time_for_display_plus5 = get_est_times_for_display(metcon_warmup, drom_warmup[0], gymnastics_final_dict,
                                                          kb_warmup, barbell_warmup)[1]
 
+        breakpoint()
         return render_template('index.html', drom_warmup=drom_warmup, metcon_warmup=metcon_warmup,
                                exercise_keys=exercise_keys,
                                barbell_warmup=barbell_warmup,

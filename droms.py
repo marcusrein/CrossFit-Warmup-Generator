@@ -205,7 +205,7 @@ droms_dict = {
         'time': 1,
         'reps': ['10 reps each', '15 reps each', '20 reps each'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        'img': 'https://thumbs.gfycat.com/DemandingDigitalGuanaco-mobile.mp4',
+        'img': 'https://j.gifs.com/ANk8GP.gif',
         'rpe': 1,
         'equipment': 'two bands'
     },
