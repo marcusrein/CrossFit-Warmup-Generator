@@ -1,10 +1,10 @@
 kb_warmups_dict = {
     'Goatbag Swings': {
         'category': ['kettlebells', 'swings'],
-        'url': 'www.tester.com',
-        'img': 'https://media1.giphy.com/media/lQ1uJDDxpYdZLmdz8o/giphy.gif',
+        'url': 'https://youtu.be/d9hvBQPi6gs?t=67',
+        'img': 'https://j.gifs.com/L7yA3g.gif',
         'reps': ['5 reps', '8 reps', '10 reps']
-
+# ENDED UPDATING THINGS HERE
     },
     'Kettlebell Halos': {
         'category': ['kettlebell overhead'],
