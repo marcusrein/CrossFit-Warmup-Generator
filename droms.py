@@ -14,7 +14,7 @@ droms_dict = {
     'air squats': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'snatches'],
         'time': 1,
-        'reps': ['10-20 reps', '15-20 reps', '20 reps'],
+        'reps': ['5-10 reps', '10-15 reps', '10-15 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://thumbs.gfycat.com/ParchedSpitefulDeviltasmanian-size_restricted.gif',
         'rpe': 5,
@@ -187,7 +187,7 @@ droms_dict = {
     'walking lunges': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'kettlebells', 'lunges', 'squats'],
         'time': 1,
-        'reps': ['10-15 reps', '15-20 reps', '20-30 reps'],
+        'reps': ['10-15 reps', '10-15 reps', '15-20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://tinyurl.com/y8a86uhh',
         'rpe': 5,
@@ -212,7 +212,7 @@ droms_dict = {
     'bootstrappers': {
         'categories': ['cleans', 'deadlifts', 'lunges', 'snatches', 'squats'],
         'time': 1,
-        'reps': ['10 reps', '15 reps', '15 reps'],
+        'reps': ['5 reps', '10 reps', '10 reps'],
         'url': 'https://www.youtube.com/watch?v=qxrQkR8H0Pg',
         'img': 'https://misterbackpain.com/wp-content/uploads/2020/01/worlds-greatest-stretch.gif',
         'rpe': 3,
@@ -222,7 +222,7 @@ droms_dict = {
         'time': 1,
         'reps': ['30s hold', '45s hold', '45s hold'],
         'url': 'https://www.youtube.com/watch?v=iXgLGsyuUhY',
-        'img': 'https://media0.giphy.com/media/fH3M6a0ssy9HxUtYVN/giphy.gif?cid=ecf05e478576e27904475e55b821e01d332928b340a77354&rid=giphy.gif',
+        'img': 'https://j.gifs.com/yog606.gif',
         'rpe': 1,
         'equipment': 'pvc pipe'
     },

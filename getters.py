@@ -305,7 +305,7 @@ def get_all_movement_times(todays_wod, tough_exercises):
             and not check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 8
+        drom_time += 6
 
     if len(todays_wod) > 3:
         drom_time += 1
@@ -840,4 +840,6 @@ def get_est_times_for_display(metcon_warmup, drom_warmup, gymnastics_warmups, kb
             total_estimated_time += 12
         if len(barbell_warmups) > 3:
             total_estimated_time += 14
-    return total_estimated_time
+    total_estimated_time = total_estimated_time - 3
+    total_estimated_time_plus5 = total_estimated_time + 5
+    return total_estimated_time, total_estimated_time_plus5
