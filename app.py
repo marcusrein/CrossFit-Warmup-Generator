@@ -38,6 +38,7 @@ def logout():
 # TODO: login with user database
 
 # MDR TODOS
+# TODO: Continue to update gifs/vids (ended on kb_warmups.py)
 # TODO: Get all links to not be separate buttons but the title or image of the movement
 # TODO: ONLY ONE CORE WARMUP IN DROMS
 # TODO: Default selected length is "normal". Fix the way its carrying over after submit.
