@@ -140,54 +140,62 @@ def modify_tally(mov_cat, possible_movements):
                 returned_list.append(random.choice(y))
             for i in range(30):
                 returned_list.append(random.choice(z))
-    if cat == 'cleans':
-        x = 'worlds greatest stretch'
-        y = 'inchworms'
-        z = ['banded side steps', 'banded hip activation series', 'dead bugs']
-        for i in range(55):
-            returned_list.append(x)
-        for i in range(45):
-            returned_list.append(y)
-        for i in range(35):
-            returned_list.append(random.choice(z))
-    if cat == 'deadlifts':
-        x = 'worlds greatest stretch'
-        y = 'inchworms'
-        z = ['banded side steps', 'banded hip activation series', 'dead bugs']
-        for i in range(60):
-            returned_list.append(x)
-        for i in range(65):
-            returned_list.append(y)
-        for i in range(70):
-            returned_list.append(random.choice(z))
-    if cat == 'snatches':
-        x = 'worlds greatest stretch'
-        y = 'inchworms'
-        z = 'thoracic bridges'
-        for i in range(75):
-            returned_list.append(x)
-        for i in range(80):
-            returned_list.append(y)
-        for i in range(85):
-            returned_list.append(z)
-    if cat == 'jerks':
-        x = 'worlds greatest stretch'
-        y = 'thoracic bridges'
-        for i in range(75):
-            returned_list.append(x)
-        for i in range(80):
-            returned_list.append(y)
-    if cat == 'saggital presses':
-        x = 'push ups'
-        for i in range(75):
-            returned_list.append(x)
-
-
-
+        if cat == 'cleans':
+            x = 'worlds greatest stretch'
+            y = 'inchworms'
+            z = ['banded side steps', 'banded hip activation series', 'dead bugs']
+            for i in range(55):
+                returned_list.append(x)
+            for i in range(45):
+                returned_list.append(y)
+            for i in range(35):
+                returned_list.append(random.choice(z))
+        if cat == 'deadlifts':
+            x = 'worlds greatest stretch'
+            y = 'inchworms'
+            z = ['banded side steps', 'banded hip activation series', 'dead bugs']
+            for i in range(60):
+                returned_list.append(x)
+            for i in range(65):
+                returned_list.append(y)
+            for i in range(70):
+                returned_list.append(random.choice(z))
+        if cat == 'snatches':
+            x = 'worlds greatest stretch'
+            y = 'inchworms'
+            z = 'thoracic bridges'
+            xx = ['core rolling', 'dead bugs', 'shoulder passthroughs']
+            for i in range(75):
+                returned_list.append(x)
+            for i in range(80):
+                returned_list.append(y)
+            for i in range(85):
+                returned_list.append(z)
+            for i in range(70):
+                returned_list.append(random.choice(xx))
+        if cat == 'jerks':
+            x = 'worlds greatest stretch'
+            y = 'thoracic bridges'
+            for i in range(75):
+                returned_list.append(x)
+            for i in range(80):
+                returned_list.append(y)
+        if cat == 'saggital presses':
+            x = 'push ups'
+            for i in range(77):
+                returned_list.append(x)
+        if cat == 'pull up':
+            x = 'thoracic bridges'
+            y = ['core rolling', 'dead bugs', 'shoulder passthroughs']
+            for i in range(43):
+                returned_list.append(x)
+            for i in range(47):
+                returned_list.append(random.choice(y))
 
     for forced_movement in returned_list:
         possible_movements.append(forced_movement)
 
+    # breakpoint()
     return possible_movements
 
 
@@ -250,7 +258,7 @@ def get_all_movement_times(todays_wod, tough_exercises):
             and check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 5
+        drom_time += 6
         barbell_time += 10
         kb_time += 5
         tough_gymnastics_time += 10
@@ -258,40 +266,40 @@ def get_all_movement_times(todays_wod, tough_exercises):
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 5
+        drom_time += 6
         barbell_time += 10
         kb_time += 5
     elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 5
+        drom_time += 6
         barbell_time += 10
         tough_gymnastics_time += 10
     elif check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 5
+        drom_time += 6
         barbell_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 11
+        drom_time += 6
         kb_time += 5
         tough_gymnastics_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and check_kb_exercise(todays_wod) \
             and not check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 5
+        drom_time += 6
         kb_time += 5
     elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \
             and check_tough_gymnastics(todays_wod):
         metcon_time += 2
-        drom_time += 5
+        drom_time += 6
         tough_gymnastics_time += 10
     elif not check_barbell_exercise(todays_wod) \
             and not check_kb_exercise(todays_wod) \

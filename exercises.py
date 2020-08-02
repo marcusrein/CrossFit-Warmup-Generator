@@ -16,29 +16,29 @@ exercises_dict = {
         'loaded': False,
     },
     'burpee': {
-        'category': ['gymnastics upper', 'gymnastics lower'],
+        'category': ['saggital presses', 'gymnastics upper', 'gymnastics lower'],
         'loaded': False,
     },
     'push up': {
-        'category': ['gymnastics upper'],
+        'category': ['saggital presses'],
         'loaded': False,
     },
     'strict pull up': {
-        'category': ['gymnastics upper'],
+        'category': ['gymnastics upper', 'pull up'],
         'loaded': False,
     },
     'kipping pull up': {
-        'category': ['gymnastics upper'],
+        'category': ['gymnastics upper', 'pull up'],
         'loaded': False,
 
     },
     'butterfly pull up': {
-        'category': ['gymnastics upper'],
+        'category': ['gymnastics upper', 'pull up'],
         'loaded': False,
 
     },
     'chin up': {
-        'category': ['gymnastics upper'],
+        'category': ['gymnastics upper', 'pull up'],
         'loaded': False,
 
     },
