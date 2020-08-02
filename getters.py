@@ -140,6 +140,50 @@ def modify_tally(mov_cat, possible_movements):
                 returned_list.append(random.choice(y))
             for i in range(30):
                 returned_list.append(random.choice(z))
+    if cat == 'cleans':
+        x = 'worlds greatest stretch'
+        y = 'inchworms'
+        z = ['banded side steps', 'banded hip activation series', 'dead bugs']
+        for i in range(55):
+            returned_list.append(x)
+        for i in range(45):
+            returned_list.append(y)
+        for i in range(35):
+            returned_list.append(random.choice(z))
+    if cat == 'deadlifts':
+        x = 'worlds greatest stretch'
+        y = 'inchworms'
+        z = ['banded side steps', 'banded hip activation series', 'dead bugs']
+        for i in range(60):
+            returned_list.append(x)
+        for i in range(65):
+            returned_list.append(y)
+        for i in range(70):
+            returned_list.append(random.choice(z))
+    if cat == 'snatches':
+        x = 'worlds greatest stretch'
+        y = 'inchworms'
+        z = 'thoracic bridges'
+        for i in range(75):
+            returned_list.append(x)
+        for i in range(80):
+            returned_list.append(y)
+        for i in range(85):
+            returned_list.append(z)
+    if cat == 'jerks':
+        x = 'worlds greatest stretch'
+        y = 'thoracic bridges'
+        for i in range(75):
+            returned_list.append(x)
+        for i in range(80):
+            returned_list.append(y)
+    if cat == 'saggital presses':
+        x = 'push ups'
+        for i in range(75):
+            returned_list.append(x)
+
+
+
 
     for forced_movement in returned_list:
         possible_movements.append(forced_movement)
