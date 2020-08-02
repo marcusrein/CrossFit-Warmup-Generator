@@ -660,10 +660,12 @@
                         <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
 
                         <div class="card-body">
-                            <h5 class="card-title">{{ k.title() }}</h5>
+                            <h5>
+                            <a href="{{ v['url'] }}" target="_blank" class="card-title">{{ k.title() }}</a>
+                            </h5>
+                            <p></p>
                             <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
                             <p class="card-text"> {{ v['text'] }} </p>
-                            <a href="{{ v['url'] }}" target="_blank" class="card-link">Video Demo</a>
                         </div>
                     </div>
                 </div>

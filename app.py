@@ -38,6 +38,7 @@ def logout():
 # TODO: login with user database
 
 # MDR TODOS
+# TODO: Get all links to not be separate buttons but the title or image of the movement
 # TODO: ONLY ONE CORE WARMUP IN DROMS
 # TODO: Default selected length is "normal". Fix the way its carrying over after submit.
 # TODO: need to differentiate olympic lift warmup and strength/squat warmup. If olympic lift is in 'easy' warm up one way, if olympic lift is 'tough' warm up another. If strength movement is combined with oly movement in a WOD...?
@@ -158,7 +159,6 @@ def first_page():
         est_time_for_display_plus5 = get_est_times_for_display(metcon_warmup, drom_warmup[0], gymnastics_final_dict,
                                                          kb_warmup, barbell_warmup)[1]
 
-        breakpoint()
         return render_template('index.html', drom_warmup=drom_warmup, metcon_warmup=metcon_warmup,
                                exercise_keys=exercise_keys,
                                barbell_warmup=barbell_warmup,
