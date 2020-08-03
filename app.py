@@ -106,11 +106,13 @@ def first_page():
         drom_img_list = get_images_for_display(drom_warmup[0], droms_dict)
         drom_reps = get_reps(drom_warmup[0], tough_exercises, droms_dict)
         drom_url = get_url_for_display(drom_warmup[0], droms_dict)
+        drom_counter = ['1. ', '2. ', '3. ', '4. ', '5. ', '6. ', '7. ', '8. ', '9. ', '10. ', '11. ', '12. ']
 
         for idx, item in enumerate(drom_img_list):
             drom_final_dict[drom_warmup[0][idx]] = {'img': (drom_img_list[idx]),
                                                     'reps': (drom_reps[idx]),
                                                     'url': (drom_url[idx]),
+                                                    'counter': (drom_counter[idx])
                                                     }
         what_droms_warms_up_list = get_why_drom_selected_dict(drom_final_dict, todays_wod)
         drom_final_dict = add_why_drom_selected_to_drom_final_dict(drom_final_dict, what_droms_warms_up_list)
@@ -125,7 +127,6 @@ def first_page():
             for tough_gymnastics_movement in tough_gymnastics_warmups:
                 if tough_gymnastics_movement == k:
                     gymnastics_final_dict[k] = v
-
 
         # KB SELECTION
         kb_warmup = {}
@@ -159,7 +160,7 @@ def first_page():
         est_time_for_display = get_est_times_for_display(metcon_warmup, drom_warmup[0], gymnastics_final_dict,
                                                          kb_warmup, barbell_warmup)[0]
         est_time_for_display_plus5 = get_est_times_for_display(metcon_warmup, drom_warmup[0], gymnastics_final_dict,
-                                                         kb_warmup, barbell_warmup)[1]
+                                                               kb_warmup, barbell_warmup)[1]
 
         return render_template('index.html', drom_warmup=drom_warmup, metcon_warmup=metcon_warmup,
                                exercise_keys=exercise_keys,
