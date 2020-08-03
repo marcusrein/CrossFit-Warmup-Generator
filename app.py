@@ -36,6 +36,7 @@ def logout():
 # TODO: better dropdowns/navbar ideas
 #  TODO: * Get screen orientation to lock in portrait mode
 # TODO: login with user database
+#
 
 # MDR TODOS
 # TODO: Continue to update gifs/vids (ended on kb_warmups.py)
