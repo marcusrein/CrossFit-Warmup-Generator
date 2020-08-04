@@ -1,7 +1,9 @@
-from droms import *
-from metcons import *
-from filters import *
-import string
+from appfolder.droms import *
+from appfolder.exercises import *
+from appfolder.gymnastics_warmups import *
+from appfolder.metcons import *
+from appfolder.filters import *
+from appfolder.checks import *
 import random
 
 

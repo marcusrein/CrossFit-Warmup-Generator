@@ -1,6 +1,6 @@
-from exercises import *
-from checks import *
-from droms import *
+from appfolder.checks import *
+from appfolder.exercises import *
+from appfolder.droms import *
 
 import random
 

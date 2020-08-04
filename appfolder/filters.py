@@ -1,7 +1,3 @@
-from checks import *
-from gymnastics_warmups import *
-import random
-
 
 def filter_pop_and_select(dictionary, organized_times_list, tally_organized_times_sum, prescribed_time):
     """

@@ -1,16 +1,20 @@
-from flask import Flask, render_template, request, url_for, redirect, session, flash
-from forms import RegistrationForm, LoginForm
-from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
-from barbell_warmups import *
-from kb_warmups import *
-from getters import *
-from models import User, Gear
+from flask import render_template, request, url_for, redirect, session, flash
+from appfolder import app
+from appfolder.forms import RegistrationForm, LoginForm
+from appfolder.models import User, Gear
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = '2fc1cdd26003685f749bd3e217824aca'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-db = SQLAlchemy(app)
+
+from appfolder.barbell_warmups import *
+from appfolder.checks import *
+from appfolder.droms import *
+from appfolder.exercises import *
+from appfolder.getters import *
+from appfolder.gymnastics_warmups import *
+from appfolder.kb_warmups import *
+from appfolder.media import *
+from appfolder.metcons import *
+
+
 
 
 @app.route("/register", methods=['GET', 'POST'])
@@ -42,34 +46,10 @@ def logout():
     return redirect(url_for('/'))
 
 
-# JJ HELP TODOS
-# TODO: expanding to XL messes with formatting
-# TODO Padding on L of R big screen column does not respond
-# TODO: better dropdowns/navbar ideas
-#  TODO: * Get screen orientation to lock in portrait mode
-# TODO: login with user database
-#
-
-# MDR TODOS
-# TODO: Continue to update gifs/vids (ended on kb_warmups.py)
-# TODO: Get all links to not be separate buttons but the title or image of the movement
-# TODO: ONLY ONE CORE WARMUP IN DROMS
-# TODO: Default selected length is "normal". Fix the way its carrying over after submit.
-# TODO: need to differentiate olympic lift warmup and strength/squat warmup. If olympic lift is in 'easy' warm up one way, if olympic lift is 'tough' warm up another. If strength movement is combined with oly movement in a WOD...?
-# TODO: need an overhead squat category. see barbellwarmups.py 'overhead squat warmup'
-# TODO: If forced core exercise, only allow one core exercise in output (line 62 getters.py)
-
-
-# LONG TERM TODOS:
-# TODO: add draggable inputs
-# TODO: Create banded section.
-# TODO: 1. Create DB category throughout code, 2. fix bug in index.html that doubles-up input (it lookslike
-#  I can put in airsquat 2x) 3. create 'equipment' thing. 4. have users log in
-
 @app.route('/', methods=['GET', 'POST'])
 def first_page():
-    from exercises import exercises_dict
-    from droms import droms_dict
+
+
 
     alphabetical_exercises_dict = OrderedDict(sorted(exercises_dict.items(), key=lambda x: x[0]))
     exercise_keys = alphabetical_exercises_dict.keys()
@@ -194,7 +174,3 @@ def first_page():
         print('else block called$$$$$$$$$$$$$$$$$$$$$$')
         return render_template('index.html', exercise_keys=exercise_keys,
                                warmup_duration_selection=warmup_duration_selection)
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
