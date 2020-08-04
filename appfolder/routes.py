@@ -1,8 +1,8 @@
-from flask import render_template, request, url_for, redirect, session, flash
-from appfolder import app
+from flask import render_template, request, url_for, redirect, flash
+from appfolder import app, db, bcrypt
 from appfolder.forms import RegistrationForm, LoginForm
 from appfolder.models import User, Gear
-
+from flask_login import login_user, current_user, logout_user, login_required
 
 from appfolder.barbell_warmups import *
 from appfolder.checks import *
@@ -17,40 +17,51 @@ from appfolder.metcons import *
 
 
 
+@app.route("/about")
+def about():
+    return render_template('about.html', title='About')
+
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('first_page'))
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
+        flash('Your account has been created! You are now able to log in', 'success')
+        return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
-        if form.email.data == 'admin@blog.com' and form.password.data == 'password':
-            flash('You have been logged in!', 'success')
-            return redirect(url_for('first_page'))
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user, remember=form.remember.data)
+            next_page = request.args.get('next')
+            return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
-            flash('Login Unsuccessful. Please check username and password', 'danger')
+            flash('Login Unsuccessful. Please check email and password', 'danger')
     return render_template('login.html', title='Login', form=form)
 
 
-@app.route('/logout')
+@app.route("/logout")
 def logout():
-    session.pop('logged_in', None)
-    flash('You were just logged out')
-
-    return redirect(url_for('/'))
+    logout_user()
+    return redirect(url_for('home'))
 
 
-@app.route('/', methods=['GET', 'POST'])
-def first_page():
-
-
-
+@app.route('/')
+@app.route('/home', methods=['GET', 'POST'])
+def home():
     alphabetical_exercises_dict = OrderedDict(sorted(exercises_dict.items(), key=lambda x: x[0]))
     exercise_keys = alphabetical_exercises_dict.keys()
 
