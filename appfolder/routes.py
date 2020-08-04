@@ -59,6 +59,12 @@ def logout():
     return redirect(url_for('home'))
 
 
+@app.route("/account")
+@login_required
+def account():
+    return render_template('account.html', title='Account')
+
+
 @app.route('/')
 @app.route('/home', methods=['GET', 'POST'])
 def home():
