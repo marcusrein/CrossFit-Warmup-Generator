@@ -18,7 +18,7 @@
                                     <div class="col-sm">
 
                                         <div class="form-group w-100">
-                                            <label  style="text-align: center">
+                                            <label style="text-align: center">
                                                 Your Easy Exercises
                                             </label>
                                             <select multiple id="slim-select0" name="easy_exercises_form">
@@ -84,16 +84,23 @@
                                     </p3>
                                 </div>
                                 <div class="btn-group btn-group-toggle special" data-toggle="buttons">
-                                    <label class="btn btn-secondary {{ "active" if warmup_duration_selection == "short" }}">
-                                        <input type="radio" name="option" value="short" autocomplete="off" {{ "checked" if warmup_duration_selection == "short" }}>
-                                        Short
+                                    <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "short"
+                                    }}">
+                                    <input type="radio" name="option" value="short" autocomplete="off" {{ "checked" if
+                                    warmup_duration_selection == "short" }}>
+                                    Short
                                     </label>
-                                    <label class="btn btn-secondary {{ "active" if warmup_duration_selection == "normal" }}">
-                                        <input type="radio" name="option" value="normal" autocomplete="off" checked="checked" {{ "checked" if warmup_duration_selection == "normal" }}>
-                                        Normal
+                                    <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "" }}
+                                    {{ "active" if warmup_duration_selection == "normal" }}">
+                                    <input type="radio" name="option" value="normal" autocomplete="off" {{ "checked" if
+                                    warmup_duration_selection == "" }}{{ "checked" if warmup_duration_selection ==
+                                    "normal" }}>
+                                    Normal
                                     </label>
-                                    <label class="btn btn-secondary {{ "active" if warmup_duration_selection == "long" }}">
-                                        <input type="radio" name="option" value="long" autocomplete="off" {{ "checked" if warmup_duration_selection == "long" }}> Long
+                                    <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "long"
+                                    }}">
+                                    <input type="radio" name="option" value="long" autocomplete="off" {{ "checked" if
+                                    warmup_duration_selection == "long" }}> Long
                                     </label>
                                 </div>
                                 <button type="submit" type="button" class="btn btn-primary btn-block mt-4"
@@ -190,18 +197,22 @@
                         </p3>
                     </div>
                     <div class="btn-group btn-group-toggle special" data-toggle="buttons">
-                                    <label class="btn btn-secondary {{ "active" if warmup_duration_selection == "short" }}">
-                                        <input type="radio" name="option" value="short" autocomplete="off" {{ "checked" if warmup_duration_selection == "short" }}>
-                                        Short
-                                    </label>
-                                    <label class="btn btn-secondary active {{ "active" if warmup_duration_selection == "normal" }}">
-                                        <input type="radio" name="option" value="normal" autocomplete="off" checked="checked" {{ "checked" if warmup_duration_selection == "normal" }}>
-                                        Normal
-                                    </label>
-                                    <label class="btn btn-secondary {{ "active" if warmup_duration_selection == "long" }}">
-                                        <input type="radio" name="option" value="long" autocomplete="off" {{ "checked" if warmup_duration_selection == "long" }}> Long
-                                    </label>
-                                </div>
+                        <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "short" }}">
+                        <input type="radio" name="option" value="short" autocomplete="off" {{ "checked" if
+                        warmup_duration_selection == "short" }}>
+                        Short
+                        </label>
+                        <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "" }} {{ "active"
+                        if warmup_duration_selection == "normal" }}">
+                        <input type="radio" name="option" value="normal" autocomplete="off" {{ "checked" if
+                        warmup_duration_selection == "" }}{{ "checked" if warmup_duration_selection == "normal" }}>
+                        Normal
+                        </label>
+                        <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "long" }}">
+                        <input type="radio" name="option" value="long" autocomplete="off" {{ "checked" if
+                        warmup_duration_selection == "long" }}> Long
+                        </label>
+                    </div>
                     <button type="submit" type="button" class="btn btn-primary btn-block mt-4" value="submit">Get
                         Warmups
                     </button>
@@ -230,13 +241,13 @@
         </div>
 
         <div class="overflow-auto w-100 mt-4 container">
-                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+            <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
 
-            <p3>
-                        Perform the generated warmup in the order presented
-                    </p3>
-                </div>
+                <p3>
+                    Perform the generated warmup in the order presented
+                </p3>
             </div>
+        </div>
 
         <div class="overflow-auto w-100 mt-4 container">
             <a href="#metcon_warmup"
@@ -411,7 +422,8 @@
                 <div class="card">
                     <div class="card-header" id="headingOne5">
                         <h2 class="mb-0">
-                            <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between" type="button" data-toggle="collapse"
+                            <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                    type="button" data-toggle="collapse"
                                     data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
                                     aria-controls="collapseOne5">
                                 {{ k.title() }}
@@ -456,7 +468,7 @@
             <div class="list-group w-100 d-none d-md-block">
                 <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
 
-            <p2>
+                    <p2>
                         Perform your warmup in the order presented
                     </p2>
                 </div>
@@ -601,7 +613,7 @@
                         <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
                         <div class="card-body">
                             <h5>
-                            <a href="{{ v['url'] }}" target="_blank" class="card-title"> {{ k.title() }}</a>
+                                <a href="{{ v['url'] }}" target="_blank" class="card-title"> {{ k.title() }}</a>
                             </h5>
                             <p></p>
                             <p class="badge badge-pill badge-primary">{{ v['reps'] }}</p>
@@ -680,7 +692,7 @@
 
                         <div class="card-body">
                             <h5>
-                            <a href="{{ v['url'] }}" target="_blank" class="card-title">{{ k.title() }}</a>
+                                <a href="{{ v['url'] }}" target="_blank" class="card-title">{{ k.title() }}</a>
                             </h5>
                             <p></p>
                             <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
@@ -729,6 +741,7 @@
       closeOnSelect: false,
       allowDeselectOption: true
     })
+
 
 
 
