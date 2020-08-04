@@ -90,15 +90,29 @@
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Your Profile</a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a href="login" class="dropdown-item">Login</a>
+                    <a href="{{ url_for('login') }}" class="dropdown-item">Login</a>
+                    <a href="{{ url_for('register') }}" class="dropdown-item">Register</a>
+
                     <a href="#" class="dropdown-item">Settings</a>
                     <div class="dropdown-divider"></div>
                     <a href="/" class="dropdown-item">Logout</a>
+
                 </div>
             </li>
         </ul>
     </div>
 </nav>
-{% block content %}{% endblock %}
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+</div>
+          {% block content %}{% endblock %}
   </body>
 </html>
