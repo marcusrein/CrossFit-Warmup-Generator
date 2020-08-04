@@ -463,9 +463,9 @@ exercises_dict = {
 #
 
 alpha = OrderedDict(sorted(exercises_dict.items(), key=lambda x: x[0]))
-
-for k, v in alpha.items():
-    print(k, v)
+#
+# for k, v in alpha.items():
+#     print(k, v)
 
 # for i, j in droms2.items():
 #     sorted_dict = {i: sorted(j['categories'])}

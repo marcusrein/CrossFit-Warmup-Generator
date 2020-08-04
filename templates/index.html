@@ -220,236 +220,239 @@
                 </div>
 
 
-
-        </form>
-
-
-        <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SMALL SCREEN L SIDEBAR ACCORDIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+            </form>
 
 
-        {% if metcon_warmup: %}
+            <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SMALL SCREEN L SIDEBAR ACCORDIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
 
-        <div class="overflow-auto w-100 mt-4 container">
-            <p></p>
-            <a href="#estimated_times"
-               class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
-                <p3>Your Estimated Warmup Time is between <strong>{{ est_time_for_display}}</strong> and <strong>{{ est_time_for_display_plus5 }}</strong>
-                    minutes
-                </p3>
-            </a>
-        </div>
 
-        <div class="overflow-auto w-100 mt-4 container">
-            <div class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+            {% if metcon_warmup: %}
 
-                <p3>
-                    Perform the generated warmup in the order presented
-                </p3>
+            <div class="overflow-auto w-100 mt-4 container">
+                <p></p>
+                <a href="#estimated_times"
+                   class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+                    <p3>Your Estimated Warmup Time is between <strong>{{ est_time_for_display}}</strong> and <strong>{{
+                        est_time_for_display_plus5 }}</strong>
+                        minutes
+                    </p3>
+                </a>
             </div>
-        </div>
 
-        <div class="overflow-auto w-100 mt-4 container">
-            <a href="#metcon_warmup"
-               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
-                <b>Metcon Warmup</b>
-            </a>
-            {% for k,v in metcon_warmup.items() %}
-            <div class="accordion d-md-none" id="accordionExample">
-                <div class="card">
-                    <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
-                            <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                                    type="button" data-toggle="collapse"
-                                    data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                {{ k.title() }}
-                                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-                            </button>
-                        </h2>
-                    </div>
+            <div class="overflow-auto w-100 mt-4 container">
+                <div class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
 
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="card-body card-deck">
-                            {% for k,v in metcon_warmup.items() %}
-                            <div class="card" style="max-width: 18rem;">
-                                <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ k.title() }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Metcon Warmup</h6>
-                                    <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
+                    <p3>
+                        <i>Perform the generated warmup in the order presented</i>
+                    </p3>
+                </div>
+            </div>
+
+            <div class="overflow-auto w-100 mt-4 container">
+                <a href="#metcon_warmup"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+                    <b>Metcon Warmup</b>
+                </a>
+                {% for k,v in metcon_warmup.items() %}
+                <div class="accordion d-md-none" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                        type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    {{ k.title() }}
+                                    <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                             data-parent="#accordionExample">
+                            <div class="card-body card-deck">
+                                {% for k,v in metcon_warmup.items() %}
+                                <div class="card" style="max-width: 18rem;">
+                                    <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ k.title() }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Metcon Warmup</h6>
+                                        <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
+                                    </div>
                                 </div>
+                                {% endfor %}
                             </div>
-                            {% endfor %}
                         </div>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
+                {% endfor %}
 
-            <p></p>
+                <p></p>
 
-            {% if drom_final_dict: %}
-            <a href="#drom_warmup"
-               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
-                <b>DROM Warmups</b>
-            </a>
-            {% for k,v in drom_final_dict.items() %}
-            <div class="accordion d-md-none">
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="mb-0">
-                            <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                                    type="button" data-toggle="collapse"
-                                    data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
-                                    aria-controls="{{ v['dropdowns_rand2'] }}">
-                                {{ k.title() }}
-                                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
-                        <div class="card">
-                            <div class="card-body" style="max-width: 18rem;">
-                                <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
-                                <p class="card-subtitle mb-2 text-muted"> Warms up:</p>
-                                <p class="card-subtitle mb-2 text-muted">
-                                    {% for target in v['targets'] %}
-                                    <span class="badge badge-pill badge-secondary">{{ target.title() }}</span>
-                                    {% endfor %}
-                                <p></p>
-
-                                <a href="#" class="card-link">Eventual Vid Link</a>
-                            </div>
-
+                {% if drom_final_dict: %}
+                <a href="#drom_warmup"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+                    <b>DROM Warmups</b>
+                </a>
+                {% for k,v in drom_final_dict.items() %}
+                <div class="accordion d-md-none">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="mb-0">
+                                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                        type="button" data-toggle="collapse"
+                                        data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
+                                        aria-controls="{{ v['dropdowns_rand2'] }}">
+                                    {{ k.title() }}
+                                    <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                                </button>
+                            </h2>
                         </div>
-                    </div>
-                </div>
-            </div>
+                        <div id="{{ k.replace(' ', '') }}" class="collapse"
+                             aria-labelledby="{{ v['dropdowns_rand1'] }}">
+                            <div class="card">
+                                <div class="card-body" style="max-width: 18rem;">
+                                    <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                                    <p class="card-subtitle mb-2 text-muted"> Warms up:</p>
+                                    <p class="card-subtitle mb-2 text-muted">
+                                        {% for target in v['targets'] %}
+                                        <span class="badge badge-pill badge-secondary">{{ target.title() }}</span>
+                                        {% endfor %}
+                                    <p></p>
 
-            {% endfor %}
-            {% endif %}
-
-            <p></p>
-            {% if gymnastics_final_dict: %}
-            <a href="#gymnastics_warmup"
-               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
-                <b>Gymnastics Warmups</b>
-            </a>
-            {% for k,v in gymnastics_final_dict.items() %}
-            <div class="accordion d-md-none" id="accordionExample3">
-                <div class="card">
-                    <div class="card-header" id="headingOne3">
-                        <h2 class="mb-0">
-                            <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                                    type="button" data-toggle="collapse"
-                                    data-target="#collapseOne3" aria-expanded="false" aria-controls="collapseOne3">
-                                {{ k.title() }}
-                                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseOne3" class="collapse" aria-labelledby="headingOne3"
-                         data-parent="#accordionExample">
-                        <div class="card-body card-deck">
-                            <div class="card" style="max-width: 18rem;">
-                                <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ k.title() }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
-                                    <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
-                                    <p class="card-text"> {{ v['text'] }} </p>
-                                    <a href="{{ v['url'] }}" target="_blank" class="card-link">Video Link</a>
-
+                                    <a href="#" class="card-link">Eventual Vid Link</a>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
-            {% endif %}
 
-            <p></p>
-            {% if kb_warmup: %}
-            <a href="#kb_warmup"
-               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
-                <b>Kettlebell Warmups</b>
-            </a>
-            {% for k,v in kb_warmup.items() %}
-            <div class="accordion d-md-none" id="accordionExample4">
-                <div class="card">
-                    <div class="card-header" id="headingOne4">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                                    data-target="#collapseOne4" aria-expanded="false" aria-controls="collapseOne4">
-                                {{ k.title() }}
-                                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseOne4" class="collapse" aria-labelledby="headingOne4"
-                         data-parent="#accordionExample">
-                        <div class="card-body card-deck">
-                            <div class="card" style="max-width: 18rem;">
-                                <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ k.title() }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Kettlebell Warmup</h6>
-                                    <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
-                                    <p class="card-text"> {{ v['text'] }} </p>
-                                    <a href="{{ v['url'] }}" target="_blank" class="card-link">Video Link</a>
+                {% endfor %}
+                {% endif %}
 
+                <p></p>
+                {% if gymnastics_final_dict: %}
+                <a href="#gymnastics_warmup"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+                    <b>Gymnastics Warmups</b>
+                </a>
+                {% for k,v in gymnastics_final_dict.items() %}
+                <div class="accordion d-md-none" id="accordionExample3">
+                    <div class="card">
+                        <div class="card-header" id="headingOne3">
+                            <h2 class="mb-0">
+                                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                        type="button" data-toggle="collapse"
+                                        data-target="#collapseOne3" aria-expanded="false" aria-controls="collapseOne3">
+                                    {{ k.title() }}
+                                    <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne3" class="collapse" aria-labelledby="headingOne3"
+                             data-parent="#accordionExample">
+                            <div class="card-body card-deck">
+                                <div class="card" style="max-width: 18rem;">
+                                    <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ k.title() }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
+                                        <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
+                                        <p class="card-text"> {{ v['text'] }} </p>
+                                        <a href="{{ v['url'] }}" target="_blank" class="card-link">Video Link</a>
+
+                                    </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
-            {% endif %}
+                {% endfor %}
+                {% endif %}
 
+                <p></p>
+                {% if kb_warmup: %}
+                <a href="#kb_warmup"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+                    <b>Kettlebell Warmups</b>
+                </a>
+                {% for k,v in kb_warmup.items() %}
+                <div class="accordion d-md-none" id="accordionExample4">
+                    <div class="card">
+                        <div class="card-header" id="headingOne4">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne4" aria-expanded="false" aria-controls="collapseOne4">
+                                    {{ k.title() }}
+                                    <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne4" class="collapse" aria-labelledby="headingOne4"
+                             data-parent="#accordionExample">
+                            <div class="card-body card-deck">
+                                <div class="card" style="max-width: 18rem;">
+                                    <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ k.title() }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Kettlebell Warmup</h6>
+                                        <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
+                                        <p class="card-text"> {{ v['text'] }} </p>
+                                        <a href="{{ v['url'] }}" target="_blank" class="card-link">Video Link</a>
 
-            <p></p>
-            {% if barbell_warmup: %}
-            <a href="#barbell_warmup"
-               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
-                <b>Barbell Warmups</b>
-            </a>
-            {% for k,v in barbell_warmup.items() %}
-            <div class="accordion d-md-none" id="accordionExample5">
-                <div class="card">
-                    <div class="card-header" id="headingOne5">
-                        <h2 class="mb-0">
-                            <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                                    type="button" data-toggle="collapse"
-                                    data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
-                                    aria-controls="collapseOne5">
-                                {{ k.title() }}
-                                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="headingOne5">
-                        <div class="card-body card-deck">
-                            <div class="card" style="max-width: 18rem;">
-                                <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ k.title() }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Barbell Warmup</h6>
-                                    <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
-                                    <p class="card-text"> {{ v['text'] }} </p>
-                                    <a href="{{ v['url'] }}" target="_blank" class="card-link">Video Demo</a>
-
+                                    </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
+                {% endif %}
+
+
+                <p></p>
+                {% if barbell_warmup: %}
+                <a href="#barbell_warmup"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+                    <b>Barbell Warmups</b>
+                </a>
+                {% for k,v in barbell_warmup.items() %}
+                <div class="accordion d-md-none" id="accordionExample5">
+                    <div class="card">
+                        <div class="card-header" id="headingOne5">
+                            <h2 class="mb-0">
+                                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                        type="button" data-toggle="collapse"
+                                        data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
+                                        aria-controls="collapseOne5">
+                                    {{ k.title() }}
+                                    <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="headingOne5">
+                            <div class="card-body card-deck">
+                                <div class="card" style="max-width: 18rem;">
+                                    <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ k.title() }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Barbell Warmup</h6>
+                                        <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
+                                        <p class="card-text"> {{ v['text'] }} </p>
+                                        <a href="{{ v['url'] }}" target="_blank" class="card-link">Video Demo</a>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
             </div>
-            {% endfor %}
-            {% endif %}
 
 
             <!--    %%%%%%%%%%%%%%%%%% BIG SCREEN L SIDEBAR SECTION LISTING ELEMENTS %%%%%%%%%%%%%%%%%%%%%%%%%-->
@@ -740,6 +743,7 @@
       closeOnSelect: false,
       allowDeselectOption: true
     })
+
 
 
 
