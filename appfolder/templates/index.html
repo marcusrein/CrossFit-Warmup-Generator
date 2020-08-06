@@ -565,7 +565,7 @@
 
 
     {% if not metcon_warmup: %}
-    <section class="col-xs-0 col-sm-0 col-md-6 col-lg-8 col-xl-8 ml-sm-auto d-none d-md-block bg">
+    <div class="col-xs-0 col-sm-0 col-md-6 col-lg-8 col-xl-8 ml-sm-auto d-none d-md-block bg">
         <div class="alert alert-secondary" style="margin: 30px" role="alert">
             <h4 class="alert-heading">Welcome to the Warmup Generator!</h4>
             <p>Please categorize your exercises in today's workout by "Easy" and "Tough".</p>
@@ -584,7 +584,7 @@
             <p class="mb-0">Designed by Marcus Rein PT, DPT, Jordan Rein, and Ryan DeWitt PT, DPT</p>
         </div>
         {% endif %}
-    </section>
+    </div>
 
     {% if metcon_warmup: %}
     <section class="col-xs-0 col-sm-0 col-md-6 col-lg-8 ml-sm-auto d-none d-md-block">
@@ -743,6 +743,7 @@
       closeOnSelect: false,
       allowDeselectOption: true
     })
+
 
 
 

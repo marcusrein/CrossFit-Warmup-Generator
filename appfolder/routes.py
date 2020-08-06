@@ -8,7 +8,6 @@ import os
 from PIL import Image
 from flask_mail import Message
 
-
 from appfolder.barbell_warmups import *
 from appfolder.checks import *
 from appfolder.droms import *
