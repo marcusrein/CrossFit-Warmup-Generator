@@ -18,14 +18,10 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
 
-### THIS IS NOT SECURE! WORK ON THIS!
 
-
-app.config['MAIL_USERNAME'] = 'noreply.warmupgenerator'
-app.config['MAIL_PASSWORD'] = 'lbjrnyfcpacrdfdp'
-
-xxx = os.environ.get('EMAIL_USER')
-print('THIS', xxx)
+app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
+app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
+#
 mail = Mail(app)
 
 
