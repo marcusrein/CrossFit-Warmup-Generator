@@ -77,11 +77,16 @@
             </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Your Equipment</a>
+
                 <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Warmup Equipment</a>
-                    <a href="#" class="dropdown-item">Gym Equipment</a>
+                    {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('new_post') }}" class="dropdown-item">New Post (Gear)</a>
+                    <a href="{{ url_for('your_gear') }}" class="dropdown-item">Your Posts (Gear)</a>
+
                     <a href="#" class="dropdown-item">Wish List</a>
                     <div class="dropdown-divider"></div>
+                                        {% endif %}
+
                     <a href="#" class="dropdown-item">Store</a>
                 </div>
             </li>
