@@ -1,6 +1,7 @@
 from appfolder import app
 
 # JJ HELP TODOS
+# TODO: NOT SECURE EMAIL at init.py. Cannot import enviornment varibles from bash? Weird!
 # TODO: expanding to XL messes with formatting
 # TODO Padding on L of R big screen column does not respond
 # TODO: better dropdowns/navbar ideas
