@@ -223,13 +223,15 @@
                                             </p3>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="gearcheck1" id="gearcheck1" name="gearcheck1">
+                                            <input class="form-check-input" type="checkbox" value="gearcheck1" id="gearcheck1" name="gearcheck1" {{ "checked" if
+                                    gearcheck1 == "on" }}>
                                             <label class="form-check-label" for="gearcheck1">
                                                 Loop Resistance Bands
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="gearcheck2" id="gearcheck2" name="gearcheck2">
+                                            <input class="form-check-input" type="checkbox" value="gearcheck2" id="gearcheck2" name="gearcheck2" {{ "checked" if
+                                    gearcheck2 == "on" }}>
                                             <label class="form-check-label" for="gearcheck2">
                                                 PVC Pipe
                                             </label>

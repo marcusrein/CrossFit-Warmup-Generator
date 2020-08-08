@@ -198,6 +198,8 @@ def home():
 
     warmup_duration_selection = ''
     warmup_equipment = []
+    gearcheck1 = ''
+    gearcheck2 = ''
 
     if request.method == 'POST':
         # INPUT
@@ -210,9 +212,15 @@ def home():
         warmup_duration_long = 'on' if warmup_duration_selection == 'long' else False
 
         if request.form.getlist('gearcheck1'):
+            gearcheck1 = 'on'
             warmup_equipment.append('loop resistance band')
+        else:
+            gearcheck1 = False
         if request.form.getlist('gearcheck2'):
+            gearcheck2 = 'on'
             warmup_equipment.append('pvc pipe')
+        else:
+            gearcheck2= False
 
         droms_dict_equipment_considered = get_new_drom_list_considering_equipment(warmup_equipment, droms_dict)
 
@@ -313,6 +321,7 @@ def home():
                                todays_wod=todays_wod, est_time_for_display=est_time_for_display,
                                est_time_for_display_plus5=est_time_for_display_plus5,
                                error_message=error_message, warmup_duration_selection=warmup_duration_selection,
+                               gearcheck1 = gearcheck1, gearcheck2 = gearcheck2,
                                print_for_debug=print_for_debug
                                )
 
