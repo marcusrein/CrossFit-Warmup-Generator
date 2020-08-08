@@ -197,6 +197,7 @@ def home():
     drom_time = 'drom_time'
 
     warmup_duration_selection = ''
+    warmup_equipment = []
 
     if request.method == 'POST':
         # INPUT
@@ -204,11 +205,18 @@ def home():
         easy_exercises = [easy_exercise.lower() for easy_exercise in easy_exercises]
         tough_exercises = request.form.getlist('tough_exercises_form')
         tough_exercises = [tough_exercise.lower() for tough_exercise in tough_exercises]
-        # breakpoint()
         warmup_duration_selection = request.form['option']
         warmup_duration_short = 'on' if warmup_duration_selection == 'short' else False
         warmup_duration_long = 'on' if warmup_duration_selection == 'long' else False
 
+        if request.form.getlist('gearcheck1'):
+            warmup_equipment.append('loop resistance band')
+        if request.form.getlist('gearcheck2'):
+            warmup_equipment.append('pvc pipe')
+
+        droms_dict_equipment_considered = get_new_drom_list_considering_equipment(warmup_equipment, droms_dict)
+
+        print('xxxxxx', droms_dict_equipment_considered)
         # TODAYSWOD
 
         todays_wod = easy_exercises + tough_exercises
@@ -217,7 +225,6 @@ def home():
         # METCON SELECTION
 
         metcon_warmup = {}
-
         metcons_compiled = get_movements_compiled(
             todays_wod, tough_exercises, metcons, metcon_time)
         selected_metcon = metcons_compiled.get('SELECTED MOVEMENTS: ')
@@ -230,13 +237,13 @@ def home():
         # DROM SELECTION
         drom_warmup = get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short,
                                          warmup_duration_long)
-        print_for_debug = get_movements_compiled(todays_wod, tough_exercises, droms_dict, drom_time)
+        print_for_debug = get_movements_compiled(todays_wod, tough_exercises, droms_dict_equipment_considered, drom_time)
         # KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #
         drom_final_dict = {}
 
-        drom_img_list = get_images_for_display(drom_warmup[0], droms_dict)
-        drom_reps = get_reps(drom_warmup[0], tough_exercises, droms_dict)
-        drom_url = get_url_for_display(drom_warmup[0], droms_dict)
+        drom_img_list = get_images_for_display(drom_warmup[0], droms_dict_equipment_considered)
+        drom_reps = get_reps(drom_warmup[0], tough_exercises, droms_dict_equipment_considered)
+        drom_url = get_url_for_display(drom_warmup[0], droms_dict_equipment_considered)
         drom_counter = ['1. ', '2. ', '3. ', '4. ', '5. ', '6. ', '7. ', '8. ', '9. ', '10. ', '11. ', '12. ']
 
         for idx, item in enumerate(drom_img_list):

@@ -7,6 +7,23 @@ from appfolder.checks import *
 import random
 
 
+def get_new_drom_list_considering_equipment(warmup_equip_list, droms_dict):
+    """Looks at the checkboxed warmup equipment and removes items droms_dict if they are unchecked"""
+    droms_with_equip = {}
+    for k2, v2 in droms_dict.items():
+        if warmup_equip_list:
+            for equip in warmup_equip_list:
+                if droms_dict[k2]['equipment'] == 'none':
+                    droms_with_equip[k2] = v2
+                elif droms_dict[k2]['equipment'] == equip:
+                    droms_with_equip[k2] = v2
+        else:
+            if droms_dict[k2]['equipment'] == 'none':
+                droms_with_equip[k2] = v2
+    return droms_with_equip
+
+
+
 def get_force_from_todays_wod(todays_wod, exercises_dict):
     """
     :param todays_wod:
