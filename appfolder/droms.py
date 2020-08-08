@@ -35,7 +35,7 @@ droms_dict = {
         'time': 1,
         'reps': ['20 reps', '30 reps', '40 reps'],
         'url': 'https://www.youtube.com/watch?v=5wUk8wQNUT8',
-        'img': 'https://media4.s-nbcnews.com/j/newscms/2019_05/2738466/better_standing_lateral_band_walk_4a7c397f4668e1be769cc7b6bddc339f.fit-560w.gif ',
+        'img': 'https://media4.s-nbcnews.com/j/newscms/2019_05/2738466/better_standing_lateral_band_walk_4a7c397f4668e1be769cc7b6bddc339f.fit-560w.gif',
         'rpe': 1,
         'equipment': 'loop resistance band'
     },

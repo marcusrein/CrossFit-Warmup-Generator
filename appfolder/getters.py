@@ -7,9 +7,13 @@ from appfolder.checks import *
 import random
 
 
-def get_new_drom_list_considering_equipment(warmup_equip_list, droms_dict):
+def get_new_drom_dict_considering_equipment(warmup_equip_list, droms_dict):
     """Looks at the checkboxed warmup equipment and removes items droms_dict if they are unchecked"""
+
+    # NOT SURE IF I NEED A TUPLE OUTPUT?
+
     droms_with_equip = {}
+    removed_droms = []
     for k2, v2 in droms_dict.items():
         if warmup_equip_list:
             for equip in warmup_equip_list:
@@ -20,8 +24,28 @@ def get_new_drom_list_considering_equipment(warmup_equip_list, droms_dict):
         else:
             if droms_dict[k2]['equipment'] == 'none':
                 droms_with_equip[k2] = v2
+            elif droms_dict[k2]['equipment']:
+                removed_droms.append(k2)
+
     return droms_with_equip
 
+
+# THIS THOUGHT PROCESS HAS TO HAPPEN MUCH EARLIER
+def get_new_drom_warmup_list_considering_equipment(drom_warmup, new_drom_dict):
+    list_of_removed_droms = list(new_drom_dict[1])
+    new_drom_dict_just_dict = new_drom_dict[0]
+
+    for removed_item in list_of_removed_droms:
+        drom_warmup.pop(removed_item)
+        # for drom in drom_warmup[0]:
+        #     if removed_item == drom:
+        #         del new_drom_dict_just_dict[removed_item]
+
+
+    breakpoint()
+
+
+    return drom_warmup
 
 
 def get_force_from_todays_wod(todays_wod, exercises_dict):
@@ -585,15 +609,15 @@ def get_initial_drom_compiled(todays_wod, tough_exercises, dictionary, movement_
 
 
 def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short,
-                       warmup_duration_long):
+                       warmup_duration_long, droms_dict_equipment_considered):
     # forced_droms = get_force_from_todays_wod(todays_wod, exercises_dict)
     droms_compiled = get_initial_drom_compiled(
-        todays_wod, tough_exercises, droms_dict, drom_time)
+        todays_wod, tough_exercises, droms_dict_equipment_considered, drom_time)
     # initially_selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
     # breakpoint()
 
     cleaned_core_pvc_dict_imported = droms_compiled.get('cleaned core pvc dict: ')
-    tally_drom_warmup_times_list = get_times_of_organized_tally_list(cleaned_core_pvc_dict_imported, droms_dict)
+    tally_drom_warmup_times_list = get_times_of_organized_tally_list(cleaned_core_pvc_dict_imported, droms_dict_equipment_considered)
     tally_drom_warmup_organized_times_sum = get_sum_times_of_list(tally_drom_warmup_times_list)
     drom_warmup_times_pre_toggle = get_all_movement_times(todays_wod, tough_exercises)
     drom_warmup_prescribed_time = drom_warmup_times_pre_toggle[str(drom_time)]
@@ -610,6 +634,8 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, 
     #     for i in range(core_diff):
     #         selected_movements.append(popped_items[i-1][0])
 
+    breakpoint()
+
     selected_droms_after_odd_conditionals = get_insert_remove_odd_conditionals_droms(
         selected_movements, selected_metcon)
 
@@ -624,6 +650,7 @@ def get_images_for_display(selected_movements, dictionary):
     for movement in selected_movements:
         img_test = dictionary[movement]['img']
         img_list.append(img_test)
+
     return img_list
 
 

@@ -198,8 +198,7 @@ def home():
 
     warmup_duration_selection = ''
     warmup_equipment = []
-    gearcheck1 = ''
-    gearcheck2 = ''
+
 
     if request.method == 'POST':
         # INPUT
@@ -222,9 +221,6 @@ def home():
         else:
             gearcheck2= False
 
-        droms_dict_equipment_considered = get_new_drom_list_considering_equipment(warmup_equipment, droms_dict)
-
-        print('xxxxxx', droms_dict_equipment_considered)
         # TODAYSWOD
 
         todays_wod = easy_exercises + tough_exercises
@@ -243,12 +239,18 @@ def home():
                                                    'reps': (metcon_reps[idx])}
 
         # DROM SELECTION
+
+        ## I NEED TO FIND WHY "BANDED SIDE STEPS" or other banded things keep going into drom_warmup despite the dict
+        # beiing created _droms_dict_equipment_considered. Thats causing the error in my DROM img list, reps, etc
+
+        droms_dict_equipment_considered = get_new_drom_dict_considering_equipment(warmup_equipment, droms_dict)
+
         drom_warmup = get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short,
-                                         warmup_duration_long)
+                                         warmup_duration_long, droms_dict_equipment_considered)
         print_for_debug = get_movements_compiled(todays_wod, tough_exercises, droms_dict_equipment_considered, drom_time)
         # KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #
-        drom_final_dict = {}
 
+        drom_final_dict = {}
         drom_img_list = get_images_for_display(drom_warmup[0], droms_dict_equipment_considered)
         drom_reps = get_reps(drom_warmup[0], tough_exercises, droms_dict_equipment_considered)
         drom_url = get_url_for_display(drom_warmup[0], droms_dict_equipment_considered)
