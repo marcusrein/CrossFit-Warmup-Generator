@@ -158,7 +158,7 @@ droms_dict = {
         'reps': ['10 reps', '10-20 reps', '20 reps'],
         'url': 'https://www.youtube.com/watch?v=MrKIfj397Gw',
         'img': 'https://j.gifs.com/1WAV8j.gif',
-        'rpe': 1,
+        'rpe': 0,
         'equipment': 'pvc pipe'
     },
     'spidermans': {
@@ -266,7 +266,7 @@ droms_dict = {
         'reps': ['30s hold', '45s hold', '45s hold'],
         'url': 'https://www.youtube.com/watch?v=iXgLGsyuUhY',
         'img': 'https://j.gifs.com/yog606.gif',
-        'rpe': 1,
+        'rpe': 0,
         'equipment': 'pvc pipe'
     },
 }

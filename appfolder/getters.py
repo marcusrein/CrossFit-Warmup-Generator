@@ -42,9 +42,6 @@ def get_new_drom_warmup_list_considering_equipment(drom_warmup, new_drom_dict):
         #         del new_drom_dict_just_dict[removed_item]
 
 
-    breakpoint()
-
-
     return drom_warmup
 
 
@@ -139,19 +136,24 @@ def get_possible_movements_from_mov_cat(mov_cat, dictionary):
     return possible_warmups
 
 
-def Merge(dict1, dict2, dict3):
-    res = {**dict1, **dict2, **dict3}
+def Merge(dict1, dict2, dict3, dict4):
+    res = {**dict1, **dict2, **dict3, **dict4}
     return res
 
 
 def remove_double_core_band_pvc(tally_organized_dict):
+
+    ## REFORMAT??
+    pvc = {}
     core = {}
-    band_and_pvc = {}
+    band = {}
     other = {}
 
     for k, v in tally_organized_dict.items():
-        if droms_dict[k]['rpe'] == 1:
-            band_and_pvc[k] = v
+        if droms_dict[k]['rpe'] == 0:
+            pvc[k] = v
+        elif droms_dict[k]['rpe'] == 1:
+            band[k] = v
         elif droms_dict[k]['rpe'] == 2:
             core[k] = v
         else:
@@ -159,63 +161,90 @@ def remove_double_core_band_pvc(tally_organized_dict):
 
     while len(core) > 1:
         core.popitem()
+    ## REFORMAT??
+    while len(band) > 1:
+        band.popitem()
+    while len(pvc) > 1:
+        pvc.popitem()
 
-    while len(band_and_pvc) > 1:
-        band_and_pvc.popitem()
-
-    returned_list = Merge(core, band_and_pvc, other)
+    returned_list = Merge(core, band, pvc, other)
     ordered_tally = {k: v for k, v in sorted(returned_list.items(), key=lambda item: item[1], reverse=True)}
 
     return ordered_tally
 
 
-def modify_tally(mov_cat, possible_movements):
+def modify_tally(mov_cat, possible_movements, warmup_equipment):
     returned_list = []
 
     for cat in mov_cat:
         if cat == 'squats':
             x = 'air squats'
             y = ['worlds greatest stretch', 'inchworms']
-            z = ['banded side steps', 'banded hip activation series']
+            if 'loop resistance band' in warmup_equipment:
+                z = ['banded side steps', 'banded hip activation series']
+                print('yaaaaa')
             for i in range(50):
                 returned_list.append(x)
             for i in range(40):
                 returned_list.append(random.choice(y))
-            for i in range(30):
-                returned_list.append(random.choice(z))
+            try:
+                for i in range(30):
+                    returned_list.append(random.choice(z))
+            except:
+                UnboundLocalError
         if cat == 'cleans':
             x = 'worlds greatest stretch'
             y = 'inchworms'
-            z = ['banded side steps', 'banded hip activation series', 'dead bugs']
+            yy = ['dead bugs', 'core rolling']
+            if 'loop resistance band' in warmup_equipment:
+                z = ['banded side steps', 'banded hip activation series']
             for i in range(55):
                 returned_list.append(x)
             for i in range(45):
                 returned_list.append(y)
-            for i in range(35):
-                returned_list.append(random.choice(z))
+            for i in range(65):
+                returned_list.append(random.choice(yy))
+            try:
+                for i in range(30):
+                    returned_list.append(random.choice(z))
+            except:
+                UnboundLocalError
         if cat == 'deadlifts':
             x = 'worlds greatest stretch'
             y = 'inchworms'
-            z = ['banded side steps', 'banded hip activation series', 'dead bugs']
+            if 'loop resistance band' in warmup_equipment:
+                z = ['banded side steps', 'banded hip activation series']
             for i in range(60):
                 returned_list.append(x)
             for i in range(65):
                 returned_list.append(y)
-            for i in range(70):
-                returned_list.append(random.choice(z))
+            try:
+                for i in range(30):
+                    returned_list.append(random.choice(z))
+            except:
+                UnboundLocalError
         if cat == 'snatches':
             x = 'worlds greatest stretch'
             y = 'inchworms'
             z = 'thoracic bridges'
-            xx = ['core rolling', 'dead bugs', 'shoulder passthroughs']
-            for i in range(75):
+            zz = ['banded side steps', 'banded hip activation series']
+            a = random.choice(zz)
+            zzz = 'shoulder passthroughs'
+
+            if 'loop resistance band' in warmup_equipment:
+                for i in range(45):
+                    returned_list.append(a)
+                    # breakpoint()
+            if 'pvc pipe' in warmup_equipment:
+                for i in range(35):
+                    returned_list.append(zzz)
+            for i in range(30):
                 returned_list.append(x)
-            for i in range(80):
+            for i in range(25):
                 returned_list.append(y)
-            for i in range(85):
+            for i in range(20):
                 returned_list.append(z)
-            for i in range(70):
-                returned_list.append(random.choice(xx))
+
         if cat == 'jerks':
             x = 'worlds greatest stretch'
             y = 'thoracic bridges'
@@ -225,20 +254,31 @@ def modify_tally(mov_cat, possible_movements):
                 returned_list.append(y)
         if cat == 'saggital presses':
             x = 'push ups'
+            if 'pvc pipe' in warmup_equipment:
+                zzz = ['shoulder passthroughs']
             for i in range(77):
                 returned_list.append(x)
+            try:
+                for i in range(30):
+                    returned_list.append(random.choice(zzz))
+            except:
+                UnboundLocalError
         if cat == 'pull up':
             x = 'thoracic bridges'
-            y = ['core rolling', 'dead bugs', 'shoulder passthroughs']
             for i in range(43):
                 returned_list.append(x)
-            for i in range(47):
-                returned_list.append(random.choice(y))
+            if 'pvc pipe' in warmup_equipment:
+                zzz = ['shoulder passthroughs']
+            try:
+                for i in range(54):
+                    returned_list.append(random.choice(zzz))
+            except:
+                UnboundLocalError
+
 
     for forced_movement in returned_list:
         possible_movements.append(forced_movement)
 
-    # breakpoint()
     return possible_movements
 
 
@@ -570,7 +610,7 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
             }
 
 
-def get_initial_drom_compiled(todays_wod, tough_exercises, dictionary, movement_time):
+def get_initial_drom_compiled(todays_wod, tough_exercises, dictionary, movement_time, warmup_equipment):
     """This is a function that compiles DROMS for viewing."""
     ##CLEANER##
     todays_wod = remove_none_from_todays_wod(todays_wod)
@@ -583,7 +623,8 @@ def get_initial_drom_compiled(todays_wod, tough_exercises, dictionary, movement_
     force_list = get_force_from_todays_wod(todays_wod, exercises_dict)
     mov_cat = get_cat_from_todays_wod(todays_wod, exercises_dict)
     todays_possible_movements = get_possible_movements_from_mov_cat(mov_cat, dictionary)
-    todays_possible_movements_modified = modify_tally(mov_cat, todays_possible_movements)
+    todays_possible_movements_modified = modify_tally(mov_cat, todays_possible_movements, warmup_equipment)
+
 
     tally_organized_dict = get_organized_tally_dict(todays_possible_movements_modified)
     cleaned_core_pvc_dict = remove_double_core_band_pvc(tally_organized_dict)
@@ -609,10 +650,9 @@ def get_initial_drom_compiled(todays_wod, tough_exercises, dictionary, movement_
 
 
 def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short,
-                       warmup_duration_long, droms_dict_equipment_considered):
-    # forced_droms = get_force_from_todays_wod(todays_wod, exercises_dict)
+                       warmup_duration_long, droms_dict_equipment_considered, warmup_equipment):
     droms_compiled = get_initial_drom_compiled(
-        todays_wod, tough_exercises, droms_dict_equipment_considered, drom_time)
+        todays_wod, tough_exercises, droms_dict_equipment_considered, drom_time, warmup_equipment)
     # initially_selected_droms = droms_compiled.get('SELECTED MOVEMENTS: ')
     # breakpoint()
 
@@ -634,7 +674,6 @@ def get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, 
     #     for i in range(core_diff):
     #         selected_movements.append(popped_items[i-1][0])
 
-    breakpoint()
 
     selected_droms_after_odd_conditionals = get_insert_remove_odd_conditionals_droms(
         selected_movements, selected_metcon)

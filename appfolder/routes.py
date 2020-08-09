@@ -245,8 +245,12 @@ def home():
 
         droms_dict_equipment_considered = get_new_drom_dict_considering_equipment(warmup_equipment, droms_dict)
 
+        drom_warmup_initial = get_initial_drom_compiled(todays_wod, tough_exercises, droms_dict_equipment_considered, drom_time, warmup_equipment)
+
         drom_warmup = get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short,
-                                         warmup_duration_long, droms_dict_equipment_considered)
+                                         warmup_duration_long, droms_dict_equipment_considered, warmup_equipment)
+        print('XXxXXXRXRXRXRXR%%%%%%%%%%%%%%%%%%xxxxx')
+        print(drom_warmup)
         print_for_debug = get_movements_compiled(todays_wod, tough_exercises, droms_dict_equipment_considered, drom_time)
         # KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #
 
