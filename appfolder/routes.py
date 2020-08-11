@@ -237,7 +237,6 @@ def home():
         for idx, item in enumerate(selected_metcon):
             metcon_warmup[selected_metcon[idx]] = {'img': (metcon_images[idx]),
                                                    'reps': (metcon_reps[idx])}
-
         # DROM SELECTION
 
         ## I NEED TO FIND WHY "BANDED SIDE STEPS" or other banded things keep going into drom_warmup despite the dict

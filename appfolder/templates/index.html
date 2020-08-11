@@ -3,742 +3,754 @@
 
 <!--%%%%%%%%%%%%%%%%%%%%%% LEFT SIDEBAR FOR SMALL SCREENS HEADER %%%%%%%%%%%%%%%%%%%%%%%%%%%-->
 <main class="row">
-  <section class="col-xs-12 col-sm-12 col-md-6 col-lg-4 sidebar p-3 mb-2 bg-light text-dark"
-    style="overflow-y: scroll;">
-    <button class="fun d-md-none" data-toggle="collapse" data-target="#small-screen">Enter Your Exercises
-    </button>
-    <div id="small-screen" class="collapse show d-md-none">
-      <div class="container-fluid padding">
-        <div class="row text-center">
-          <div class="col">
-            <form method="POST" action="/" id="form0" class="container">
-              <hr />
-              <div>
-                <div class="row">
-                  <div class="col-sm">
+    <section class="col-xs-12 col-sm-12 col-md-6 col-lg-4 sidebar p-3 mb-2 bg-light text-dark"
+             style="overflow-y: scroll;">
+        <button class="fun d-md-none" data-toggle="collapse" data-target="#small-screen">Enter Your Exercises
+        </button>
+        <div id="small-screen" class="collapse show d-md-none">
+            <div class="container-fluid padding">
+                <div class="row text-center">
+                    <div class="col">
+                        <form method="POST" action="/" id="form0" class="container">
+                            <hr/>
+                            <div>
+                                <div class="row">
+                                    <div class="col-sm">
 
-                    <div class="form-group w-100">
-                      <label style="text-align: center">
-                        Your Easy Exercises
-                      </label>
-                      <select multiple id="slim-select0" name="easy_exercises_form">
-                        <option></option>
-                        {% if easy_exercises: %}
-                        {% for exercise in easy_exercises: %}
-                        <option selected>{{ exercise.title() }}</option>
-                        {% endfor %}
+                                        <div class="form-group w-100">
+                                            <label style="text-align: center">
+                                                Your Easy Exercises
+                                            </label>
+                                            <select multiple id="slim-select0" name="easy_exercises_form">
+                                                <option></option>
+                                                {% if easy_exercises: %}
+                                                {% for exercise in easy_exercises: %}
+                                                <option selected>{{ exercise.title() }}</option>
+                                                {% endfor %}
 
-                        {% for i in exercise_keys %}
-                        <option>
-                          {{ i.title() }}
-                        </option>
-                        {% endfor %}
-                        {% else %}
-                        {% for i in exercise_keys %}
-                        <option>
-                          {{ i.title() }}
-                        </option>
-                        {% endfor %}
-                        {% endif %}
+                                                {% for i in exercise_keys %}
+                                                <option>
+                                                    {{ i.title() }}
+                                                </option>
+                                                {% endfor %}
+                                                {% else %}
+                                                {% for i in exercise_keys %}
+                                                <option>
+                                                    {{ i.title() }}
+                                                </option>
+                                                {% endfor %}
+                                                {% endif %}
 
 
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-sm">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
 
-                    <div class="form-group w-100">
-                      <label style="text-align: center">
-                        Your Tough Exercises
-                      </label>
-                      <select multiple id="slim-select00" name="tough_exercises_form">
-                        <option></option>
-                        {% if tough_exercises: %}
-                        {% for exercise in tough_exercises: %}
-                        <option selected>{{ exercise.title() }}</option>
-                        {% endfor %}
+                                        <div class="form-group w-100">
+                                            <label style="text-align: center">
+                                                Your Tough Exercises
+                                            </label>
+                                            <select multiple id="slim-select00" name="tough_exercises_form">
+                                                <option></option>
+                                                {% if tough_exercises: %}
+                                                {% for exercise in tough_exercises: %}
+                                                <option selected>{{ exercise.title() }}</option>
+                                                {% endfor %}
 
-                        {% for i in exercise_keys %}
-                        <option>
-                          {{ i.title() }}
-                        </option>
-                        {% endfor %}
-                        {% else %}
-                        {% for i in exercise_keys %}
-                        <option>
-                          {{ i.title() }}
-                        </option>
-                        {% endfor %}
-                        {% endif %}
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div> {% if error_message: %}
-                  <h6 class="card-subtitle mb-2 text-muted"> {{ error_message }} </h6>
-                  {% endif %}
-                </div>
-                <div>
-                  <p3>
-                    Warmup Duration
-                  </p3>
-                </div>
-                <div class="btn-group btn-group-toggle special" data-toggle="buttons">
-                  <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "short"
+                                                {% for i in exercise_keys %}
+                                                <option>
+                                                    {{ i.title() }}
+                                                </option>
+                                                {% endfor %}
+                                                {% else %}
+                                                {% for i in exercise_keys %}
+                                                <option>
+                                                    {{ i.title() }}
+                                                </option>
+                                                {% endfor %}
+                                                {% endif %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div> {% if error_message: %}
+                                    <h6 class="card-subtitle mb-2 text-muted"> {{ error_message }} </h6>
+                                    {% endif %}
+                                </div>
+                                <div>
+                                    <p3>
+                                        Warmup Duration
+                                    </p3>
+                                </div>
+                                <div class="btn-group btn-group-toggle special" data-toggle="buttons">
+                                    <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "short"
                                     }}">
-                    <input type="radio" name="option" value="short" autocomplete="off" {{ "checked" if
+                                    <input type="radio" name="option" value="short" autocomplete="off" {{ "checked" if
                                     warmup_duration_selection == "short" }}>
-                    Short
-                  </label>
-                  <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "" }}
+                                    Short
+                                    </label>
+                                    <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "" }}
                                     {{ "active" if warmup_duration_selection == "normal" }}">
-                    <input type="radio" name="option" value="normal" autocomplete="off" {{ "checked" if
+                                    <input type="radio" name="option" value="normal" autocomplete="off" {{ "checked" if
                                     warmup_duration_selection == "" }}{{ "checked" if warmup_duration_selection ==
                                     "normal" }}>
-                    Normal
-                  </label>
-                  <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "long"
+                                    Normal
+                                    </label>
+                                    <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "long"
                                     }}">
-                    <input type="radio" name="option" value="long" autocomplete="off" {{ "checked" if
+                                    <input type="radio" name="option" value="long" autocomplete="off" {{ "checked" if
                                     warmup_duration_selection == "long" }}> Long
-                  </label>
+                                    </label>
+                                </div>
+                                <button type="submit" type="button" class="btn btn-primary btn-block mt-4"
+                                        value="submit">Get Warmups
+                                </button>
+
+                            </div>
+
+
+                    </div>
+
+
                 </div>
-                <button type="submit" type="button" class="btn btn-primary btn-block mt-4" value="submit">Get Warmups
-                </button>
-
-              </div>
-
-
-          </div>
-
-
+                </form>
+            </div>
         </div>
-        </form>
-      </div>
-    </div>
-    </div>
-    </div>
+        </div>
+        </div>
 
 
-    <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LEFT SIDEBAR FOR BIG SCREENS %%%%%%%%%%%%%%%%%%%%%%-->
+        <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LEFT SIDEBAR FOR BIG SCREENS %%%%%%%%%%%%%%%%%%%%%%-->
 
-    <div id="module" class="container" ;>
-      <form method="POST" action="/" id="form" class="container d-none d-md-block">
-        <div>
-          <div class="row">
-            <div class="col-sm">
+        <div id="module" class="container" ;>
+            <form method="POST" action="/" id="form" class="container">
+                <div>
+                    <div class="row">
+                        <div class="col-sm">
 
-              <div class="form-group w-100">
-                <label>
-                  Your Easy Exercises
-                </label>
-                <select multiple id="slim-select1" name="easy_exercises_form">
-                  <option></option>
-                  {% if easy_exercises: %}
-                  {% for exercise in easy_exercises: %}
-                  <option selected>{{ exercise.title() }}</option>
-                  {% endfor %}
+                            <div class="form-group w-100">
+                                <label>
+                                    Your Easy Exercises
+                                </label>
+                                <select multiple id="slim-select1" name="easy_exercises_form">
+                                    <option></option>
+                                    {% if easy_exercises: %}
+                                    {% for exercise in easy_exercises: %}
+                                    <option selected>{{ exercise.title() }}</option>
+                                    {% endfor %}
 
-                  {% for i in exercise_keys %}
-                  <option>
-                    {{ i.title() }}
-                  </option>
-                  {% endfor %}
-                  {% else %}
-                  {% for i in exercise_keys %}
-                  <option>
-                    {{ i.title() }}
-                  </option>
-                  {% endfor %}
-                  {% endif %}
+                                    {% for i in exercise_keys %}
+                                    <option>
+                                        {{ i.title() }}
+                                    </option>
+                                    {% endfor %}
+                                    {% else %}
+                                    {% for i in exercise_keys %}
+                                    <option>
+                                        {{ i.title() }}
+                                    </option>
+                                    {% endfor %}
+                                    {% endif %}
 
 
-                </select>
-              </div>
-            </div>
-            <div class="col-sm">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm">
 
-              <div class="form-group w-100">
-                <label>
-                  Your Tough Exercises
-                </label>
-                <select multiple id="slim-select2" name="tough_exercises_form">
-                  <option></option>
-                  {% if tough_exercises: %}
-                  {% for exercise in tough_exercises: %}
-                  <option selected>{{ exercise.title() }}</option>
-                  {% endfor %}
+                            <div class="form-group w-100">
+                                <label>
+                                    Your Tough Exercises
+                                </label>
+                                <select multiple id="slim-select2" name="tough_exercises_form">
+                                    <option></option>
+                                    {% if tough_exercises: %}
+                                    {% for exercise in tough_exercises: %}
+                                    <option selected>{{ exercise.title() }}</option>
+                                    {% endfor %}
 
-                  {% for i in exercise_keys %}
-                  <option>
-                    {{ i.title() }}
-                  </option>
-                  {% endfor %}
-                  {% else %}
-                  {% for i in exercise_keys %}
-                  <option>
-                    {{ i.title() }}
-                  </option>
-                  {% endfor %}
-                  {% endif %}
+                                    {% for i in exercise_keys %}
+                                    <option>
+                                        {{ i.title() }}
+                                    </option>
+                                    {% endfor %}
+                                    {% else %}
+                                    {% for i in exercise_keys %}
+                                    <option>
+                                        {{ i.title() }}
+                                    </option>
+                                    {% endfor %}
+                                    {% endif %}
 
-                </select>
-              </div>
-            </div>
-          </div>
-          <div> {% if error_message: %}
-            <h6 class="card-subtitle mb-2 text-muted"> {{ error_message }} </h6>
-            {% endif %}
-          </div>
-          <div style="text-align:center">
-            <p3>
-              Warmup Duration
-            </p3>
-          </div>
-          <div class="btn-group btn-group-toggle special" data-toggle="buttons">
-            <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "short" }}">
-              <input type="radio" name="option" value="short" autocomplete="off" {{ "checked" if
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div> {% if error_message: %}
+                        <h6 class="card-subtitle mb-2 text-muted"> {{ error_message }} </h6>
+                        {% endif %}
+                    </div>
+                    <div style="text-align:center">
+                        <p3>
+                            Warmup Duration
+                        </p3>
+                    </div>
+                    <div class="btn-group btn-group-toggle special" data-toggle="buttons">
+                        <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "short" }}">
+                        <input type="radio" name="option" value="short" autocomplete="off" {{ "checked" if
                         warmup_duration_selection == "short" }}>
-              Short
-            </label>
-            <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "" }} {{ "active"
+                        Short
+                        </label>
+                        <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "" }} {{ "active"
                         if warmup_duration_selection == "normal" }}">
-              <input type="radio" name="option" value="normal" autocomplete="off" {{ "checked" if
+                        <input type="radio" name="option" value="normal" autocomplete="off" {{ "checked" if
                         warmup_duration_selection == "" }}{{ "checked" if warmup_duration_selection == "normal" }}>
-              Normal
-            </label>
-            <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "long" }}">
-              <input type="radio" name="option" value="long" autocomplete="off" {{ "checked" if
+                        Normal
+                        </label>
+                        <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "long" }}">
+                        <input type="radio" name="option" value="long" autocomplete="off" {{ "checked" if
                         warmup_duration_selection == "long" }}> Long
-            </label>
-          </div>
-          <div>
-            <div class="row">
-              <div class="col-sm">
-                <div class="form-group w-100">
-                  <div style="text-align:center">
-                    <p3>
-                      Warmup Equipment Owned
+                        </label>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="form-group w-100">
+                                    <div style="text-align:center">
+                                        <p3>
+                                            Warmup Equipment Owned
+                                        </p3>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="gearcheck1"
+                                               id="gearcheck1" name="gearcheck1" {{ "checked" if
+                                        gearcheck1 == "on" }}>
+                                        <label class="form-check-label" for="gearcheck1">
+                                            Loop Resistance Bands
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="gearcheck2"
+                                               id="gearcheck2" name="gearcheck2" {{ "checked" if
+                                        gearcheck2 == "on" }}>
+                                        <label class="form-check-label" for="gearcheck2">
+                                            PVC Pipe
+                                        </label>
+                                    </div>
+
+                                    <button type="submit" type="button" class="btn btn-primary btn-block mt-4"
+                                            value="submit">Get
+                                        Warmups
+                                    </button>
+
+                                </div>
+
+
+            </form>
+
+
+            <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SMALL SCREEN L SIDEBAR ACCORDIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+
+
+            {% if metcon_warmup: %}
+
+            <div class="overflow-auto w-100 mt-4 container d-md-none">
+                <p></p>
+                <a href="#estimated_times"
+                   class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <p3>Your Estimated Warmup Time is between <strong>{{ est_time_for_display}}</strong> and
+                        <strong>{{
+                            est_time_for_display_plus5 }}</strong>
+                        minutes
                     </p3>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="gearcheck1" id="gearcheck1" name="gearcheck1" {{ "checked" if
-                                    gearcheck1 == "on" }}>
-                    <label class="form-check-label" for="gearcheck1">
-                      Loop Resistance Bands
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="gearcheck2" id="gearcheck2" name="gearcheck2" {{ "checked" if
-                                    gearcheck2 == "on" }}>
-                    <label class="form-check-label" for="gearcheck2">
-                      PVC Pipe
-                    </label>
-                  </div>
-
-                  <button type="submit" type="button" class="btn btn-primary btn-block mt-4" value="submit">Get
-                    Warmups
-                  </button>
-
-                </div>
-
-
-      </form>
-
-
-      <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SMALL SCREEN L SIDEBAR ACCORDIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
-
-
-      {% if metcon_warmup: %}
-
-      <div class="overflow-auto w-100 mt-4 container">
-        <p></p>
-        <a href="#estimated_times"
-          class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
-          <p3>Your Estimated Warmup Time is between <strong>{{ est_time_for_display}}</strong> and
-            <strong>{{
-                                    est_time_for_display_plus5 }}</strong>
-            minutes
-          </p3>
-        </a>
-      </div>
-
-      <div class="overflow-auto w-100 mt-4 container">
-        <div
-          class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
-
-          <p3>
-            <i>Perform the generated warmup in the order presented</i>
-          </p3>
-        </div>
-      </div>
-
-      <div class="overflow-auto w-100 mt-4 container">
-        <a href="#metcon_warmup"
-          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
-          <b>Metcon Warmup</b>
-        </a>
-        {% for k,v in metcon_warmup.items() %}
-        <div class="accordion d-md-none" id="accordionExample">
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <h2 class="mb-0">
-                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                  type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
-                  aria-controls="collapseOne">
-                  {{ k.title() }}
-                  <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-                </button>
-              </h2>
+                </a>
             </div>
 
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body card-deck">
+            <div class="overflow-auto w-100 mt-4 container d-md-none">
+                <div
+                        class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+
+                    <p3>
+                        <i>Perform the generated warmup in the order presented</i>
+                    </p3>
+                </div>
+            </div>
+
+            <div class="overflow-auto w-100 mt-4 container">
+                <a href="#metcon_warmup"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+                    <b>Metcon Warmup</b>
+                </a>
                 {% for k,v in metcon_warmup.items() %}
-                <div class="card" style="max-width: 18rem;">
-                  <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-                  <div class="card-body">
-                    <h5 class="card-title">{{ k.title() }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Metcon Warmup</h6>
-                    <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
-                  </div>
+                <div class="accordion d-md-none" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                        type="button" data-toggle="collapse" data-target="#collapseOne"
+                                        aria-expanded="false"
+                                        aria-controls="collapseOne">
+                                    {{ k.title() }}
+                                    <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                             data-parent="#accordionExample">
+                            <div class="card-body card-deck">
+                                {% for k,v in metcon_warmup.items() %}
+                                <div class="card" style="max-width: 18rem;">
+                                    <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ k.title() }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Metcon Warmup</h6>
+                                        <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 {% endfor %}
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
 
-        <p></p>
+                <p></p>
 
-        {% if drom_final_dict: %}
-        <a href="#drom_warmup"
-          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
-          <b>DROM Warmups</b>
-        </a>
-        {% for k,v in drom_final_dict.items() %}
-        <div class="accordion d-md-none">
-          <div class="card">
-            <div class="card-header">
-              <h2 class="mb-0">
-                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                  type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
-                  aria-controls="{{ v['dropdowns_rand2'] }}">
-                  {{ k.title() }}
-                  <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-                </button>
-              </h2>
-            </div>
-            <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
-              <div class="card">
-                <div class="card-body" style="max-width: 18rem;">
-                  <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-                  <p class="card-subtitle mb-2 text-muted"> Warms up:</p>
-                  <p class="card-subtitle mb-2 text-muted">
-                    {% for target in v['targets'] %}
-                    <span class="badge badge-pill badge-secondary">{{ target.title() }}</span>
-                    {% endfor %}
-                  <p></p>
+                {% if drom_final_dict: %}
+                <a href="#drom_warmup"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+                    <b>DROM Warmups</b>
+                </a>
+                {% for k,v in drom_final_dict.items() %}
+                <div class="accordion d-md-none">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="mb-0">
+                                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                        type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}"
+                                        aria-expanded="false"
+                                        aria-controls="{{ v['dropdowns_rand2'] }}">
+                                    {{ k.title() }}
+                                    <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="{{ k.replace(' ', '') }}" class="collapse"
+                             aria-labelledby="{{ v['dropdowns_rand1'] }}">
+                            <div class="card">
+                                <div class="card-body" style="max-width: 18rem;">
+                                    <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                                    <p class="card-subtitle mb-2 text-muted"> Warms up:</p>
+                                    <p class="card-subtitle mb-2 text-muted">
+                                        {% for target in v['targets'] %}
+                                        <span class="badge badge-pill badge-secondary">{{ target.title() }}</span>
+                                        {% endfor %}
+                                    <p></p>
 
-                  <a href="#" class="card-link">Eventual Vid Link</a>
+                                    <a href="#" class="card-link">Eventual Vid Link</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-              </div>
+                {% endfor %}
+                {% endif %}
+
+                <p></p>
+                {% if gymnastics_final_dict: %}
+                <a href="#gymnastics_warmup"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+                    <b>Gymnastics Warmups</b>
+                </a>
+                {% for k,v in gymnastics_final_dict.items() %}
+                <div class="accordion d-md-none" id="accordionExample3">
+                    <div class="card">
+                        <div class="card-header" id="headingOne3">
+                            <h2 class="mb-0">
+                                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                        type="button" data-toggle="collapse" data-target="#collapseOne3"
+                                        aria-expanded="false"
+                                        aria-controls="collapseOne3">
+                                    {{ k.title() }}
+                                    <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne3" class="collapse" aria-labelledby="headingOne3"
+                             data-parent="#accordionExample">
+                            <div class="card-body card-deck">
+                                <div class="card" style="max-width: 18rem;">
+                                    <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ k.title() }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
+                                        <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
+                                        <p class="card-text"> {{ v['text'] }} </p>
+                                        <a href="{{ v['url'] }}" target="_blank" class="card-link">Video
+                                            Link</a>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+                <p></p>
+                {% if kb_warmup: %}
+                <a href="#kb_warmup"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+                    <b>Kettlebell Warmups</b>
+                </a>
+                {% for k,v in kb_warmup.items() %}
+                <div class="accordion d-md-none" id="accordionExample4">
+                    <div class="card">
+                        <div class="card-header" id="headingOne4">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne4" aria-expanded="false" aria-controls="collapseOne4">
+                                    {{ k.title() }}
+                                    <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne4" class="collapse" aria-labelledby="headingOne4"
+                             data-parent="#accordionExample">
+                            <div class="card-body card-deck">
+                                <div class="card" style="max-width: 18rem;">
+                                    <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ k.title() }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Kettlebell Warmup</h6>
+                                        <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
+                                        <p class="card-text"> {{ v['text'] }} </p>
+                                        <a href="{{ v['url'] }}" target="_blank" class="card-link">Video
+                                            Link</a>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+
+                <p></p>
+                {% if barbell_warmup: %}
+                <a href="#barbell_warmup"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
+                    <b>Barbell Warmups</b>
+                </a>
+                {% for k,v in barbell_warmup.items() %}
+                <div class="accordion d-md-none" id="accordionExample5">
+                    <div class="card">
+                        <div class="card-header" id="headingOne5">
+                            <h2 class="mb-0">
+                                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                        type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}"
+                                        aria-expanded="false"
+                                        aria-controls="collapseOne5">
+                                    {{ k.title() }}
+                                    <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="headingOne5">
+                            <div class="card-body card-deck">
+                                <div class="card" style="max-width: 18rem;">
+                                    <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ k.title() }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Barbell Warmup</h6>
+                                        <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
+                                        <p class="card-text"> {{ v['text'] }} </p>
+                                        <a href="{{ v['url'] }}" target="_blank" class="card-link">Video
+                                            Demo</a>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
             </div>
-          </div>
+
+
+            <!--    %%%%%%%%%%%%%%%%%% BIG SCREEN L SIDEBAR SECTION LISTING ELEMENTS %%%%%%%%%%%%%%%%%%%%%%%%%-->
+
+            <div class="list-group w-100 d-none d-md-block">
+                <a href="#est_time"
+                   class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <p3>Your Estimated Warmup Time is between {{ est_time_for_display}} and {{
+                        est_time_for_display_plus5 }} minutes
+                    </p3>
+
+                </a>
+            </div>
+            <p></p>
+            <div class="list-group w-100 d-none d-md-block">
+                <div
+                        class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+
+                    <p2>
+                        Perform your warmup in the order presented
+                    </p2>
+                </div>
+            </div>
+            <p></p>
+
+            <div class="list-group w-100 d-none d-md-block">
+                <a href="#metcon_warmup"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <b>Metcon Warmup</b>
+                </a>
+                {% for k,v in metcon_warmup.items() %}
+                <a href="#{{ k }}"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    {{ k.title() }}
+                    <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                </a>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if drom_final_dict: %}
+
+            <div class="list-group w-100 mt-3 d-none d-md-block">
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <b>Dynamic Warmups</b>
+                    <p></p>
+                </a>
+                {% for k,v in drom_final_dict.items(): %}
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    {{ k.title() }}
+                    <span class="badge badge-primary badge-pill">{{ v['reps'] }}</span>
+                </a>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if gymnastics_final_dict: %}
+
+            <div class="list-group w-100 mt-3 d-none d-md-block">
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <b>Gymnastics Warmups</b>
+                </a>
+                </a>
+                {% for k,v in gymnastics_final_dict.items() %}
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    {{ k.title() }}
+                    <span class="badge badge-primary badge-pill">{{ v['reps'] }}</span>
+                </a>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+
+            {% if kb_warmup: %}
+            <div class="list-group w-100 mt-3 d-none d-md-block">
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <b>Kettlebell Warmups</b>
+                </a>
+                {% for k,v in kb_warmup.items() %}
+
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    {{ k.title() }}
+                    <span class="badge badge-primary badge-pill"> {{ v['reps'] }} </span>
+                </a>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+
+            {% if barbell_warmup: %}
+            <div class="list-group w-100 mt-3 d-none d-md-block">
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <b>Barbell Warmups</b>
+                </a>
+                {% for k,v in barbell_warmup.items() %}
+
+                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    {{ k.title() }}
+                    <span class="badge badge-primary badge-pill"> {{ v['reps'] }} </span>
+                </a>
+                {% endfor %}
+            </div>
+            {% endif %}
+
         </div>
 
-        {% endfor %}
+    </section>
+
+
+    <!--        %%%%%%%%%%%%%%%%%%    RIGHT BIG SPACE BIG SCREENS %%%%%%%%%%%%%%%%%%%%%%%%%-->
+
+
+    {% if not metcon_warmup: %}
+    <div class="col-xs-0 col-sm-0 col-md-6 col-lg-8 col-xl-8 ml-sm-auto d-none d-md-block bg">
+        <div class="alert alert-secondary" style="margin: 30px" role="alert">
+            <h4 class="alert-heading">Welcome to the Warmup Generator!</h4>
+            <p>Please categorize your exercises in today's workout by "Easy" and "Tough".</p>
+            <p>"Easy" = An exercise you can perform for 10 reps or more.</p>
+            <p>"Tough" = An exercise you can perform for fewer than 10 reps.</p>
+            <!--            <hr>-->
+            <!--            <p>FAQ: "So where do 'deadlifts' go?"</p>-->
+            <!--            <p> If you can do 20 deadlifts at the weight programmed in your workout (due to the deadlifts being-->
+            <!--                lighter), you should put deadlifts in the "Easy" category.</p>-->
+            <!--            <p>If you can do just 5 deadlifts at the weight programmed by your workout (due to the deadlifts being-->
+            <!--                heavier), then you should put deadlifts in the "Tough" category</p>-->
+            <!--            <p></p>-->
+
+
+            <hr>
+            <p class="mb-0">Designed by Marcus Rein PT, DPT, Jordan Rein, and Ryan DeWitt PT, DPT</p>
+        </div>
         {% endif %}
+    </div>
 
-        <p></p>
-        {% if gymnastics_final_dict: %}
-        <a href="#gymnastics_warmup"
-          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
-          <b>Gymnastics Warmups</b>
-        </a>
-        {% for k,v in gymnastics_final_dict.items() %}
-        <div class="accordion d-md-none" id="accordionExample3">
-          <div class="card">
-            <div class="card-header" id="headingOne3">
-              <h2 class="mb-0">
-                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                  type="button" data-toggle="collapse" data-target="#collapseOne3" aria-expanded="false"
-                  aria-controls="collapseOne3">
-                  {{ k.title() }}
-                  <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-                </button>
-              </h2>
-            </div>
-            <div id="collapseOne3" class="collapse" aria-labelledby="headingOne3" data-parent="#accordionExample">
-              <div class="card-body card-deck">
+    {% if metcon_warmup: %}
+    <section class="col-xs-0 col-sm-0 col-md-6 col-lg-8 ml-sm-auto d-none d-md-block">
+        <div class="container border-bottom" id="metcon_warmup">
+            <H4>Metcon Warmup</H4>
+            {% for k,v in metcon_warmup.items() %}
+            <div class="card-deck">
                 <div class="card" style="max-width: 18rem;">
-                  <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-                  <div class="card-body">
-                    <h5 class="card-title">{{ k.title() }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Gymnastics Warmup</h6>
-                    <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
-                    <p class="card-text"> {{ v['text'] }} </p>
-                    <a href="{{ v['url'] }}" target="_blank" class="card-link">Video
-                      Link</a>
+                    <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ k.title() }}</h5>
+                        <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
 
-                  </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <p></p>
+        </div>
+        <div class="container border-bottom">
+            <p></p>
+            <H4>Dynamic Warmups</H4>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                {% for k,v in drom_final_dict.items() %}
+                <div class="col mb-4">
+                    <div class="card" style="max-width: 18rem;">
+                        <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                        <span class="card-number">{{v['counter']}}</span>
+                        <div class="card-body">
+                            <h5>
+                                <a href="{{ v['url'] }}" target="_blank" class="card-title"> {{ k.title() }}</a>
+                            </h5>
+                            <p></p>
+                            <p class="badge badge-pill badge-primary">{{ v['reps'] }}</p>
+                            <p class="card-subtitle mb-2 "> Warms up:</p>
+                            <p class="card-subtitle mb-2 text-muted">
+                                {% for target in v['targets'] %}
+                                <span class="badge badge-pill badge-secondary">{{ target.title() }}</span>
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-              </div>
+                {% endfor %}
+
+                {% endif %}
             </div>
-          </div>
         </div>
-        {% endfor %}
+
+        {% if gymnastics_final_dict: %}
+        <a id="gymnastics"></a>
+        <p></p>
+        <div class="container border-bottom">
+            <H4>Gymnastics Warmups</H4>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                {% for k,v in gymnastics_final_dict.items() %}
+                <div class="col mb-4">
+                    <div class="card" style="max-width: 18rem;">
+                        <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ k.title() }}</h5>
+                            <p class="badge badge-primary badge-pill">{{ v['reps'] }}</p>
+                            <p class="card-text"><small class="text-muted">Gymnastics Warmup</small></p>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
         {% endif %}
 
         <p></p>
         {% if kb_warmup: %}
-        <a href="#kb_warmup"
-          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
-          <b>Kettlebell Warmups</b>
-        </a>
-        {% for k,v in kb_warmup.items() %}
-        <div class="accordion d-md-none" id="accordionExample4">
-          <div class="card">
-            <div class="card-header" id="headingOne4">
-              <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                  data-target="#collapseOne4" aria-expanded="false" aria-controls="collapseOne4">
-                  {{ k.title() }}
-                  <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-                </button>
-              </h2>
-            </div>
-            <div id="collapseOne4" class="collapse" aria-labelledby="headingOne4" data-parent="#accordionExample">
-              <div class="card-body card-deck">
-                <div class="card" style="max-width: 18rem;">
-                  <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-                  <div class="card-body">
-                    <h5 class="card-title">{{ k.title() }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Kettlebell Warmup</h6>
-                    <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
-                    <p class="card-text"> {{ v['text'] }} </p>
-                    <a href="{{ v['url'] }}" target="_blank" class="card-link">Video
-                      Link</a>
+        <div class="container border-bottom">
+            <H4>Kettlebell Warmups</H4>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                {% for k,v in kb_warmup.items() %}
+                <div class="col mb-4">
+                    <div class="card" style="max-width: 18rem;">
+                        <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
 
-                  </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ k.title() }}</h5>
+                            <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
+                            <a href="{{ v['url'] }}" target="_blank" class="card-link">Video Link</a>
+                        </div>
+                    </div>
                 </div>
-
-              </div>
+                {% endfor %}
             </div>
-          </div>
+            {% endif %}
         </div>
-        {% endfor %}
-        {% endif %}
+
+        <p></p>
+
+        {% if barbell_warmup: %}
+        <div class="container border-bottom">
+            <H4>Barbell Warmups</H4>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                {% for k,v in barbell_warmup.items() %}
+                <div class="col mb-4">
+                    <div class="card" style="max-width: 18rem;">
+                        <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
+                        <div class="card-body">
+                            <h5>
+                                <a href="{{ v['url'] }}" target="_blank" class="card-title">{{ k.title() }}</a>
+                            </h5>
+                            <p></p>
+                            <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
+                            <p class="card-text"> {{ v['text'] }} </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        </div>
+        </div>
 
 
         <p></p>
-        {% if barbell_warmup: %}
-        <a href="#barbell_warmup"
-          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center d-md-none">
-          <b>Barbell Warmups</b>
-        </a>
-        {% for k,v in barbell_warmup.items() %}
-        <div class="accordion d-md-none" id="accordionExample5">
-          <div class="card">
-            <div class="card-header" id="headingOne5">
-              <h2 class="mb-0">
-                <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                  type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
-                  aria-controls="collapseOne5">
-                  {{ k.title() }}
-                  <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-                </button>
-              </h2>
-            </div>
-            <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="headingOne5">
-              <div class="card-body card-deck">
-                <div class="card" style="max-width: 18rem;">
-                  <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-                  <div class="card-body">
-                    <h5 class="card-title">{{ k.title() }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Barbell Warmup</h6>
-                    <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
-                    <p class="card-text"> {{ v['text'] }} </p>
-                    <a href="{{ v['url'] }}" target="_blank" class="card-link">Video
-                      Demo</a>
+        <div class="container">
 
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-        {% endif %}
-      </div>
-
-
-      <!--    %%%%%%%%%%%%%%%%%% BIG SCREEN L SIDEBAR SECTION LISTING ELEMENTS %%%%%%%%%%%%%%%%%%%%%%%%%-->
-
-      <div class="list-group w-100 d-none d-md-block">
-        <a href="#est_time"
-          class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          <p3>Your Estimated Warmup Time is between {{ est_time_for_display}} and {{
-                                est_time_for_display_plus5 }} minutes
-          </p3>
-
-        </a>
-      </div>
-      <p></p>
-      <div class="list-group w-100 d-none d-md-block">
-        <div
-          class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-
-          <p2>
-            Perform your warmup in the order presented
-          </p2>
-        </div>
-      </div>
-      <p></p>
-
-      <div class="list-group w-100 d-none d-md-block">
-        <a href="#metcon_warmup"
-          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          <b>Metcon Warmup</b>
-        </a>
-        {% for k,v in metcon_warmup.items() %}
-        <a href="#{{ k }}"
-          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          {{ k.title() }}
-          <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-        </a>
-        {% endfor %}
-      </div>
-      {% endif %}
-
-      {% if drom_final_dict: %}
-
-      <div class="list-group w-100 mt-3 d-none d-md-block">
-        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          <b>Dynamic Warmups</b>
-          <p></p>
-        </a>
-        {% for k,v in drom_final_dict.items(): %}
-        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          {{ k.title() }}
-          <span class="badge badge-primary badge-pill">{{ v['reps'] }}</span>
-        </a>
-        {% endfor %}
-      </div>
-      {% endif %}
-
-      {% if gymnastics_final_dict: %}
-
-      <div class="list-group w-100 mt-3 d-none d-md-block">
-        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          <b>Gymnastics Warmups</b>
-        </a>
-        </a>
-        {% for k,v in gymnastics_final_dict.items() %}
-        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          {{ k.title() }}
-          <span class="badge badge-primary badge-pill">{{ v['reps'] }}</span>
-        </a>
-        {% endfor %}
-      </div>
-      {% endif %}
-
-
-      {% if kb_warmup: %}
-      <div class="list-group w-100 mt-3 d-none d-md-block">
-        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          <b>Kettlebell Warmups</b>
-        </a>
-        {% for k,v in kb_warmup.items() %}
-
-        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          {{ k.title() }}
-          <span class="badge badge-primary badge-pill"> {{ v['reps'] }} </span>
-        </a>
-        {% endfor %}
-      </div>
-      {% endif %}
-
-
-      {% if barbell_warmup: %}
-      <div class="list-group w-100 mt-3 d-none d-md-block">
-        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          <b>Barbell Warmups</b>
-        </a>
-        {% for k,v in barbell_warmup.items() %}
-
-        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          {{ k.title() }}
-          <span class="badge badge-primary badge-pill"> {{ v['reps'] }} </span>
-        </a>
-        {% endfor %}
-      </div>
-      {% endif %}
-
-    </div>
-
-  </section>
-
-
-  <!--        %%%%%%%%%%%%%%%%%%    RIGHT BIG SPACE BIG SCREENS %%%%%%%%%%%%%%%%%%%%%%%%%-->
-
-
-  {% if not metcon_warmup: %}
-  <div class="col-xs-0 col-sm-0 col-md-6 col-lg-8 col-xl-8 ml-sm-auto d-none d-md-block bg">
-    <div class="alert alert-secondary" style="margin: 30px" role="alert">
-      <h4 class="alert-heading">Welcome to the Warmup Generator!</h4>
-      <p>Please categorize your exercises in today's workout by "Easy" and "Tough".</p>
-      <p>"Easy" = An exercise you can perform for 10 reps or more.</p>
-      <p>"Tough" = An exercise you can perform for fewer than 10 reps.</p>
-      <!--            <hr>-->
-      <!--            <p>FAQ: "So where do 'deadlifts' go?"</p>-->
-      <!--            <p> If you can do 20 deadlifts at the weight programmed in your workout (due to the deadlifts being-->
-      <!--                lighter), you should put deadlifts in the "Easy" category.</p>-->
-      <!--            <p>If you can do just 5 deadlifts at the weight programmed by your workout (due to the deadlifts being-->
-      <!--                heavier), then you should put deadlifts in the "Tough" category</p>-->
-      <!--            <p></p>-->
-
-
-      <hr>
-      <p class="mb-0">Designed by Marcus Rein PT, DPT, Jordan Rein, and Ryan DeWitt PT, DPT</p>
-    </div>
-    {% endif %}
-  </div>
-
-  {% if metcon_warmup: %}
-  <section class="col-xs-0 col-sm-0 col-md-6 col-lg-8 ml-sm-auto d-none d-md-block">
-    <div class="container border-bottom" id="metcon_warmup">
-      <H4>Metcon Warmup</H4>
-      {% for k,v in metcon_warmup.items() %}
-      <div class="card-deck">
-        <div class="card" style="max-width: 18rem;">
-          <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-          <div class="card-body">
-            <h5 class="card-title">{{ k.title() }}</h5>
-            <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
-
-
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-      <p></p>
-    </div>
-    <div class="container border-bottom">
-      <p></p>
-      <H4>Dynamic Warmups</H4>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-        {% for k,v in drom_final_dict.items() %}
-        <div class="col mb-4">
-          <div class="card" style="max-width: 18rem;">
-            <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-            <span class="card-number">{{v['counter']}}</span>
-            <div class="card-body">
-              <h5>
-                <a href="{{ v['url'] }}" target="_blank" class="card-title"> {{ k.title() }}</a>
-              </h5>
-              <p></p>
-              <p class="badge badge-pill badge-primary">{{ v['reps'] }}</p>
-              <p class="card-subtitle mb-2 "> Warms up:</p>
-              <p class="card-subtitle mb-2 text-muted">
-                {% for target in v['targets'] %}
-                <span class="badge badge-pill badge-secondary">{{ target.title() }}</span>
-                {% endfor %}
-              </p>
-            </div>
-          </div>
         </div>
 
-        {% endfor %}
-
-        {% endif %}
-      </div>
-    </div>
-
-    {% if gymnastics_final_dict: %}
-    <a id="gymnastics"></a>
-    <p></p>
-    <div class="container border-bottom">
-      <H4>Gymnastics Warmups</H4>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-        {% for k,v in gymnastics_final_dict.items() %}
-        <div class="col mb-4">
-          <div class="card" style="max-width: 18rem;">
-            <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-
-            <div class="card-body">
-              <h5 class="card-title">{{ k.title() }}</h5>
-              <p class="badge badge-primary badge-pill">{{ v['reps'] }}</p>
-              <p class="card-text"><small class="text-muted">Gymnastics Warmup</small></p>
-
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
-
-    <p></p>
-    {% if kb_warmup: %}
-    <div class="container border-bottom">
-      <H4>Kettlebell Warmups</H4>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-        {% for k,v in kb_warmup.items() %}
-        <div class="col mb-4">
-          <div class="card" style="max-width: 18rem;">
-            <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-
-            <div class="card-body">
-              <h5 class="card-title">{{ k.title() }}</h5>
-              <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
-              <a href="{{ v['url'] }}" target="_blank" class="card-link">Video Link</a>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-      {% endif %}
-    </div>
-
-    <p></p>
-
-    {% if barbell_warmup: %}
-    <div class="container border-bottom">
-      <H4>Barbell Warmups</H4>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-        {% for k,v in barbell_warmup.items() %}
-        <div class="col mb-4">
-          <div class="card" style="max-width: 18rem;">
-            <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-            <div class="card-body">
-              <h5>
-                <a href="{{ v['url'] }}" target="_blank" class="card-title">{{ k.title() }}</a>
-              </h5>
-              <p></p>
-              <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
-              <p class="card-text"> {{ v['text'] }} </p>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-      {% endif %}
-    </div>
-    </div>
-    </div>
-
-
-    <p></p>
-    <div class="container">
-
-    </div>
-
-  </section>
+    </section>
 </main>
 
 {{ print_for_debug }}
@@ -772,6 +784,7 @@
     closeOnSelect: false,
     allowDeselectOption: true
   })
+
 
 
 
