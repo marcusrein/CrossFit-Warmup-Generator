@@ -1,21 +1,32 @@
-
-
 .card-img-top {
   width: 100%;
   height: 15vw;
   object-fit: cover;
 }
 
+.card-number {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  background: #007bff;
+  color: white;
+  padding: 4px;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  border-radius: 50%;
+}
+
 .card-deck .card {
-margin-top: 15px
+  margin-top: 15px;
 }
 
-.sidebar .card-img-top{
-  height: 80%
+.sidebar .card-img-top {
+  height: 80%;
 }
 
-.sidebar .accordion>.card>.card-header {
-  margin-bottom: 0px
+.sidebar .accordion > .card > .card-header {
+  margin-bottom: 0px;
 }
 .sidebar {
   position: sticky;
@@ -47,14 +58,13 @@ margin-top: 15px
   flex-flow: row nowrap;
 }
 
-
 .bg {
   /* The image used */
   background-image: url("https://c0.wallpaperflare.com/preview/18/189/150/barbell-building-challenge-dark.jpg");
 
   /* Full height */
   height: 100vh;
-  width: 100%
+  width: 100%;
 
   /* Center and scale the image nicely */
   background-position: absolute;
@@ -71,9 +81,8 @@ margin-top: 15px
 .collapse.in {
   height: auto !important;
   overflow-y: scroll;
-  max-height:400px;
+  max-height: 400px;
 }
-
 
 .navbar {
   padding: 0rem 1rem;
@@ -82,8 +91,9 @@ margin-top: 15px
   border-color: grey;
 }
 
-.mt-4, my-4 {
-margin-top: 0.5rem !important
+.mt-4,
+.my-4 {
+  margin-top: 0.5rem !important;
 }
 
 /* does not respond */
@@ -94,25 +104,26 @@ margin-top: 0.5rem !important
 /* } */
 
 .special {
-margin: 0 auto;
-width: 100%;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .special .btn {
-flex: 1
+  flex: 1;
 }
 
 .first-color-thing {
-    position: relative;
-    display: block;
-    padding: .75rem 1.25rem;
-    background-color: #cacaca;
-    border: 1px solid rgba(0,0,0,.125);
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: #cacaca;
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-.list-group-item-action:focus, .list-group-item-action:hover {
-    z-index: 1;
-    color: #white;
-    text-decoration: none;
-    background-color: #cacaca;
+.list-group-item-action:focus,
+.list-group-item-action:hover {
+  z-index: 1;
+  color: white;
+  text-decoration: none;
+  background-color: #cacaca;
 }
