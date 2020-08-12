@@ -90,6 +90,10 @@
   border-color: grey;
 }
 
+.navbar-brand{
+  margin: 0 auto;
+}
+
 .mt-4,
 .my-4 {
   margin-top: 0.5rem !important;
