@@ -1,15 +1,13 @@
 from appfolder import app
 
 # JJ HELP TODOS
-# TODO: NOT SECURE EMAIL at init.py. Cannot import enviornment varibles from bash? Weird!
-# TODO: expanding to XL messes with formatting
-# TODO Padding on L of R big screen column does not respond
+# TODO: Local Storage remember checkbox not working
 # TODO: better dropdowns/navbar ideas
 #  TODO: * Get screen orientation to lock in portrait mode
-# TODO: login with user database
 #
 
 # MDR TODOS
+# TODO: Add "You are ready" Card for Gymnaistics, KB, BB warmups
 # TODO: Continue to update gifs/vids (ended on kb_warmups.py)
 # TODO: Get all links to not be separate buttons but the title or image of the movement
 # TODO: ONLY ONE CORE WARMUP IN DROMS
