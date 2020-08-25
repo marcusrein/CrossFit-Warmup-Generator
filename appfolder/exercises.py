@@ -216,7 +216,7 @@ exercises_dict = {
         'loaded': 'db',
     },
     'renegade rows': {
-        'category': ['dumbbells', 'core'],
+        'category': ['dumbbells', 'dumbbells core'],
         'loaded': 'db',
     },
 

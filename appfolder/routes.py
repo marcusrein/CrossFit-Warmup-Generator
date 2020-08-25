@@ -231,10 +231,10 @@ def home():
 
         metcon_warmup = {}
         metcons_compiled = get_movements_compiled(
-            todays_wod, tough_exercises, metcons, metcon_time)
+            todays_wod, tough_exercises, metcons_dict, metcon_time)
         selected_metcon = metcons_compiled.get('SELECTED MOVEMENTS: ')
-        metcon_reps = get_reps(selected_metcon, tough_exercises, metcons)
-        metcon_images = get_images_for_display(selected_metcon, metcons)
+        metcon_reps = get_reps(selected_metcon, tough_exercises, metcons_dict)
+        metcon_images = get_images_for_display(selected_metcon, metcons_dict)
         for idx, item in enumerate(selected_metcon):
             metcon_warmup[selected_metcon[idx]] = {'img': (metcon_images[idx]),
                                                    'reps': (metcon_reps[idx])}
@@ -249,8 +249,7 @@ def home():
 
         drom_warmup = get_droms_compiled(todays_wod, tough_exercises, drom_time, selected_metcon, warmup_duration_short,
                                          warmup_duration_long, droms_dict_equipment_considered, warmup_equipment)
-        print('XXxXXXRXRXRXRXR%%%%%%%%%%%%%%%%%%xxxxx')
-        print(drom_warmup)
+
         print_for_debug = get_movements_compiled(todays_wod, tough_exercises, droms_dict_equipment_considered, drom_time)
         # KEY CODING TO COMBINE MULTIPLE LISTS INTO A SINGLE DICTIONARY  #
 
@@ -266,6 +265,7 @@ def home():
                                                     'url': (drom_url[idx]),
                                                     'counter': (drom_counter[idx])
                                                     }
+
         what_droms_warms_up_list = get_why_drom_selected_dict(drom_final_dict, todays_wod)
         drom_final_dict = add_why_drom_selected_to_drom_final_dict(drom_final_dict, what_droms_warms_up_list)
 
@@ -301,11 +301,12 @@ def home():
         db_warmup_img_list = get_images_for_display(db_warmup_movements_list, db_warmups_dict)
         db_warmup_url_list = get_url_for_display(db_warmup_movements_list, db_warmups_dict)
         db_warmup_reps_list = get_reps(db_warmup_movements_list, tough_exercises, db_warmups_dict)
-        for idx, item in enumerate(kb_warmup_movements_list):
-            db_warmup[kb_warmup_movements_list[idx]] = {'img': (db_warmup_img_list[idx]),
+        for idx, item in enumerate(db_warmup_movements_list):
+            db_warmup[db_warmup_movements_list[idx]] = {'img': (db_warmup_img_list[idx]),
                                                         'url': (db_warmup_url_list[idx]),
                                                         'reps': (db_warmup_reps_list[idx]),
                                                         }
+
         # BARBELL SELECTION
         barbell_warmup = {}
 

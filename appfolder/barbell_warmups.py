@@ -7,7 +7,7 @@ barbell_warmups_dict = {
             'category': ['cleans', 'snatches', 'jerks'],
             'url': 'https://youtu.be/mWffzvDGeg4',
             'img': 'https://j.gifs.com/p85RJm.gif',
-            'text': 'Use a PVC Pipe or Empty Barbell and Follow The Video\'s Instructions',
+            'text': 'Use a PVC Pipe or Empty Barbell',
             'reps': ['1 Round', '1 Round', '1 Round'],
         },
     'Barbell Clean Warmup':
@@ -15,7 +15,7 @@ barbell_warmups_dict = {
             'category': ['cleans'],
             'url': 'https://www.youtube.com/watch?v=_3WeR9NdflI',
             'img': 'https://thumbs.gfycat.com/SarcasticEnergeticHalcyon-max-1mb.gif',
-            'text': 'Add weight each set. Progress to your working weight.',
+            'text': 'Add weight each set',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
         },
     'Barbell Overhead Warmup':
@@ -23,7 +23,7 @@ barbell_warmups_dict = {
             'category': ['snatches', 'jerks', 'overhead squats'],
             'url': 'https://www.youtube.com/watch?v=5yWaNOvgFCM',
             'img': 'https://j.gifs.com/0YzAQX.gif',
-            'text': 'Add weight each set. Progress to your working weight.',
+            'text': 'Add weight each set',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
         },
     'Barbell Jerk Warmup':
@@ -31,7 +31,7 @@ barbell_warmups_dict = {
             'category': ['jerks'],
             'url': 'https://www.youtube.com/watch?v=VrHNJXoSyXw',
             'img': 'https://j.gifs.com/lx48G6.gif',
-            'text': 'Add weight each set. Progress to your working weight.',
+            'text': 'Add weight each set',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
         },
     'Barbell Snatch Warmup':
@@ -39,7 +39,7 @@ barbell_warmups_dict = {
             'category': ['snatches'],
             'url': 'https://www.youtube.com/watch?v=9xQp2sldyts',
             'img': 'https://j.gifs.com/p859M6.gif',
-            'text': 'Add weight each set. Progress to your working weight.',
+            'text': 'Add weight each set',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
 
         },
@@ -48,7 +48,7 @@ barbell_warmups_dict = {
             'category': ['presses'],
             'url': 'https://www.youtube.com/watch?v=SCVCLChPQFY',
             'img': 'https://j.gifs.com/lx48Gl.gif',
-            'text': 'Add weight each set. Progress to your working weight.',
+            'text': 'Add weight each set',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
 
         },
@@ -57,7 +57,7 @@ barbell_warmups_dict = {
             'category': ['squats'],
             'url': 'https://www.youtube.com/watch?v=ultWZbUMPL8',
             'img': 'https://j.gifs.com/p859M1.gif',
-            'text': 'Add weight each set. Progress to your working weight.',
+            'text': 'Add weight each set',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
 
 
@@ -67,7 +67,7 @@ barbell_warmups_dict = {
             'category': ['deadlifts'],
             'url': 'https://www.youtube.com/watch?v=op9kVnSso6Q',
             'img': 'https://j.gifs.com/r84gOw.gif',
-            'text': 'Add weight each set. Progress to your working weight.',
+            'text': 'Add weight each set',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
 
         },
@@ -76,7 +76,7 @@ barbell_warmups_dict = {
             'category': ['lunges'],
             'url': 'https://www.youtube.com/watch?v=ewtyZ-adDxc',
             'img': 'https://j.gifs.com/BN014x.gif',
-            'text': 'Add weight each set. Progress to your working weight.',
+            'text': 'Add weight each set',
             'reps': ['2-4 Warmup Sets', '3-4 Warmup Sets', '3-5 Warmup Sets'],
 
         },

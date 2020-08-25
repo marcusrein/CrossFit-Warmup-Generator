@@ -31,6 +31,13 @@ def check_kb_exercise(todays_wod):
             return True
 
 
+def check_db_exercise(todays_wod):
+    for wod in todays_wod:
+        if exercises_dict[wod]['loaded'] == 'db':
+            return True
+
+
+
 def check_barbell_exercise(todays_wod):
     for wod in todays_wod:
         if exercises_dict[wod]['loaded'] == 'barbell':

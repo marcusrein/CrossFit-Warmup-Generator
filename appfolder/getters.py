@@ -457,7 +457,7 @@ def get_which_movements_are_tough_gymnastics_movements(todays_wod):
 
 def get_metcon_reps(selected_metcon):
     if selected_metcon:
-        y = metcons.get(selected_metcon)
+        y = metcons_dict.get(selected_metcon)
         z = y.get('reps')
         final = random.choice(z)
     else:
@@ -594,6 +594,7 @@ def get_movements_compiled(todays_wod, tough_exercises, dictionary, movement_tim
 
     ##CHECKS##
     has_kb_exercise = check_kb_exercise(todays_wod)
+    had_db_exercise = check_db_exercise(todays_wod)
     has_barbell_exercise = check_barbell_exercise(todays_wod)
     has_tough_gymnastics = check_tough_gymnastics(todays_wod)
     ##GETTERS##
@@ -854,6 +855,8 @@ def get_dumbbell_warmup(todays_wod):
                 if 'dumbbells deadlift' in v['category']:
                     selected_db_warmups_with_dupes.append('Dumbbell Goblet Squats')
                     selected_db_warmups_with_dupes.append('Dumbbell Deadlift')
+                if 'dumbbells core' in v['category']:
+                    selected_db_warmups_with_dupes.append('Renegade Row')
 
     for i in selected_db_warmups_with_dupes:
         if i not in selected_db_warmups:

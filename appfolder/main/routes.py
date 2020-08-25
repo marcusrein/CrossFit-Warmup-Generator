@@ -52,10 +52,10 @@ def home():
         metcon_warmup = {}
 
         metcons_compiled = get_movements_compiled(
-            todays_wod, tough_exercises, metcons, metcon_time)
+            todays_wod, tough_exercises, metcons_dict, metcon_time)
         selected_metcon = metcons_compiled.get('SELECTED MOVEMENTS: ')
-        metcon_reps = get_reps(selected_metcon, tough_exercises, metcons)
-        metcon_images = get_images_for_display(selected_metcon, metcons)
+        metcon_reps = get_reps(selected_metcon, tough_exercises, metcons_dict)
+        metcon_images = get_images_for_display(selected_metcon, metcons_dict)
         for idx, item in enumerate(selected_metcon):
             metcon_warmup[selected_metcon[idx]] = {'img': (metcon_images[idx]),
                                                    'reps': (metcon_reps[idx])}

@@ -1,8 +1,9 @@
-metcons = {
+metcons_dict = {
 
     'run': {
         'categories': ['squats', 'lunges', 'cleans', 'gymnastics lower', 'snatches', 'deadlifts', 'kettlebells',
-                       'jerks'],
+                       'jerks','dumbbells clean', 'dumbbells snatch','dumbbells deadlift','dumbbells overhead',
+                       'dumbbells squat'],
         'time': 2,
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media2.giphy.com/media/l3xivF6cBEOQatmTQ1/giphy.gif',
@@ -16,7 +17,8 @@ metcons = {
     # },
     'burpees': {
         'categories': ['cleans', 'gymnastics lower', 'gymnastics upper', 'saggital presses', 'overhead presses',
-                       'snatches', 'kettlebells'],
+                       'snatches', 'kettlebells','dumbbells snatch','dumbbells clean','dumbbells deadlift','dumbbells overhead',
+                       'dumbbells squat', 'dumbbells', 'dumbbells core'],
         'time': 2,
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media2.giphy.com/media/Rve0ANHf9kkus/giphy.gif?cid'

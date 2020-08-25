@@ -45,4 +45,11 @@ db_warmups_dict = {
         'reps': ['3 reps', '4 reps', '5 reps']
 
     },
+    'Renegade Row': {
+        'category': ['dumbbell core'],
+        'url': 'https://www.youtube.com/watch?v=Gja70kgtvoQ',
+        'img': 'https://j.gifs.com/K1qBzM.gif',
+        'reps': ['3 reps', '4 reps', '5 reps']
+
+    },
 }
