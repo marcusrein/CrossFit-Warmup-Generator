@@ -1,6 +1,7 @@
 from appfolder import app
 
 # JJ HELP TODOS
+# TODO: caret to indicate dropdown?
 # TODO: Local Storage remember checkbox not working
 # TODO: better dropdowns/navbar ideas
 #  TODO: * Get screen orientation to lock in portrait mode
