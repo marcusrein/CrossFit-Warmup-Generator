@@ -9,6 +9,7 @@ from PIL import Image
 from flask_mail import Message
 
 from appfolder.barbell_warmups import *
+from appfolder.db_warmups import *
 from appfolder.checks import *
 from appfolder.droms import *
 from appfolder.exercises import *
@@ -292,12 +293,24 @@ def home():
                                                         'url': (kb_warmup_url_list[idx]),
                                                         'reps': (kb_warmup_reps_list[idx]),
                                                         }
+        # DB SELECTION
+        db_warmup = {}
 
+        db_movements_from_todays_wod = get_which_movements_are_db_movements(todays_wod)
+        db_warmup_movements_list = get_dumbbell_warmup(db_movements_from_todays_wod)
+        db_warmup_img_list = get_images_for_display(db_warmup_movements_list, db_warmups_dict)
+        db_warmup_url_list = get_url_for_display(db_warmup_movements_list, db_warmups_dict)
+        db_warmup_reps_list = get_reps(db_warmup_movements_list, tough_exercises, db_warmups_dict)
+        for idx, item in enumerate(kb_warmup_movements_list):
+            db_warmup[kb_warmup_movements_list[idx]] = {'img': (db_warmup_img_list[idx]),
+                                                        'url': (db_warmup_url_list[idx]),
+                                                        'reps': (db_warmup_reps_list[idx]),
+                                                        }
         # BARBELL SELECTION
         barbell_warmup = {}
 
         barbell_movements_from_todays_wod = get_which_movements_are_barbell_movements(todays_wod)
-        barbell_warmup_movements_list = get_barbell_warmup_movements(todays_wod)
+        barbell_warmup_movements_list = get_barbell_warmup_movements(barbell_movements_from_todays_wod)
         barbell_warmup_text_list = get_text_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
         barbell_warmup_img_list = get_images_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
         barbell_warmup_url_list = get_url_for_display(barbell_warmup_movements_list, barbell_warmups_dict)
@@ -319,7 +332,7 @@ def home():
                                barbell_movements_from_todays_wod=
                                barbell_movements_from_todays_wod,
                                kb_movements_from_todays_wod=kb_movements_from_todays_wod,
-                               kb_warmup=kb_warmup, tough_gymnastics_movements_from_todays_wod=
+                               kb_warmup=kb_warmup, db_warmup=db_warmup, tough_gymnastics_movements_from_todays_wod=
                                tough_gymnastics_movements_from_todays_wod,
                                easy_exercises=easy_exercises, tough_exercises=tough_exercises,
                                gymnastics_final_dict=gymnastics_final_dict, drom_final_dict=drom_final_dict,

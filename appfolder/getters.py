@@ -430,6 +430,18 @@ def get_which_movements_are_kb_movements(todays_wod):
     return kb_movements_from_todays_wod
 
 
+def get_which_movements_are_db_movements(todays_wod):
+    """Delivers a list of barbell movements only from todays wod"""
+    kb_movements_from_todays_wod = []
+
+    for movement in todays_wod:
+        for k in exercises_dict.keys():
+            if movement == k and exercises_dict[k]['loaded'] == 'db':
+                kb_movements_from_todays_wod.append(movement)
+
+    return kb_movements_from_todays_wod
+
+
 def get_which_movements_are_tough_gymnastics_movements(todays_wod):
     """Delivers a list of barbell movements only from todays wod
     THIS IS UGLY MAKE THIS NICER
@@ -816,6 +828,55 @@ def get_kettlebell_warmup(todays_wod):
         selected_kb_warmups.remove('Kettlebell Swings')
         selected_kb_warmups.append('Kettlebell Swings')
     return selected_kb_warmups
+
+def get_dumbbell_warmup(todays_wod):
+    """Delivers a warmup for kb movements"""
+
+    selected_db_warmups_with_dupes = []
+    selected_db_warmups = []
+
+    for wod in todays_wod:
+        for k, v in exercises_dict.items():
+            if wod == k:
+                if 'dumbbells overhead' in v['category']:
+                    selected_db_warmups_with_dupes.append('Dumbbell Shoulder Press')
+                if 'dumbbells squats' in v['category']:
+                    selected_db_warmups_with_dupes.append('Dumbbell Goblet Squats')
+                if 'dumbbells snatch' in v['category']:
+                    selected_db_warmups_with_dupes.append('Dumbbell Goblet Squats')
+                    selected_db_warmups_with_dupes.append('Dumbbell Shoulder Press')
+                    selected_db_warmups_with_dupes.append('Dumbbell Hang Power Clean')
+                    selected_db_warmups_with_dupes.append('Dumbbell Power Snatch')
+                if 'dumbbells clean' in v['category']:
+                    selected_db_warmups_with_dupes.append('Dumbbell Goblet Squats')
+                    selected_db_warmups_with_dupes.append('Dumbbell Hang Power Clean')
+                    selected_db_warmups_with_dupes.append('Dumbbell Power Clean')
+                if 'dumbbells deadlift' in v['category']:
+                    selected_db_warmups_with_dupes.append('Dumbbell Goblet Squats')
+                    selected_db_warmups_with_dupes.append('Dumbbell Deadlift')
+
+    for i in selected_db_warmups_with_dupes:
+        if i not in selected_db_warmups:
+            selected_db_warmups.append(i)
+    if 'Dumbbell Goblet Squats' in selected_db_warmups:
+        selected_db_warmups.remove('Dumbbell Goblet Squats')
+        selected_db_warmups.insert(0, 'Dumbbell Goblet Squats')
+    if 'Dumbbell Power Snatch' in selected_db_warmups:
+        selected_db_warmups.remove('Dumbbell Power Snatch')
+        selected_db_warmups.insert(1, 'Dumbbell Power Snatch')
+    if 'Dumbbell Hang Power Snatch' in selected_db_warmups:
+        selected_db_warmups.remove('Dumbbell Hang Power Snatch')
+        selected_db_warmups.insert(1, 'Dumbbell Hang Power Snatch')
+    if 'Dumbbell Shoulder Press' in selected_db_warmups:
+        selected_db_warmups.remove('Dumbbell Shoulder Press')
+        selected_db_warmups.insert(1, 'Dumbbell Shoulder Press')
+    if 'Dumbbell Hang Power Clean' in selected_db_warmups:
+        selected_db_warmups.remove('Dumbbell Hang Power Clean')
+        selected_db_warmups.insert(1, 'Dumbbell Hang Power Clean')
+    if 'Dumbbell Deadlift' in selected_db_warmups:
+        selected_db_warmups.remove('Dumbbell Deadlift')
+        selected_db_warmups.insert(1, 'Dumbbell Deadlift')
+    return selected_db_warmups
 
 
 def get_gymnastics_warmup(todays_wod):

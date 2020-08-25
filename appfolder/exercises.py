@@ -10,6 +10,33 @@ from collections import OrderedDict
 ### CATEGORY talks to DROMS.PY
 
 exercises_dict = {
+
+    # METABOLIC
+    'single under': {
+        'category': ['plyos'],
+        'loaded': False,
+    },
+    'double under': {
+        'category': ['plyos'],
+        'loaded': False,
+    },
+    'row': {
+        'category': ['deadlifts'],
+        'loaded': False,
+    },
+    'run': {
+        'category': ['lunges'],
+        'loaded': False,
+    },
+    'box jump': {
+        'category': ['plyos'],
+        'loaded': False,
+    },
+    'wall ball': {
+        'category': ['squats'],
+        'loaded': False,
+    },
+
     # GYMNASTICS
     'air squat': {
         'category': ['gymnastics lower'],
@@ -136,42 +163,62 @@ exercises_dict = {
 
     # DUMBBELLS
 
-    'dumbbell swing': {
-        'category': ['dumbbells'],
-        'loaded': 'kb',
-    },
     'dumbbell front squat': {
-        'category': ['dumbbells'],
-        'loaded': 'kb',
+        'category': ['dumbbells squat'],
+        'loaded': 'db',
     },
     'dumbbell snatch': {
-        'category': ['dumbbells'],
-        'loaded': 'kb',
+        'category': ['dumbbells overhead', 'dumbbells squat'],
+        'loaded': 'db',
+    },
+    'dumbbell hang power snatch': {
+        'category': ['dumbbells overhead', 'dumbbells squat', 'dumbbells snatch'],
+        'loaded': 'db'
     },
     'dumbbell clean': {
-        'category': ['dumbbells'],
-        'loaded': 'kb'
+        'category': ['dumbbells clean'],
+        'loaded': 'db'
+    },
+    'dumbbell hang power clean': {
+        'category': ['dumbbells squat'],
+        'loaded': 'db'
+    },
+    'dumbbell ground to overhead': {
+        'category': ['dumbbells snatch', 'dumbbells overhead'],
+        'loaded': 'db'
     },
     'dumbbell jerk': {
-        'category': ['dumbbells'],
-        'loaded': 'kb',
+        'category': ['dumbbells overhead'],
+        'loaded': 'db',
     },
     'dumbbell press': {
-        'category': ['dumbbells'],
-        'loaded': 'kb',
+        'category': ['dumbbells overhead'],
+        'loaded': 'db',
+    },
+    'dumbbell deadlift': {
+        'category': ['dumbbells deadlift'],
+        'loaded': 'db',
     },
     'dumbbell romanian deadlift': {
-        'category': ['dumbbells'],
-        'loaded': 'kb',
+        'category': ['dumbbells deadlift'],
+        'loaded': 'db',
     },
     'dumbbell single leg romanian deadlift': {
-        'category': ['dumbbells'],
-        'loaded': 'kb',
+        'category': ['dumbbells deadlift'],
+        'loaded': 'db',
     },
     'dumbbell turkish get up': {
         'category': ['dumbbells'],
-        'loaded': 'kb',
-},
+        'loaded': 'db',
+    },
+    'dumbbell thrusters': {
+        'category': ['dumbbells overhead', 'dumbbells squat'],
+        'loaded': 'db',
+    },
+    'renegade rows': {
+        'category': ['dumbbells', 'core'],
+        'loaded': 'db',
+    },
 
     # LUNGES
 
@@ -197,12 +244,24 @@ exercises_dict = {
     },
 
     # SQUATS
+    'barbell thruster': {
+        'category': ['squats', 'overhead presses'],
+        'loaded': 'barbell',
+    },
+    'kettlebell thruster': {
+        'category': ['squats', 'overhead presses'],
+        'loaded': 'kb',
+    },
+    'dumbbell thruster': {
+        'category': ['squats', 'overhead presses'],
+        'loaded': 'kb',
+    },
 
     'squat': {
         'category': ['squats'],
         'loaded': 'barbell',
 
-},
+    },
     'front squat': {
         'category': ['squats'],
         'loaded': 'barbell',
@@ -259,7 +318,7 @@ exercises_dict = {
         'category': ['cleans'],
         'loaded': 'barbell',
 
-},
+    },
     'squat clean': {
         'category': ['cleans'],
         'loaded': 'barbell',
@@ -274,7 +333,7 @@ exercises_dict = {
         'category': ['cleans'],
         'loaded': 'barbell',
 
-},
+    },
     'hang clean': {
         'category': ['cleans'],
         'loaded': 'barbell',
@@ -316,17 +375,17 @@ exercises_dict = {
         'category': ['overhead presses'],
         'loaded': 'barbell',
 
-},
+    },
     'strict press': {
         'category': ['overhead presses'],
         'loaded': 'barbell',
 
-},
+    },
     'snatch grip push press': {
         'category': ['overhead presses'],
         'loaded': 'barbell',
 
-},
+    },
     'sotts press': {
         'category': ['overhead presses'],
         'loaded': 'barbell',
@@ -336,7 +395,7 @@ exercises_dict = {
         'category': ['overhead presses'],
         'loaded': 'barbell',
 
-},
+    },
 
     # JERKS
 
@@ -354,7 +413,7 @@ exercises_dict = {
         'category': ['jerks'],
         'loaded': 'barbell',
 
-},
+    },
     'split jerk': {
         'category': ['jerks'],
         'loaded': 'barbell',
