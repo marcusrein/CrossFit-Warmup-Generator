@@ -111,6 +111,7 @@
                                 <div>
                                     <div class="row">
                                         <div class="col-sm">
+                                            <hr>
                                             <p></p>
                                             <div class="form-group w-100" style="text-align:center">
                                                 <div style="text-align:center">
@@ -134,11 +135,13 @@
                                                         PVC Pipe
                                                     </label>
                                                 </div>
-                                                <p></p>
+                                                                                                <hr>
+
                                                 <button type="submit" type="button"
                                                         class="btn btn-primary btn-block mt-4"
                                                         value="submit">Get Warmups
                                                 </button>
+                                            <hr>
 
                                             </div>
                                         </div>
@@ -156,7 +159,6 @@
         <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SMALL SCREEN L SIDEBAR ACCORDIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
         {% if metcon_warmup: %}
         <div class="overflow-auto w-100 mt-4 container">
-            <p></p>
             <a href="#estimated_times"
                class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                 <p3>Your Estimated Warmup Time is between <strong>{{ est_time_for_display}}</strong> and
@@ -432,8 +434,10 @@
         </div>
         {% endif %}
     </section>
-
+</main>
     {{ print_for_debug }}
+
+
     <script>
 var getStstus = localStorage.getItem('LineOp');
 

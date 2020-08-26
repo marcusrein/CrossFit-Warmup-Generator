@@ -15,3 +15,5 @@ function load() {
         checkboxes[i].checked = localStorage.getItem(checkboxes[i].value) === "true" ? true : false;
     }
 }
+
+\

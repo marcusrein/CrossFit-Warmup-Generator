@@ -1,9 +1,12 @@
 from appfolder import app
 
 # JJ HELP TODOS
+# TODO: Popover at "Categorize your wod movements by difficulty" for a quick FAQ?
 # TODO: caret to indicate dropdown?
 # TODO: Local Storage remember checkbox not working
 # TODO: better dropdowns/navbar ideas
+# TODO: Center "Your est warmup time" and "do warmup in order presented"
+# TODO: have accordions open individually as well as when you click their "folder" they also all open or close
 #  TODO: * Get screen orientation to lock in portrait mode
 #
 
