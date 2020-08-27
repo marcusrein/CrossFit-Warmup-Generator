@@ -1,4 +1,4 @@
-from appfolder.droms import *
+from appfolder.drom_warmups import *
 from appfolder.exercises import *
 from appfolder.gymnastics_warmups import *
 from appfolder.metcons import *

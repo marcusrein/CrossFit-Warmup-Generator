@@ -12,8 +12,13 @@ from collections import OrderedDict
 exercises_dict = {
 
     # METABOLIC
+
     'single under': {
         'category': ['plyos'],
+        'loaded': False,
+    },
+    'assault bike': {
+        'category': ['lunges'],
         'loaded': False,
     },
     'double under': {
@@ -36,8 +41,46 @@ exercises_dict = {
         'category': ['squats'],
         'loaded': False,
     },
+    'slam ball': {
+        'category': ['deadlift'],
+        'loaded': False,
+    },
+    'box step up': {
+        'category': ['lunges'],
+        'loaded': False,
+    },
+    'broad jump': {
+        'category': ['plyos'],
+        'loaded': False,
+    },
+    'jumping jack': {
+        'category': ['plyos'],
+        'loaded': False,
+    },
+    'ski erg': {
+        'category': ['gymnastics upper'],
+        'loaded': False,
+    },
+
+
+    # BODYBUILDING
+    'bent over row': {
+        'category': ['deadlift'],
+        'loaded': 'barbell',
+    },
+
+    # ETC
+
 
     # GYMNASTICS
+    'v up': {
+        'category': ['core'],
+        'loaded': False,
+    },
+    'toes to bar': {
+        'category': ['gymnastics upper', 'pull up'],
+        'loaded': False,
+    },
     'air squat': {
         'category': ['gymnastics lower'],
         'loaded': False,
@@ -67,7 +110,10 @@ exercises_dict = {
     'chin up': {
         'category': ['gymnastics upper', 'pull up'],
         'loaded': False,
-
+    },
+    'pistol': {
+        'category': ['gymnastics lower'],
+        'loaded': False,
     },
     'sit up': {
         'category': ['gymnastics upper'],
@@ -165,6 +211,14 @@ exercises_dict = {
 
     'dumbbell front squat': {
         'category': ['dumbbells squat'],
+        'loaded': 'db',
+    },
+    'devil press': {
+        'category': ['deadlifts', 'dumbbells overhead'],
+        'loaded': 'db',
+    },
+    'dumbbell swing': {
+        'category': ['swings', 'dumbbells'],
         'loaded': 'db',
     },
     'dumbbell snatch': {

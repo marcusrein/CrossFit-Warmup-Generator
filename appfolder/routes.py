@@ -11,7 +11,7 @@ from flask_mail import Message
 from appfolder.barbell_warmups import *
 from appfolder.db_warmups import *
 from appfolder.checks import *
-from appfolder.droms import *
+from appfolder.drom_warmups import *
 from appfolder.exercises import *
 from appfolder.getters import *
 from appfolder.gymnastics_warmups import *

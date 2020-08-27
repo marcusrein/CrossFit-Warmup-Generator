@@ -1,6 +1,6 @@
 from appfolder.checks import *
 from appfolder.exercises import *
-from appfolder.droms import *
+from appfolder.drom_warmups import *
 
 import random
 
