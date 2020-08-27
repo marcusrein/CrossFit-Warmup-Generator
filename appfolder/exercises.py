@@ -26,7 +26,7 @@ exercises_dict = {
         'loaded': False,
     },
     'row': {
-        'category': ['deadlifts'],
+        'category': ['deadlifts', 'core'],
         'loaded': False,
     },
     'run': {
@@ -38,11 +38,11 @@ exercises_dict = {
         'loaded': False,
     },
     'wall ball': {
-        'category': ['squats'],
+        'category': ['squats', 'core'],
         'loaded': False,
     },
     'slam ball': {
-        'category': ['deadlift'],
+        'category': ['deadlift', 'core'],
         'loaded': False,
     },
     'box step up': {
@@ -58,7 +58,7 @@ exercises_dict = {
         'loaded': False,
     },
     'ski erg': {
-        'category': ['gymnastics upper'],
+        'category': ['gymnastics upper', 'core'],
         'loaded': False,
     },
 

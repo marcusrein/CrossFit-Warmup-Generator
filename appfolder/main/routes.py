@@ -5,7 +5,7 @@ from flask import render_template, request, Blueprint
 from appfolder.checks import *
 from appfolder.exercises import *
 from appfolder.getters import *
-from appfolder.metcons import *
+from appfolder.metcon_warmups import *
 from appfolder.drom_warmups import *
 from appfolder.barbell_warmups import *
 from appfolder.kb_warmups import *

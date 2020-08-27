@@ -1,7 +1,7 @@
 from appfolder.drom_warmups import *
 from appfolder.exercises import *
 from appfolder.gymnastics_warmups import *
-from appfolder.metcons import *
+from appfolder.metcon_warmups import *
 from appfolder.filters import *
 from appfolder.checks import *
 import random

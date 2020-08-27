@@ -17,7 +17,7 @@ from appfolder.getters import *
 from appfolder.gymnastics_warmups import *
 from appfolder.kb_warmups import *
 from appfolder.media import *
-from appfolder.metcons import *
+from appfolder.metcon_warmups import *
 
 
 @app.route("/about")
