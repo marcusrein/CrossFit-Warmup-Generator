@@ -135,6 +135,17 @@ droms_dict = {
         'equipment': 'none'
 
     },
+    'goddess squats': {
+        'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'kettlebells', 'lunges', 'squats', 'dumbbells squat',
+                       'dumbbells snatch', 'dumbbells clean'],
+        'time': 1,
+        'reps': ['4 each side', '5 each side', '6 each side'],
+        'url': 'https://www.youtube.com/watch?v=QhAIq42EipE',
+        'img': 'https://j.gifs.com/1WZP0V.gif',
+        'rpe': 4,
+        'equipment': 'none'
+
+    },
     'inchworms': {
         'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'gymnastics upper', 'kettlebells',
                        'overhead presses', 'saggital presses', 'squats', 'dumbbells snatch', 'dumbbells clean',
@@ -146,6 +157,16 @@ droms_dict = {
         'rpe': 4,
         'equipment': 'none'
 
+    },
+    'loop band shoulder activation': {
+        'categories': ['gymnastics upper', 'jerks', 'overhead presses', 'rows', 'saggital presses', 'snatches',
+                       'kettlebells overhead', 'dumbbells overhead', 'dumbbells snatch'],
+        'time': 1,
+        'reps': ['3/3', '5/5', '7/7'],
+        'url': 'https://www.youtube.com/watch?v=fZ4i8lI-xWI',
+        'img': 'https://j.gifs.com/XLK2Z5.gif',
+        'rpe': 1,
+        'equipment': 'loop resistance band'
     },
     'push ups': {
         'categories': ['gymnastics upper', 'jerks', 'saggital presses', 'snatches', 'dumbbells core'],
@@ -209,7 +230,7 @@ droms_dict = {
 
     },
     'vertical jumps': {
-        'categories': ['cleans', 'jerks', 'plyos', 'snatches', 'dumbbell cleans', 'dumbbells snatche'],
+        'categories': ['cleans', 'jerks', 'plyos', 'snatches', 'dumbbell cleans', 'dumbbells snatches'],
         'time': 1,
         'reps': ['10 reps', '15 reps', '20 reps'],
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
@@ -231,11 +252,22 @@ droms_dict = {
     },
     'toy soldiers': {
         'categories': ['cleans', 'deadlifts', 'jerks', 'kettlebells', 'lunges', 'snatches', 'squats', 'dumbbells clean',
-                       'dumbbells snatche'],
+                       'dumbbells snatch'],
         'time': 1,
         'reps': ['10-20 reps', '15-25 reps', '20-30 reps'],
         'url': 'https://www.youtube.com/watch?v=cIqzwOUilR4',
         'img': 'https://j.gifs.com/q74Avr.gif',
+        'rpe': 5,
+        'equipment': 'none'
+
+    },
+    'birdpeckers': {
+        'categories': ['cleans', 'deadlifts', 'jerks', 'kettlebells', 'lunges', 'snatches', 'squats', 'dumbbells clean',
+                       'dumbbells snatch'],
+        'time': 1,
+        'reps': ['10-15 reps', '15 reps', '15-20 reps'],
+        'url': 'https://www.youtube.com/watch?v=we-V2WKe1YI',
+        'img': 'https://j.gifs.com/mOxgD9.gif',
         'rpe': 5,
         'equipment': 'none'
 
@@ -258,6 +290,17 @@ droms_dict = {
         'url': 'https://www.youtube.com/watch?v=-CiWQ2IvY34',
         'img': 'https://j.gifs.com/OMBJrN.gif',
         'rpe': 4,
+        'equipment': 'none'
+
+    },
+    'monkey': {
+        'categories': ['cleans', 'deadlifts', 'gymnastics lower', 'gymnastics upper', 'snatches', 'squats',
+                       'dumbbells squat'],
+        'time': 1,
+        'reps': ['5 each way', '7 each way', '9 each way'],
+        'url': 'https://www.youtube.com/watch?v=xtkyY-ALDNI',
+        'img': 'https://j.gifs.com/GvmoBL.gif',
+        'rpe': 6,
         'equipment': 'none'
 
     },

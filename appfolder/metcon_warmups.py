@@ -1,9 +1,12 @@
+# CATEGORIES INCLUDE EVERY CATEGORY FROM DROM_WARMUPS.PY
+
 metcons_dict = {
 
     'run': {
-        'categories': ['squats', 'lunges', 'cleans', 'gymnastics lower', 'snatches', 'deadlifts', 'kettlebells',
-                       'jerks','dumbbells clean', 'dumbbells snatch','dumbbells deadlift','dumbbells overhead',
-                       'dumbbells squat'],
+        'categories': ['cleans', 'core', 'deadlifts,' 'dumbbells', 'gymnastics lower', 'gymnastics upper', 'handstand',
+                       'jerks', 'kettlebells', 'kettlebell olympic', 'kettlebell overhead', 'lunges', 'plyos',
+                       'snatches', 'squats', 'swings', 'dumbbells snatch', 'dumbbells clean', 'dumbbells deadlift',
+                       'dumbbells overhead', 'dumbbells squat', 'dumbbells', 'dumbbells core'],
         'time': 2,
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media2.giphy.com/media/l3xivF6cBEOQatmTQ1/giphy.gif',
@@ -16,12 +19,24 @@ metcons_dict = {
     #     'reps': ['250m', '500m']
     # },
     'burpees': {
-        'categories': ['cleans', 'gymnastics lower', 'gymnastics upper', 'saggital presses', 'overhead presses',
-                       'snatches', 'kettlebells','dumbbells snatch','dumbbells clean','dumbbells deadlift','dumbbells overhead',
-                       'dumbbells squat', 'dumbbells', 'dumbbells core'],
+        'categories': ['cleans', 'core', 'deadlifts,' 'dumbbells', 'gymnastics lower', 'gymnastics upper', 'handstand',
+                       'jerks', 'kettlebells', 'kettlebell olympic', 'kettlebell overhead', 'lunges', 'plyos',
+                       'snatches', 'squats', 'swings', 'dumbbells snatch', 'dumbbells clean', 'dumbbells deadlift',
+                       'dumbbells overhead', 'dumbbells squat', 'dumbbells', 'dumbbells core'],
         'time': 2,
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
         'img': 'https://media2.giphy.com/media/Rve0ANHf9kkus/giphy.gif?cid'
+               '=ecf05e477e74fa431a65be34df7ac29a31c64d6cfb36827c&rid=giphy.gif',
+        'reps': ['10 reps', '15 reps', '15 reps']
+    },
+    'burpee shuttle run': {
+        'categories': ['cleans', 'core', 'deadlifts,' 'dumbbells', 'gymnastics lower', 'gymnastics upper', 'handstand',
+                       'jerks', 'kettlebells', 'kettlebell olympic', 'kettlebell overhead', 'lunges', 'plyos',
+                       'snatches', 'squats', 'swings', 'dumbbells snatch', 'dumbbells clean', 'dumbbells deadlift',
+                       'dumbbells overhead', 'dumbbells squat', 'dumbbells', 'dumbbells core'],
+        'time': 2,
+        'url': 'https://www.youtube.com/watch?v=m4BN0pXJAik',
+        'img': 'https://j.gifs.com/MwvxyO.gif'
                '=ecf05e477e74fa431a65be34df7ac29a31c64d6cfb36827c&rid=giphy.gif',
         'reps': ['10 reps', '15 reps', '15 reps']
     }
