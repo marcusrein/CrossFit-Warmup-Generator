@@ -841,7 +841,8 @@ def get_dumbbell_warmup(todays_wod):
             if wod == k:
                 if 'dumbbells overhead' in v['category']:
                     selected_db_warmups_with_dupes.append('Dumbbell Shoulder Press')
-                if 'dumbbells squats' in v['category']:
+                    breakpoint()
+                if 'dumbbells squat' in v['category']:
                     selected_db_warmups_with_dupes.append('Dumbbell Goblet Squats')
                 if 'dumbbells snatch' in v['category']:
                     selected_db_warmups_with_dupes.append('Dumbbell Goblet Squats')
@@ -879,6 +880,8 @@ def get_dumbbell_warmup(todays_wod):
     if 'Dumbbell Deadlift' in selected_db_warmups:
         selected_db_warmups.remove('Dumbbell Deadlift')
         selected_db_warmups.insert(1, 'Dumbbell Deadlift')
+
+
     return selected_db_warmups
 
 

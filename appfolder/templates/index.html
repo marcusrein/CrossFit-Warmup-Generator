@@ -16,7 +16,7 @@
 
                   <div class="form-group w-100">
                     <label style="text-align: center">
-                      <strong>Easy &middot; 10+ Reps Unbroken</strong>
+                      <strong>Easy &middot; </strong> Lighter / Less Skill Req.
                     </label>
                     <select multiple id="slim-select0" name="easy_exercises_form">
                       <option></option>
@@ -46,7 +46,7 @@
 
                   <div class="form-group w-100">
                     <label style="text-align: center">
-                      <strong>Tough &middot; 9 or Less Reps Unbroken</strong> </label>
+                      <strong>Tough &middot; </strong>Heavier / More Skill Req.  </label>
                     <select multiple id="slim-select00" name="tough_exercises_form">
                       <option></option>
                       {% if tough_exercises: %}
@@ -170,34 +170,28 @@
         <b>Metcon Warmup</b>
       </a>
       {% for k,v in metcon_warmup.items() %}
-      <div class="accordion" id="accordionExample">
+      <div class="accordion">
         <div class="card">
-          <div class="card-header" id="headingOne">
+          <div class="card-header">
             <h2 class="mb-0">
               <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
-                aria-controls="collapseOne">
+                type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
+                aria-controls="{{ v['dropdowns_rand2'] }}">
                 <span>{{ k.title() }}</span>
                 <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
               </button>
             </h2>
           </div>
-          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card">
-              {% for k,v in metcon_warmup.items() %}
-              <div class="card" style="max-width: 18rem;">
-                <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-                <div class="card-body">
-                  <h5 class="card-title">{{ k.title() }}</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Metcon Warmup</h6>
-                  <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
-                </div>
-              </div>
-              {% endfor %}
+          <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
+
+            <div class="img-wrapper">
+              <img src="{{ v['img'] }}" alt="Card image cap" />
+              <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
             </div>
           </div>
         </div>
       </div>
+
       {% endfor %}
 
       <p></p>
@@ -267,15 +261,6 @@
               <img src="{{ v['img'] }}" alt="Card image cap" />
               <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
             </div>
-
-            <p class="text-center">
-              <span class="badge badge-pill badge-light">Warms Up:</span>
-
-              {% for target in v['targets'] %}
-              <span class="badge badge-pill badge-dark">{{ target.title() }}</span>
-              {% endfor %}
-              <Br />
-            </p>
           </div>
         </div>
       </div>
@@ -296,25 +281,16 @@
               <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
                 type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
                 aria-controls="{{ v['dropdowns_rand2'] }}">
-                {{ k.title() }}
+                <span>{{ k.title() }}</span>
                 <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
               </button>
             </h2>
           </div>
           <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
-            <div class="card">
-              <div class="card-body" style="max-width: 18rem;">
-                <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-                <p class="card-subtitle mb-2 text-muted">
-                  {% for target in v['targets'] %}
-                  <span class="badge badge-pill badge-secondary">{{ target.title() }}</span>
-                  {% endfor %}
-                <p></p>
 
-                <a href="{{ v['url'] }}" target="_blank" class="card-link">Video
-                  Demo</a>
-              </div>
-
+            <div class="img-wrapper">
+              <img src="{{ v['img'] }}" alt="Card image cap" />
+              <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
             </div>
           </div>
         </div>
@@ -325,7 +301,7 @@
 
       <p></p>
       {% if db_warmup: %}
-      <a href="#kb_warmup"
+      <a href="#db_warmup"
         class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
         <b>Dumbbell Warmups</b>
       </a>
@@ -337,30 +313,21 @@
               <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
                 type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
                 aria-controls="{{ v['dropdowns_rand2'] }}">
-                {{ k.title() }}
+                <span>{{ k.title() }}</span>
                 <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
               </button>
             </h2>
           </div>
           <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
-            <div class="card">
-              <div class="card-body" style="max-width: 18rem;">
-                <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-                <p class="card-subtitle mb-2 text-muted">
-                  {% for target in v['targets'] %}
-                  <span class="badge badge-pill badge-secondary">{{ target.title() }}</span>
-                  {% endfor %}
-                <p></p>
 
-                <a href="{{ v['url'] }}" target="_blank" class="card-link">Video
-                  Demo</a>
-              </div>
-
+            <div class="img-wrapper">
+              <img src="{{ v['img'] }}" alt="Card image cap" />
+              <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
             </div>
+
           </div>
         </div>
       </div>
-
       {% endfor %}
       {% endif %}
 
@@ -372,33 +339,25 @@
         <b>Barbell Warmups</b>
       </a>
       {% for k,v in barbell_warmup.items() %}
-      <div class="accordion" id="accordionExample6">
+      <div class="accordion">
         <div class="card">
-          <div class="card-header" id="headingOne6">
+          <div class="card-header">
             <h2 class="mb-0">
               <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
                 type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
-                aria-controls="collapseOne6">
-                {{ k.title() }}
+                aria-controls="{{ v['dropdowns_rand2'] }}">
+                <span>{{ k.title() }}</span>
                 <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
               </button>
             </h2>
           </div>
-          <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="headingOne5">
-            <div class="card">
-              <div class="card" style="max-width: 18rem;">
-                <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap" />
-                <div class="card-body">
-                  <h5 class="card-title">{{ k.title() }}</h5>
-                  <p class="badge badge-primary badge-pill"> {{ v['reps'] }} </p>
-                  <p class="card-text"> {{ v['text'] }} </p>
-                  <a href="{{ v['url'] }}" target="_blank" class="card-link">Video
-                    Demo</a>
+          <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
 
-                </div>
-              </div>
-
+            <div class="img-wrapper">
+              <img src="{{ v['img'] }}" alt="Card image cap" />
+              <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
             </div>
+
           </div>
         </div>
       </div>
