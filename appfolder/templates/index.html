@@ -9,9 +9,6 @@
                 <div class="row text-center">
                     <div class="col">
                         <h4>Categorize Your WOD Movements By Difficulty</h4>
-                        <p><strong>Easy</strong> = Able to Perform 10 Reps Unbroken</p>
-                        <p><strong>Tough</strong> = Unable to Perform 10 Reps Unbroken</p>
-
                         <form method="POST" action="/" id="form0" class="container">
                             <hr/>
                             <div>
@@ -20,7 +17,7 @@
 
                                         <div class="form-group w-100">
                                             <label style="text-align: center">
-                                               <strong>Easy</strong>
+                                               <strong>Easy &middot; 10+ Reps Unbroken</strong>
                                             </label>
                                             <select multiple id="slim-select0" name="easy_exercises_form">
                                                 <option></option>
@@ -50,8 +47,7 @@
 
                                         <div class="form-group w-100">
                                             <label style="text-align: center">
-                                                <strong>Tough</strong>
-                                            </label>
+                                              <strong>Tough &middot; 9 or Less Reps Unbroken</strong>                                            </label>
                                             <select multiple id="slim-select00" name="tough_exercises_form">
                                                 <option></option>
                                                 {% if tough_exercises: %}
@@ -121,16 +117,14 @@
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="gearcheck1"
-                                                           id="gearcheck1" name="gearcheck1" {{ "checked" if
-                                                    gearcheck1 == "on" }} >
+                                                           id="gearcheck1" name="gearcheck1" >
                                                     <label class="form-check-label" for="gearcheck1" >
                                                         Loop Resistance Bands
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="gearcheck2"
-                                                           id="gearcheck2" name="gearcheck2" {{ "checked" if
-                                                    gearcheck2 == "on" }}>
+                                                           id="gearcheck2" name="gearcheck2">
                                                     <label class="form-check-label" for="gearcheck2">
                                                         PVC Pipe
                                                     </label>
@@ -158,24 +152,18 @@
 
         <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SMALL SCREEN L SIDEBAR ACCORDIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
         {% if metcon_warmup: %}
-        <div class="overflow-auto w-100 mt-4 container">
-            <a href="#estimated_times"
-               class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                <p3>Your Estimated Warmup Time is between <strong>{{ est_time_for_display}}</strong> and
-                    <strong>{{
-                        est_time_for_display_plus5 }}</strong>
-                    minutes
-                </p3>
-            </a>
-        </div>
+        <div class="row">
+          <div class="col-sm-12  text-center">
+            <div class="statistic primary">
+              <div class="value">{{ est_time_for_display}}-{{ est_time_for_display_plus5 }}</div>
+              <div class="label">
+                Est. Warmup Time<br/>
+                (Minutes)
+              </div>
+            </div><!-- /.statistic -->
+          </div><!-- /.col -->
 
-        <div class="overflow-auto w-100 mt-4 container">
-            <div class="first-color-thing list-group-item list-group-item-action d-flex justify-content-between align-items-center" >
 
-                <p3>
-                    <strong>Perform the generated warmup in the order presented</strong>
-                </p3>
-            </div>
         </div>
 
         <div class="overflow-auto w-100 mt-4 container">
@@ -192,7 +180,7 @@
                                     type="button" data-toggle="collapse" data-target="#collapseOne"
                                     aria-expanded="false"
                                     aria-controls="collapseOne">
-                                {{ k.title() }}
+                                <span>{{ k.title() }}</span>
                                 <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
                             </button>
                         </h2>
@@ -232,27 +220,27 @@
                                     type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}"
                                     aria-expanded="false"
                                     aria-controls="{{ v['dropdowns_rand2'] }}">
-                                {{ k.title() }}
+                                <span>{{ k.title() }}</span>
                                 <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
                             </button>
                         </h2>
                     </div>
                     <div id="{{ k.replace(' ', '') }}" class="collapse"
                          aria-labelledby="{{ v['dropdowns_rand1'] }}">
-                        <div class="card">
-                            <div class="card-body" style="max-width: 18rem;">
-                                <img class="card-img-top" src="{{ v['img'] }}" alt="Card image cap"/>
-                                <p class="card-subtitle mb-2 text-muted"> Warms up:</p>
-                                <p class="card-subtitle mb-2 text-muted">
-                                    {% for target in v['targets'] %}
-                                    <span class="badge badge-pill badge-secondary">{{ target.title() }}</span>
-                                    {% endfor %}
-                                <p></p>
 
-<a href="{{ v['url'] }}" target="_blank" class="card-link">Video
-                                        Demo</a>                            </div>
+                            <div class="img-wrapper">
+                              <img src="{{ v['img'] }}" alt="Card image cap"/>
+                                <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
+                            </div>
 
-                        </div>
+                            <p class="text-center">
+                                <span class="badge badge-pill badge-light">Warms Up:</span>
+
+                                {% for target in v['targets'] %}
+                                  <span class="badge badge-pill badge-dark">{{ target.title() }}</span>
+                                {% endfor %}
+                                <Br/>
+                            </p>
                     </div>
                 </div>
             </div>
@@ -295,7 +283,6 @@
 
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -439,17 +426,29 @@
 
 
     <script>
-var getStstus = localStorage.getItem('LineOp');
+  const checkbox1 = document.getElementById("gearcheck1");
+  const checkbox2 = document.getElementById("gearcheck2");
 
-if (getStstus === "true")
-    $("#LineOp").prop("checked", true);
+  const stringToBoolean = string => string === "true" ? true : false
 
-$("#LineOp").click(function(){
-    localStorage.setItem('LineOp', $(this).prop("checked"));
-});
+  const localStorageValue1 = stringToBoolean(localStorage.getItem('gearcheck1'))
+  const localStorageValue2 = stringToBoolean(localStorage.getItem('gearcheck2'))
 
+  checkbox1.checked = localStorageValue1
+  checkbox2.checked = localStorageValue2
+
+  const saveValueInLocalStorage1 = (e) => localStorage.setItem('gearcheck1', e.target.checked)
+  const saveValueInLocalStorage2 = (e) => localStorage.setItem('gearcheck2', e.target.checked)
+
+  checkbox1.addEventListener('change', saveValueInLocalStorage1, false);
+  checkbox2.addEventListener('change', saveValueInLocalStorage2, false);
 
     </script>
+
+
+
+
+
     <script>
 
 
@@ -464,24 +463,6 @@ $("#LineOp").click(function(){
     closeOnSelect: false,
     allowDeselectOption: true
   })
-
-  new SlimSelect({
-    select: '#slim-select1',
-    closeOnSelect: false,
-    allowDeselectOption: true
-  })
-
-  new SlimSelect({
-    select: '#slim-select2',
-    closeOnSelect: false,
-    allowDeselectOption: true
-  })
-
-
-
-
-
-
 
     </script>
 
