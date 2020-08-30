@@ -18,7 +18,7 @@ gymnastics_warmups = {
             'reps': '5',
             'img': 'https://tinyurl.com/yap8m62n',
         },
-    'ring dips (assisted or jumping)':
+    'assisted or jumping ring dips':
         {
             'exercises': ['ring muscle up', 'ring dip', 'bar muscle up'],
             'reps': '5',
