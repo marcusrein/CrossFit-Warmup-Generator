@@ -3,370 +3,390 @@
 
 <!--%%%%%%%%%%%%%%%%%%%%%% LEFT SIDEBAR FOR SMALL SCREENS HEADER %%%%%%%%%%%%%%%%%%%%%%%%%%%-->
 <main class="row justify-content-center">
-  <section class="sidebar p-3 mb-2 bg-light text-dark" style="overflow-y: scroll; max-width:700px">
-    <div class="container-fluid padding">
-      <div class="row text-center">
-        <div class="col">
-          <h4>Categorize Your WOD Movements By Difficulty</h4>
-          <form method="POST" action="/" id="form0" class="container">
-            <hr />
-            <div>
-              <div class="row">
-                <div class="col-sm">
+    <section class="sidebar p-3 mb-2 bg-light text-dark" style="overflow-y: scroll; max-width:700px">
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                <div class="col collapse show" id="collapseHeader">
+                    <h4>Categorize Your WOD Movements By Difficulty</h4>
+                    <form method="POST" action="/" id="form0" class="container">
+                        <hr/>
+                        <div>
+                            <div class="row">
+                                <div class="col-sm">
 
-                  <div class="form-group w-100">
-                    <label style="text-align: center">
-                      <strong>Easy &middot; </strong> Lighter / Less Skill
-                    </label>
-                    <select multiple id="slim-select0" name="easy_exercises_form">
-                      <option></option>
-                      {% if easy_exercises: %}
-                      {% for exercise in easy_exercises: %}
-                      <option selected>{{ exercise.title() }}</option>
-                      {% endfor %}
+                                    <div class="form-group w-100">
+                                        <label style="text-align: center">
+                                            <strong>Easy &middot; </strong> Lighter / Less Skill
+                                        </label>
+                                        <select multiple id="slim-select0" name="easy_exercises_form">
+                                            <option></option>
+                                            {% if easy_exercises: %}
+                                            {% for exercise in easy_exercises: %}
+                                            <option selected>{{ exercise.title() }}</option>
+                                            {% endfor %}
 
-                      {% for i in exercise_keys %}
-                      <option>
-                        {{ i.title() }}
-                      </option>
-                      {% endfor %}
-                      {% else %}
-                      {% for i in exercise_keys %}
-                      <option>
-                        {{ i.title() }}
-                      </option>
-                      {% endfor %}
-                      {% endif %}
+                                            {% for i in exercise_keys %}
+                                            <option>
+                                                {{ i.title() }}
+                                            </option>
+                                            {% endfor %}
+                                            {% else %}
+                                            {% for i in exercise_keys %}
+                                            <option>
+                                                {{ i.title() }}
+                                            </option>
+                                            {% endfor %}
+                                            {% endif %}
 
 
-                    </select>
-                  </div>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+
+                                    <div class="form-group w-100">
+                                        <label style="text-align: center">
+                                            <strong>Tough &middot; </strong>Heavier / More Skill </label>
+                                        <select multiple id="slim-select00" name="tough_exercises_form">
+                                            <option></option>
+                                            {% if tough_exercises: %}
+                                            {% for exercise in tough_exercises: %}
+                                            <option selected>{{ exercise.title() }}</option>
+                                            {% endfor %}
+
+                                            {% for i in exercise_keys %}
+                                            <option>
+                                                {{ i.title() }}
+                                            </option>
+                                            {% endfor %}
+                                            {% else %}
+                                            {% for i in exercise_keys %}
+                                            <option>
+                                                {{ i.title() }}
+                                            </option>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div> {% if error_message: %}
+                                <h6 class="card-subtitle mb-2 text-muted"> {{ error_message }} </h6>
+                                {% endif %}
+                            </div>
+                            <div>
+                                <hr>
+                                <strong>
+                                    Warmup Duration
+                                </strong>
+                                <p></p>
+
+                            </div>
+                            <div class="btn-group btn-group-toggle special" data-toggle="buttons">
+                                <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "short"
+                                }}">
+                                <input type="radio" name="option" value="short" autocomplete="off" {{ "checked" if
+                                warmup_duration_selection == "short" }}>
+                                Short
+                                </label>
+                                <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "" }}
+                                {{ "active"
+                                if warmup_duration_selection == "normal" }}">
+                                <input type="radio" name="option" value="normal" autocomplete="off" {{ "checked" if
+                                warmup_duration_selection == "" }}{{ "checked" if warmup_duration_selection ==
+                                "normal" }}>
+                                Normal
+                                </label>
+                                <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "long"
+                                }}">
+                                <input type="radio" name="option" value="long" autocomplete="off" {{ "checked" if
+                                warmup_duration_selection == "long" }}> Long
+                                </label>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <hr>
+                                        <p></p>
+                                        <div class="form-group w-100" style="text-align:center">
+                                            <div style="text-align:center">
+                                                <strong>
+                                                    Warmup Equipment Owned
+                                                </strong>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="gearcheck1"
+                                                       id="gearcheck1"
+                                                       name="gearcheck1">
+                                                <label class="form-check-label" for="gearcheck1">
+                                                    Loop Resistance Bands
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="gearcheck2"
+                                                       id="gearcheck2"
+                                                       name="gearcheck2">
+                                                <label class="form-check-label" for="gearcheck2">
+                                                    PVC Pipe
+                                                </label>
+                                            </div>
+                                            <hr>
+
+                                            <button type="submit" type="button" class="btn btn-primary btn-block mt-4"
+                                                    value="submit"><i class="fas fa-fw fa-angle-down"></i> Get
+                                                Warmups <i class="fas fa-fw fa-angle-down"></i>
+                                            </button>
+                                            <hr>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="col-sm">
-
-                  <div class="form-group w-100">
-                    <label style="text-align: center">
-                      <strong>Tough &middot; </strong>Heavier / More Skill  </label>
-                    <select multiple id="slim-select00" name="tough_exercises_form">
-                      <option></option>
-                      {% if tough_exercises: %}
-                      {% for exercise in tough_exercises: %}
-                      <option selected>{{ exercise.title() }}</option>
-                      {% endfor %}
-
-                      {% for i in exercise_keys %}
-                      <option>
-                        {{ i.title() }}
-                      </option>
-                      {% endfor %}
-                      {% else %}
-                      {% for i in exercise_keys %}
-                      <option>
-                        {{ i.title() }}
-                      </option>
-                      {% endfor %}
-                      {% endif %}
-                    </select>
-                  </div>
+            </div>
+        </div>
+        <div class="p-3 mb-2 bg-light text-dark" style="overflow-y: scroll; max-width:700px">
+            <div class="container-fluid">
+                <div>
+                    <button class="btn-sm btn-outline-secondary btn-block mt-4" type="button" data-toggle="collapse"
+                            data-target="#collapseHeader" aria-expanded="false" aria-controls="collapseHeader">
+                        Show/Hide Input
+                    </button>
                 </div>
-              </div>
-              <div> {% if error_message: %}
-                <h6 class="card-subtitle mb-2 text-muted"> {{ error_message }} </h6>
-                {% endif %}
-              </div>
-              <div>
-                <hr>
-                <strong>
-                  Warmup Duration
-                </strong>
-                <p></p>
+            </div>
+        </div>
+        </div>
 
-              </div>
-              <div class="btn-group btn-group-toggle special" data-toggle="buttons">
-                <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "short"
-                                    }}">
-                  <input type="radio" name="option" value="short" autocomplete="off" {{ "checked" if
-                                    warmup_duration_selection == "short" }}>
-                  Short
-                </label>
-                <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "" }}
-                                    {{ "active"
-                                    if warmup_duration_selection == "normal" }}">
-                  <input type="radio" name="option" value="normal" autocomplete="off" {{ "checked" if
-                                    warmup_duration_selection == "" }}{{ "checked" if warmup_duration_selection ==
-                                    "normal" }}>
-                  Normal
-                </label>
-                <label class="btn btn-secondary {{ " active" if warmup_duration_selection == "long"
-                                    }}">
-                  <input type="radio" name="option" value="long" autocomplete="off" {{ "checked" if
-                                    warmup_duration_selection == "long" }}> Long
-                </label>
-              </div>
-              <div>
-                <div class="row">
-                  <div class="col-sm">
-                    <hr>
-                    <p></p>
-                    <div class="form-group w-100" style="text-align:center">
-                      <div style="text-align:center">
-                        <strong>
-                          Warmup Equipment Owned
-                        </strong>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="gearcheck1" id="gearcheck1"
-                          name="gearcheck1">
-                        <label class="form-check-label" for="gearcheck1">
-                          Loop Resistance Bands
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="gearcheck2" id="gearcheck2"
-                          name="gearcheck2">
-                        <label class="form-check-label" for="gearcheck2">
-                          PVC Pipe
-                        </label>
-                      </div>
-                      <hr>
 
-                      <button type="submit" type="button" class="btn btn-primary btn-block mt-4" value="submit">Get
-                        Warmups
-                      </button>
-                      <hr>
+        <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SMALL SCREEN L SIDEBAR ACCORDIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+        {% if metcon_warmup: %}
+        <div class="row">
+            <div class="col-sm-12  text-center">
+                <div class="statistic primary">
+                    <div class="value">{{ est_time_for_display}}-{{ est_time_for_display_plus5 }}</div>
+                    <div class="label">
+                        Est. Warmup Time<br/>
+                        (Minutes)
+                    </div>
+                </div><!-- /.statistic -->
+            </div><!-- /.col -->
+
+
+        </div>
+
+        <div class="overflow-auto w-100 mt-4 container">
+            <a href="#metcon_warmup"
+               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <b>Metcon Warmup</b>
+            </a>
+            {% for k,v in metcon_warmup.items() %}
+            <div class="accordion">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="mb-0">
+                            <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                    type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}"
+                                    aria-expanded="false"
+                                    aria-controls="{{ v['dropdowns_rand2'] }}">
+                                <span>{{ k.title() }}</span>
+                                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
+
+                        <div class="img-wrapper">
+                            <img src="{{ v['img'] }}" alt="Card image cap"/>
+                            <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+            <p></p>
+
+            {% if drom_final_dict: %}
+            <a href="#drom_warmup"
+               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <b>DROM Warmup</b>
+            </a>
+            {% for k,v in drom_final_dict.items() %}
+            <div class="accordion">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="mb-0">
+                            <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                    type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}"
+                                    aria-expanded="false"
+                                    aria-controls="{{ v['dropdowns_rand2'] }}">
+                                <span>{{ k.title() }}</span>
+                                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
+
+                        <div class="img-wrapper">
+                            <img src="{{ v['img'] }}" alt="Card image cap"/>
+                            <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
+                        </div>
+
+                        <p class="text-center">
+                            <span class="badge badge-pill badge-light">Warms Up:</span>
+
+                            {% for target in v['targets'] %}
+                            <span class="badge badge-pill badge-dark">{{ target.title() }}</span>
+                            {% endfor %}
+                            <Br/>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+            {% endif %}
+
+            <p></p>
+            {% if gymnastics_final_dict: %}
+            <a href="#gymnastics_warmup"
+               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <b>Gymnastics Warmup</b>
+            </a>
+            {% for k,v in gymnastics_final_dict.items() %}
+            <div class="accordion">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="mb-0">
+                            <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                    type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}"
+                                    aria-expanded="false"
+                                    aria-controls="{{ v['dropdowns_rand2'] }}">
+                                <span>{{ k.title() }}</span>
+                                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
+
+                        <div class="img-wrapper">
+                            <img src="{{ v['img'] }}" alt="Card image cap"/>
+                            <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            <p></p>
+            {% if kb_warmup: %}
+            <a href="#kb_warmup"
+               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <b>Kettlebell Warmup</b>
+            </a>
+            {% for k,v in kb_warmup.items() %}
+            <div class="accordion">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="mb-0">
+                            <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                    type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}"
+                                    aria-expanded="false"
+                                    aria-controls="{{ v['dropdowns_rand2'] }}">
+                                <span>{{ k.title() }}</span>
+                                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
+
+                        <div class="img-wrapper">
+                            <img src="{{ v['img'] }}" alt="Card image cap"/>
+                            <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+            {% endif %}
+
+            <p></p>
+            {% if db_warmup: %}
+            <a href="#db_warmup"
+               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <b>Dumbbell Warmup</b>
+            </a>
+            {% for k,v in db_warmup.items() %}
+            <div class="accordion">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="mb-0">
+                            <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                    type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}"
+                                    aria-expanded="false"
+                                    aria-controls="{{ v['dropdowns_rand2'] }}">
+                                <span>{{ k.title() }}</span>
+                                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
+
+                        <div class="img-wrapper">
+                            <img src="{{ v['img'] }}" alt="Card image cap"/>
+                            <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
+                        </div>
 
                     </div>
-                  </div>
                 </div>
-              </div>
-
             </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    </div>
+            {% endfor %}
+            {% endif %}
 
 
-    <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SMALL SCREEN L SIDEBAR ACCORDIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
-    {% if metcon_warmup: %}
-    <div class="row">
-      <div class="col-sm-12  text-center">
-        <div class="statistic primary">
-          <div class="value">{{ est_time_for_display}}-{{ est_time_for_display_plus5 }}</div>
-          <div class="label">
-            Est. Warmup Time<br />
-            (Minutes)
-          </div>
-        </div><!-- /.statistic -->
-      </div><!-- /.col -->
+            <p></p>
+            {% if barbell_warmup: %}
+            <a href="#barbell_warmup"
+               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <b>Barbell Warmup</b>
+            </a>
+            {% for k,v in barbell_warmup.items() %}
+            <div class="accordion">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="mb-0">
+                            <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
+                                    type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}"
+                                    aria-expanded="false"
+                                    aria-controls="{{ v['dropdowns_rand2'] }}">
+                                <span>{{ k.title() }}</span>
+                                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
 
+                        <div class="img-wrapper">
+                            <img src="{{ v['img'] }}" alt="Card image cap"/>
+                            <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
+                        </div>
 
-    </div>
-
-    <div class="overflow-auto w-100 mt-4 container">
-      <a href="#metcon_warmup"
-        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-        <b>Metcon Warmup</b>
-      </a>
-      {% for k,v in metcon_warmup.items() %}
-      <div class="accordion">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="mb-0">
-              <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
-                aria-controls="{{ v['dropdowns_rand2'] }}">
-                <span>{{ k.title() }}</span>
-                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-              </button>
-            </h2>
-          </div>
-          <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
-
-            <div class="img-wrapper">
-              <img src="{{ v['img'] }}" alt="Card image cap" />
-              <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
+                    </div>
+                </div>
             </div>
-          </div>
+            {% endfor %}
+            {% endif %}
         </div>
-      </div>
-
-      {% endfor %}
-
-      <p></p>
-
-      {% if drom_final_dict: %}
-      <a href="#drom_warmup"
-        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-        <b>DROM Warmup</b>
-      </a>
-      {% for k,v in drom_final_dict.items() %}
-      <div class="accordion">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="mb-0">
-              <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
-                aria-controls="{{ v['dropdowns_rand2'] }}">
-                <span>{{ k.title() }}</span>
-                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-              </button>
-            </h2>
-          </div>
-          <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
-
-            <div class="img-wrapper">
-              <img src="{{ v['img'] }}" alt="Card image cap" />
-              <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
-            </div>
-
-            <p class="text-center">
-              <span class="badge badge-pill badge-light">Warms Up:</span>
-
-              {% for target in v['targets'] %}
-              <span class="badge badge-pill badge-dark">{{ target.title() }}</span>
-              {% endfor %}
-              <Br />
-            </p>
-          </div>
         </div>
-      </div>
-
-      {% endfor %}
-      {% endif %}
-
-      <p></p>
-      {% if gymnastics_final_dict: %}
-      <a href="#gymnastics_warmup"
-        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-        <b>Gymnastics Warmup</b>
-      </a>
-      {% for k,v in gymnastics_final_dict.items() %}
-      <div class="accordion">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="mb-0">
-              <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
-                aria-controls="{{ v['dropdowns_rand2'] }}">
-                <span>{{ k.title() }}</span>
-                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-              </button>
-            </h2>
-          </div>
-          <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
-
-            <div class="img-wrapper">
-              <img src="{{ v['img'] }}" alt="Card image cap" />
-              <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-      {% endif %}
-
-      <p></p>
-      {% if kb_warmup: %}
-      <a href="#kb_warmup"
-        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-        <b>Kettlebell Warmup</b>
-      </a>
-      {% for k,v in kb_warmup.items() %}
-      <div class="accordion">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="mb-0">
-              <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
-                aria-controls="{{ v['dropdowns_rand2'] }}">
-                <span>{{ k.title() }}</span>
-                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-              </button>
-            </h2>
-          </div>
-          <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
-
-            <div class="img-wrapper">
-              <img src="{{ v['img'] }}" alt="Card image cap" />
-              <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {% endfor %}
-      {% endif %}
-
-      <p></p>
-      {% if db_warmup: %}
-      <a href="#db_warmup"
-        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-        <b>Dumbbell Warmup</b>
-      </a>
-      {% for k,v in db_warmup.items() %}
-      <div class="accordion">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="mb-0">
-              <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
-                aria-controls="{{ v['dropdowns_rand2'] }}">
-                <span>{{ k.title() }}</span>
-                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-              </button>
-            </h2>
-          </div>
-          <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
-
-            <div class="img-wrapper">
-              <img src="{{ v['img'] }}" alt="Card image cap" />
-              <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-      {% endif %}
-
-
-      <p></p>
-      {% if barbell_warmup: %}
-      <a href="#barbell_warmup"
-        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-        <b>Barbell Warmup</b>
-      </a>
-      {% for k,v in barbell_warmup.items() %}
-      <div class="accordion">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="mb-0">
-              <button class="align-items-center btn btn-block btn-link collapsed d-flex justify-content-between"
-                type="button" data-toggle="collapse" data-target="#{{ k.replace(' ', '') }}" aria-expanded="false"
-                aria-controls="{{ v['dropdowns_rand2'] }}">
-                <span>{{ k.title() }}</span>
-                <span class="badge badge-primary badge-pill">{{ v['reps'] }} </span>
-              </button>
-            </h2>
-          </div>
-          <div id="{{ k.replace(' ', '') }}" class="collapse" aria-labelledby="{{ v['dropdowns_rand1'] }}">
-
-            <div class="img-wrapper">
-              <img src="{{ v['img'] }}" alt="Card image cap" />
-              <a href="{{ v['url'] }}" target="_blank" class="demo-link">Video Demo</a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-      {% endif %}
-    </div>
-    </div>
-    {% endif %}
-  </section>
+        {% endif %}
+    </section>
 </main>
 <!--{{ print_for_debug }}-->
 
@@ -389,8 +409,9 @@
   checkbox1.addEventListener('change', saveValueInLocalStorage1, false);
   checkbox2.addEventListener('change', saveValueInLocalStorage2, false);
 
-</script>
 
+
+</script>
 
 
 <script>
@@ -407,6 +428,8 @@
     closeOnSelect: false,
     allowDeselectOption: true
   })
+
+
 
 </script>
 
