@@ -132,10 +132,13 @@
                                             </div>
                                             <hr>
 
-                                            <button type="submit" type="button" class="btn btn-primary btn-block mt-4"
-                                                    value="submit"><i class="fas fa-fw fa-angle-down"></i> Get
-                                                Warmups <i class="fas fa-fw fa-angle-down"></i>
+                                            <button type="submit" href="#jumper" type="button"
+                                                    class="btn btn-primary btn-block mt-4"
+                                                    value="submit">
+                                                Get Warmups
+
                                             </button>
+
                                             <hr>
 
 
@@ -149,22 +152,11 @@
                 </div>
             </div>
         </div>
-        <div class="p-3 mb-2 bg-light text-dark" style="overflow-y: scroll; max-width:700px">
-            <div class="container-fluid">
-                <div>
-                    <button class="btn-sm btn-outline-secondary btn-block mt-4" type="button" data-toggle="collapse"
-                            data-target="#collapseHeader" aria-expanded="false" aria-controls="collapseHeader">
-                        Show/Hide Input
-                    </button>
-                </div>
-            </div>
-        </div>
-        </div>
 
 
         <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SMALL SCREEN L SIDEBAR ACCORDIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
         {% if metcon_warmup: %}
-        <div class="row">
+        <div class="row" id="jumper">
             <div class="col-sm-12  text-center">
                 <div class="statistic primary">
                     <div class="value">{{ est_time_for_display}}-{{ est_time_for_display_plus5 }}</div>
@@ -411,6 +403,7 @@
 
 
 
+
 </script>
 
 
@@ -430,6 +423,17 @@
   })
 
 
+
+
+</script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    // Handler for .ready() called.
+    $('html, body').animate({
+        scrollTop: $('#jumper').offset().top
+    }, 'slow');
+});
 
 </script>
 
