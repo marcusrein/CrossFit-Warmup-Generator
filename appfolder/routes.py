@@ -298,7 +298,6 @@ def home():
 
         db_movements_from_todays_wod = get_which_movements_are_db_movements(todays_wod)
         db_warmup_movements_list = get_dumbbell_warmup(db_movements_from_todays_wod)
-        breakpoint()
         db_warmup_img_list = get_images_for_display(db_warmup_movements_list, db_warmups_dict)
         db_warmup_url_list = get_url_for_display(db_warmup_movements_list, db_warmups_dict)
         db_warmup_reps_list = get_reps(db_warmup_movements_list, tough_exercises, db_warmups_dict)
