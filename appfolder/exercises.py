@@ -307,10 +307,9 @@ exercises_dict = {
         'loaded': 'kb',
     },
     'dumbbell thruster': {
-        'category': ['squats', 'overhead presses'],
-        'loaded': 'kb',
+        'category': ['squats', 'dumbbells squats', 'overhead presses'],
+        'loaded': 'db',
     },
-
     'squat': {
         'category': ['squats'],
         'loaded': 'barbell',
