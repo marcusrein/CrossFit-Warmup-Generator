@@ -237,6 +237,10 @@ exercises_dict = {
         'category': ['dumbbells squat'],
         'loaded': 'db'
     },
+    'dumbbell goblet squat': {
+        'category': ['dumbbell squat'],
+        'loaded': 'db'
+    },
     'dumbbell ground to overhead': {
         'category': ['dumbbells snatch', 'dumbbells overhead'],
         'loaded': 'db'
@@ -263,10 +267,6 @@ exercises_dict = {
     },
     'dumbbell turkish get up': {
         'category': ['dumbbells'],
-        'loaded': 'db',
-    },
-    'dumbbell thrusters': {
-        'category': ['dumbbells overhead', 'dumbbells squat'],
         'loaded': 'db',
     },
     'renegade rows': {
