@@ -5,6 +5,7 @@ from appfolder.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 import secrets
 import os
+from PIL import Image
 from flask_mail import Message
 
 from appfolder.barbell_warmups import *
