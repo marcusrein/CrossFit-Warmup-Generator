@@ -3,22 +3,70 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"
-          <title>Feedback Form</title>
+
 </head>
 
 <body style="max-width: 700px; margin: auto">
 
-<form action="https://formsubmit.co/marcus.rein@gmail.com" method="POST">
+<form id="contact-form" action="https://formsubmit.co/marcus.rein@gmail.com" method="POST" role="form">
     <input type="text" name="_honey" style="display:none">
     <input type="hidden" name="_next" value="https://www.crossfitwarmup.com/thanks">
     <input type="hidden" name="_subject" value="New submission!">
-    <input type="text" name="firstname" placeholder="First Name"required>
-    <input type="text" name="lastname" placeholder="Last Name"required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <input type="text" name="feedback" placeholder="Write Your Message Here" required>
 
-     <button type="submit">Send</button>
+    <div class="messages"></div>
+
+    <div class="controls container">
+        <p></p>
+        <h2>Your Feedback Helps Me a Ton! Thank You!</h2>
+        <h5>-Marcus Rein</h5>
+        <p></p>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_name"></label>
+                    <input type="text" name="firstname" placeholder="First Name"required class="form-control">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_lastname"></label>
+                    <input type="text" name="lastname" class="form-control" placeholder="Last Name"required>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_email"></label>
+                    <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="form_message"></label>
+                    <textarea id="form-message" type="text" rows="4" name="feedback" class="form-control" placeholder="Write Your Feedback Here" required></textarea>
+
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-success btn-send" value="Send message">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-muted">
+            </div>
+        </div>
+    </div>
+
 </form>
+
 
 
 </html>
