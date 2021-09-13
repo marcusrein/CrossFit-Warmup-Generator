@@ -25,8 +25,7 @@ metcons_dict = {
                        'dumbbells overhead', 'dumbbells squat', 'dumbbells', 'dumbbells core'],
         'time': 2,
         'url': 'https://www.youtube.com/watch?v=a8vaVbT_lX0',
-        'img': 'https://media2.giphy.com/media/Rve0ANHf9kkus/giphy.gif?cid'
-               '=ecf05e477e74fa431a65be34df7ac29a31c64d6cfb36827c&rid=giphy.gif',
+        'img': 'https://c.tenor.com/u2-VJiigKCkAAAAC/exercise-jump.gif',
         'reps': ['10 reps', '15 reps', '15 reps']
     },
     'burpee shuttle run': {
