@@ -74,7 +74,7 @@ droms_dict = {
         'time': 1,
         'reps': ['5 reps', '5-10 reps', '10 reps'],
         'url': 'https://www.youtube.com/watch?v=auBLPXO8Fww',
-        'img': 'https://j.gifs.com/0YzAKv.gif',
+        'img': 'https://c.tenor.com/u2-VJiigKCkAAAAC/exercise-jump.gif',
         'rpe': 5,
         'equipment': 'none'
 
