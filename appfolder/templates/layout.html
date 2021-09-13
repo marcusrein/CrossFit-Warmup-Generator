@@ -2,8 +2,11 @@
 <html>
 
 <head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2833439332800351"
-     crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script>
     <script data-ad-client="ca-pub-2833439332800351" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script data-ad-client="ca-pub-2833439332800351" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
@@ -47,39 +50,42 @@
 
 </head>
 <body>
-  <head>
+<head>
     <title>The CrossFit Warmup Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
-  </head>
-  <body>
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a href="." class="navbar-brand">
-        <svg style="margin-top: -7px;" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 512 512"
-             width="60" height="60">
-            <path
-                    d="M472,176h-8V144a23.992,23.992,0,0,0-32-22.624V88a24.028,24.028,0,0,0-24-24H392a24.028,24.028,0,0,0-24,24v88H342.624a23.976,23.976,0,0,0-31.47-14.3,23.977,23.977,0,0,0-32-16A23.978,23.978,0,0,0,240,134.131,23.984,23.984,0,0,0,200,152v8h-8a24.039,24.039,0,0,0-22.624,16H144V88a24.028,24.028,0,0,0-24-24H104A24.028,24.028,0,0,0,80,88v33.376A23.992,23.992,0,0,0,48,144v32H40a24.027,24.027,0,0,0-24,24v16a24.027,24.027,0,0,0,24,24h8v32a23.992,23.992,0,0,0,32,22.624V328a24.028,24.028,0,0,0,24,24h16a24.028,24.028,0,0,0,24-24V240h24v24a8,8,0,0,0,1.344,4.438L200,314.422V440a8,8,0,0,0,8,8H320a8,8,0,0,0,8-8V313.3l15.589-46.768A8,8,0,0,0,344,264V240h24v88a24.028,24.028,0,0,0,24,24h16a24.028,24.028,0,0,0,24-24V294.624A23.992,23.992,0,0,0,464,272V240h8a24.027,24.027,0,0,0,24-24V200A24.027,24.027,0,0,0,472,176Zm-152,0a8.009,8.009,0,0,1,8,8v32a8,8,0,0,1-16,0V184A8.009,8.009,0,0,1,320,176Zm-32-16a8.009,8.009,0,0,1,8,8v48a8,8,0,0,1-16,0V168A8.009,8.009,0,0,1,288,160Zm-32-16a8.009,8.009,0,0,1,8,8v64a8,8,0,0,1-16,0V152A8.009,8.009,0,0,1,256,144Zm-24,72a8,8,0,0,1-16,0v-8h8a23.885,23.885,0,0,0,8-1.376Zm-16-64a8,8,0,0,1,16,0v8H216ZM40,224a8.009,8.009,0,0,1-8-8V200a8.009,8.009,0,0,1,8-8h8v32Zm32,56a8.009,8.009,0,0,1-8-8V144a8,8,0,0,1,16,0V272A8.009,8.009,0,0,1,72,280Zm56,48a8.009,8.009,0,0,1-8,8H104a8.009,8.009,0,0,1-8-8V88a8.009,8.009,0,0,1,8-8h16a8.009,8.009,0,0,1,8,8Zm16-104V192h24v32Zm184,38.7L312.411,309.47A8,8,0,0,0,312,312V432H216V336h24a8,8,0,0,0,0-16H216v-8a8,8,0,0,0-1.344-4.438L184,261.578V184a8.009,8.009,0,0,1,8-8h40v8a8.009,8.009,0,0,1-8,8H208a8,8,0,0,0-8,8v32a8,8,0,0,0,8,8,40.045,40.045,0,0,1,40,40,8,8,0,0,0,16,0,55.82,55.82,0,0,0-16.862-40H328ZM342.624,224A23.889,23.889,0,0,0,344,216V192h24v32ZM416,328a8.009,8.009,0,0,1-8,8H392a8.009,8.009,0,0,1-8-8V88a8.009,8.009,0,0,1,8-8h16a8.009,8.009,0,0,1,8,8Zm32-56a8,8,0,0,1-16,0V144a8,8,0,0,1,16,0Zm32-56a8.009,8.009,0,0,1-8,8h-8V192h8a8.009,8.009,0,0,1,8,8Z"/>
-        </svg>
-       The CrossFit Warmup Generator
-    </a>
+</head>
+<body>
 
-
-                </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="max-width: 700px; margin: auto" >
+    <a class="navbar-brand" href="/home">
+    </svg>The CrossFit Warmup Generator</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/about">About <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/feedback">Feedback <span class="sr-only">(current)</span></a>
+            </li>
             </li>
         </ul>
     </div>
 </nav>
 <div class="container">
     {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-              {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">
-                  {{ message }}
-                </div>
-              {% endfor %}
-            {% endif %}
-          {% endwith %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
 </div>
-          {% block content %}{% endblock %}
-  </body>
+{% block content %}{% endblock %}
+</body>
 </html>

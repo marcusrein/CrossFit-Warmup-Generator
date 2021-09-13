@@ -24,6 +24,13 @@ from appfolder.metcon_warmups import *
 def about():
     return render_template('about.html', title='About')
 
+@app.route("/feedback")
+def feedback():
+    return render_template('feedback.html', title='Feedback')
+
+@app.route("/thanks")
+def thanks():
+    return render_template('thanks.html', title='Thanks')
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
