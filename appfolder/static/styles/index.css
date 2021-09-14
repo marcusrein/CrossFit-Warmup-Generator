@@ -27,6 +27,10 @@
   height: 80%;
 }
 
+.collapse.navbar-collapse {
+  justify-content: end;
+  }
+
 .sidebar .accordion > .card > .card-header {
   margin-bottom: 0px;
 }
